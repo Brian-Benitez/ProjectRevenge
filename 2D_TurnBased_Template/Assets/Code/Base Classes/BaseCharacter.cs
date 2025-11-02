@@ -9,21 +9,13 @@ public class BaseCharacter : MonoBehaviour
     [Header("Health")]
     public int CharacterHealthAmount;
     public int CharacterMaxHealthLevel;
-    [Header("Damage")]
-    public int CharacterDamageOutput;
-    [Header("Sanity")]
-    public int CharacterSanityAmount;
-    public int CharacterMaxSanityLevel;
+    [Header("Souls/XP")]
+    public int Souls;
     [Header("Booleans")]
     public bool IsCharacterDead = false;
 
     public TextMeshProUGUI PlayersHealth;
     public TextMeshProUGUI PlayersMaxHealth;    
-
-    public void PrintInfo()
-    {
-        Debug.Log("Name: " + NameOfCharacter + " Max health:" + CharacterMaxHealthLevel + " Max Sainty: " + CharacterMaxSanityLevel);
-    }
 
     public void TakeDamage(int damage)
     {
