@@ -3,18 +3,27 @@ using UnityEngine;
 
 public class LevelUpManager : MonoBehaviour
 {
-    [Header("Upgrade Amounts")]
-    public int HealthUpgradeAmount;
+    [Header("Upgrade imcrements")]
+    public int HealthUpgradeImcrement;
+    public int RangeUpgradeImcrement;
 
     [Header("Cost per Upgrade")]
-    public int CostAmountForHealthUpgrade;
+    public int CostForHealthUpgrade;
+    public int CostForRangeUpgrade;
 
     [Header("Level of Upgrades")]
     public int HealthLevelUpgrade;
+    public int RangeLevelUpgrade;
 
     [Header("Texts")]
     public TextMeshProUGUI HealthCostAmountText;
     public TextMeshProUGUI HealthLevelAmountText;
+
+    public TextMeshProUGUI RangeCostAmountText;
+    public TextMeshProUGUI RangeLevelAmountText;
+
+    public bool UpgradedHealth = false;
+    public bool UpgradedRange = false;
 
     private PlayerInfo _playerInfo;
 
@@ -25,12 +34,13 @@ public class LevelUpManager : MonoBehaviour
 
     public void UpgradePlayerHealth()//used OnClick for UI.
     {
-        if(_playerInfo.Souls >= CostAmountForHealthUpgrade)
+        if(_playerInfo.Souls >= CostForHealthUpgrade)
         {
-            Debug.Log("upgraded health + " + HealthUpgradeAmount);
-            _playerInfo.CharacterMaxHealthLevel += HealthUpgradeAmount;
+            Debug.Log("upgraded health + " + HealthUpgradeImcrement);
+            _playerInfo.CharacterMaxHealthLevel += HealthUpgradeImcrement;
+            _playerInfo.Souls -= CostForHealthUpgrade;
             _playerInfo.UpdatePlayersStats();
-            _playerInfo.Souls -= CostAmountForHealthUpgrade;
+            UpgradedHealth = true;
             UpdateUIForUpgradeMenu();
         }
         else
@@ -39,10 +49,36 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
-    public void UpdateUIForUpgradeMenu()
+    public void UpgradeRangeDamage()//use for OnClick for UI.
     {
-        HealthCostAmountText.text = " " + CostAmountForHealthUpgrade * 2;
-        HealthLevelUpgrade += 1;
-        HealthLevelAmountText.text = " " + HealthLevelUpgrade;
+        if(_playerInfo.Souls >= CostForRangeUpgrade)
+        {
+            Debug.Log("Upgraded range damage + " +  CostForRangeUpgrade);
+            _playerInfo.RangeDamg += RangeUpgradeImcrement;
+            _playerInfo.Souls -= CostForRangeUpgrade;
+            _playerInfo.UpdatePlayersStats();
+            UpgradedRange = true;
+            UpdateUIForUpgradeMenu();
+        }
+    }
+    public void UpdateUIForUpgradeMenu()//this needs work, cannot have all of this now
+    {
+        if(UpgradedHealth)
+        {
+            //health ui updates
+            HealthLevelUpgrade += 1;
+            HealthCostAmountText.text = " " + CostForHealthUpgrade * 2;
+            HealthLevelAmountText.text = " " + HealthLevelUpgrade;
+            UpgradedHealth = false;
+        }
+        if(UpgradedRange)
+        {
+            //range ui updates
+            RangeLevelUpgrade += 1;
+            RangeCostAmountText.text = " " + CostForRangeUpgrade * 2;
+            RangeLevelAmountText.text = " " + RangeLevelUpgrade;
+            UpgradedRange = false;
+        }
+        
     }
 }

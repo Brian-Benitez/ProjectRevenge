@@ -1,4 +1,5 @@
 using System.Data.Common;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,8 +9,10 @@ public class Projectile : MonoBehaviour
     public float SpeedOfProjectile;
     public float LifeTimeOfProjectile;
     public float DistanceOfProjectile;
-    [Header("Damage")]
-    public int RangeDamage;
+
+    [Header("Enemy Ref")]
+    public GameObject EnemyArcherGO;
+
     [Header("Layers")]
     public LayerMask Enemy;
     private void Start()
@@ -23,13 +26,13 @@ public class Projectile : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Debug.Log("hit player");
-            NPCController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(RangeDamage);
+            NPCController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage);
             DestroyProjectile();
         }
         else if(collision.CompareTag("Enemy"))
         {
             Debug.Log("hit enemy");
-            collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(RangeDamage);
+            collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(NPCController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
             DestroyProjectile();
         }
    
