@@ -39,4 +39,10 @@ public class BaseCharacter : MonoBehaviour
         }
 
     }
+
+    public void UpdatePlayersStats()
+    {
+        PlayersMaxHealth.text = " " + CharacterMaxHealthLevel;
+
+    }
 }
