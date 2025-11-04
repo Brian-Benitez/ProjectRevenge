@@ -28,7 +28,7 @@ public class RangeAttackState : State
         //This deals with rotating weapon below
         if(LockedOnPlayer)
         {
-            Vector3 lookat = transform.InverseTransformPoint(NPCController.Instance.Player.transform.position);
+            Vector3 lookat = transform.InverseTransformPoint(PlayerController.Instance.Player.transform.position);
             float angle = Mathf.Atan2(lookat.y, lookat.x) * Mathf.Rad2Deg - 90;
             transform.Rotate(0, 0, angle);
         }

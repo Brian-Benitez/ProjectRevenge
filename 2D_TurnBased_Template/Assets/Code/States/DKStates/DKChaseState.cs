@@ -24,14 +24,14 @@ public class DKChaseState : State
         if(DistanceFromPlayer >= PreferedRangeAttkDistance && rangeAttack.CanRangeAttack)
             CanStartRangeAttack = true;  
 
-        if (Vector2.Distance(transform.position, NPCController.Instance.Player.position) > MinimumDistanceFromPlayer)
+        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistanceFromPlayer)
         {
             AttackState.WithinRange = false;// not yet in range
-            transform.position = Vector2.MoveTowards(transform.position, NPCController.Instance.Player.position, MovementSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
         }
         else
         {
-            DistanceFromPlayer = Vector2.Distance(transform.position, NPCController.Instance.Player.position);
+            DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
             AttackState.WithinRange = true;
         }
     }

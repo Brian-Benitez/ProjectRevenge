@@ -1508,7 +1508,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1939129271}
   - {fileID: 823456627}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2762,7 +2761,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 823456626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f87f7445b6213b45b9f073d4360a451, type: 3}
+  m_Script: {fileID: 11500000, guid: fcafda50f49f6f44b803144eaa18d49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 386186103}
@@ -4903,58 +4902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
---- !u!1 &1939129270
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1939129271}
-  - component: {fileID: 1939129272}
-  m_Layer: 0
-  m_Name: BarricadeController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1939129271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939129270}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 481305509}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1939129272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939129270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ac051be44d06ae4f83ba790e69561bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BarricadeHealth: 2
-  BarricadeGameObject: {fileID: 1407089243}
-  BarricadeEnabled: 1
-  CanAttackBarricade: 0
-  AttackPointsLocation:
-  - {fileID: 943578855}
-  - {fileID: 63572315}
-  - {fileID: 1211633314}
 --- !u!1 &1975177469
 GameObject:
   m_ObjectHideFlags: 0

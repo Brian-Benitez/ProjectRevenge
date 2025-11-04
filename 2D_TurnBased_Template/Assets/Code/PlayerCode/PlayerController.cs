@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 
-public class NPCController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public static NPCController Instance { get; private set; }
+    public static PlayerController Instance { get; private set; }
 
     public Transform Player;
 

@@ -13,7 +13,7 @@ public class EnemyWeaponRotation : MonoBehaviour
         else
         {
             //This deals with rotating weapon below
-            playerpos = NPCController.Instance.Player.position;
+            playerpos = PlayerController.Instance.Player.position;
             Vector3 rotation = playerpos - transform.position;
             float rotz = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotz);

@@ -25,14 +25,14 @@ public class GetWithinRangeAttackState : State
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, NPCController.Instance.Player.position) > AttackRange)
+        if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)
         {
-            transform.position = Vector2.MoveTowards(transform.position, NPCController.Instance.Player.position, Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, Speed * Time.deltaTime);
         }
 
-        if (Vector2.Distance(transform.position, NPCController.Instance.Player.position) < MinimunDistanceForRangeAttack)
+        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < MinimunDistanceForRangeAttack)
         {
-            transform.position = Vector2.MoveTowards(transform.position, NPCController.Instance.Player.position, -Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -Speed * Time.deltaTime);
         }
     }
     public override State RunCurrentState()

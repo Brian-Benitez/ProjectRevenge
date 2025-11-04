@@ -10,7 +10,7 @@ public class FlipWeapon : MonoBehaviour
 
     void Update()
     {
-        Vector3 enemyDirectionLocal = NPCController.Instance.Player.transform.InverseTransformPoint(this.transform.position);
+        Vector3 enemyDirectionLocal = PlayerController.Instance.Player.transform.InverseTransformPoint(this.transform.position);
 
         if (enemyDirectionLocal.x < 0)
         {

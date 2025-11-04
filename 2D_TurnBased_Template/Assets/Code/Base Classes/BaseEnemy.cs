@@ -4,10 +4,12 @@ using UnityEngine.Rendering;
 
 public class BaseEnemy : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     public int EnemyHealth;
     public int EnemySpeed;
     public int EnemyDamage;
-    public float EnemyDamageRate;
+
+    [Header("Enemy Souls Value")]
     public int EnemySoulsValue;
 
     [SerializeField]
