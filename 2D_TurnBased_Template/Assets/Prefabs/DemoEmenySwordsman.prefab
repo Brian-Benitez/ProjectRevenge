@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 3294762878591019936}
   - component: {fileID: 3735488378063120985}
   m_Layer: 3
-  m_Name: EmenySwordsman
+  m_Name: DemoEmenySwordsman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   EnemySpeed: 1
   EnemyDamage: 1
   EnemyDamageRate: 3
+  EnemySoulsValue: 25
   EnemyType: 0
 --- !u!114 &3735488378063120985
 MonoBehaviour:

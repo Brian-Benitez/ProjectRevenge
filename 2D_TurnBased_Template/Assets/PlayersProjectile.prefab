@@ -104,7 +104,7 @@ MonoBehaviour:
   SpeedOfProjectile: 15
   LifeTimeOfProjectile: 15
   DistanceOfProjectile: 15
-  RangeDamage: 1
+  EnemyArcherGO: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   Enemy:
     serializedVersion: 2
     m_Bits: 8

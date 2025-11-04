@@ -8,6 +8,7 @@ public class BaseEnemy : MonoBehaviour
     public int EnemySpeed;
     public int EnemyDamage;
     public float EnemyDamageRate;
+    public int EnemySoulsValue;
 
     [SerializeField]
     public enum TypeOfEnemy

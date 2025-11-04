@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 3836935540627045171}
   - component: {fileID: 5727651949420622849}
   m_Layer: 3
-  m_Name: EnemyArcher
+  m_Name: DemoEnemyArcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,6 +509,7 @@ MonoBehaviour:
   EnemySpeed: 5
   EnemyDamage: 1
   EnemyDamageRate: 3
+  EnemySoulsValue: 15
   EnemyType: 1
 --- !u!114 &3836935540627045171
 MonoBehaviour:
