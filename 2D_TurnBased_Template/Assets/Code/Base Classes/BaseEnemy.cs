@@ -12,6 +12,9 @@ public class BaseEnemy : MonoBehaviour
     [Header("Enemy Souls Value")]
     public int EnemySoulsValue;
 
+    public bool IsHit = false;
+
+
     [SerializeField]
     public enum TypeOfEnemy
     {
@@ -21,9 +24,10 @@ public class BaseEnemy : MonoBehaviour
 
     public TypeOfEnemy EnemyType;
 
-    public void TakeDamage(int  damage)
+    public void   TakeDamage(int  damage)
     {
         EnemyHealth -= damage;
+        IsHit = true;   
         Debug.Log("enemy took: " + damage);
         DoesEnemyDie();
     }
