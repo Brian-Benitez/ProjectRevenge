@@ -15,10 +15,11 @@ public class BaseCharacter : MonoBehaviour
     public int Souls;
     [Header("Booleans")]
     public bool IsCharacterDead = false;
-
+    [Header("Texts")]
     public TextMeshProUGUI PlayersHealth;
     public TextMeshProUGUI PlayersMaxHealth;
-    public TextMeshProUGUI SoulsText;
+    public TextMeshProUGUI StatueSoulsText;
+    public TextMeshProUGUI InGameSoulsText;
 
     public void TakeDamage(int damage)
     {
@@ -46,6 +47,7 @@ public class BaseCharacter : MonoBehaviour
     public void UpdatePlayersStats()
     {
         PlayersMaxHealth.text = " " + CharacterMaxHealthLevel;
-        SoulsText.text = " " + Souls;   
+        StatueSoulsText.text = " " + Souls;
+        InGameSoulsText.text = " " + Souls;
     }
 }
