@@ -23,6 +23,7 @@ public class AttackState : State//rename this to EnemyAttackState
     private EnemySwordsman EnemySwordsmanRef;
     //States ref here
     ChaseState ChaseState;
+    StunState StunState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
 
@@ -86,6 +87,8 @@ public class AttackState : State//rename this to EnemyAttackState
 
     public override State RunCurrentState()
     {
+        if (EnemySwordsmanRef.IsStunned)
+            return StunState;
 
         if(AttackMissedPlayer == true && _enemyWeaponRotationRef.IsAttacking == false)
         {

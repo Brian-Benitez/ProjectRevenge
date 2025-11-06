@@ -25,10 +25,12 @@ public class PlayerMeleeAttack : MonoBehaviour
     //[SerializeField]
     private float _maxTimeBtwAttacks;
     private PlayerMovement _playerMovement;
+    public KnockForwardFeedBack _knockForwardFeedBack;
 
     private void Start()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
+        //_knockForwardFeedBack = GetComponent<KnockForwardFeedBack>();
         _maxTimeBtwAttacks = TimeBtwAttack;
         RestartTimerForAttacks();
     }
@@ -40,8 +42,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && CanMeleeAttackAgain)
         {
             IsAttacking = true;
-            Debug.Log("hoh " + IsAttacking);
-            Debug.Log("hi");
+            //_knockForwardFeedBack.PlayFeedBack(DirectionalLooks.gameObject);
             Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
             for (int i = 0; i < enemiesToDamges.Length; i++)
             {
@@ -57,10 +58,8 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         else
         {
-            //Debug.Log("hhh" + IsAttacking);
             TimeBtwAttack -= Time.deltaTime;
             CanMeleeAttackAgain = false;
-
         }
             
     }

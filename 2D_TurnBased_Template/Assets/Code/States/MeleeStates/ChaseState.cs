@@ -5,6 +5,8 @@ public class ChaseState : State
 {
     [Header("States")]
     AttackState AttackState;
+    StunState StunState;
+    BaseEnemy BaseEnemyState;
 
 
     [Header("Floats")]
@@ -16,6 +18,8 @@ public class ChaseState : State
     private void Start()
     {
         AttackState = GetComponentInChildren<AttackState>();
+        StunState = GetComponent<StunState>();
+        BaseEnemyState = GetComponent<BaseEnemy>();
         _enemyWeaponRotationRef = GetComponentInChildren<EnemyWeaponRotation>();
     }
 
@@ -36,8 +40,11 @@ public class ChaseState : State
         }
     }
 
-    public override State RunCurrentState()
+    public override State RunCurrentState()//make ref to stun state here!!!!!!
     {
+        if (BaseEnemyState.IsStunned)
+            return StunState;
+
         if (AttackState.WithinRange)
             return AttackState;
 

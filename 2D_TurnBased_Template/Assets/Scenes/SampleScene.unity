@@ -7048,6 +7048,7 @@ MonoBehaviour:
     m_Bits: 8
   CanMeleeAttackAgain: 0
   IsAttacking: 0
+  _knockForwardFeedBack: {fileID: 0}
 --- !u!1 &1149076737
 GameObject:
   m_ObjectHideFlags: 0
@@ -13403,6 +13404,7 @@ GameObject:
   - component: {fileID: 3294762879220989152}
   - component: {fileID: 9185256814151857583}
   - component: {fileID: 3735488376294276377}
+  - component: {fileID: 9185256814151857584}
   m_Layer: 3
   m_Name: DemoEmenySwordsman
   m_TagString: Enemy
@@ -13444,6 +13446,10 @@ MonoBehaviour:
   EnemyDamage: 1
   EnemySoulsValue: 25
   IsHit: 0
+  IsStunned: 0
+  InstanteStun: 1
+  BuildUpStun: 0
+  StunDuration: 1
   EnemyType: 0
   Rigidbody2D: {fileID: 1653390127523090806}
 --- !u!212 &3391993196431884032
@@ -13979,6 +13985,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9185256814151857584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300304564397428470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38917b389ef7a91479fcdec4063e20e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxStunTime: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

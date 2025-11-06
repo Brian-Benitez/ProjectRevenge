@@ -1,6 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.Rendering;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -11,8 +9,15 @@ public class BaseEnemy : MonoBehaviour
 
     [Header("Enemy Souls Value")]
     public int EnemySoulsValue;
-
+    [Header("demo stuff delete later")]
     public bool IsHit = false;
+
+    [Header("----------Stat Effects----------")]
+    [Header("Stun Effect")]
+    public bool IsStunned = false;//this controls the state to get off and on stuns effects
+    public bool InstanteStun = false;//Normal grunt enemies
+    public bool BuildUpStun  = false;//mini bosses/bosses
+    public float StunDuration;
 
 
     [SerializeField]
@@ -24,12 +29,13 @@ public class BaseEnemy : MonoBehaviour
 
     public TypeOfEnemy EnemyType;
 
-    public void   TakeDamage(int  damage)
+    public void TakeDamage(int  damage)
     {
         EnemyHealth -= damage;
         IsHit = true;   
         Debug.Log("enemy took: " + damage);
         DoesEnemyDie();
+        CheckStatusEffects();
     }
 
     public void DoesEnemyDie()
@@ -46,5 +52,11 @@ public class BaseEnemy : MonoBehaviour
         }
         else
             Debug.Log("has health stil");
+    }
+
+    public void CheckStatusEffects()
+    {
+        if (InstanteStun)
+            IsStunned = true;
     }
 }

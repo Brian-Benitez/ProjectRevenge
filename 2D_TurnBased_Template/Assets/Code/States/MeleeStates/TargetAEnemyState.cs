@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetAEnemyState : State
+public class TargetAEnemyState : State//delete this all.
 {
     [Header("State")]
     ChaseState ChaseState;
