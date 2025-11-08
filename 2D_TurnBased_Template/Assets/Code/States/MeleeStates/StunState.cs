@@ -12,7 +12,6 @@ public class StunState : State
 
     private void Start()
     {
-        Debug.Log("got it");
         BaseEnemyRef = GetComponent<BaseEnemy>();
         ChaseStateRef = GetComponent<ChaseState>(); 
         MaxStunTime = BaseEnemyRef.StunDuration;
@@ -25,6 +24,7 @@ public class StunState : State
         Debug.Log("enemy is stunned!");
         yield return new WaitForSeconds(MaxStunTime);
         BaseEnemyRef.IsStunned = false;
+        BaseEnemyRef.AmountOfHitsForStun = 0;
     }
     public override State RunCurrentState()
     {

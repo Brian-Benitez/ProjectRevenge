@@ -13449,7 +13449,9 @@ MonoBehaviour:
   IsStunned: 0
   InstanteStun: 1
   BuildUpStun: 0
-  StunDuration: 1
+  StunDuration: 6
+  AmountOfHitsForStun: 0
+  MaxHitForStun: 3
   EnemyType: 0
   Rigidbody2D: {fileID: 1653390127523090806}
 --- !u!212 &3391993196431884032
@@ -13953,7 +13955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb2d: {fileID: 1653390127523090806}
-  Strength: 16
+  Strength: 6
   delay: 0.15
   OnBegin:
     m_PersistentCalls:

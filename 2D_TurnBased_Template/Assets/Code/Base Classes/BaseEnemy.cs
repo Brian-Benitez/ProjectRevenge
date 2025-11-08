@@ -18,6 +18,7 @@ public class BaseEnemy : MonoBehaviour
     public bool InstanteStun = false;//Normal grunt enemies
     public bool BuildUpStun  = false;//mini bosses/bosses
     public float StunDuration;
+    public int AmountOfHitsForStun, MaxHitForStun;
 
 
     [SerializeField]
@@ -57,6 +58,11 @@ public class BaseEnemy : MonoBehaviour
     public void CheckStatusEffects()
     {
         if (InstanteStun)
+            IsStunned = true;
+        else if (BuildUpStun)
+            AmountOfHitsForStun++;
+
+        if (AmountOfHitsForStun >= MaxHitForStun)
             IsStunned = true;
     }
 }
