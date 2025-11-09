@@ -7042,13 +7042,18 @@ MonoBehaviour:
   DirectionalLooks: {fileID: 524028573}
   AttackRange: 1
   TimeBtwAttack: 0.5
-  PlayerDamage: 1
+  WindUpSpeed: 0
+  WindUpLightAttkSpd: 0.3
+  WindUpHeavyAttkSpd: 1
+  PlayerLightAttkDamg: 1
+  PlayerHeavyAttkDamg: 3
+  IsLightAttack: 0
+  IsHeavyAttack: 0
   WhatIsEnemies:
     serializedVersion: 2
     m_Bits: 8
   CanMeleeAttackAgain: 0
   IsAttacking: 0
-  _knockForwardFeedBack: {fileID: 0}
 --- !u!1 &1149076737
 GameObject:
   m_ObjectHideFlags: 0
@@ -13411,7 +13416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3214517405490133245
 Transform:
   m_ObjectHideFlags: 0

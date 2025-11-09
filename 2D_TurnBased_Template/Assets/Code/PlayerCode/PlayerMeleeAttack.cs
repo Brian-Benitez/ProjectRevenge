@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
@@ -6,31 +7,38 @@ public class PlayerMeleeAttack : MonoBehaviour
     public Transform AttackPos;
     public Transform HerosSword;
     public Transform DirectionalLooks;
-
+    [Header("----------Stats----------")]
     [Header("Floats")]
     public float AttackRange;
     public float TimeBtwAttack;
 
-    [Header("Ints")]
-    public int PlayerDamage;
+    [Header("Windup Stats")]
+    public float WindUpSpeed;
+    public float WindUpLightAttkSpd;
+    public float WindUpHeavyAttkSpd;
+
+    [Header("Player attk damg")]
+    public int PlayerLightAttkDamg;
+    public int PlayerHeavyAttkDamg;
+
+    [Header("Type Of Attack")]
+    public bool IsLightAttack = false;
+    public bool IsHeavyAttack = false;
 
     [Header("LayerMasks")]
     public LayerMask WhatIsEnemies;
 
     [Header("Booleans")]
     public bool CanMeleeAttackAgain = false;
-
     public bool IsAttacking = false;
 
-    //[SerializeField]
+    //private vars
     private float _maxTimeBtwAttacks;
     private PlayerMovement _playerMovement;
-    public KnockForwardFeedBack _knockForwardFeedBack;
-
+ 
     private void Start()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
-        //_knockForwardFeedBack = GetComponent<KnockForwardFeedBack>();
         _maxTimeBtwAttacks = TimeBtwAttack;
         RestartTimerForAttacks();
     }
@@ -39,16 +47,14 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         DirectionalLooks.transform.position = AttackPos.position;//take this out when making art for sword swing
 
-        if (Input.GetMouseButtonUp(0) && CanMeleeAttackAgain)
+        if(Input.GetMouseButtonUp(0))
+            IsLightAttack = true;
+        else if(Input.GetMouseButton(0))
+           IsHeavyAttack = true;
+
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButton(0) && CanMeleeAttackAgain)
         {
-            IsAttacking = true;
-            //_knockForwardFeedBack.PlayFeedBack(DirectionalLooks.gameObject);
-            Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
-            for (int i = 0; i < enemiesToDamges.Length; i++)
-            {
-                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerDamage);
-            }
-            RestartTimerForAttacks();
+            StartCoroutine(WindUpAttack());
         }
         if(TimeBtwAttack <= 0f)
         {
@@ -63,6 +69,32 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
             
     }
+    void MeleeAttack()
+    {
+        Debug.Log("we are attacking");
+        IsAttacking = true;
+
+        Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
+
+        for (int i = 0; i < enemiesToDamges.Length; i++)
+        {
+            if(IsLightAttack)
+                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerLightAttkDamg);
+            else if(IsHeavyAttack)
+                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerHeavyAttkDamg);
+        }
+
+        RestartTimerForAttacks();
+    }
+    public IEnumerator WindUpAttack()
+    {
+        Debug.Log("hello");
+        yield return new WaitForSeconds(ChangingWindUpSpeed());
+        Debug.Log("winding up for " + ChangingWindUpSpeed());
+        MeleeAttack();
+        IsAttacking = false;
+    }
+    float ChangingWindUpSpeed() => IsLightAttack ? WindUpSpeed = WindUpLightAttkSpd : WindUpSpeed = WindUpHeavyAttkSpd;
     void RestartTimerForAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 
     private void OnDrawGizmosSelected()
