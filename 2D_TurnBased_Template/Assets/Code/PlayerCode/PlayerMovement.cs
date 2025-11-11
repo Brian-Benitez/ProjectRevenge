@@ -24,21 +24,30 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
-        if(Input.GetKey(KeyCode.Mouse1))
+        if(Input.GetKey(KeyCode.Mouse1) ||Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("stop moving");
+            Rb.linearVelocity = new Vector2(0, 0);
             moveDirection = Vector2.zero;
         }
             
-
-        if (IsDashing || StopPlayerMovement)
+        if(IsDashing)
             return;
 
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        if (StopPlayerMovement)
+        {
+            moveDirection = Vector2.zero;
+            Rb.linearVelocity = new Vector2(0, 0);
+            return;
+        }
+        else
+        {
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            moveDirection = new Vector2(moveX, moveY).normalized;
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
 
         if (Input.GetKeyDown(DashInputKey) && CanDash)
         {

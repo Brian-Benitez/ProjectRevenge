@@ -35,10 +35,11 @@ public class PlayerMeleeAttack : MonoBehaviour
     //private vars
     private float _maxTimeBtwAttacks;
     private PlayerMovement _playerMovement;
- 
+
     private void Start()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
+        //_knockForwardFeedBack = GetComponent<KnockForwardFeedBack>();
         _maxTimeBtwAttacks = TimeBtwAttack;
         RestartTimerForAttacks();
     }
@@ -47,16 +48,18 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         DirectionalLooks.transform.position = AttackPos.position;//take this out when making art for sword swing
 
-        if(Input.GetMouseButtonUp(0))
-            IsLightAttack = true;
-        else if(Input.GetMouseButton(0))
-           IsHeavyAttack = true;
-
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButton(0) && CanMeleeAttackAgain)
+        if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
-            StartCoroutine(WindUpAttack());
+            IsAttacking = true;
+            //_knockForwardFeedBack.PlayFeedBack(DirectionalLooks.gameObject);
+            Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
+            for (int i = 0; i < enemiesToDamges.Length; i++)
+            {
+                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerLightAttkDamg);
+            }
+            RestartTimerForAttacks();
         }
-        if(TimeBtwAttack <= 0f)
+        if (TimeBtwAttack <= 0f)
         {
             CanMeleeAttackAgain = true;
             IsAttacking = false;
@@ -67,39 +70,13 @@ public class PlayerMeleeAttack : MonoBehaviour
             TimeBtwAttack -= Time.deltaTime;
             CanMeleeAttackAgain = false;
         }
-            
-    }
-    void MeleeAttack()
-    {
-        Debug.Log("we are attacking");
-        IsAttacking = true;
 
-        Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
-
-        for (int i = 0; i < enemiesToDamges.Length; i++)
-        {
-            if(IsLightAttack)
-                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerLightAttkDamg);
-            else if(IsHeavyAttack)
-                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerHeavyAttkDamg);
-        }
-
-        RestartTimerForAttacks();
     }
-    public IEnumerator WindUpAttack()
-    {
-        Debug.Log("hello");
-        yield return new WaitForSeconds(ChangingWindUpSpeed());
-        Debug.Log("winding up for " + ChangingWindUpSpeed());
-        MeleeAttack();
-        IsAttacking = false;
-    }
-    float ChangingWindUpSpeed() => IsLightAttack ? WindUpSpeed = WindUpLightAttkSpd : WindUpSpeed = WindUpHeavyAttkSpd;
     void RestartTimerForAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(AttackPos.position, AttackRange); 
+        Gizmos.DrawWireSphere(AttackPos.position, AttackRange);
     }
 }
