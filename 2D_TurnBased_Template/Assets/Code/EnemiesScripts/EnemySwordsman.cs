@@ -13,7 +13,7 @@ public class EnemySwordsman : BaseEnemy
 
     private void Update()
     {
-        if(IsHit)
+        if(IsHit && IsStunned)
         {
             _knockBackFeedBack.PlayFeedBack(PlayerController.Instance.Player.gameObject);
             IsHit = false;

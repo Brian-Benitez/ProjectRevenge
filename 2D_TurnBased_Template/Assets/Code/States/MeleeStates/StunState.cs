@@ -24,7 +24,6 @@ public class StunState : State
         Debug.Log("enemy is stunned!");
         yield return new WaitForSeconds(MaxStunTime);
         BaseEnemyRef.IsStunned = false;
-        BaseEnemyRef.AmountOfHitsForStun = 0;
     }
     public override State RunCurrentState()
     {

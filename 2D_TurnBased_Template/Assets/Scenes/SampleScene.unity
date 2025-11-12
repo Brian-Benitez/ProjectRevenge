@@ -13446,17 +13446,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 3
+  EnemyHealth: 4
   EnemySpeed: 1
   EnemyDamage: 1
   EnemySoulsValue: 25
   IsHit: 0
   IsStunned: 0
-  InstanteStun: 1
-  BuildUpStun: 0
+  InstanteStun: 0
+  BuildUpStun: 1
+  ThresholdHealthToStun: 2
   StunDuration: 6
-  AmountOfHitsForStun: 0
-  MaxHitForStun: 3
   EnemyType: 0
   Rigidbody2D: {fileID: 1653390127523090806}
 --- !u!212 &3391993196431884032

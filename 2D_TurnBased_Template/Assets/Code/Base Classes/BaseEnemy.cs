@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Stats")]
-    public int EnemyHealth;
+    public float EnemyHealth;
     public int EnemySpeed;
     public int EnemyDamage;
 
@@ -17,9 +18,9 @@ public class BaseEnemy : MonoBehaviour
     public bool IsStunned = false;//this controls the state to get off and on stuns effects
     public bool InstanteStun = false;//Normal grunt enemies
     public bool BuildUpStun  = false;//mini bosses/bosses
+    [Header("Only use when build up stun is enabled.")]
+    public int ThresholdHealthToStun;//Only use when build up stun is enabled.
     public float StunDuration;
-    public int AmountOfHitsForStun, MaxHitForStun;
-
 
     [SerializeField]
     public enum TypeOfEnemy
@@ -41,9 +42,8 @@ public class BaseEnemy : MonoBehaviour
 
     public void DoesEnemyDie()
     {
-        if (EnemyHealth < 0)
+        if (EnemyHealth <= 0)
         {
-            //this.gameObject.gameObject.SetActive(false);
             Debug.Log("im dead");
             EnemysManager.Instance.AmountOfEnemies = -1;
             SoulsBankController.instance.SoulsBank += EnemySoulsValue;
@@ -60,9 +60,12 @@ public class BaseEnemy : MonoBehaviour
         if (InstanteStun)
             IsStunned = true;
         else if (BuildUpStun)
-            AmountOfHitsForStun++;
-
-        if (AmountOfHitsForStun >= MaxHitForStun)
-            IsStunned = true;
+        {
+            if(EnemyHealth <= ThresholdHealthToStun )
+            {
+                BuildUpStun = false;
+                InstanteStun = true;
+            }
+        }
     }
 }
