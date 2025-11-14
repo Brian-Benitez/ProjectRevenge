@@ -1,44 +1,72 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemysManager : MonoBehaviour
 {
     public static EnemysManager Instance { get; private set; }
+    //Enemy list
+    public List<List<GameObject>> AllEnemies;
 
-    public GameObject SwordsmanPrefab;
-    public GameObject ArcherPrefab;
-    public List<GameObject> SpawnList;
+    [Header("Wave index")]
+    public int EnemyWaveIndex = 0;
 
-    public int AmountOfEnemies;
-    public int AmountOfEnemiesToSpawn;
-    private void Awake()
+    [Header("All Enemies in level in order")]
+    public List<GameObject> FirstEnemyWave;
+    public List<GameObject> SecondEnemyWave;
+    public List<GameObject> LastEnemyWave;
+
+    [Header("All Doors in level")]
+    public List<GameObject> AllDoorsInLevel;
+
+    private void Start()
     {
-        if (Instance == null)
-            Instance = this;
+        AllEnemies = new List<List<GameObject>>();
+        AllEnemies.Add(FirstEnemyWave);
+        AllEnemies.Add(SecondEnemyWave);
+        AllEnemies.Add(LastEnemyWave);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V))
+        //testing..
+        if(Input.GetKeyDown(KeyCode.T))
             SpawnEnemies();
-            
-    }
-    void SpawnEnemies()
-    {
-        
-        if (AmountOfEnemies == 0)
-        {
-            //Vector2 spawnPosition = transform.position;//change this to a place they can spawn in
-            for (int i = 0; i < AmountOfEnemiesToSpawn; i++)
-            {
-                Instantiate(SwordsmanPrefab, SpawnList[RandomSpawnPoint()].transform.position, Quaternion.identity);
-                AmountOfEnemies++;
-                Debug.Log("instantiated " + SwordsmanPrefab.name);
-            }
-        }
-        else
-            Debug.Log("list is null:( or list is full still");
     }
 
-    int RandomSpawnPoint() => Random.Range(0, SpawnList.Count);
+    /// <summary>
+    /// Closes all doors then spawn all enemies. 
+    /// </summary>
+    public void SpawnEnemies()
+    {
+        Debug.Log("spawning enemies now...");
+        //CloseAllDoorsInLevel();
+
+        foreach(GameObject enemies in AllEnemies[EnemyWaveIndex])
+        {
+            enemies.SetActive(true);
+        }
+        EnemyWaveIndex++;
+    }
+
+    /// <summary>
+    /// Close all doors for battle.
+    /// </summary>
+    void CloseAllDoorsInLevel()
+    {
+        foreach(GameObject Door in AllDoorsInLevel)
+        {
+            Door.SetActive(true);
+        }
+    }
+    /// <summary>
+    /// Open all doors after battle is done.
+    /// </summary>
+    public void OpenAllDoorsInLevel()
+    {
+        foreach (GameObject Door in AllDoorsInLevel)
+        {
+            Door.SetActive(false);
+        }
+    }
 }
