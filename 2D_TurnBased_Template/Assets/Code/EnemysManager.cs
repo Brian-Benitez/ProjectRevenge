@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 public class EnemysManager : MonoBehaviour
 {
-    public static EnemysManager Instance { get; private set; }
+    public static EnemysManager Instance;
     //Enemy list
     public List<List<GameObject>> AllEnemies;
 
@@ -19,28 +19,32 @@ public class EnemysManager : MonoBehaviour
     [Header("All Doors in level")]
     public List<GameObject> AllDoorsInLevel;
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+
     private void Start()
     {
         AllEnemies = new List<List<GameObject>>();
         AllEnemies.Add(FirstEnemyWave);
         AllEnemies.Add(SecondEnemyWave);
         AllEnemies.Add(LastEnemyWave);
+        Debug.Log("look here" +  AllEnemies.Count); 
     }
-
     private void Update()
     {
-        //testing..
-        if(Input.GetKeyDown(KeyCode.T))
-            SpawnEnemies();
+        //if (AllEnemies[0].Count == 0)
+            //Debug.Log("everyone died");
     }
-
     /// <summary>
     /// Closes all doors then spawn all enemies. 
     /// </summary>
     public void SpawnEnemies()
     {
         Debug.Log("spawning enemies now...");
-        //CloseAllDoorsInLevel();
+        CloseAllDoorsInLevel();
 
         foreach(GameObject enemies in AllEnemies[EnemyWaveIndex])
         {
