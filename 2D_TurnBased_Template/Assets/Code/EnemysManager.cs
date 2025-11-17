@@ -8,6 +8,9 @@ public class EnemysManager : MonoBehaviour
     //Enemy list
     public List<List<GameObject>> AllEnemies;
 
+    [Header("Current active enemies")]
+    public int CurrentEnemyCount = 0;
+
     [Header("Wave index")]
     public int EnemyWaveIndex = 0;
 
@@ -45,12 +48,21 @@ public class EnemysManager : MonoBehaviour
     {
         Debug.Log("spawning enemies now...");
         CloseAllDoorsInLevel();
-
+        CurrentEnemyCount  = AllEnemies[EnemyWaveIndex].Count;
         foreach(GameObject enemies in AllEnemies[EnemyWaveIndex])
         {
             enemies.SetActive(true);
         }
         EnemyWaveIndex++;
+    }
+
+
+    public void IsAllEnemiesDead()
+    {
+        if (CurrentEnemyCount == 0)
+            OpenAllDoorsInLevel();
+        else
+            Debug.Log("enemies are still alive");
     }
 
     /// <summary>
