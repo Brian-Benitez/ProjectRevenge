@@ -46,6 +46,7 @@ public class BaseCharacter : MonoBehaviour
 
     public void UpdatePlayersStats()
     {
+        PlayersHealth.text = " " + CharacterHealthAmount;
         PlayersMaxHealth.text = " " + CharacterMaxHealthLevel;
         StatueSoulsText.text = " " + Souls;
         InGameSoulsText.text = " " + Souls;
