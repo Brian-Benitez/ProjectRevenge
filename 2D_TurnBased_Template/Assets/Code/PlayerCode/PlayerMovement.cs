@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float PlayerSpeed;
+    public float FullSpeed;
+    public float HalfSpeed;
     public GameObject PlayerObject;
     public Rigidbody2D Rb;
 

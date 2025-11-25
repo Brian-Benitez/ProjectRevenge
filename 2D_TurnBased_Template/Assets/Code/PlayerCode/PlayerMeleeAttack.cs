@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("----------Stats----------")]
     [Header("Floats")]
     public float AttackRange;
-    public float TimeBtwAttack;
 
     [Header("Windup Stats")]
     public float WindUpSpeed;
@@ -31,35 +31,51 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("Booleans")]
     public bool CanMeleeAttackAgain = false;
     public bool IsAttacking = false;
+    public bool ChangedValues = false;  
 
     //private vars
     private float _maxTimeBtwAttacks;
+    private float _holdTime = 0f;
+    private float _maxHoldTimeForHeavyAttk = 0.2f;
     private PlayerMovement _playerMovement;
 
     private void Start()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
-        //_knockForwardFeedBack = GetComponent<KnockForwardFeedBack>();
-        _maxTimeBtwAttacks = TimeBtwAttack;
+        _maxTimeBtwAttacks = WindUpSpeed;
         RestartTimerForAttacks();
     }
 
     private void Update()
     {
-        DirectionalLooks.transform.position = AttackPos.position;//take this out when making art for sword swing
+        DirectionalLooks.transform.position = AttackPos.position;
 
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
-            IsAttacking = true;
-            //_knockForwardFeedBack.PlayFeedBack(DirectionalLooks.gameObject);
-            Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
-            for (int i = 0; i < enemiesToDamges.Length; i++)
-            {
-                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(PlayerLightAttkDamg);
-            }
-            RestartTimerForAttacks();
+            Debug.Log("light kill");
+            Hit(PlayerLightAttkDamg);
+            _playerMovement.PlayerSpeed = _playerMovement.FullSpeed;
         }
-        if (TimeBtwAttack <= 0f)
+
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("holding mouse down");
+            _holdTime += Time.deltaTime;
+            
+            if (_holdTime >= _maxHoldTimeForHeavyAttk)
+            {
+                IsHeavyAttack = true;
+                _playerMovement.PlayerSpeed = _playerMovement.HalfSpeed;
+            }
+        }
+        if (Input.GetMouseButtonUp(0) && IsHeavyAttack && CanMeleeAttackAgain)
+        {
+            Debug.Log("heavy kill");
+            Hit(PlayerHeavyAttkDamg);
+            _playerMovement.PlayerSpeed = _playerMovement.FullSpeed;
+        }
+
+        if (WindUpSpeed <= 0f)
         {
             CanMeleeAttackAgain = true;
             IsAttacking = false;
@@ -67,12 +83,31 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         else
         {
-            TimeBtwAttack -= Time.deltaTime;
+            WindUpSpeed -= Time.deltaTime;
             CanMeleeAttackAgain = false;
         }
-
     }
-    void RestartTimerForAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
+
+    void Hit(int dam)
+    {
+        IsAttacking = true;
+        Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
+        for (int i = 0; i < enemiesToDamges.Length; i++)
+        {
+            enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(dam);
+        }
+        RestartTimerForAttacks();
+        RestartMeleeBools();
+    }
+    void RestartTimerForAttacks() => WindUpSpeed = _maxTimeBtwAttacks;
+
+    void RestartMeleeBools()
+    {
+        IsHeavyAttack = false;
+        IsLightAttack = false;
+        ChangedValues = false;
+        _holdTime = 0f;
+    }
 
     private void OnDrawGizmosSelected()
     {

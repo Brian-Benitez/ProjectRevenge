@@ -2109,6 +2109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 6
+  FullSpeed: 6
+  HalfSpeed: 1
   PlayerObject: {fileID: 386186100}
   Rb: {fileID: 386186107}
   StopPlayerMovement: 0
@@ -19131,8 +19133,7 @@ MonoBehaviour:
   HerosSword: {fileID: 0}
   DirectionalLooks: {fileID: 524028573}
   AttackRange: 1
-  TimeBtwAttack: 1
-  WindUpSpeed: 0.3
+  WindUpSpeed: 0.2
   WindUpLightAttkSpd: 0.3
   WindUpHeavyAttkSpd: 1
   PlayerLightAttkDamg: 1
