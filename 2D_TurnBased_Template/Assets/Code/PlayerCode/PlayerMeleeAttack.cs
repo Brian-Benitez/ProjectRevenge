@@ -6,7 +6,6 @@ public class PlayerMeleeAttack : MonoBehaviour
 {
     [Header("Transforms")]
     public Transform AttackPos;
-    public Transform HerosSword;
     public Transform DirectionalLooks;
     [Header("----------Stats----------")]
     [Header("Floats")]
@@ -15,7 +14,10 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("Windup Stats")]
     public float WindUpSpeed;
     public float WindUpLightAttkSpd;
-    public float WindUpHeavyAttkSpd;
+
+    [Header("Heavy Windup Stats")]
+    public float HeavyWindUpSpeed;
+    public float MaxHeavyWindUpSpeed;
 
     [Header("Player attk damg")]
     public int PlayerLightAttkDamg;
@@ -48,13 +50,13 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     private void Update()
     {
-        DirectionalLooks.transform.position = AttackPos.position;
+        DirectionalLooks.transform.position = AttackPos.position;//idk why this gets paused when i stop moving player
 
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
             Debug.Log("light kill");
             Hit(PlayerLightAttkDamg);
-            _playerMovement.PlayerSpeed = _playerMovement.FullSpeed;
+            _playerMovement.UnSlowPlayer();
         }
 
         if (Input.GetMouseButton(0))
@@ -64,15 +66,25 @@ public class PlayerMeleeAttack : MonoBehaviour
             
             if (_holdTime >= _maxHoldTimeForHeavyAttk)
             {
-                IsHeavyAttack = true;
-                _playerMovement.PlayerSpeed = _playerMovement.HalfSpeed;
+                _playerMovement.SlowPlayer();
+                CanMeleeAttackAgain = false;
+
+                if(HeavyWindUpSpeed >= MaxHeavyWindUpSpeed)
+                {
+                    IsHeavyAttack = true;
+                    CanMeleeAttackAgain = true;
+                }
+                else
+                {
+                    HeavyWindUpSpeed += Time.deltaTime;//double check all this
+                }
             }
         }
         if (Input.GetMouseButtonUp(0) && IsHeavyAttack && CanMeleeAttackAgain)
         {
             Debug.Log("heavy kill");
             Hit(PlayerHeavyAttkDamg);
-            _playerMovement.PlayerSpeed = _playerMovement.FullSpeed;
+            _playerMovement.UnSlowPlayer();
         }
 
         if (WindUpSpeed <= 0f)
@@ -107,6 +119,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         IsLightAttack = false;
         ChangedValues = false;
         _holdTime = 0f;
+        HeavyWindUpSpeed = 0f;  
     }
 
     private void OnDrawGizmosSelected()
