@@ -1,4 +1,4 @@
-using DG.Tweening;
+
 using System.Collections;
 using UnityEngine;
 
@@ -72,6 +72,10 @@ public class AttackState : State//rename this to EnemyAttackState
 
         for (int i = 0; i < enemiesToDamges.Length; i++)
         {
+            if (enemiesToDamges[i].CompareTag("Shield"))
+            {    
+                Debug.Log("Hit shield!");
+            }
             enemiesToDamges[i].GetComponent<BaseCharacter>().TakeDamage(EnemySwordsmanRef.EnemyDamage);
             Debug.Log("Enemy hit " + enemiesToDamges[i].gameObject.name + "for " + EnemySwordsmanRef.EnemyDamage);
         }

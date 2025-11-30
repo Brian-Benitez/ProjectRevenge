@@ -1374,6 +1374,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TempShield
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -1388,7 +1396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.63
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1429,7 +1437,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1456690522}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
 --- !u!1 &264076455
 GameObject:
@@ -2313,7 +2324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShieldObject: {fileID: 1456690520}
-  ShieldKey: 0
+  ShieldKey: 113
   IsShieldActive: 0
 --- !u!114 &386186110
 MonoBehaviour:
@@ -17572,7 +17583,7 @@ MonoBehaviour:
   WithinRange: 0
   WhatisHittable:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   AttackMissedPlayer: 0
 --- !u!1 &885043203
 GameObject:
@@ -18781,7 +18792,7 @@ MonoBehaviour:
   WithinRange: 0
   WhatisHittable:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   AttackMissedPlayer: 0
 --- !u!1 &1058611846
 GameObject:
@@ -19145,6 +19156,7 @@ MonoBehaviour:
     m_Bits: 8
   CanMeleeAttackAgain: 0
   IsAttacking: 0
+  ChangedValues: 0
 --- !u!1 &1132222343
 GameObject:
   m_ObjectHideFlags: 0
@@ -20453,6 +20465,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 719b3e35825eb5c4da4e0b0023f28948, type: 3}
   m_PrefabInstance: {fileID: 211046791}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1456690522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456690520}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.046389583, y: 0.3290029}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.75, y: -1.3529412}
+    oldSize: {x: 0.04, y: 0.17}
+    newSize: {x: 0.04, y: 0.17}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.15957016, y: 0.39245838}
+  m_EdgeRadius: 0
 --- !u!1 &1502801848
 GameObject:
   m_ObjectHideFlags: 0
@@ -21619,7 +21677,7 @@ MonoBehaviour:
   WithinRange: 0
   WhatisHittable:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   AttackMissedPlayer: 0
 --- !u!1 &1828631419
 GameObject:
@@ -23786,7 +23844,7 @@ MonoBehaviour:
   WithinRange: 0
   WhatisHittable:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   AttackMissedPlayer: 0
 --- !u!1 &9079219156251965580
 GameObject:
