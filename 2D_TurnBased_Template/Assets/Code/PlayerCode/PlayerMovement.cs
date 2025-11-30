@@ -76,8 +76,37 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(DashCoolDown);
         CanDash = true;
     }
+    /// <summary>
+    /// Slows player down and cannot dash
+    /// </summary>
+    public void SlowPlayer()
+    { 
+        PlayerSpeed = HalfSpeed;
+        CanDash = false;
+    }
+    /// <summary>
+    /// unslows player and can dash
+    /// </summary>
+    public void UnSlowPlayer()
+    {
+        PlayerSpeed = FullSpeed;
+        CanDash = true;    
+    }
 
-    public void TurnOnStopPlayerMovement() => StopPlayerMovement = true;
-
-    public void TurnOffStopPlayerMovement() => StopPlayerMovement = false;
+    /// <summary>
+    /// Stops player from moving and dashing
+    /// </summary>
+    public void TurnOnStopPlayerMovement()
+    {
+        StopPlayerMovement = true;
+        CanDash = false;
+    }
+    /// <summary>
+    /// Lets players move and dash again.
+    /// </summary>
+    public void TurnOffStopPlayerMovement()
+    {
+        StopPlayerMovement = false;
+        CanDash = true;
+    }
 }

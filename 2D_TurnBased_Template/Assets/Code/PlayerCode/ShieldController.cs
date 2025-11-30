@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class ShieldController : MonoBehaviour
 {
@@ -11,16 +10,28 @@ public class ShieldController : MonoBehaviour
     [Header("Booleans")]
     public bool IsShieldActive = false;
 
-    // Update is called once per frame
+    private PlayerMovement _playerMovement;
+
+    private void Start()
+    {
+        _playerMovement = GetComponentInParent<PlayerMovement>();   
+    }
+
     void Update()
     {
+
+        if(_playerMovement.IsDashing)
+            return;
+
         if(Input.GetKey(ShieldKey))
         {
+            _playerMovement.SlowPlayer();
             ShieldObject.SetActive(true);
             TurnOnShieldObject();
         }
         else
         {
+            _playerMovement.UnSlowPlayer();
             ShieldObject.SetActive(false);
             TurnOffIsShieldActive();
         }
