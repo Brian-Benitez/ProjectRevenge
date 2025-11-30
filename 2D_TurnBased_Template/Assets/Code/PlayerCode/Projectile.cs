@@ -23,6 +23,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if(collision.CompareTag("Shield"))
+        {
+            Debug.Log("shield is hit");
+        }
         if(collision.CompareTag("Player"))
         {
             Debug.Log("hit player");

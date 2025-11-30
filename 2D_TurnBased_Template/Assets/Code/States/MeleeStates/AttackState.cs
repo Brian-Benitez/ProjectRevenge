@@ -75,6 +75,7 @@ public class AttackState : State//rename this to EnemyAttackState
             if (enemiesToDamges[i].CompareTag("Shield"))
             {    
                 Debug.Log("Hit shield!");
+                return;
             }
             enemiesToDamges[i].GetComponent<BaseCharacter>().TakeDamage(EnemySwordsmanRef.EnemyDamage);
             Debug.Log("Enemy hit " + enemiesToDamges[i].gameObject.name + "for " + EnemySwordsmanRef.EnemyDamage);
