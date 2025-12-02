@@ -53,7 +53,6 @@ public class WeaponsController : MonoBehaviour
         HasWeaponActive = true;
         MeleeWeaponPrefab.SetActive(true);
         RangeWeaponPrefab.SetActive(false);
-        Debug.Log("switched to melee");
     }
 
     void SwitchToRange()
@@ -61,7 +60,6 @@ public class WeaponsController : MonoBehaviour
         HasWeaponActive = true;
         RangeWeaponPrefab.SetActive(true);
         MeleeWeaponPrefab.SetActive(false);
-        Debug.Log("switch to range");
     }
     void DisableAllWeapons()
     {
