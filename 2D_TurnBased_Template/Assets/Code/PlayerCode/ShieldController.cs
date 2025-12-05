@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ShieldController : MonoBehaviour
 {
+    public static ShieldController instance;//For every singlton we have, make sure everything works then start making things private that we dont need
+
     [Header("Shield Object")]
     public GameObject ShieldObject;
 
@@ -21,6 +23,13 @@ public class ShieldController : MonoBehaviour
 
 
     private PlayerMovement _playerMovement;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
 
     private void Start()
     {

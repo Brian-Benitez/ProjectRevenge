@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
         if(collision.CompareTag("Shield"))
         {
             Debug.Log("shield is hit");
+            ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
         }
         if(collision.CompareTag("Player"))
         {

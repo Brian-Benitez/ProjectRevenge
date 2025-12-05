@@ -75,6 +75,7 @@ public class AttackState : State//rename this to EnemyAttackState
             if (enemiesToDamges[i].CompareTag("Shield"))
             {    
                 Debug.Log("Hit shield!");
+                ShieldController.instance.ShieldHealth -= EnemySwordsmanRef.EnemyDamage;
             }
 
             if(enemiesToDamges[i].CompareTag("Player"))
@@ -86,7 +87,6 @@ public class AttackState : State//rename this to EnemyAttackState
     }
     public IEnumerator WindUpAttack()
     {
-        
         Debug.Log("Winding up attack " + WindUpTimeForMelee + " Seconds");
         yield return new WaitForSeconds(WindUpTimeForMelee);
         MeleeAttack();
