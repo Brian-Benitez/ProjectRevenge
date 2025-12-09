@@ -4,6 +4,7 @@ using UnityEngine;
 public class InteractingWithUpgradeSystem : MonoBehaviour
 {
     public GameObject UpgradeUIGameObject;
+    public GameObject EKeyPNG;
 
     public bool CanInteract = false;
 
@@ -31,10 +32,12 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         CanInteract = true;
+        EKeyPNG.SetActive(true);
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         CanInteract = false;
+        EKeyPNG.SetActive(false);
     }
 }

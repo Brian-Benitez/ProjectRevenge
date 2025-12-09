@@ -1326,7 +1326,7 @@ MonoBehaviour:
   IsShieldActive: 0
   IsShieldBroken: 0
   ShieldCoolDownTimer: 0
-  ShieldBreakDuration: 2
+  ShieldBreakDuration: 10
   ShieldKey: 113
 --- !u!114 &386186110
 MonoBehaviour:
