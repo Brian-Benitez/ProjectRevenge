@@ -32,7 +32,7 @@ public class AttackState : State//rename this to EnemyAttackState
     private void Start()
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
-        EnemySwordsmanRef = gameObject.GetComponentInParent<EnemySwordsman>();//whyd i do this?
+        EnemySwordsmanRef = gameObject.GetComponentInParent<EnemySwordsman>();
         ChaseState = GetComponentInParent<ChaseState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
     }
