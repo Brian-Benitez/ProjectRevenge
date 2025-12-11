@@ -19,7 +19,7 @@ public class DamageArea : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("hello im here");
-            PlayerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(DamPerTick);
+           //layerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(DamPerTick);
         }
     }
 }
