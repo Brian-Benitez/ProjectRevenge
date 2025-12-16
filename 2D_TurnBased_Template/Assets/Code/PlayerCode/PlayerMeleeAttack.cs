@@ -61,7 +61,6 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("holding mouse down");
             _holdTime += Time.deltaTime;
             
             if (_holdTime >= _maxHoldTimeForHeavyAttk)

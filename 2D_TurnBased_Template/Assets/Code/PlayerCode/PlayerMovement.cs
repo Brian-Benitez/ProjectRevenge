@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Mouse1) ||Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("stop moving");
             Rb.linearVelocity = new Vector2(0, 0);
             moveDirection = Vector2.zero;
         }

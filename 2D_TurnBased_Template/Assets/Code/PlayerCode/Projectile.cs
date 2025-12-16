@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     public float SpeedOfProjectile;
     public float LifeTimeOfProjectile;
     public float DistanceOfProjectile;
+    [Header("demotest")]
+    public GameObject GM;
 
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
@@ -41,7 +43,10 @@ public class Projectile : MonoBehaviour
             collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
             DestroyProjectile();
         }
-   
+        else if(collision.IsTouching(GM.GetComponent<BoxCollider2D>()))
+        {
+            Debug.Log("hi");
+        }
     }
     private void Update()
     {

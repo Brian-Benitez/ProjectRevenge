@@ -21,7 +21,6 @@ public class StunState : State
     {
         StopAllCoroutines();    
         BaseEnemyRef.IsStunned = true;
-        Debug.Log("enemy is stunned!");
         yield return new WaitForSeconds(MaxStunTime);
         BaseEnemyRef.IsStunned = false;
     }
