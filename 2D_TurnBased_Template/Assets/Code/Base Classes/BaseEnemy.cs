@@ -26,7 +26,8 @@ public class BaseEnemy : MonoBehaviour
     public enum TypeOfEnemy
     {
         Swordsman, 
-        Archer
+        Archer,
+        Object
     }
 
     public TypeOfEnemy EnemyType;
