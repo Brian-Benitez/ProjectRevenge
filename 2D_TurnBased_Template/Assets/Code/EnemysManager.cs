@@ -22,6 +22,8 @@ public class EnemysManager : MonoBehaviour
     [Header("All Doors in level")]
     public List<GameObject> AllDoorsInLevel;
 
+    public GameObject TriggerFightGO;
+
     private void Awake()
     {
         if (Instance == null)
@@ -46,6 +48,7 @@ public class EnemysManager : MonoBehaviour
     /// </summary>
     public void SpawnEnemies()
     {
+        TriggerFightGO.SetActive(false);//for now......
         Debug.Log("spawning enemies now...");
         CloseAllDoorsInLevel();
         CurrentEnemyCount  = AllEnemies[EnemyWaveIndex].Count;
