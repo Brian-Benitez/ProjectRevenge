@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class EnemysManager : MonoBehaviour
 {
     public static EnemysManager Instance;
     //Enemy list
-    public List<List<GameObject>> AllEnemies;
+    public List<List<GameObject>> AllEnemies;//need to work on this
 
     [Header("Current active enemies")]
     public int CurrentEnemyCount = 0;
@@ -15,14 +14,13 @@ public class EnemysManager : MonoBehaviour
     public int EnemyWaveIndex = 0;
 
     [Header("All Enemies in level in order")]
-    public List<GameObject> FirstEnemyWave;
-    public List<GameObject> SecondEnemyWave;
-    public List<GameObject> LastEnemyWave;
+    public List<GameObject> EnemyWave;
 
     [Header("All Doors in level")]
     public List<GameObject> AllDoorsInLevel;
 
-    public GameObject TriggerFightGO;
+    public List<GameObject> TriggerFightGOs;
+    public int FightIdIndex;
 
     private void Awake()
     {
@@ -33,30 +31,21 @@ public class EnemysManager : MonoBehaviour
     private void Start()
     {
         AllEnemies = new List<List<GameObject>>();
-        AllEnemies.Add(FirstEnemyWave);
-        AllEnemies.Add(SecondEnemyWave);
-        AllEnemies.Add(LastEnemyWave);
         Debug.Log("look here" +  AllEnemies.Count); 
     }
-    private void Update()
-    {
-        //if (AllEnemies[0].Count == 0)
-            //Debug.Log("everyone died");
-    }
+ 
     /// <summary>
     /// Closes all doors then spawn all enemies. 
     /// </summary>
     public void SpawnEnemies()
     {
-        TriggerFightGO.SetActive(false);//for now......
         Debug.Log("spawning enemies now...");
         CloseAllDoorsInLevel();
-        CurrentEnemyCount  = AllEnemies[EnemyWaveIndex].Count;
-        foreach(GameObject enemies in AllEnemies[EnemyWaveIndex])
+        CurrentEnemyCount  = AllEnemies[FightIdIndex].Count;
+        foreach(GameObject enemies in AllEnemies[FightIdIndex])
         {
             enemies.SetActive(true);
         }
-        EnemyWaveIndex++;
     }
 
 
