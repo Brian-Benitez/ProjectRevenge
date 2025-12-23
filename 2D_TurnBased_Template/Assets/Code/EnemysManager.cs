@@ -4,23 +4,14 @@ using UnityEngine;
 public class EnemysManager : MonoBehaviour
 {
     public static EnemysManager Instance;
-    //Enemy list
-    public List<List<GameObject>> AllEnemies;//need to work on this
-
-    [Header("Current active enemies")]
-    public int CurrentEnemyCount = 0;
-
-    [Header("Wave index")]
-    public int EnemyWaveIndex = 0;
-
-    [Header("All Enemies in level in order")]
-    public List<GameObject> EnemyWave;
-
+ 
     [Header("All Doors in level")]
     public List<GameObject> AllDoorsInLevel;
 
-    public List<GameObject> TriggerFightGOs;
-    public int FightIdIndex;
+    public int CurrentEnemyAmount;
+
+    public List<TriggerFight> TriggerFights;
+    public int LastTriggerIndex;
 
     private void Awake()
     {
@@ -28,39 +19,28 @@ public class EnemysManager : MonoBehaviour
             Instance = this;
     }
 
-    private void Start()
+
+    public void DisableTrigger(int UsedFightId)
     {
-        AllEnemies = new List<List<GameObject>>();
-        Debug.Log("look here" +  AllEnemies.Count); 
-    }
- 
-    /// <summary>
-    /// Closes all doors then spawn all enemies. 
-    /// </summary>
-    public void SpawnEnemies()
-    {
-        Debug.Log("spawning enemies now...");
-        CloseAllDoorsInLevel();
-        CurrentEnemyCount  = AllEnemies[FightIdIndex].Count;
-        foreach(GameObject enemies in AllEnemies[FightIdIndex])
+        foreach(TriggerFight triggers in TriggerFights)
         {
-            enemies.SetActive(true);
+            if(triggers.FightID == UsedFightId)
+                triggers.gameObject.SetActive(false);
         }
     }
 
-
     public void IsAllEnemiesDead()
     {
-        if (CurrentEnemyCount == 0)
+        if (CurrentEnemyAmount <= 0)
             OpenAllDoorsInLevel();
         else
-            Debug.Log("enemies are still alive");
+            Debug.Log("enemies still about");
     }
 
     /// <summary>
     /// Close all doors for battle.
     /// </summary>
-    void CloseAllDoorsInLevel()
+    public void CloseAllDoorsInLevel()
     {
         foreach(GameObject Door in AllDoorsInLevel)
         {
