@@ -731,8 +731,8 @@ MonoBehaviour:
   EnemySoulsValue: 25
   IsHit: 0
   IsStunned: 0
-  InstanteStun: 1
-  BuildUpStun: 0
+  InstanteStun: 0
+  BuildUpStun: 1
   ThresholdHealthToStun: 2
   StunDuration: 2
   EnemyType: 0
