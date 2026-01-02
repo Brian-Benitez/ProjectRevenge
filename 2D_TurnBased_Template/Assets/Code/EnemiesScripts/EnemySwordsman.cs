@@ -18,8 +18,7 @@ public class EnemySwordsman : BaseEnemy
             _knockBackFeedBack.PlayFeedBack(PlayerController.Instance.Player.gameObject);
             IsHit = false;
             Debug.Log("KNOCKED BACK");
-        }
-            
+        } 
     }
 
     public void TurnOffIsKinimatic() => Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
