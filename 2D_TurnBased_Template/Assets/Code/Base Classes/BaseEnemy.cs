@@ -30,7 +30,15 @@ public class BaseEnemy : MonoBehaviour
         Object
     }
 
+    public enum LevelOfEnemy
+    {
+        Easy,
+        Medium,
+        Hard
+    }
+
     public TypeOfEnemy EnemyType;
+    public LevelOfEnemy EnemyDifficulty;
 
     public void TakeDamage(int  damage)
     {

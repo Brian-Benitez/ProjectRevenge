@@ -6,7 +6,7 @@ public class ChaseState : State
     [Header("States")]
     AttackState AttackState;
     StunState StunState;
-    BaseEnemy BaseEnemyState;
+    BaseEnemy BaseEnemyRef;
 
 
     [Header("Floats")]
@@ -19,7 +19,7 @@ public class ChaseState : State
     {
         AttackState = GetComponentInChildren<AttackState>();
         StunState = GetComponent<StunState>();
-        BaseEnemyState = GetComponent<BaseEnemy>();
+        BaseEnemyRef = GetComponent<BaseEnemy>();
         _enemyWeaponRotationRef = GetComponentInChildren<EnemyWeaponRotation>();
     }
 
@@ -28,21 +28,24 @@ public class ChaseState : State
         if (_enemyWeaponRotationRef.IsAttacking)
             return;
 
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)
+        if(BaseEnemyRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Easy)
         {
-            AttackState.WithinRange = false;// not yet in range
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
-        }
-        else
-        {
-            DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
-            AttackState.WithinRange = true;
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)
+            {
+                AttackState.WithinRange = false;// not yet in range
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
+            }
+            else
+            {
+                DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
+                AttackState.WithinRange = true;
+            }
         }
     }
 
     public override State RunCurrentState()//make ref to stun state here!!!!!!
     {
-        if (BaseEnemyState.IsStunned)
+        if (BaseEnemyRef.IsStunned)
             return StunState;
 
         if (AttackState.WithinRange)

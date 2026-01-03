@@ -20,8 +20,4 @@ public class EnemySwordsman : BaseEnemy
             Debug.Log("KNOCKED BACK");
         } 
     }
-
-    public void TurnOffIsKinimatic() => Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-
-    public void TurnOnIsKinimatic() => Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
 }

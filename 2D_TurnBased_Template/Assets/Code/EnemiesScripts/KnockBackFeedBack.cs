@@ -10,12 +10,12 @@ public class KnockBackFeedBack : MonoBehaviour
     [SerializeField]
     private float Strength = 16, delay = 0.15f;
 
-    public UnityEvent OnBegin, OnDone;
+    //public UnityEvent OnBegin, OnDone;
 
     public void PlayFeedBack(GameObject sender)
     {
         StopAllCoroutines();
-        OnBegin.Invoke();
+        //OnBegin.Invoke();
         Vector2 direction = (transform.position - sender.transform.position).normalized;
 
         Rb2d.AddForce(direction * Strength, ForceMode2D.Impulse);
@@ -26,6 +26,6 @@ public class KnockBackFeedBack : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Rb2d.linearVelocity = Vector3.zero;
-        OnDone.Invoke();
+        //OnDone.Invoke();
     }
 }
