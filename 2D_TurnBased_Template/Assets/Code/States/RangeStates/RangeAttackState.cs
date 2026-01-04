@@ -6,6 +6,10 @@ public class RangeAttackState : State
 
     public GameObject Projectile;
     public Transform ShotPoint;
+    //Below is for enemies who are meduim level and up.
+    [Header("Below is for enemies who are meduim level and up")]
+    public Transform ShotPointTwo;
+    public Transform ShotPointThree;
 
     public bool CanRangeAttackAgain;
     public bool IsAttacking = false;
@@ -13,6 +17,7 @@ public class RangeAttackState : State
     public bool LockedOnPlayer = true;
 
     GetWithinRangeAttackState GetWithinRangeAttackState;
+    EnemyArcher _enemyArcherRef;
 
     private float _maxTimeBtwAttacks;
 
@@ -20,6 +25,7 @@ public class RangeAttackState : State
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
         GetWithinRangeAttackState = GetComponentInParent<GetWithinRangeAttackState>();
+        _enemyArcherRef = GetComponentInParent<EnemyArcher>();
     }
 
 
@@ -39,7 +45,17 @@ public class RangeAttackState : State
             if (CanRangeAttackAgain)//check if the distance hits the minium then attack here
             {
                 LockedOnPlayer = false;
-                Instantiate(Projectile, ShotPoint.position, transform.rotation);
+                if(_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Easy)
+                {
+                    Instantiate(Projectile, ShotPoint.position, transform.rotation);
+                }
+                if(_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+                {
+                    Instantiate(Projectile, ShotPoint.position, transform.rotation);
+                    Instantiate(Projectile, ShotPointTwo.position, transform.rotation);
+                    Instantiate(Projectile, ShotPointThree.position, transform.rotation);
+                }
+                
                 RestartTimerForRangeAttacks();
             }
 
