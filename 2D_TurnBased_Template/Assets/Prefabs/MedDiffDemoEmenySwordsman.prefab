@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 6841573041997642175}
   - component: {fileID: 7971086465596985434}
   - component: {fileID: 2908071471798872749}
+  - component: {fileID: 3059539186523356831}
   m_Layer: 3
   m_Name: MedDiffDemoEmenySwordsman
   m_TagString: Enemy
@@ -603,11 +604,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1bbba536f913a4ca14deb94e8e5e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShield: {fileID: 6264658101153515369}
   CanBlock: 0
   DieRollResult: 0
-  PercentageToBlock: 100
+  PercentageToBlock: 50
   DurationOfBlock: 2
+--- !u!114 &3059539186523356831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295978787876234622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyShieldHealth: 10
+  Shield: {fileID: 6264658101153515369}
+  IsShieldBroken: 0
 --- !u!1 &6264658101153515369
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +635,7 @@ GameObject:
   - component: {fileID: 8488769273273948018}
   - component: {fileID: 4810908415005953762}
   m_Layer: 8
-  m_Name: Circle
+  m_Name: Shield
   m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

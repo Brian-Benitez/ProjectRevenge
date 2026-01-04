@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class BlockAndMoveState : State
 {
-    public GameObject EnemyShield;
     public bool CanBlock = false;
 
     public int DieRollResult;
     public int PercentageToBlock;
     public float DurationOfBlock;
     float _maxDurationOfBlock;
-
+    private EnemyShield _enemyShield;
     ChaseState ChaseStateRef;
     private float _distanceToMoveBack = 15f;
     private float _speedOfMovement = -3;
@@ -19,12 +18,13 @@ public class BlockAndMoveState : State
     {
         _maxDurationOfBlock = DurationOfBlock;
         ChaseStateRef = GetComponent<ChaseState>();
+        _enemyShield = GetComponent<EnemyShield>();
     }
     private void Update()
     {
         if(CanBlock)
         {
-            EnemyShield.SetActive(true);  
+            _enemyShield.TryTurningOnShield();
             DurationOfBlock -= Time.deltaTime;
             if(DurationOfBlock > 0 )
             {
@@ -35,7 +35,7 @@ public class BlockAndMoveState : State
             }
             else
             {
-                EnemyShield.SetActive(false);
+                _enemyShield.TurnOffShield();
                 CanBlock = false;
                 DurationOfBlock = _maxDurationOfBlock;
             }

@@ -114,6 +114,10 @@ public class PlayerMeleeAttack : MonoBehaviour
             {
                 enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(dam);
             }
+            if (enemiesToDamges[i].CompareTag("EnemySheild"))
+            {
+                enemiesToDamges[i].GetComponent<EnemyShield>().ShieldTakeDamage(dam);
+            }
         }
         RestartTimerForAttacks();
         RestartMeleeBools();
