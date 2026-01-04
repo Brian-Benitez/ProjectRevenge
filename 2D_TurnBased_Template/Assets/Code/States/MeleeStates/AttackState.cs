@@ -24,6 +24,7 @@ public class AttackState : State//rename this to EnemyAttackState
     //States ref here
     ChaseState ChaseState;
     StunState StunState;
+    BlockAndMoveState BlockAndMoveState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
 
@@ -35,6 +36,11 @@ public class AttackState : State//rename this to EnemyAttackState
         EnemySwordsmanRef = gameObject.GetComponentInParent<EnemySwordsman>();
         ChaseState = GetComponentInParent<ChaseState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
+
+        if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        {
+            BlockAndMoveState = GetComponentInParent<BlockAndMoveState>();
+        }
     }
 
     void Update()
@@ -84,6 +90,11 @@ public class AttackState : State//rename this to EnemyAttackState
                 Debug.Log("Enemy hit " + enemiesToDamges[i].gameObject.name + "for " + EnemySwordsmanRef.EnemyDamage);
             }
         }
+
+        if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        {
+            BlockAndMoveState.RollingToBlock();
+        }
     }
     public IEnumerator WindUpAttack()
     {
@@ -98,7 +109,18 @@ public class AttackState : State//rename this to EnemyAttackState
         if (EnemySwordsmanRef.IsStunned)
             return StunState;
 
-        if(AttackMissedPlayer == true && _enemyWeaponRotationRef.IsAttacking == false)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && BlockAndMoveState.CanBlock)
+        {
+            //block and move back state
+            
+            return BlockAndMoveState;
+        }
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Hard)
+        {
+            //do something
+        }
+
+        if (AttackMissedPlayer == true && _enemyWeaponRotationRef.IsAttacking == false)
         {
             //ChaseState.RestartDistance();
             AttackMissedPlayer = false;

@@ -33,6 +33,7 @@ public class GetWithinRangeAttackState : State
         if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < MinimunDistanceForRangeAttack)
         {
             transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -Speed * Time.deltaTime);
+            Debug.Log("look at ne");
         }
     }
     public override State RunCurrentState()
