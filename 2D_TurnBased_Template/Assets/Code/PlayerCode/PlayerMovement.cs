@@ -13,11 +13,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dash Settings")]
     public KeyCode DashInputKey;
-    public float DashSpeed = 10f;
-    public float DashDuration = 1f;
-    public float DashCoolDown = 1f;
+    public float DashSpeed;
+    public float DashDuration;
+    public float DashCoolDown;
     public bool IsDashing;
     public bool CanDash = true;
+    public bool IsDashPaused = false;
 
     Vector2 moveDirection;
     Vector2 mousePosition;
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
-        if (Input.GetKeyDown(DashInputKey) && CanDash)
+        if (Input.GetKeyDown(DashInputKey) && CanDash && !IsDashPaused)
         {
             Debug.Log("dash");
             StartCoroutine(Dash());
@@ -73,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(DashDuration);
         IsDashing = false;  
         yield return new WaitForSeconds(DashCoolDown);
+        Debug.Log("long we waited " + DashCoolDown);
         CanDash = true;
     }
     /// <summary>
@@ -81,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     public void SlowPlayer()
     { 
         PlayerSpeed = HalfSpeed;
-        CanDash = false;
+        IsDashPaused = true;
     }
     /// <summary>
     /// unslows player and can dash
@@ -89,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public void UnSlowPlayer()
     {
         PlayerSpeed = FullSpeed;
-        CanDash = true;    
+        IsDashPaused = false;    
     }
 
     /// <summary>
@@ -98,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     public void TurnOnStopPlayerMovement()
     {
         StopPlayerMovement = true;
-        CanDash = false;
+        IsDashPaused = true;
     }
     /// <summary>
     /// Lets players move and dash again.
@@ -106,6 +108,6 @@ public class PlayerMovement : MonoBehaviour
     public void TurnOffStopPlayerMovement()
     {
         StopPlayerMovement = false;
-        CanDash = true;
+        IsDashPaused = false;
     }
 }

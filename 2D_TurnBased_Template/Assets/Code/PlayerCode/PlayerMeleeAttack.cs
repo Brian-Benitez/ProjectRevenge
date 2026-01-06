@@ -13,7 +13,6 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     [Header("Windup Stats")]
     public float WindUpSpeed;
-    public float WindUpLightAttkSpd;
 
     [Header("Heavy Windup Stats")]
     public float HeavyWindUpSpeed;
@@ -114,7 +113,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             {
                 enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(dam);
             }
-            if (enemiesToDamges[i].CompareTag("EnemySheild"))
+            if (enemiesToDamges[i].CompareTag("EnemyShield"))
             {
                 enemiesToDamges[i].GetComponent<EnemyShield>().ShieldTakeDamage(dam);
             }
