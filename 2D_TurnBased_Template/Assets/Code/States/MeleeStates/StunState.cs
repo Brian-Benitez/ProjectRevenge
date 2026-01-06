@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class StunState : State
 {
-    [SerializeField]
     private float MaxStunTime;
 
     BaseEnemy BaseEnemyRef;

@@ -4,7 +4,6 @@ public class EnemySwordsman : BaseEnemy
 {
     //NOTE: EVERYTHING HERE BUT THE ENEMYTYPE IS JUST PROOF IT CAN WORK. WE CAN CLEAN THIS ALL LATER. MAKE SURE GAME IS FUN FIRST.
     KnockBackFeedBack _knockBackFeedBack;
-    public Rigidbody2D Rigidbody2D;
     private void Start()
     {
          EnemyType = TypeOfEnemy.Swordsman;
