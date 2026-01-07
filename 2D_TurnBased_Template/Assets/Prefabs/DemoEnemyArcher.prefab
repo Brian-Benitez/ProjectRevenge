@@ -571,16 +571,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb0df4d50b75ff4ba6918edd4e6fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 2
-  EnemySpeed: 5
+  EnemyHealth: 8
+  EnemySpeed: 4
   EnemyDamage: 1
   EnemySoulsValue: 15
   IsHit: 0
   IsStunned: 0
   InstanteStun: 0
-  BuildUpStun: 0
-  ThresholdHealthToStun: 0
-  StunDuration: 0
+  BuildUpStun: 1
+  ThresholdHealthToStun: 4
+  StunDuration: 1.5
   EnemyType: 1
   EnemyDifficulty: 0
 --- !u!114 &3836935540627045171
