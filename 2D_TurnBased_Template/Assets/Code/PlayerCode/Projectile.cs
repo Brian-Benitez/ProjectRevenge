@@ -9,8 +9,6 @@ public class Projectile : MonoBehaviour
     public float SpeedOfProjectile;
     public float LifeTimeOfProjectile;
     public float DistanceOfProjectile;
-    [Header("demotest")]
-    public GameObject GM;
 
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
@@ -30,6 +28,7 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("shield is hit");
             ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
+            DestroyProjectile();
         }
         if(collision.CompareTag("Player"))
         {
@@ -42,10 +41,6 @@ public class Projectile : MonoBehaviour
             Debug.Log("hit enemy");
             collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
             DestroyProjectile();
-        }
-        else if(collision.IsTouching(GM.GetComponent<BoxCollider2D>()))
-        {
-            Debug.Log("hi");
         }
     }
     private void Update()
