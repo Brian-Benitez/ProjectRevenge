@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 moveDirection;
     Vector2 mousePosition;
+    [Header("Animator")]
+    public PlayerAnimationController PlayerAnimationControllerRef;
 
 
     private void Update()
@@ -46,10 +48,12 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveX = Input.GetAxisRaw("Horizontal");
             float moveY = Input.GetAxisRaw("Vertical");
-
+            PlayerAnimationControllerRef.IsMoving();
             moveDirection = new Vector2(moveX, moveY).normalized;
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
+        if(moveDirection ==  Vector2.zero)
+            PlayerAnimationControllerRef.IsNotMoving();
 
         if (Input.GetKeyDown(DashInputKey) && CanDash && !IsDashPaused)
         {
