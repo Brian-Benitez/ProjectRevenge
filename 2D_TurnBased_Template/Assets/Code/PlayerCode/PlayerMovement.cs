@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,20 +23,23 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 moveDirection;
     Vector2 mousePosition;
-    [Header("Animator")]
+    float Horizontal;
+    [Header("Animator info")]
     public PlayerAnimationController PlayerAnimationControllerRef;
+    public bool isFacingRight = true;
 
 
     private void Update()
     {
+        Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
 
-        if(Input.GetKey(KeyCode.Mouse1) ||Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Mouse0))
         {
             Rb.linearVelocity = new Vector2(0, 0);
             moveDirection = Vector2.zero;
         }
-            
-        if(IsDashing)
+
+        if (IsDashing)
             return;
 
         if (StopPlayerMovement)
@@ -52,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = new Vector2(moveX, moveY).normalized;
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        if(moveDirection ==  Vector2.zero)
+        if (moveDirection == Vector2.zero)
             PlayerAnimationControllerRef.IsNotMoving();
 
         if (Input.GetKeyDown(DashInputKey) && CanDash && !IsDashPaused)
@@ -60,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("dash");
             StartCoroutine(Dash());
         }
+        Flip();
     }
 
     private void FixedUpdate()
@@ -67,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsDashing)
             return;
 
-        Rb.linearVelocity  = new Vector2(moveDirection.x * PlayerSpeed, moveDirection.y * PlayerSpeed);
+        Rb.linearVelocity = new Vector2(moveDirection.x * PlayerSpeed, moveDirection.y * PlayerSpeed);
     }
 
     public IEnumerator Dash()
@@ -76,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         IsDashing = true;
         Rb.linearVelocity = new Vector2(moveDirection.x * DashSpeed, moveDirection.y * DashSpeed);
         yield return new WaitForSeconds(DashDuration);
-        IsDashing = false;  
+        IsDashing = false;
         yield return new WaitForSeconds(DashCoolDown);
         Debug.Log("long we waited " + DashCoolDown);
         CanDash = true;
@@ -85,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     /// Slows player down and cannot dash
     /// </summary>
     public void SlowPlayer()
-    { 
+    {
         PlayerSpeed = HalfSpeed;
         IsDashPaused = true;
     }
@@ -95,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     public void UnSlowPlayer()
     {
         PlayerSpeed = FullSpeed;
-        IsDashPaused = false;    
+        IsDashPaused = false;
     }
 
     /// <summary>
@@ -113,5 +118,17 @@ public class PlayerMovement : MonoBehaviour
     {
         StopPlayerMovement = false;
         IsDashPaused = false;
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && Horizontal < 0f || !isFacingRight && Horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = PlayerAnimationControllerRef.gameObject.transform.localScale;
+            localScale.x *= -1f;
+            PlayerAnimationControllerRef.gameObject.transform.localScale = localScale;
+        }
+
     }
 }

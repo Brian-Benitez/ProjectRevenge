@@ -22,4 +22,6 @@ public class PlayerAnimationController : MonoBehaviour
     //Attacking animations bools
     public void IsAttacking() => PlayerAnimator.SetBool("IsAttacking", true);
     public void IsNotAttacking() => PlayerAnimator.SetBool("IsAttacking", false);
+
+
 }
