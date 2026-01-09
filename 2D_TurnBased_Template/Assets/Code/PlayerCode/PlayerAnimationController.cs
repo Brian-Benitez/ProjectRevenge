@@ -5,6 +5,7 @@ public class PlayerAnimationController : MonoBehaviour
     public Animator PlayerAnimator;
 
     public PlayerMeleeAttack PlayerMeleeAttackRef;
+    public PlayerMovement PlayerMovementRef;
 
 
     private void Update()
@@ -13,6 +14,10 @@ public class PlayerAnimationController : MonoBehaviour
             IsAttacking();
         else
             IsNotAttacking();
+        if (PlayerMovementRef.IsDashing)
+            IsDashing();
+        else
+            IsNotDashing();
     }
 
     //Walking animations bools
@@ -23,5 +28,6 @@ public class PlayerAnimationController : MonoBehaviour
     public void IsAttacking() => PlayerAnimator.SetBool("IsAttacking", true);
     public void IsNotAttacking() => PlayerAnimator.SetBool("IsAttacking", false);
 
-
+    public void IsDashing() => PlayerAnimator.SetBool("IsDashing", true);
+    public void IsNotDashing() => PlayerAnimator.SetBool("IsDashing", false);
 }
