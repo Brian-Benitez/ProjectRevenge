@@ -52,12 +52,15 @@ public class PlayerMovement : MonoBehaviour
         {
             float moveX = Input.GetAxisRaw("Horizontal");
             float moveY = Input.GetAxisRaw("Vertical");
-            PlayerAnimationControllerRef.IsMoving();
             moveDirection = new Vector2(moveX, moveY).normalized;
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         if (moveDirection == Vector2.zero)
             PlayerAnimationControllerRef.IsNotMoving();
+        else
+        {
+            PlayerAnimationControllerRef.IsMoving();
+        }
 
         if (Input.GetKeyDown(DashInputKey) && CanDash && !IsDashPaused)
         {
