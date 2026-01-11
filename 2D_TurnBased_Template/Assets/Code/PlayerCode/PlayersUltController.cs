@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayersUltController : MonoBehaviour
@@ -17,6 +18,9 @@ public class PlayersUltController : MonoBehaviour
 
     public int MeleeUpgradeDam;
     public int RangeUpgradeDam;
+
+    public TextMeshProUGUI UltAmountText;
+    public TextMeshProUGUI MaxUltAmountText;
 
     public PlayerMovement PlayerMovementRef;
     public PlayerMeleeAttack PlayerMeleeAttackRef;
@@ -77,7 +81,7 @@ public class PlayersUltController : MonoBehaviour
     public void SetPlayerToNormalStats()
     {
         //Movement upgrade
-        PlayerMovementRef.PlayerSpeed -= BoostedMovementSpeed;
+        PlayerMovementRef.FullSpeed -= BoostedMovementSpeed;
         PlayerMovementRef.DashCoolDown += LoweredDashCoolDown;
 
         //Melee upgrade
@@ -87,11 +91,21 @@ public class PlayersUltController : MonoBehaviour
         //Range upgrade
         PlayerInfoRef.RangeDamg -= RangeUpgradeDam;
     }
+
+    private void UpdateRageUI()
+    {
+        UltAmountText.text = " " + UltPoints;
+        MaxUltAmountText.text = " " + MaxUltPoints;
+    }
     /// <summary>
     /// Made it like this so i can add objs that will max it or just give one. Only place to add it.
     /// </summary>
     /// <param name="amount"></param>
-    public void AddUltPoint(int amount) => UltPoints += amount;
+    public void AddUltPoint(int amount)
+    {
+        UltPoints += amount;
+        UpdateRageUI();
+    }
     /// <summary>
     /// Remove all ult points after using ult.
     /// </summary>

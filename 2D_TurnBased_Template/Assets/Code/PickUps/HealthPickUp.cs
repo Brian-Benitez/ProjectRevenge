@@ -2,31 +2,15 @@ using UnityEngine;
 
 public class HealthPickUp : BasePickUp
 {
-    public GameObject EKeyButtonGO;
-    public bool WithinRange = false;
+    [Header("Health Info")]
+    public int HealthGain;
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && WithinRange)
-        {
-            gameObject.SetActive(false);
-            HealPlayer();
-            PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();
-            Debug.Log("healed");
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            EKeyButtonGO.SetActive(true);
-            WithinRange = true;
-        }
-    }
+    public PlayerInfo PlayerInfoRef;
 
-    private void OnTriggerExit(Collider other)
+    //All pick up functions below
+    public void HealPlayer()
     {
-        EKeyButtonGO.SetActive(false);
-        WithinRange = false;
+        PlayerController.Instance.Player.GetComponent<BaseCharacter>().CharacterHealthAmount += HealthGain;
+        PlayerInfoRef.UpdatePlayersStats();
     }
 }

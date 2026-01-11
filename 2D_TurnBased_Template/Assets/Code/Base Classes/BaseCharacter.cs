@@ -9,6 +9,9 @@ public class BaseCharacter : MonoBehaviour
     [Header("Health")]
     public int CharacterHealthAmount;
     public int CharacterMaxHealthLevel;
+    [Header("Rage Ult Points")]
+    public int RageUltAmount;
+    public int RageMaxUltAmount;
     [Header("Range Dmg")]
     public int RangeDamg;
     [Header("Souls/XP")]
