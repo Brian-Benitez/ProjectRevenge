@@ -5,6 +5,7 @@ public class PlayersUltController : MonoBehaviour
     public static PlayersUltController Instance;
 
     public bool IsUlted;
+    public bool IsUpgradeOn;
     public int UltPoints;
     public int MaxUltPoints;
     public float UltDuration;
@@ -34,28 +35,35 @@ public class PlayersUltController : MonoBehaviour
         {
             if(!IsUlted && UltPoints == MaxUltPoints)
             {
-                if (UltDuration <= 0)
-                {
-                    IsUlted = false;
-                    SetPlayerToNormalStats();
-                    RemoveAllUltPoints();
-                    UltDuration += MaxUltDuration;
-                }
-                else
-                {
-                    UltDuration -= Time.deltaTime;
-                    IsUlted = true;
-                    ActivateUlt();
-                }
+                IsUlted = true;
             }
-            
+        }
+
+        if(IsUlted && UltDuration > 0)//add another check so it runs once
+        {
+            UltDuration -= Time.deltaTime;
+        }
+        else if(!IsUlted && UltDuration <= 0)
+        {
+            IsUlted = false;
+            IsUpgradeOn = false;
+            SetPlayerToNormalStats();
+            RemoveAllUltPoints();
+            UltDuration += MaxUltDuration;
+        }
+
+        if(IsUlted && !IsUpgradeOn)
+        {
+            IsUpgradeOn = true;
+            Debug.Log("Start ult");
+            ActivateUlt();
         }
     }
 
     public void ActivateUlt()
     {
         //Movement upgrade
-        PlayerMovementRef.PlayerSpeed += BoostedMovementSpeed;
+        PlayerMovementRef.FullSpeed += BoostedMovementSpeed;
         PlayerMovementRef.DashCoolDown -= LoweredDashCoolDown;
 
         //Melee upgrade
