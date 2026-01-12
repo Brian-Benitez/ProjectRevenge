@@ -10,6 +10,6 @@ public class RagePickUp : BasePickUp
     public void AddRagePoint()
     {
         PlayersUltController.Instance.AddUltPoint(RageGain);
-        PlayerInfoRef.UpdatePlayersStats();
+        
     }
 }

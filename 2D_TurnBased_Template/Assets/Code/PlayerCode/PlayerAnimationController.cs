@@ -25,8 +25,14 @@ public class PlayerAnimationController : MonoBehaviour
     public void IsNotMoving() => PlayerAnimator.SetBool("IsMoving", false);
 
     //Attacking animations bools
-    public void IsAttacking() => PlayerAnimator.SetBool("IsAttacking", true);
-    public void IsNotAttacking() => PlayerAnimator.SetBool("IsAttacking", false);
+    public void IsAttacking()
+    {
+        PlayerAnimator.SetBool("IsAttacking", true);
+    }
+    public void IsNotAttacking()
+    {
+        PlayerAnimator.SetBool("IsAttacking", false);
+    }
 
     public void IsDashing() => PlayerAnimator.SetBool("IsDashing", true);
     public void IsNotDashing() => PlayerAnimator.SetBool("IsDashing", false);

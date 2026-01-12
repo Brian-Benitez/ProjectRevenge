@@ -32,7 +32,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("Booleans")]
     public bool CanMeleeAttackAgain = false;
     public bool IsAttacking = false;
-    public bool ChangedValues = false;  
+    public bool ChangedValues = false;
 
     //private vars
     private float _maxTimeBtwAttacks;
