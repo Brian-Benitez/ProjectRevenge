@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
 
         if (Input.GetKey(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -66,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("dash");
             StartCoroutine(Dash());
         }
+        Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
         Flip();
     }
 

@@ -7,6 +7,8 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
     public GameObject EKeyPNG;
 
     public bool CanInteract = false;
+    public bool IsInteracting = false;
+    public PlayerMovement PlayerMovementRef;
 
     private void Start()
     {
@@ -20,14 +22,20 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 UpgradeUIGameObject.SetActive(true);
+                IsInteracting = true;
             }
             if (Input.GetKeyUp(KeyCode.Q))
             {
                 UpgradeUIGameObject.SetActive(false);
+                IsInteracting = false;
+                
             }
         }
-        else
-            UpgradeUIGameObject.SetActive(false);
+        //makes player not move when in menu
+        if(IsInteracting)
+            PlayerMovementRef.TurnOnStopPlayerMovement();
+        else if(!IsInteracting)
+            PlayerMovementRef.TurnOffStopPlayerMovement();
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
