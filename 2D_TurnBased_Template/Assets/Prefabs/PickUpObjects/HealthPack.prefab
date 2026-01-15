@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EKeyButtonGO: {fileID: 4255886783577892038}
+  PickUpType: 1
   OnPickUp:
     m_PersistentCalls:
       m_Calls:

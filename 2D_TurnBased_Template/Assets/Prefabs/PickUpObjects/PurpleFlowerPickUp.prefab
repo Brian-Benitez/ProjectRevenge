@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3229879392091591726}
   - component: {fileID: 57690851020142936}
   - component: {fileID: 4828240383712112486}
-  - component: {fileID: 2764253686761010495}
+  - component: {fileID: 2279169925253521241}
   m_Layer: 0
   m_Name: PurpleFlowerPickUp
   m_TagString: Untagged
@@ -224,7 +224,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2764253686761010495
+--- !u!114 &2279169925253521241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,10 +233,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6814735625357380005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe593fd6dc803f4e94e0a92fca43775, type: 3}
+  m_Script: {fileID: 11500000, guid: 04f77d8ec0b21a64db74f1e3d2094ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EKeyButtonGO: {fileID: 8540045314196256855}
+  OnPickUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8540045314196256855
 GameObject:
   m_ObjectHideFlags: 0

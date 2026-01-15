@@ -4,6 +4,8 @@ using UnityEngine.Events;
 public class BasePickUp : MonoBehaviour
 {
     public GameObject EKeyButtonGO;
+    public enum TypeOfPickUp { Collectable, Potion};
+    public TypeOfPickUp PickUpType;
 
     bool WithinRange = false;
 
@@ -13,10 +15,19 @@ public class BasePickUp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && WithinRange)
         {
-            //PlayerInventory.Instance.AddObjectToInventory(this.gameObject);
-            Debug.Log("pick up object");
-            OnPickUp.Invoke();
-            gameObject.SetActive(false);//do something with this later
+            if(PickUpType == TypeOfPickUp.Potion)
+            {
+                Debug.Log("pick up object");
+                OnPickUp.Invoke();
+                gameObject.SetActive(false);
+            }
+            else if(PickUpType == TypeOfPickUp.Collectable)
+            {
+                PlayerInventory.Instance.AddObjectToInventory(this.gameObject);
+                Debug.Log("collected");
+                gameObject.SetActive(false);
+            }
+           
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
