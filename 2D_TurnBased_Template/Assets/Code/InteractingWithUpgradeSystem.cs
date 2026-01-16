@@ -28,14 +28,12 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
             {
                 UpgradeUIGameObject.SetActive(false);
                 IsInteracting = false;
-                
+                PlayerMovementRef.TurnOffStopPlayerMovement();
             }
         }
         //makes player not move when in menu
         if(IsInteracting)
             PlayerMovementRef.TurnOnStopPlayerMovement();
-        else if(!IsInteracting)
-            PlayerMovementRef.TurnOffStopPlayerMovement();
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
