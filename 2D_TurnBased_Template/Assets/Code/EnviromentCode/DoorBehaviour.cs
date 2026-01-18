@@ -28,15 +28,18 @@ public class DoorBehaviour : MonoBehaviour
             DoorMovingRef.OpenDoor = true;
             Debug.Log("open door");
         }
-        else if(IsOnTimer && DoorActivator.IsActivated)
+        else if(IsOnTimer && !DoorActivator.IsActivated)
         {
             DoorTimer -= Time.deltaTime;
 
-            if(DoorTimer <= 0)
+            if (DoorTimer <= 0)
             {
                 DoorActivator.IsActivated = false;
-                //CloseDoor();
             }
+        }
+        else if (IsOnTimer && DoorActivator.IsActivated)
+        {
+            DoorMovingRef.OpenDoor = true;
         }
     }
 }

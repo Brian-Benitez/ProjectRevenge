@@ -12,6 +12,7 @@ public class HitObjectInOrderPuzzleManager : MonoBehaviour
     {
         if(IsAllTriggersOn())
         {
+            IsAllOn = true;
             DoorBehaviour.DoorActivator.IsActivated = true;
             RestartAllCountNumber();
         }
