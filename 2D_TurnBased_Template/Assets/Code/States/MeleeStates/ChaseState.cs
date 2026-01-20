@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChaseState : State
@@ -14,6 +13,7 @@ public class ChaseState : State
     public float MinimumDistance;
     public float DistanceFromPlayer;
 
+    public EnemyAggroDistance EnemyAggroDistanceRef;
     EnemyWeaponRotation _enemyWeaponRotationRef;
     private void Start()
     {
@@ -28,19 +28,25 @@ public class ChaseState : State
         if (_enemyWeaponRotationRef.IsAttacking)
             return;
 
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)
+        if (EnemyAggroDistanceRef.IsAggro)
         {
-            AttackState.WithinRange = false;// not yet in range
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)
+            {
+                AttackState.WithinRange = false;// not yet in range
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
+            }
+            else
+            {
+                DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
+                AttackState.WithinRange = true;
+            }
         }
-        else
-        {
-            DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
-            AttackState.WithinRange = true;
-        }
+        else if (!EnemyAggroDistanceRef.IsAggro)// if u aint aggro, just chill
+            return;
+       
     }
 
-    public override State RunCurrentState()//make ref to stun state here!!!!!!
+    public override State RunCurrentState()
     {
 
         if (BaseEnemyRef.IsStunned)
@@ -51,4 +57,5 @@ public class ChaseState : State
 
         return this;
     }
+
 }
