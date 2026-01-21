@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,38 +8,55 @@ public class GetWithinRangeAttackState : State
     public bool WithinRangeAttack = false;
     public float Speed; //change this to the enemys stats later
     public float AttackRange;
-    [Header("Minimun distance ti attack")]
+    [Header("Minimun distance to attack")]
     public float MinimunDistanceForRangeAttack;
-    [Header("How far target is")]
-    public float DistanceFromTarget;
+ 
     //States below
     RangeAttackState RangeAttackState;
-    BaseEnemy BaseEnemy;
+
+    [Header("Scripts")]
+    public EnemyAggroDistance EnemyAggroDistanceRef;
 
     private void Start()
     {
         RangeAttackState = GetComponentInChildren<RangeAttackState>();
-        BaseEnemy = GetComponent<BaseEnemy>();
         //DistanceFromTarget = _maxDistanceFromTarget;
-        
     }
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)
+        if(EnemyAggroDistanceRef.IsAggro)
         {
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, Speed * Time.deltaTime);
-        }
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimunDistanceForRangeAttack)
+            {
+                if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < AttackRange)
+                {
+                    TurnOnWithinRangeBool();
+                    Debug.Log("start attacking");
+                }
+            }
 
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < MinimunDistanceForRangeAttack)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -Speed * Time.deltaTime);
-            Debug.Log("look at ne");
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)//moving towards
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, Speed * Time.deltaTime);
+                Debug.Log("run towardsa");
+            }
+
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < MinimunDistanceForRangeAttack)//backing up
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -Speed * Time.deltaTime);
+                Debug.Log("look at ne");
+            }
         }
+        else if(!EnemyAggroDistanceRef.IsAggro)
+        {
+            return;
+        }
+        
     }
     public override State RunCurrentState()
     {
-        if (WithinRangeAttack)
+        if (WithinRangeAttack && EnemyAggroDistanceRef.IsAggro)
         {
             return RangeAttackState;
         }
@@ -46,7 +64,12 @@ public class GetWithinRangeAttackState : State
     }
     //Helper functions-------------------------------------------------------->
 
-    public void RestartDisanceFromTarget() => DistanceFromTarget = MinimunDistanceForRangeAttack;
     public void TurnOffWithinRangeBool() => WithinRangeAttack = false;
     public void TurnOnWithinRangeBool() => WithinRangeAttack = true;
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, AttackRange);
+    }
 }

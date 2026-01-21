@@ -6,15 +6,17 @@ public class RangeAttackState : State
 
     public GameObject Projectile;
     public Transform ShotPoint;
-    //Below is for enemies who are meduim level and up.
-    [Header("Below is for enemies who are meduim level and up")]
-    public Transform ShotPointTwo;
-    public Transform ShotPointThree;
+    public float RangeDistance;
 
     public bool CanRangeAttackAgain;
     public bool IsAttacking = false;
     public bool IsStillWithinRange = false;
     public bool LockedOnPlayer = true;
+
+    //Below is for enemies who are meduim level and up.
+    [Header("Below is for enemies who are meduim level and up")]
+    public Transform ShotPointTwo;
+    public Transform ShotPointThree;
 
     GetWithinRangeAttackState GetWithinRangeAttackState;
     EnemyArcher _enemyArcherRef;
@@ -24,6 +26,7 @@ public class RangeAttackState : State
     private void Start()
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
+        TimeBtwAttack = 0;
         GetWithinRangeAttackState = GetComponentInParent<GetWithinRangeAttackState>();
         _enemyArcherRef = GetComponentInParent<EnemyArcher>();
     }
@@ -39,7 +42,7 @@ public class RangeAttackState : State
             transform.Rotate(0, 0, angle);
         }
 
-        if (GetWithinRangeAttackState.DistanceFromTarget < GetWithinRangeAttackState.MinimunDistanceForRangeAttack)
+        if (GetWithinRangeAttackState.WithinRangeAttack)
         {
             IsStillWithinRange = true;
             if (CanRangeAttackAgain)//check if the distance hits the minium then attack here
@@ -48,6 +51,7 @@ public class RangeAttackState : State
                 if(_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Easy)
                 {
                     Instantiate(Projectile, ShotPoint.position, transform.rotation);
+                    Debug.Log("shot");
                 }
                 if(_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
                 {
@@ -102,6 +106,6 @@ public class RangeAttackState : State
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(ShotPoint.position, 8f);
+        Gizmos.DrawWireSphere(ShotPoint.position, RangeDistance);
     }
 }

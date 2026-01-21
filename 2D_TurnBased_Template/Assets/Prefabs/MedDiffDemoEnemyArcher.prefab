@@ -169,6 +169,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4778071554281220267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4473517890837811401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6783123508345464235}
+  - component: {fileID: 5211125791650558122}
+  - component: {fileID: 5664749913713384146}
+  m_Layer: 3
+  m_Name: AggroDistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6783123508345464235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473517890837811401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7792463973501070681}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5211125791650558122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473517890837811401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86a474fb86f125439918580f69c5214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsAggro: 0
+  AggroDistance: 13
+--- !u!58 &5664749913713384146
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4473517890837811401}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 13
 --- !u!1 &5110741940316867064
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +380,7 @@ Transform:
   - {fileID: 4435327567272935342}
   - {fileID: 4778071554281220267}
   - {fileID: 8252927944634645974}
+  - {fileID: 6783123508345464235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5369697583226992711
@@ -457,6 +541,7 @@ MonoBehaviour:
   AttackRange: 13
   MinimunDistanceForRangeAttack: 6
   DistanceFromTarget: 0
+  EnemyAggroDistanceRef: {fileID: 5211125791650558122}
 --- !u!114 &830457186871266418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +664,7 @@ MonoBehaviour:
   TimeBtwAttack: 5
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
+  RangeDistance: 0
   ShotPointTwo: {fileID: 6948228698367970731}
   ShotPointThree: {fileID: 7662686658691191966}
   CanRangeAttackAgain: 0

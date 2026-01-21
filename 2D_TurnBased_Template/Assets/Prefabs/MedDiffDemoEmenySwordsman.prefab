@@ -394,6 +394,7 @@ Transform:
   - {fileID: 8360541887790813786}
   - {fileID: 8571502783990917997}
   - {fileID: 2705486564257355089}
+  - {fileID: 2944765328012066471}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8808496509270256843
@@ -548,7 +549,6 @@ MonoBehaviour:
   StunDuration: 2
   EnemyType: 0
   EnemyDifficulty: 1
-  Rigidbody2D: {fileID: 7454889665035901622}
 --- !u!114 &7548019549084103618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +579,7 @@ MonoBehaviour:
   MovementSpeed: 2
   MinimumDistance: 2.5
   DistanceFromPlayer: 0
+  EnemyAggroDistanceRef: {fileID: 2518910132756565181}
 --- !u!114 &7971086465596985434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38917b389ef7a91479fcdec4063e20e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStunTime: 2
 --- !u!114 &2908071471798872749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,3 +747,86 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!1 &7979956444630642051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2944765328012066471}
+  - component: {fileID: 2518910132756565181}
+  - component: {fileID: 8450370562394608458}
+  m_Layer: 3
+  m_Name: AggroDistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2944765328012066471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979956444630642051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2682440749604508436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2518910132756565181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979956444630642051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86a474fb86f125439918580f69c5214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsAggro: 0
+  AggroDistance: 7
+--- !u!58 &8450370562394608458
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979956444630642051}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 7
