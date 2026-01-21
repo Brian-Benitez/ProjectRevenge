@@ -1,12 +1,10 @@
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 public class GetWithinRangeAttackState : State
 {
     [Header("Is Within Range")]
     public bool WithinRangeAttack = false;
-    public float Speed; //change this to the enemys stats later
     public float AttackRange;
     [Header("Minimun distance to attack")]
     public float MinimunDistanceForRangeAttack;
@@ -16,11 +14,11 @@ public class GetWithinRangeAttackState : State
 
     [Header("Scripts")]
     public EnemyAggroDistance EnemyAggroDistanceRef;
+    public EnemyArcher EnemyArcherRef;
 
     private void Start()
     {
         RangeAttackState = GetComponentInChildren<RangeAttackState>();
-        //DistanceFromTarget = _maxDistanceFromTarget;
     }
 
     private void Update()
@@ -38,13 +36,13 @@ public class GetWithinRangeAttackState : State
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)//moving towards
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, Speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemyArcherRef.EnemySpeed * Time.deltaTime);
                 Debug.Log("run towardsa");
             }
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < MinimunDistanceForRangeAttack)//backing up
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -Speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed * Time.deltaTime);
                 Debug.Log("look at ne");
             }
         }

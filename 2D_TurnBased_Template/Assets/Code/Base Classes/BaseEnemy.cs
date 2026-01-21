@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Stats")]
     public float EnemyHealth;
-    public int EnemySpeed;
+    public float EnemySpeed;
     public int EnemyDamage;
 
     [Header("Enemy Souls Value")]

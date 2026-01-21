@@ -537,11 +537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
-  Speed: 1
   AttackRange: 13
-  MinimunDistanceForRangeAttack: 6
-  DistanceFromTarget: 0
+  MinimunDistanceForRangeAttack: 7
   EnemyAggroDistanceRef: {fileID: 5211125791650558122}
+  EnemyArcherRef: {fileID: 4523472527908755746}
 --- !u!114 &830457186871266418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,12 +664,12 @@ MonoBehaviour:
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
   RangeDistance: 0
-  ShotPointTwo: {fileID: 6948228698367970731}
-  ShotPointThree: {fileID: 7662686658691191966}
   CanRangeAttackAgain: 0
   IsAttacking: 0
   IsStillWithinRange: 0
   LockedOnPlayer: 1
+  ShotPointTwo: {fileID: 6948228698367970731}
+  ShotPointThree: {fileID: 7662686658691191966}
 --- !u!1 &8298556570732031061
 GameObject:
   m_ObjectHideFlags: 0

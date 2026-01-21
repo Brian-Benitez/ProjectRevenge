@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 8
-  EnemySpeed: 4
+  EnemySpeed: 1.5
   EnemyDamage: 1
   EnemySoulsValue: 15
   IsHit: 0
@@ -681,10 +681,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
-  Speed: 1
   AttackRange: 13
-  MinimunDistanceForRangeAttack: 6
+  MinimunDistanceForRangeAttack: 7
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
+  EnemyArcherRef: {fileID: 3818436561324985095}
 --- !u!114 &5727651949420622849
 MonoBehaviour:
   m_ObjectHideFlags: 0
