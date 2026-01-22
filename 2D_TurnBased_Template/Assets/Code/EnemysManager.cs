@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemysManager : MonoBehaviour
 {
-    public static EnemysManager Instance;
+    public static EnemysManager Instance;//gotta split this later, no door controller here breaking SRP
  
     [Header("All Doors in level")]
     public List<GameObject> AllDoorsInLevel;
