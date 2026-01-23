@@ -30,7 +30,7 @@ public class ChaseState : State
 
         if (EnemyAggroDistanceRef.IsAggro)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)// grab new distance from enemy placement here
             {
                 AttackState.WithinRange = false;// not yet in range
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
