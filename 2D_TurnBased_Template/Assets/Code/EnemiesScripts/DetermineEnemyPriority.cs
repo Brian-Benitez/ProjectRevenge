@@ -7,9 +7,8 @@ public class DetermineEnemyPriority : MonoBehaviour
     public int EnemyPriorty;
 
     [Header("Distances")]
-    public float CloseAggroDistance;
-    public float CloseStandbyDistance;
-    public float FarWaitingDistance;
+    public float OnePriorityDistance;
+    public float TwoPriorityDistance;
 
     private void Update()
     {
@@ -19,17 +18,19 @@ public class DetermineEnemyPriority : MonoBehaviour
     {
         float _distanceFromPlayer = Vector2.Distance(transform.position, playerpos.transform.position);  
         
-        if(_distanceFromPlayer <= CloseAggroDistance)
+        if(_distanceFromPlayer <= OnePriorityDistance)
         {
             EnemyPriorty = 1;
         }
-        if(_distanceFromPlayer <= CloseStandbyDistance && _distanceFromPlayer > CloseAggroDistance)
+        if(_distanceFromPlayer <= TwoPriorityDistance && _distanceFromPlayer > OnePriorityDistance)
         {
             EnemyPriorty = 2;
         }
-        if(_distanceFromPlayer >= FarWaitingDistance)
-        {
-            EnemyPriorty = 3;
-        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.darkOrange;
+        Gizmos.DrawWireSphere(transform.position, TwoPriorityDistance);
     }
 }
