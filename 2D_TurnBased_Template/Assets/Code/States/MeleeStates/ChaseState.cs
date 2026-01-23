@@ -9,12 +9,14 @@ public class ChaseState : State
 
 
     [Header("Floats")]
-    public float MovementSpeed;
     public float MinimumDistance;
     public float DistanceFromPlayer;
 
+    [Header("Scripts")]
+    public EnemySwordsman EnemySwordsmanRef;
     public EnemyAggroDistance EnemyAggroDistanceRef;
     EnemyWeaponRotation _enemyWeaponRotationRef;
+
     private void Start()
     {
         AttackState = GetComponentInChildren<AttackState>();
@@ -33,7 +35,7 @@ public class ChaseState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistance)// grab new distance from enemy placement here
             {
                 AttackState.WithinRange = false;// not yet in range
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
             }
             else
             {

@@ -576,9 +576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c721708da2aed14b8332e7b11d58c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
   MinimumDistance: 2.5
   DistanceFromPlayer: 0
+  EnemySwordsmanRef: {fileID: 9113469955481799094}
   EnemyAggroDistanceRef: {fileID: 2518910132756565181}
 --- !u!114 &7971086465596985434
 MonoBehaviour:
