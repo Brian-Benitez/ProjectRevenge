@@ -6,12 +6,12 @@ public class StunState : State
     private float MaxStunTime;
 
     BaseEnemy BaseEnemyRef;
-    ChaseState ChaseStateRef;
+    MovementState ChaseStateRef;
 
     private void Start()
     {
         BaseEnemyRef = GetComponent<BaseEnemy>();
-        ChaseStateRef = GetComponent<ChaseState>(); 
+        ChaseStateRef = GetComponent<MovementState>(); 
         MaxStunTime = BaseEnemyRef.StunDuration;
     }
 

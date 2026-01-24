@@ -206,6 +206,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3685339887705541458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6807966553442930785}
+  - component: {fileID: 2527111828413938408}
+  m_Layer: 3
+  m_Name: EnemyPriority
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6807966553442930785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685339887705541458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 420412308278162264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2527111828413938408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685339887705541458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d73b17c3e61c14d8e42ed8fcb9fe76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPriorty: 0
+  OnePriorityDistance: 7
+  TwoPriorityDistance: 11
 --- !u!1 &3979199002658533547
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 1798953980360535451}
+  currentState: {fileID: 3771332004520370198}
 --- !u!1 &3992491481548650938
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
-  AggroDistance: 10
+  AggroDistance: 11
 --- !u!58 &7784250481907273731
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -387,7 +434,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.020103455, y: 0}
-  m_Radius: 10
+  m_Radius: 11
 --- !u!1 &8044771803214212618
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,8 +448,8 @@ GameObject:
   - component: {fileID: 8332295328492677}
   - component: {fileID: 8548736215153058532}
   - component: {fileID: 763097274553505534}
+  - component: {fileID: 3771332004520370198}
   - component: {fileID: 8478864681154725586}
-  - component: {fileID: 1798953980360535451}
   - component: {fileID: 321626104883675319}
   m_Layer: 3
   m_Name: EasyDiffDemoEmenySwordsman
@@ -426,8 +473,9 @@ Transform:
   m_Children:
   - {fileID: 7189085324108953588}
   - {fileID: 4348070082136977799}
-  - {fileID: 3546789916428154126}
   - {fileID: 4206373291767073470}
+  - {fileID: 6807966553442930785}
+  - {fileID: 3546789916428154126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2294815640578897509
@@ -582,6 +630,23 @@ MonoBehaviour:
   StunDuration: 1
   EnemyType: 0
   EnemyDifficulty: 0
+--- !u!114 &3771332004520370198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044771803214212618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b73f734f239ce4c9fb99bdc27d37fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackingRange: 2.5
+  StoppingDistance: 0
+  EnemySwordsmanRef: {fileID: 763097274553505534}
+  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
+  DetermineEnemyPriorityRef: {fileID: 2527111828413938408}
 --- !u!114 &8478864681154725586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,22 +662,6 @@ MonoBehaviour:
   Rb2d: {fileID: 8548736215153058532}
   Strength: 5005
   delay: 0.15
---- !u!114 &1798953980360535451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044771803214212618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c721708da2aed14b8332e7b11d58c34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinimumDistance: 2.5
-  DistanceFromPlayer: 0
-  EnemySwordsmanRef: {fileID: 763097274553505534}
-  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
 --- !u!114 &321626104883675319
 MonoBehaviour:
   m_ObjectHideFlags: 0

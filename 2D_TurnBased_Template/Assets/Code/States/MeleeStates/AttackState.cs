@@ -22,7 +22,7 @@ public class AttackState : State//rename this to EnemyAttackState
     public bool AttackMissedPlayer = false;
     private EnemySwordsman EnemySwordsmanRef;
     //States ref here
-    ChaseState ChaseState;
+    MovementState ChaseState;
     StunState StunState;
     BlockAndMoveState BlockAndMoveState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
@@ -34,7 +34,7 @@ public class AttackState : State//rename this to EnemyAttackState
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
         EnemySwordsmanRef = gameObject.GetComponentInParent<EnemySwordsman>();
-        ChaseState = GetComponentInParent<ChaseState>();
+        ChaseState = GetComponentInParent<MovementState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
 
         if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)

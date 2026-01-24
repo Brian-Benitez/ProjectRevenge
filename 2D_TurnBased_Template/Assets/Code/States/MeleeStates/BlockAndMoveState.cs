@@ -10,14 +10,14 @@ public class BlockAndMoveState : State
     public float DurationOfBlock;
     float _maxDurationOfBlock;
     private EnemyShield _enemyShield;
-    ChaseState ChaseStateRef;
+    MovementState ChaseStateRef;
     private float _distanceToMoveBack = 15f;
     private float _speedOfMovement = -3;
 
     private void Start()
     {
         _maxDurationOfBlock = DurationOfBlock;
-        ChaseStateRef = GetComponent<ChaseState>();
+        ChaseStateRef = GetComponent<MovementState>();
         _enemyShield = GetComponent<EnemyShield>();
     }
     private void Update()

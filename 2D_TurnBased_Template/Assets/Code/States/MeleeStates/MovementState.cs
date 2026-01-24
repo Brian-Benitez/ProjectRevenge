@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChaseState : State
+public class MovementState : State
 {
     [Header("States")]
     AttackState AttackState;
@@ -10,7 +10,6 @@ public class ChaseState : State
 
     [Header("Floats")]
     public float AttackingRange;
-    public float MinimumDistance;
     public float StoppingDistance;
     public float DistanceFromPlayer;
 
@@ -38,7 +37,7 @@ public class ChaseState : State
             ChangeStoppingDistannce();
             MoveBasedOnPriority();
         }
-        else if (!EnemyAggroDistanceRef.IsAggro)// if u aint aggro, just chill
+        else if (!EnemyAggroDistanceRef.IsAggro)
             return;
        
     }
@@ -68,7 +67,18 @@ public class ChaseState : State
         {
             AttackState.WithinRange = true;
         }
-        //make another check like line 62 but for priority 2 but move slow to the border of priorty 1
+        
+        //priority 2 enemies here
+        if(DistanceFromPlayer <= StoppingDistance && DetermineEnemyPriorityRef.EnemyPriorty == 2)
+        {
+            Debug.Log("wait for your turn");
+        }
+        if (DistanceFromPlayer > StoppingDistance && DetermineEnemyPriorityRef.EnemyPriorty == 2)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+        }
+
+        DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
     }
 
     public override State RunCurrentState()

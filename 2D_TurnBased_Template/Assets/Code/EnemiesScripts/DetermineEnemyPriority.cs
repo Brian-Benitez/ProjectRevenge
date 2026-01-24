@@ -32,5 +32,6 @@ public class DetermineEnemyPriority : MonoBehaviour
     {
         Gizmos.color = Color.darkOrange;
         Gizmos.DrawWireSphere(transform.position, TwoPriorityDistance);
+        Gizmos.DrawWireSphere(transform.position, OnePriorityDistance);
     }
 }
