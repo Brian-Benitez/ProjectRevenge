@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemysManager : MonoBehaviour
@@ -19,6 +20,13 @@ public class EnemysManager : MonoBehaviour
             Instance = this;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            EnableIsFullAggro();
+        }
+    }
 
     public void DisableTrigger(int UsedFightId)
     {
@@ -26,6 +34,30 @@ public class EnemysManager : MonoBehaviour
         {
             if(triggers.FightID == UsedFightId)
                 triggers.gameObject.SetActive(false);
+
+            //triggers.Enemies[0].GetComponent<DetermineEnemyPriority>().IsFullAggro = true;
+        }
+    }
+
+    public void EnableIsFullAggro()
+    {
+        foreach(TriggerFight triggers in TriggerFights)
+        {
+            int _countofEnemies = 0;
+
+            for (int i = 0; i < triggers.Enemies.Count; i++)
+            {
+                if (triggers.Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == false)
+                {
+                    _countofEnemies++;
+                    Debug.Log("is not aggro");
+                }
+
+                if (_countofEnemies == triggers.Enemies.Count)
+                {
+                    triggers.Enemies[0].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
+                }
+            }
         }
     }
 

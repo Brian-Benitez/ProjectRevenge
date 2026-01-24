@@ -5,6 +5,7 @@ public class DetermineEnemyPriority : MonoBehaviour
 {
     [Header("Priority level")]
     public int EnemyPriorty;
+    public bool IsFullAggro = false;
 
     [Header("Distances")]
     public float OnePriorityDistance;
@@ -27,7 +28,6 @@ public class DetermineEnemyPriority : MonoBehaviour
             EnemyPriorty = 2;
         }
     }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.darkOrange;
