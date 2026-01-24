@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class EnemysManager : MonoBehaviour
 {
@@ -9,23 +9,14 @@ public class EnemysManager : MonoBehaviour
     [Header("All Doors in level")]
     public List<GameObject> AllDoorsInLevel;
 
-    public int CurrentEnemyAmount;
-
+    [Header("All Fight boxes")]
     public List<TriggerFight> TriggerFights;
-    public int LastTriggerIndex;
+    public int CurrentTriggerIndex;
 
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            EnableIsFullAggro();
-        }
     }
 
     public void DisableTrigger(int UsedFightId)
@@ -34,39 +25,49 @@ public class EnemysManager : MonoBehaviour
         {
             if(triggers.FightID == UsedFightId)
                 triggers.gameObject.SetActive(false);
-
-            //triggers.Enemies[0].GetComponent<DetermineEnemyPriority>().IsFullAggro = true;
         }
     }
 
     public void EnableIsFullAggro()
     {
-        foreach(TriggerFight triggers in TriggerFights)
-        {
-            int _countofEnemies = 0;
+        int _countofEnemies = 0;
 
-            for (int i = 0; i < triggers.Enemies.Count; i++)
+        if(TriggerFights[CurrentTriggerIndex].Enemies.Count == 0)
+        {
+            Debug.Log("there are no enemies left to be aggro to");
+        }
+        else
+        {
+            for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
             {
-                if (triggers.Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == false)
+                if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == false)
                 {
                     _countofEnemies++;
                     Debug.Log("is not aggro");
                 }
-
-                if (_countofEnemies == triggers.Enemies.Count)
+                if (_countofEnemies == TriggerFights[CurrentTriggerIndex].Enemies.Count)
                 {
-                    triggers.Enemies[0].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
+                    TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
                 }
             }
-        }
+        } 
     }
 
+    /// <summary>
+    /// This calls when enemy is killed, then is removed from  trigger fights list of enemies
+    /// </summary>
+    /// <param name="enemy"></param>
+    public void RemoveEnemyFromList(GameObject enemy)
+    {
+        TriggerFights[CurrentTriggerIndex].Enemies.Remove(enemy);
+        Debug.Log("removing self from list");
+    }
     public void IsAllEnemiesDead()
     {
-        if (CurrentEnemyAmount <= 0)
+        if (TriggerFights[CurrentTriggerIndex].Enemies.Count <= 0)
+        {
             OpenAllDoorsInLevel();
-        else
-            Debug.Log("enemies still about");
+        }
     }
 
     /// <summary>

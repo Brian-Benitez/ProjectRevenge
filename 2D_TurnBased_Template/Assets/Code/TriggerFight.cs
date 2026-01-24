@@ -14,10 +14,9 @@ public class TriggerFight : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("spawn enemies now");
-            EnemysManager.Instance.CurrentEnemyAmount += Enemies.Count;
             ActivateAllEnemies();
             EnemysManager.Instance.DisableTrigger(FightID);
-            EnemysManager.Instance.LastTriggerIndex = FightID;
+            EnemysManager.Instance.CurrentTriggerIndex = FightID;
             EnemysManager.Instance.CloseAllDoorsInLevel();
         }
     }

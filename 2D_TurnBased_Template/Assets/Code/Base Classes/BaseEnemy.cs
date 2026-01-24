@@ -56,7 +56,8 @@ public class BaseEnemy : MonoBehaviour
             SoulsBankController.instance.SoulsBank += EnemySoulsValue;
             SoulsBankController.instance.PayoutToPlayer();
             PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
-            EnemysManager.Instance.CurrentEnemyAmount -= 1;
+            EnemysManager.Instance.RemoveEnemyFromList(this.gameObject);
+            EnemysManager.Instance.EnableIsFullAggro();
             EnemysManager.Instance.IsAllEnemiesDead();
             Destroy(this.gameObject);
         }
