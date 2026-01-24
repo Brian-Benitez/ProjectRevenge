@@ -58,7 +58,7 @@ public class MovementState : State
     /// </summary>
     void MoveBasedOnPriority()
     {
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.EnemyPriorty == 1)
+        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.EnemyPriorty == 1 || DetermineEnemyPriorityRef.IsFullAggro)
         {
             AttackState.WithinRange = false;
             transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
