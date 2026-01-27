@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EnemysManager : MonoBehaviour
 {
-    public static EnemysManager Instance;//gotta split this later, no door controller here breaking SRP
- 
-    [Header("All Doors in level")]
-    public List<GameObject> AllDoorsInLevel;
+    public static EnemysManager Instance;
 
     [Header("All Fight boxes")]
     public List<TriggerFight> TriggerFights;
@@ -66,28 +63,7 @@ public class EnemysManager : MonoBehaviour
     {
         if (TriggerFights[CurrentTriggerIndex].Enemies.Count <= 0)
         {
-            OpenAllDoorsInLevel();
-        }
-    }
-
-    /// <summary>
-    /// Close all doors for battle.
-    /// </summary>
-    public void CloseAllDoorsInLevel()
-    {
-        foreach(GameObject Door in AllDoorsInLevel)
-        {
-            Door.SetActive(true);
-        }
-    }
-    /// <summary>
-    /// Open all doors after battle is done.
-    /// </summary>
-    public void OpenAllDoorsInLevel()
-    {
-        foreach (GameObject Door in AllDoorsInLevel)
-        {
-            Door.SetActive(false);
+            DoorController.instance.OpenAllDoorsInLevel();
         }
     }
 }
