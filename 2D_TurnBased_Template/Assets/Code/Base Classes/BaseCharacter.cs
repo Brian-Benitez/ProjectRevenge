@@ -34,10 +34,11 @@ public class BaseCharacter : MonoBehaviour
 
     public void DoesCharacterDie()
     {
-        if (CharacterHealthAmount < 0)
+        if (CharacterHealthAmount <= 0)
         {
             IsCharacterDead = true;
-            this.gameObject.gameObject.SetActive(false);
+            PlayerSpawnerController.Instance.SpawnPlayer();
+            //this.gameObject.gameObject.SetActive(false);
         }
         else
         {

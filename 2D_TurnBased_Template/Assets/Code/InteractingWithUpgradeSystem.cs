@@ -8,6 +8,7 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
 
     public bool CanInteract = false;
     public bool IsInteracting = false;
+    public bool CheckpointReached = false;
     public PlayerMovement PlayerMovementRef;
 
     private void Start()
@@ -23,6 +24,7 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
             {
                 UpgradeUIGameObject.SetActive(true);
                 IsInteracting = true;
+                CheckpointReached = true;
             }
             if (Input.GetKeyUp(KeyCode.Q))
             {
