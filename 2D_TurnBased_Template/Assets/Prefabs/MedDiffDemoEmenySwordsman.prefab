@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 6841573041997642175}
+  currentState: {fileID: 7971086465596985434}
 --- !u!1 &3216166122795581568
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 7454889665035901622}
   - component: {fileID: 9113469955481799094}
   - component: {fileID: 7548019549084103618}
-  - component: {fileID: 6841573041997642175}
+  - component: {fileID: 2766800968437526379}
   - component: {fileID: 7971086465596985434}
   - component: {fileID: 2908071471798872749}
   - component: {fileID: 3059539186523356831}
@@ -395,6 +395,7 @@ Transform:
   - {fileID: 8571502783990917997}
   - {fileID: 2705486564257355089}
   - {fileID: 2944765328012066471}
+  - {fileID: 492482305650230794}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8808496509270256843
@@ -564,7 +565,7 @@ MonoBehaviour:
   Rb2d: {fileID: 7454889665035901622}
   Strength: 5005
   delay: 0.15
---- !u!114 &6841573041997642175
+--- !u!114 &2766800968437526379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -573,13 +574,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5295978787876234622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c721708da2aed14b8332e7b11d58c34, type: 3}
+  m_Script: {fileID: 11500000, guid: c8b73f734f239ce4c9fb99bdc27d37fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinimumDistance: 2.5
+  AttackingRange: 2.5
+  StoppingDistance: 0
   DistanceFromPlayer: 0
   EnemySwordsmanRef: {fileID: 9113469955481799094}
   EnemyAggroDistanceRef: {fileID: 2518910132756565181}
+  DetermineEnemyPriorityRef: {fileID: 1408362457335272723}
 --- !u!114 &7971086465596985434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +626,54 @@ MonoBehaviour:
   EnemyShieldHealth: 10
   Shield: {fileID: 6264658101153515369}
   IsShieldBroken: 0
+--- !u!1 &5327061453718274649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492482305650230794}
+  - component: {fileID: 1408362457335272723}
+  m_Layer: 3
+  m_Name: DetermineAggro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492482305650230794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5327061453718274649}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2682440749604508436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408362457335272723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5327061453718274649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d73b17c3e61c14d8e42ed8fcb9fe76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPriorty: 0
+  IsFullAggro: 0
+  OnePriorityDistance: 7
+  TwoPriorityDistance: 11
 --- !u!1 &6264658101153515369
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
-  AggroDistance: 7
+  AggroDistance: 11
 --- !u!58 &8450370562394608458
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -829,4 +880,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 7
+  m_Radius: 11

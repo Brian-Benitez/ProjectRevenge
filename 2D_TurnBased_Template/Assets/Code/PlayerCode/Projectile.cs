@@ -1,7 +1,5 @@
-using System.Data.Common;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 public class Projectile : MonoBehaviour
 {
@@ -23,18 +21,24 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        /*
         if(collision.CompareTag("Shield"))
         {
             Debug.Log("shield is hit");
-            ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
+            ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;//comment out. need to check if its melee or not
             DestroyProjectile();
         }
+        */
         if(collision.CompareTag("Player"))
         {
             Debug.Log("hit player");
             PlayerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage);
             DestroyProjectile();
+        }
+        else if(collision.CompareTag("EnemyShield"))
+        {
+            Debug.Log("hit enemy shield");
+            collision.gameObject.GetComponent<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
         }
         else if(collision.CompareTag("Enemy"))
         {
