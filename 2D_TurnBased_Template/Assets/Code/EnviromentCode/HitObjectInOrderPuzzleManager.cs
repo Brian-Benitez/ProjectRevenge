@@ -6,14 +6,14 @@ public class HitObjectInOrderPuzzleManager : MonoBehaviour
     public List<ObjectHittableTrigger> HittableTriggers;
     public bool IsAllOn = false;
     int AllOnCount = 0;
-    public DoorBehaviour DoorBehaviour;
+    public DoorMoving DoorMovingRef;
 
     private void Update()
     {
         if(IsAllTriggersOn())
         {
             IsAllOn = true;
-            DoorBehaviour.DoorActivator.IsActivated = true;
+            DoorMovingRef.OpenDoor = true;
             RestartAllCountNumber();
         }
             
