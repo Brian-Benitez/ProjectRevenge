@@ -37,15 +37,18 @@ public class EnemysManager : MonoBehaviour
         {
             for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
             {
-                if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == false)
+                if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().EnemyType == BaseEnemy.TypeOfEnemy.Swordsman)
                 {
-                    _countofEnemies++;
-                    Debug.Log("is not aggro");
-                }
-                if (_countofEnemies == TriggerFights[CurrentTriggerIndex].Enemies.Count)
-                {
-                    TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
-                }
+                    if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == false)
+                    {
+                        _countofEnemies++;
+                        Debug.Log("is not aggro");
+                    }
+                    if (_countofEnemies == TriggerFights[CurrentTriggerIndex].Enemies.Count)
+                    {
+                        TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
+                    }
+                }  
             }
         } 
     }
