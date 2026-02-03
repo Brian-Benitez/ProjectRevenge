@@ -25,6 +25,7 @@ public class AttackState : State//rename this to EnemyAttackState
     MovementState ChaseState;
     StunState StunState;
     BlockAndMoveState BlockAndMoveState;
+    OpportunityToBeHitState OpportunityToBeHitState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
 
@@ -40,6 +41,11 @@ public class AttackState : State//rename this to EnemyAttackState
         if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
         {
             BlockAndMoveState = GetComponentInParent<BlockAndMoveState>();
+        }
+
+        if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
+        {
+            OpportunityToBeHitState = GetComponent<OpportunityToBeHitState>();
         }
     }
 
@@ -119,6 +125,8 @@ public class AttackState : State//rename this to EnemyAttackState
         {
             //do something
         }
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
+            return OpportunityToBeHitState;
 
         if (AttackMissedPlayer == true && _enemyWeaponRotationRef.IsAttacking == false)
         {

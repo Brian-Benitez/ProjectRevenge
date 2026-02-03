@@ -1,18 +1,18 @@
 using UnityEngine;
-using UnityEngine.InputSystem.DualShock;
 
 public class DKChaseState : State
 {
-    public DKRangeAttack rangeAttack;//fordemo 
-    public AttackState AttackState;
-
-    [Header("Floats")]
-    public float MovementSpeed;
-    public float MinimumDistanceFromPlayer;
-    public float DistanceFromPlayer;
-    public float PreferedRangeAttkDistance;
+    private float MinimumDistanceFromPlayer = 5f;
+    private float DistanceFromPlayer;
+    private float PreferedRangeAttkDistance = 7f;
 
     public bool CanStartRangeAttack = false;
+
+    [Header("Scripts")]
+    public DKRangeAttack rangeAttack;
+    public AttackState AttackState;
+    public BaseEnemy BaseEnemyRef;
+
 
     private void Update()
     {
@@ -27,7 +27,7 @@ public class DKChaseState : State
         if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimumDistanceFromPlayer)
         {
             AttackState.WithinRange = false;// not yet in range
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, MovementSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
         }
         else
         {

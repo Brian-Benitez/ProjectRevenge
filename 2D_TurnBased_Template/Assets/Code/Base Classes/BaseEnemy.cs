@@ -33,7 +33,8 @@ public class BaseEnemy : MonoBehaviour
     {
         Easy,
         Medium,
-        Hard
+        Hard,
+        Boss
     }
 
     public TypeOfEnemy EnemyType;
