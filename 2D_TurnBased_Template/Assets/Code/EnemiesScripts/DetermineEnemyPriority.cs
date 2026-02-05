@@ -8,6 +8,7 @@ public class DetermineEnemyPriority : MonoBehaviour
     public bool IsFullAggro = false;
 
     [Header("Distances")]
+    public float FullAggroStopDistance;
     public float OnePriorityDistance;
     public float TwoPriorityDistance;
 

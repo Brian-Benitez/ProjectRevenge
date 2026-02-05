@@ -673,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPriorty: 0
   IsFullAggro: 0
+  FullAggroStopDistance: 2.5
   OnePriorityDistance: 7
   TwoPriorityDistance: 11
 --- !u!1 &6264658101153515369

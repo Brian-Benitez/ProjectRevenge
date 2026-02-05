@@ -33,7 +33,7 @@ public class BaseCharacter : MonoBehaviour
         DoesCharacterDie();
     }
 
-    public void HealAllHealth() => CharacterHealthAmount = CharacterMaxHealth;
+    public void HealAllHealth() => CharacterHealthAmount = CharacterMaxHealth;//dont wanna add other var maybe do health level list take val there
 
     public void DoesCharacterDie()
     {

@@ -44,6 +44,10 @@ public class MovementState : State
     //changing distance code
     void ChangeStoppingDistannce()
     {
+        if(DetermineEnemyPriorityRef.IsFullAggro)
+        {
+            StoppingDistance = DetermineEnemyPriorityRef.FullAggroStopDistance;
+        }
         if(DetermineEnemyPriorityRef.EnemyPriorty == 1)
         {
             StoppingDistance = DetermineEnemyPriorityRef.OnePriorityDistance;
@@ -58,7 +62,13 @@ public class MovementState : State
     /// </summary>
     void MoveBasedOnPriority()
     {
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.EnemyPriorty == 1 || DetermineEnemyPriorityRef.IsFullAggro)
+        //below is shit, i know this, i will work on it later. Needs to be fun first the  optimized
+        if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.IsFullAggro)
+        {
+            AttackState.WithinRange = false;
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+        }
+        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.EnemyPriorty == 1)
         {
             AttackState.WithinRange = false;
             transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
