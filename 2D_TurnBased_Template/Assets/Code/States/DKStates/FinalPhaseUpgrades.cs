@@ -54,7 +54,7 @@ public class FinalPhaseUpgrades : MonoBehaviour
         AttackStateRef.TimeBtwAttack = NewMeleeTimeToAttack;
         DKRangeAttackRef.DKRangeDamage = 3;
         DKRangeAttackRef.RangeAttackRange = 10;
-        DKRangeAttackRef.TimeBtwAttack = 5f;
+        DKRangeAttackRef.TimeBtwAttack = 3f;
     }
 
     public void ChangeBossStatsToNormal()

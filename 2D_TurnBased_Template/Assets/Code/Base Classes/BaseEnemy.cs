@@ -4,6 +4,7 @@ public class BaseEnemy : MonoBehaviour
 {
     [Header("Enemy Stats")]
     public float EnemyHealth;
+    public float MaxEnemyHealth;
     public float EnemySpeed;
     public int EnemyDamage;
 
@@ -20,6 +21,11 @@ public class BaseEnemy : MonoBehaviour
     [Header("Only use when build up stun is enabled.")]
     public int ThresholdHealthToStun;//Only use when build up stun is enabled.
     public float StunDuration;
+
+    private void Start()
+    {
+        MaxEnemyHealth = EnemyHealth;
+    }
 
     [SerializeField]
     public enum TypeOfEnemy
@@ -48,6 +54,8 @@ public class BaseEnemy : MonoBehaviour
         DoesEnemyDie();
         CheckStatusEffects();
     }
+
+    public void HealSelfFully() => EnemyHealth = MaxEnemyHealth;
 
     public void DoesEnemyDie()
     {

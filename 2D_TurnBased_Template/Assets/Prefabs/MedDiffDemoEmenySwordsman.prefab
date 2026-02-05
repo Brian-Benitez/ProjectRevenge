@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 12
+  MaxEnemyHealth: 0
   EnemySpeed: 1
   EnemyDamage: 2
   EnemySoulsValue: 25
@@ -578,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackingRange: 2.5
-  StoppingDistance: 0
+  StoppingDistance: 2.5
   DistanceFromPlayer: 0
   EnemySwordsmanRef: {fileID: 9113469955481799094}
   EnemyAggroDistanceRef: {fileID: 2518910132756565181}

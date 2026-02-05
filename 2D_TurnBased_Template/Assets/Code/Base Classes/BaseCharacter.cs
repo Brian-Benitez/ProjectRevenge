@@ -38,7 +38,7 @@ public class BaseCharacter : MonoBehaviour
         {
             IsCharacterDead = true;
             PlayerSpawnerController.Instance.SpawnPlayer();
-            //this.gameObject.gameObject.SetActive(false);
+            EnemysManager.Instance.RestartEneimes();
         }
         else
         {

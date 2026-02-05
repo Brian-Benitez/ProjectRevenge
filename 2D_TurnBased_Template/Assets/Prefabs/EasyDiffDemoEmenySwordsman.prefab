@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPriorty: 0
+  IsFullAggro: 0
   OnePriorityDistance: 7
   TwoPriorityDistance: 11
 --- !u!1 &3979199002658533547
@@ -619,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 6
+  MaxEnemyHealth: 0
   EnemySpeed: 1
   EnemyDamage: 1
   EnemySoulsValue: 25
@@ -643,7 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackingRange: 2.5
-  StoppingDistance: 0
+  StoppingDistance: 2.5
+  DistanceFromPlayer: 0
   EnemySwordsmanRef: {fileID: 763097274553505534}
   EnemyAggroDistanceRef: {fileID: 3828468443647139524}
   DetermineEnemyPriorityRef: {fileID: 2527111828413938408}

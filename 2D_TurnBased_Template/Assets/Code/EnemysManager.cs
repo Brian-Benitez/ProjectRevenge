@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -52,6 +53,12 @@ public class EnemysManager : MonoBehaviour
             }
         } 
     }
+
+   /// <summary>
+   /// Heals all enemies but does not reactive all of them
+   /// </summary>
+    public void RestartEneimes() => TriggerFights.ToList().ForEach(e => e.RestartAllEnemies());
+
 
     /// <summary>
     /// This calls when enemy is killed, then is removed from  trigger fights list of enemies

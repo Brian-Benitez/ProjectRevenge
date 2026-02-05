@@ -24,5 +24,9 @@ public class TriggerFight : MonoBehaviour
     /// Activates all eneimes if it dont work write it the long way
     /// </summary>
     void ActivateAllEnemies() => Enemies.ToList().ForEach(enemies => enemies.gameObject.SetActive(true));
+    /// <summary>
+    /// Heals all enemies but does not active all of them
+    /// </summary>
+    public void RestartAllEnemies() => Enemies.ToList().ForEach(enemies => enemies.GetComponent<BaseEnemy>().HealSelfFully());
 
 }
