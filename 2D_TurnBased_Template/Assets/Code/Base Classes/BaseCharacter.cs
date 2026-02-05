@@ -8,6 +8,7 @@ public class BaseCharacter : MonoBehaviour
     public string NameOfCharacter;
     [Header("Health")]
     public int CharacterHealthAmount;
+    public int CharacterMaxHealth;
     public int CharacterMaxHealthLevel;
     [Header("Rage Ult Points")]
     public int RageUltAmount;
@@ -32,13 +33,18 @@ public class BaseCharacter : MonoBehaviour
         DoesCharacterDie();
     }
 
+    public void HealAllHealth() => CharacterHealthAmount = CharacterMaxHealth;
+
     public void DoesCharacterDie()
     {
         if (CharacterHealthAmount <= 0)
         {
             IsCharacterDead = true;
             PlayerSpawnerController.Instance.SpawnPlayer();
+            HealAllHealth();
+            UpdatePlayersStats();
             EnemysManager.Instance.RestartEneimes();
+            DoorController.instance.OpenAllDoorsInLevel();
         }
         else
         {
