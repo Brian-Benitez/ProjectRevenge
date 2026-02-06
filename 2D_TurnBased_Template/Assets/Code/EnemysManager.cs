@@ -26,6 +26,17 @@ public class EnemysManager : MonoBehaviour
         }
     }
 
+    public void CheckIfTriggerIsCleared()
+    {
+        foreach(TriggerFight trigger in TriggerFights)
+        {
+            if(trigger.Enemies.Count <= 0)
+                trigger.gameObject.SetActive(false);
+            else
+                trigger.gameObject.SetActive(true); 
+        }
+    }
+
     public void EnableIsFullAggro()
     {
         int _countofEnemies = 0;
@@ -57,8 +68,12 @@ public class EnemysManager : MonoBehaviour
    /// <summary>
    /// Heals all enemies but does not reactive all of them
    /// </summary>
-    public void RestartEneimes() => TriggerFights.ToList().ForEach(e => e.RestartAllEnemies());
+    public void HealsEnemiesInSection() => TriggerFights.ToList().ForEach(e => e.RestartAllEnemies());
 
+    public void TurnOffEnemyFullAggroBool()
+    {
+        //TriggerFights[CurrentTriggerIndex].toList()
+    }
 
     /// <summary>
     /// This calls when enemy is killed, then is removed from  trigger fights list of enemies

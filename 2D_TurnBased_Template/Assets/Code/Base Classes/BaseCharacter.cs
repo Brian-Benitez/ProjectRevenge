@@ -43,8 +43,11 @@ public class BaseCharacter : MonoBehaviour
             PlayerSpawnerController.Instance.SpawnPlayer();
             HealAllHealth();
             UpdatePlayersStats();
-            EnemysManager.Instance.RestartEneimes();
+            EnemysManager.Instance.HealsEnemiesInSection();
+            EnemysManager.Instance.CheckIfTriggerIsCleared();
             DoorController.instance.OpenAllDoorsInLevel();
+           // EnemysManager.Instance.TurnOffEnemyFullAggroBool();
+            Debug.Log("everything restarts");
         }
         else
         {
