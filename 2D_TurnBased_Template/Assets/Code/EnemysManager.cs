@@ -72,7 +72,18 @@ public class EnemysManager : MonoBehaviour
 
     public void TurnOffEnemyFullAggroBool()
     {
-        //TriggerFights[CurrentTriggerIndex].toList()
+        for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
+        {
+            if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>() != null)
+            {
+                TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = false;
+                Debug.Log("found it!");
+            }
+            else
+            {
+                Debug.Log("the components not there");
+            }
+        }
     }
 
     /// <summary>

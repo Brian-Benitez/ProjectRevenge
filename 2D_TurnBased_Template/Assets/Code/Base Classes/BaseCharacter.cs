@@ -46,7 +46,7 @@ public class BaseCharacter : MonoBehaviour
             EnemysManager.Instance.HealsEnemiesInSection();
             EnemysManager.Instance.CheckIfTriggerIsCleared();
             DoorController.instance.OpenAllDoorsInLevel();
-           // EnemysManager.Instance.TurnOffEnemyFullAggroBool();
+            EnemysManager.Instance.TurnOffEnemyFullAggroBool();
             Debug.Log("everything restarts");
         }
         else

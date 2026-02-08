@@ -30,28 +30,6 @@ public class TriggerFight : MonoBehaviour
     /// </summary>
     public void RestartAllEnemies() => Enemies.ToList().ForEach(enemies => enemies.GetComponent<BaseEnemy>().HealSelfFully());
 
-    public void RestartFullAggroBool()//this doesnt work right now
-    {
-        foreach (GameObject item in Enemies)
-        {
-            if(item.TryGetComponent<DetermineEnemyPriority>(out DetermineEnemyPriority determineEnemyPriority) == true)
-            {
-                Debug.Log("it works asshole");
-            }
-            else
-            {
-                Debug.Log("what the fuck happened " + item.name);
-            }
-        }
-        var res = Enemies.ToList().Where(enemies => enemies.GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == true);//this is the issue
-
-        foreach (var enemy in res)
-        {
-            enemy.GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = false;
-            Debug.Log("fuck " + enemy.name);
-        }
-        
-    }
     /// <summary>
     /// One enemy needs to be set at priority 1!!!
     /// </summary>
