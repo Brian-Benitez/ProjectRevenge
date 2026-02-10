@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    [Header("Name")]
-    public string NameOfCharacter;
     [Header("Health")]
     public int CharacterHealthAmount;
     public int CharacterMaxHealth;
     public int CharacterMaxHealthLevel;
-    [Header("Rage Ult Points")]
-    public int RageUltAmount;
-    public int RageMaxUltAmount;
     [Header("Range Dmg")]
     public int RangeDamg;
     [Header("Souls/XP")]
@@ -24,11 +19,13 @@ public class BaseCharacter : MonoBehaviour
     public TextMeshProUGUI PlayersMaxHealth;
     public TextMeshProUGUI StatueSoulsText;
     public TextMeshProUGUI InGameSoulsText;
+    public TextMeshProUGUI UltAmountText;
+    public TextMeshProUGUI MaxUltAmountText;
 
     public void TakeDamage(int damage)
     {
         CharacterHealthAmount -= damage;
-        Debug.Log(NameOfCharacter + " took: " + damage);
+        Debug.Log("player took: " + damage);
         PlayersHealth.text = " " + CharacterHealthAmount;
         DoesCharacterDie();
     }
@@ -51,7 +48,7 @@ public class BaseCharacter : MonoBehaviour
         }
         else
         {
-            Debug.Log(NameOfCharacter + " Still has health");
+            Debug.Log("Still has health");
             IsCharacterDead = false;
         }
 
@@ -63,5 +60,7 @@ public class BaseCharacter : MonoBehaviour
         PlayersMaxHealth.text = " " + CharacterMaxHealthLevel;
         StatueSoulsText.text = " " + Souls;
         InGameSoulsText.text = " " + Souls;
+        UltAmountText.text = " " + PlayersUltController.Instance.UltPoints;
+        MaxUltAmountText.text = " " + PlayersUltController.Instance.MaxUltPoints;
     }
 }

@@ -92,11 +92,6 @@ public class PlayersUltController : MonoBehaviour
         PlayerInfoRef.RangeDamg -= RangeUpgradeDam;
     }
 
-    private void UpdateRageUI()
-    {
-        UltAmountText.text = " " + UltPoints;
-        MaxUltAmountText.text = " " + MaxUltPoints;
-    }
     /// <summary>
     /// Made it like this so i can add objs that will max it or just give one. Only place to add it.
     /// </summary>
@@ -104,7 +99,7 @@ public class PlayersUltController : MonoBehaviour
     public void AddUltPoint(int amount)
     {
         UltPoints += amount;
-        UpdateRageUI();
+        PlayerInfoRef.UpdatePlayersStats();
     }
     /// <summary>
     /// Remove all ult points after using ult.
