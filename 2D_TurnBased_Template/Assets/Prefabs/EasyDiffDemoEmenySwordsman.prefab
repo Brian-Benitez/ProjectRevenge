@@ -629,8 +629,8 @@ MonoBehaviour:
   IsStunned: 0
   InstanteStun: 0
   BuildUpStun: 1
-  ThresholdHealthToStun: 4
-  StunDuration: 1
+  ThresholdHealthToStun: 3
+  StunDuration: 0.5
   EnemyType: 0
   EnemyDifficulty: 0
 --- !u!114 &3771332004520370198

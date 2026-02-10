@@ -2,12 +2,13 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class BaseCharacter : MonoBehaviour
+public class BaseCharacter : MonoBehaviour// need to move melee and rage values here. Want this to be main place to change values
 {
     [Header("Health")]
     public int CharacterHealthAmount;
     public int CharacterMaxHealth;
     public int CharacterMaxHealthLevel;
+
     [Header("Range Dmg")]
     public int RangeDamg;
     [Header("Souls/XP")]
@@ -57,7 +58,7 @@ public class BaseCharacter : MonoBehaviour
     public void UpdatePlayersStats()
     {
         PlayersHealth.text = " " + CharacterHealthAmount;
-        PlayersMaxHealth.text = " " + CharacterMaxHealthLevel;
+        PlayersMaxHealth.text = " " + CharacterMaxHealth;
         StatueSoulsText.text = " " + Souls;
         InGameSoulsText.text = " " + Souls;
         UltAmountText.text = " " + PlayersUltController.Instance.UltPoints;
