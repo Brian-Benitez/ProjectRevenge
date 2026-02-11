@@ -297,7 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeleePos: {fileID: 7916153532616726675}
   AttackRange: 1.11
-  TimeBtwAttack: 2
+  TimeBtwAttack: 1
   WindUpTimeForMelee: 2.1
   CanHitAgain: 1
   WithinRange: 0

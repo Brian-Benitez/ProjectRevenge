@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 3.5
+  TimeBtwAttack: 1.8
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 8604800931791002064}
-  RangeDistance: 13
+  RangeDistance: 10
   CanRangeAttackAgain: 0
   IsAttacking: 0
   IsStillWithinRange: 0
@@ -657,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 8
+  MaxEnemyHealth: 0
   EnemySpeed: 1.5
   EnemyDamage: 1
   EnemySoulsValue: 15
@@ -665,7 +666,7 @@ MonoBehaviour:
   InstanteStun: 0
   BuildUpStun: 1
   ThresholdHealthToStun: 4
-  StunDuration: 1.5
+  StunDuration: 0.5
   EnemyType: 1
   EnemyDifficulty: 0
 --- !u!114 &3836935540627045171

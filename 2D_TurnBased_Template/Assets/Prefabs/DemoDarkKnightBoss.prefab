@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeleePos: {fileID: 5351484751421859356}
   AttackRange: 1.6
-  TimeBtwAttack: 3
+  TimeBtwAttack: 0.8
   WindUpTimeForMelee: 1
   CanHitAgain: 1
   WithinRange: 0
@@ -268,8 +268,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   DKRangeDamage: 1
   RangeAttackRange: 1.41
-  TimeBtwAttack: 10
-  WindUpTimeForRange: 2
+  TimeBtwAttack: 7
+  WindUpTimeForRange: 0.8
   CanRangeAttack: 0
   IsAttackingNow: 0
   WhatisHittable:
@@ -427,13 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa38ef542da29f45b6358510232e7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanStartRangeAttack: 0
   rangeAttack: {fileID: 4342819746663072318}
   AttackState: {fileID: 499970276011381823}
-  MovementSpeed: 1
-  MinimumDistanceFromPlayer: 5
-  DistanceFromPlayer: 0
-  PreferedRangeAttkDistance: 7
-  CanStartRangeAttack: 0
+  BaseEnemyRef: {fileID: 0}
 --- !u!114 &3849610635453228326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,11 +444,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 20
+  MaxEnemyHealth: 0
   EnemySpeed: 2
   EnemyDamage: 4
-  EnemyDamageRate: 1
   EnemySoulsValue: 200
+  IsHit: 0
+  IsStunned: 0
+  InstanteStun: 0
+  BuildUpStun: 0
+  ThresholdHealthToStun: 0
+  StunDuration: 0
   EnemyType: 0
+  EnemyDifficulty: 0
 --- !u!50 &5096189896417039861
 Rigidbody2D:
   serializedVersion: 5
