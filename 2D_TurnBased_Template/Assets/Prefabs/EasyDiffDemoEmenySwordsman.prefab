@@ -346,8 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeleePos: {fileID: 5976774633233644905}
   AttackRange: 1.11
-  TimeBtwAttack: 1.2
-  WindUpTimeForMelee: 2.1
+  TimeBtwAttack: 1
+  WindUpTimeForMelee: 0.8
   CanHitAgain: 1
   WithinRange: 0
   WhatisHittable:
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 6
+  EnemyHealth: 4
   MaxEnemyHealth: 0
   EnemySpeed: 1
   EnemyDamage: 1
@@ -630,7 +630,7 @@ MonoBehaviour:
   InstanteStun: 0
   BuildUpStun: 1
   ThresholdHealthToStun: 3
-  StunDuration: 0.5
+  StunDuration: 1.5
   EnemyType: 0
   EnemyDifficulty: 0
 --- !u!114 &3771332004520370198

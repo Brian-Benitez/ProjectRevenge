@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
-  AggroDistance: 13
+  AggroDistance: 10
 --- !u!58 &5664749913713384146
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 13
+  m_Radius: 10
 --- !u!1 &5110741940316867064
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
   TimeBtwAttack: 1.5
   Projectile: {fileID: 6214239991093025471, guid: 104d95bdc178d7d47810f0d7c6790d50, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
-  RangeDistance: 13
+  RangeDistance: 10
   CanRangeAttackAgain: 0
   IsAttacking: 0
   IsStillWithinRange: 0
