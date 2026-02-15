@@ -10,7 +10,12 @@ public class HealthPickUp : BasePickUp
     //All pick up functions below
     public void HealPlayer()
     {
-        PlayerController.Instance.Player.GetComponent<BaseCharacter>().CharacterHealthAmount += HealthGain;
+        PlayerInfoRef.CharacterHealthAmount += HealthGain;
+
+        if(PlayerInfoRef.CharacterHealthAmount > PlayerInfoRef.CharacterMaxHealth)
+        {
+            PlayerInfoRef.CharacterHealthAmount = PlayerInfoRef.CharacterMaxHealth;
+        }
         PlayerInfoRef.UpdatePlayersStats();
     }
 }
