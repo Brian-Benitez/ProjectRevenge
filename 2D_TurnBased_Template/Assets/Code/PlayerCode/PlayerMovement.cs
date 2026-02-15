@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float DashSpeed;
     public float DashDuration;
     public float DashCoolDown;
+    public float DashCoolDownUpgrade;
     public bool IsDashing;
     public bool CanDash = true;
     public bool IsDashPaused = false;

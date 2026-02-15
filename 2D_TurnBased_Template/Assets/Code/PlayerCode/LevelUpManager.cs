@@ -10,6 +10,7 @@ public class LevelUpManager : MonoBehaviour
     [Header("Cost per Upgrade")]
     public int CostForHealthUpgrade;
     public int CostForRangeUpgrade;
+    public int CostForDashUpgrade;
 
     [Header("Level of Upgrades")]
     public int HealthLevelUpgrade;
@@ -25,6 +26,7 @@ public class LevelUpManager : MonoBehaviour
     public bool UpgradedHealth = false;
     public bool UpgradedRange = false;
 
+    public PlayerMovement PlayerMovementRef;
     private PlayerInfo _playerInfo;
 
     private void Start()
@@ -59,6 +61,16 @@ public class LevelUpManager : MonoBehaviour
             _playerInfo.UpdatePlayersStats();
             UpgradedRange = true;
             UpdateUIForUpgradeMenu();
+        }
+    }
+
+    public void UpgradeDash()
+    {
+        if(_playerInfo.Souls >= CostForDashUpgrade)
+        {
+            PlayerMovementRef.DashCoolDown -= PlayerMovementRef.DashCoolDownUpgrade;
+            _playerInfo.Souls -= CostForDashUpgrade;
+            _playerInfo.UpdatePlayersStats();
         }
     }
     public void UpdateUIForUpgradeMenu()//this needs work, cannot have all of this now

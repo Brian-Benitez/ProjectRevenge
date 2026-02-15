@@ -10,6 +10,7 @@ public class ShieldController : MonoBehaviour
     [Header("Shield Info")]
     public int ShieldHealth;
     public int MaxShieldHealth;//Use this to upgrade
+    public int ShieldUpgradeIncrements;
 
     public bool IsShieldActive = false;
 
@@ -71,6 +72,11 @@ public class ShieldController : MonoBehaviour
             }
         }
             
+    }
+    public void UpgradeShield()
+    {
+        MaxShieldHealth += ShieldUpgradeIncrements;
+        ShieldHealth = MaxShieldHealth;
     }
     void ChangePlayerLayerName() => PlayerController.Instance.Player.gameObject.tag = "Shield";
     void ChangeBackPlayerLayerName() => PlayerController.Instance.Player.gameObject.tag = "Player";
