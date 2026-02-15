@@ -25,7 +25,7 @@ public class PlayerRangeWeapon : MonoBehaviour
         if (PlayerMovementRef.IsDashing)
             return;
 
-        if(Input.GetMouseButtonDown(0) && CanRangeAttackAgain)
+        if(Input.GetMouseButton(1) &&Input.GetMouseButtonDown(0) && CanRangeAttackAgain)
         {
             Instantiate(Projectile, ShotPoint.position, transform.rotation);
             RestartTimerForRangeAttacks();
