@@ -62,7 +62,7 @@ public class MovementState : State
     /// </summary>
     void MoveBasedOnPriority()
     {
-        //below is shit, i know this, i will work on it later. Needs to be fun first the  optimized
+        //below is shit, i know this, i will work on it later. Needs to be fun first the  optimized THIS IS BROKE WHEN RESPAWNING ENEMIESZ
         if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.IsFullAggro)
         {
             AttackState.WithinRange = false;

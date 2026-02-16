@@ -56,11 +56,12 @@ public class EnemysManager : MonoBehaviour
                         _countofEnemies++;
                         Debug.Log("is not aggro");
                     }
-                    if (_countofEnemies == TriggerFights[CurrentTriggerIndex].Enemies.Count)
-                    {
-                        TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
-                    }
                 }  
+            }
+
+            if (_countofEnemies == TriggerFights[CurrentTriggerIndex].Enemies.Count)
+            {
+                TriggerFights[CurrentTriggerIndex].Enemies[0].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
             }
         } 
     }
