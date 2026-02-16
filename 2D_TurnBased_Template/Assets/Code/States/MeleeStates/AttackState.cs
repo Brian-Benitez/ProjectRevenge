@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AttackState : State//rename this to EnemyAttackState
 {
+    [Header("Test demo")]
+    public GameObject WindingUpIcon;
+    public GameObject AttackingIcon;
+    public bool IsRunning = false; 
+
     [Header("Melee pos")]
     public Transform MeleePos;
 
@@ -51,10 +56,11 @@ public class AttackState : State//rename this to EnemyAttackState
 
     void Update()
     {
-        if (CanHitAgain && WithinRange)
+        if (CanHitAgain && WithinRange && !IsRunning)
         {
             _enemyWeaponRotationRef.IsAttacking = true;
-            StartCoroutine(WindUpAttack());
+            StartCoroutine(WindUpAttack());//take this off of update and play an event instead?
+            AttackingIcon.SetActive(false);
             RestartTimerForAttacks();
         }
 
@@ -104,10 +110,16 @@ public class AttackState : State//rename this to EnemyAttackState
     }
     public IEnumerator WindUpAttack()
     {
+        IsRunning = true;
         Debug.Log("Winding up attack " + WindUpTimeForMelee + " Seconds");
-        yield return new WaitForSeconds(WindUpTimeForMelee);
+        WindingUpIcon.SetActive(true);
+        yield return new WaitForSecondsRealtime(WindUpTimeForMelee);
+        Debug.Log("Winding up attack done");
         MeleeAttack();
+        AttackingIcon.SetActive(true);
+        WindingUpIcon.SetActive(false);
         _enemyWeaponRotationRef.IsAttacking = false;
+        IsRunning = false;
     }
 
     public override State RunCurrentState()
