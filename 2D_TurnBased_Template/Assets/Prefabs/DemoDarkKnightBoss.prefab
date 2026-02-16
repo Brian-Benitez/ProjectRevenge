@@ -179,6 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a874d8d26f7a8247a9151406dc61a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WindingUpIcon: {fileID: 0}
+  AttackingIcon: {fileID: 0}
+  IsRunning: 0
   MeleePos: {fileID: 5351484751421859356}
   AttackRange: 1.6
   TimeBtwAttack: 0.8
@@ -444,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 20
-  MaxEnemyHealth: 0
+  MaxEnemyHealth: 20
   EnemySpeed: 2
   EnemyDamage: 4
   EnemySoulsValue: 200

@@ -87,6 +87,16 @@ public class EnemysManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Turn off all the most recent enemies the player fought
+    /// </summary>
+    public void TurnOffRecentEnemies()
+    {
+        for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
+        {
+            TriggerFights[CurrentTriggerIndex].Enemies[i].SetActive(false);
+        }
+    }
+    /// <summary>
     /// This calls when enemy is killed, then is removed from  trigger fights list of enemies
     /// </summary>
     /// <param name="enemy"></param>
