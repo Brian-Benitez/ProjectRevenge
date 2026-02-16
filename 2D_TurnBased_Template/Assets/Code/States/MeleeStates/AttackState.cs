@@ -59,13 +59,13 @@ public class AttackState : State//rename this to EnemyAttackState
         if (CanHitAgain && WithinRange && !IsRunning)
         {
             _enemyWeaponRotationRef.IsAttacking = true;
-            StartCoroutine(WindUpAttack());//take this off of update and play an event instead?
-            AttackingIcon.SetActive(false);
+            StartCoroutine(WindUpAttack());
             RestartTimerForAttacks();
         }
 
         if (TimeBtwAttack <= 0f)
         {
+            WindingUpIcon.SetActive(true);
             CanHitAgain = true;
             return;
         }
@@ -112,12 +112,11 @@ public class AttackState : State//rename this to EnemyAttackState
     {
         IsRunning = true;
         Debug.Log("Winding up attack " + WindUpTimeForMelee + " Seconds");
-        WindingUpIcon.SetActive(true);
         yield return new WaitForSecondsRealtime(WindUpTimeForMelee);
         Debug.Log("Winding up attack done");
         MeleeAttack();
-        AttackingIcon.SetActive(true);
         WindingUpIcon.SetActive(false);
+        AttackingIcon.SetActive(true);
         _enemyWeaponRotationRef.IsAttacking = false;
         IsRunning = false;
     }

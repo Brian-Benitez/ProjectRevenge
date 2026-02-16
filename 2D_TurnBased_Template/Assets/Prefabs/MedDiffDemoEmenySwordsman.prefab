@@ -297,10 +297,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WindingUpIcon: {fileID: 6357011157685049848}
   AttackingIcon: {fileID: 9065051810200549893}
+  IsRunning: 0
   MeleePos: {fileID: 7916153532616726675}
   AttackRange: 1.11
-  TimeBtwAttack: 1
-  WindUpTimeForMelee: 0.2
+  TimeBtwAttack: 0.5
+  WindUpTimeForMelee: 1.5
   CanHitAgain: 1
   WithinRange: 0
   WhatisHittable:
