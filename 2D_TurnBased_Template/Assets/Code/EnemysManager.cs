@@ -36,8 +36,11 @@ public class EnemysManager : MonoBehaviour
                 trigger.gameObject.SetActive(true); 
         }
     }
-
-    public void EnableIsFullAggro()
+    public void SetOneEnemyToFullAggroOnStart()
+    {
+        TriggerFights[CurrentTriggerIndex].Enemies[0].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
+    }
+    public void EnableIsFullAggroToAnotherEnemy()
     {
         int _countofEnemies = 0;
 
