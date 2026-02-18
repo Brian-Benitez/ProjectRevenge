@@ -90,10 +90,11 @@ public class EnemysManager : MonoBehaviour
     /// <summary>
     /// Turn off all the most recent enemies the player fought
     /// </summary>
-    public void TurnOffRecentEnemies()
+    public void RestartAndTurnOffEnemies()
     {
         for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
         {
+            TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<AttackState>().RestartEnemy();
             TriggerFights[CurrentTriggerIndex].Enemies[i].SetActive(false);
         }
     }

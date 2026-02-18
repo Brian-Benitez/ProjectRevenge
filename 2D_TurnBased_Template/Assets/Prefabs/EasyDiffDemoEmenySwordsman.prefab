@@ -340,8 +340,8 @@ MonoBehaviour:
   EnemyPriorty: 0
   IsFullAggro: 0
   FullAggroStopDistance: 2.5
-  OnePriorityDistance: 6
-  TwoPriorityDistance: 8
+  OnePriorityDistance: 10
+  TwoPriorityDistance: 14
 --- !u!1 &3979199002658533547
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
-  AggroDistance: 8
+  AggroDistance: 14
 --- !u!58 &7784250481907273731
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.020103455, y: 0}
-  m_Radius: 8
+  m_Radius: 14
 --- !u!1 &8044771803214212618
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
             EnemysManager.Instance.CheckIfTriggerIsCleared();
             DoorController.instance.OpenAllDoorsInLevel();
             EnemysManager.Instance.TurnOffEnemyFullAggroBool();
-            EnemysManager.Instance.TurnOffRecentEnemies();
+            EnemysManager.Instance.RestartAndTurnOffEnemies();
             Debug.Log("everything restarts");
         }
         else

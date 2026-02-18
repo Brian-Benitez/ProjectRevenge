@@ -7,7 +7,7 @@ public class AttackState : State//rename this to EnemyAttackState
     [Header("Test demo")]
     public GameObject WindingUpIcon;
     public GameObject AttackingIcon;
-    public bool IsRunning = false; 
+    public bool IsRunning = false;
 
     [Header("Melee pos")]
     public Transform MeleePos;
@@ -25,6 +25,7 @@ public class AttackState : State//rename this to EnemyAttackState
     public LayerMask WhatisHittable;
 
     public bool AttackMissedPlayer = false;
+
     private EnemySwordsman EnemySwordsmanRef;
     //States ref here
     MovementState ChaseState;
@@ -43,12 +44,12 @@ public class AttackState : State//rename this to EnemyAttackState
         ChaseState = GetComponentInParent<MovementState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
 
-        if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
         {
             BlockAndMoveState = GetComponentInParent<BlockAndMoveState>();
         }
 
-        if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
         {
             OpportunityToBeHitState = GetComponent<OpportunityToBeHitState>();
         }
@@ -91,19 +92,19 @@ public class AttackState : State//rename this to EnemyAttackState
         for (int i = 0; i < enemiesToDamges.Length; i++)
         {
             if (enemiesToDamges[i].CompareTag("Shield"))
-            {    
+            {
                 Debug.Log("Hit shield!");
                 ShieldController.instance.ShieldHealth -= EnemySwordsmanRef.EnemyDamage;
             }
 
-            if(enemiesToDamges[i].CompareTag("Player"))
+            if (enemiesToDamges[i].CompareTag("Player"))
             {
                 enemiesToDamges[i].GetComponent<BaseCharacter>().TakeDamage(EnemySwordsmanRef.EnemyDamage);
                 Debug.Log("Enemy hit " + enemiesToDamges[i].gameObject.name + "for " + EnemySwordsmanRef.EnemyDamage);
             }
         }
 
-        if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
         {
             BlockAndMoveState.RollingToBlock();
         }
@@ -129,7 +130,7 @@ public class AttackState : State//rename this to EnemyAttackState
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && BlockAndMoveState.CanBlock)
         {
             //block and move back state
-            
+
             return BlockAndMoveState;
         }
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Hard)
@@ -139,20 +140,26 @@ public class AttackState : State//rename this to EnemyAttackState
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
             return OpportunityToBeHitState;
 
-        if (AttackMissedPlayer == true && _enemyWeaponRotationRef.IsAttacking == false)
+        if (AttackMissedPlayer == true)
         {
+            Debug.Log("go here");
             //ChaseState.RestartDistance();
-            AttackMissedPlayer = false;
+            RestartEnemy();
             return ChaseState;
         }
-       
+
         return this;
     }
 
-    void RestartTimerForAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
-    public void IsWithinAttackingRange() => WithinRange = true;
-    public void NotWithinAttackingRange() => WithinRange = false;
+    public void RestartEnemy()
+    {
+        AttackMissedPlayer = false;
+        WithinRange = false;
+        IsRunning = false;
+        _enemyWeaponRotationRef.IsAttacking = false;
+    }
 
+    void RestartTimerForAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 
     //----------------------------------------------------Debug--stuff--------------------------------------------------------------------->
     private void OnDrawGizmosSelected()

@@ -63,11 +63,11 @@ public class MovementState : State
     void MoveBasedOnPriority()
     {
         //below is shit, i know this, i will work on it later. Needs to be fun first the  optimized THIS IS BROKE WHEN RESPAWNING ENEMIESZ
-        if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.IsFullAggro)
+        /*if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.IsFullAggro)
         {
             AttackState.WithinRange = false;
             transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
-        }
+        */
         if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.EnemyPriorty == 1)
         {
             AttackState.WithinRange = false;
@@ -89,6 +89,7 @@ public class MovementState : State
         }
 
         DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
+        Debug.Log(DistanceFromPlayer + " " + gameObject.name);
         
     }
 
