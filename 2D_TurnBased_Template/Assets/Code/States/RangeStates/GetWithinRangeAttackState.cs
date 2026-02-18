@@ -23,6 +23,7 @@ public class GetWithinRangeAttackState : State
 
     private void Update()
     {
+        Debug.Log(Vector2.Distance(transform.position, PlayerController.Instance.Player.position));
         if(EnemyAggroDistanceRef.IsAggro)
         {
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimunDistanceForRangeAttack)
@@ -30,20 +31,12 @@ public class GetWithinRangeAttackState : State
                 if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < AttackRange)
                 {
                     TurnOnWithinRangeBool();
-                    Debug.Log("start attacking");
                 }
             }
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)//moving towards
             {
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemyArcherRef.EnemySpeed * Time.deltaTime);
-                Debug.Log("run towardsa");
-            }
-
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < MinimunDistanceForRangeAttack)//backing up
-            {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed * Time.deltaTime);
-                Debug.Log("look at ne");
             }
         }
         else if(!EnemyAggroDistanceRef.IsAggro)
