@@ -22,9 +22,12 @@ public class BaseEnemy : MonoBehaviour
     public int ThresholdHealthToStun;//Only use when build up stun is enabled.
     public float StunDuration;
 
+    KnockBackFeedBack _knockBackFeedBack;
+
     private void Start()
     {
         MaxEnemyHealth = EnemyHealth;
+        _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
     }
 
     [SerializeField]
@@ -45,6 +48,16 @@ public class BaseEnemy : MonoBehaviour
 
     public TypeOfEnemy EnemyType;
     public LevelOfEnemy EnemyDifficulty;
+
+    private void Update()
+    {
+        if (IsHit && IsStunned)
+        {
+            _knockBackFeedBack.PlayFeedBack(PlayerController.Instance.Player.gameObject);
+            IsHit = false;
+            Debug.Log("KNOCKED BACK");
+        }
+    }
 
     public void TakeDamage(int  damage)
     {

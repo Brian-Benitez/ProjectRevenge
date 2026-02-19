@@ -23,10 +23,10 @@ public class GetWithinRangeAttackState : State
 
     private void Update()
     {
-        Debug.Log(Vector2.Distance(transform.position, PlayerController.Instance.Player.position));
+        //Debug.Log(Vector2.Distance(transform.position, PlayerController.Instance.Player.position));
         if(EnemyAggroDistanceRef.IsAggro)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > MinimunDistanceForRangeAttack)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MinimunDistanceForRangeAttack)
             {
                 if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < AttackRange)
                 {

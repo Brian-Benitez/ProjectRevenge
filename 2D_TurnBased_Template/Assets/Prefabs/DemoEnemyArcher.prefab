@@ -175,6 +175,55 @@ MonoBehaviour:
   LockedOnPlayer: 1
   ShotPointTwo: {fileID: 4263232305946379098}
   ShotPointThree: {fileID: 8824331901901780249}
+--- !u!1 &4578668735819613927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3403306158581050576}
+  - component: {fileID: 410368662676855607}
+  m_Layer: 3
+  m_Name: EnemyPriority
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3403306158581050576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578668735819613927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8739158315629441044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410368662676855607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578668735819613927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d73b17c3e61c14d8e42ed8fcb9fe76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPriorty: 0
+  IsFullAggro: 0
+  FullAggroStopDistance: 10
+  OnePriorityDistance: 10
+  TwoPriorityDistance: 10
 --- !u!1 &5474300252997196220
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +548,7 @@ GameObject:
   - component: {fileID: 3818436561324985095}
   - component: {fileID: 3836935540627045171}
   - component: {fileID: 5727651949420622849}
+  - component: {fileID: 587120249393042125}
   m_Layer: 3
   m_Name: DemoEnemyArcher
   m_TagString: Enemy
@@ -525,6 +575,7 @@ Transform:
   - {fileID: 7767789757035812841}
   - {fileID: 1858467422721983606}
   - {fileID: 3841734301679198151}
+  - {fileID: 3403306158581050576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7083424955727007011
@@ -629,21 +680,21 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5005
+  m_Mass: 5000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 01927ab1619e26243a919c0b9c9d058e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &3818436561324985095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,7 +735,6 @@ MonoBehaviour:
   WithinRangeAttack: 0
   AttackRange: 10
   MinimunDistanceForRangeAttack: 8
-  CloseRangeDistance: 5
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   EnemyArcherRef: {fileID: 3818436561324985095}
 --- !u!114 &5727651949420622849
@@ -703,3 +753,18 @@ MonoBehaviour:
   RightsideWeaponPos: {fileID: 8329797765379305929}
   Weapon: {fileID: 2799773256209016106}
   Target: {fileID: 0}
+--- !u!114 &587120249393042125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818265710935858715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7148123d0227f4489914ad636892c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb2d: {fileID: 4694136040254918480}
+  Strength: 5010
+  delay: 0.15
