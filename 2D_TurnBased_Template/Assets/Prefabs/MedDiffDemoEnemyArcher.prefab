@@ -565,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 10
   MaxEnemyHealth: 10
-  EnemySpeed: 2
+  EnemySpeed: 2.5
   EnemyDamage: 1
   EnemySoulsValue: 15
   IsHit: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7148123d0227f4489914ad636892c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rb2d: {fileID: 0}
+  Rb2d: {fileID: 9152339796426552029}
   Strength: 5010
   delay: 0.15
 --- !u!1 &7921630057511195837

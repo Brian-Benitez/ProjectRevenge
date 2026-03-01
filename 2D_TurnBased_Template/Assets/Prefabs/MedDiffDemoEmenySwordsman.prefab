@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 8
   MaxEnemyHealth: 8
-  EnemySpeed: 1
+  EnemySpeed: 3.5
   EnemyDamage: 2
   EnemySoulsValue: 25
   IsHit: 0
