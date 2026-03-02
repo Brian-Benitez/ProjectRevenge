@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class BlockAndMoveState : State
@@ -11,8 +10,6 @@ public class BlockAndMoveState : State
     float _maxDurationOfBlock;
     private EnemyShield _enemyShield;
     MovementState ChaseStateRef;
-    private float _distanceToMoveBack = 15f;
-    private float _speedOfMovement = -3;
 
     private void Start()
     {
@@ -24,14 +21,11 @@ public class BlockAndMoveState : State
     {
         if(CanBlock)
         {
-            _enemyShield.TryTurningOnShield();
             DurationOfBlock -= Time.deltaTime;
+
             if(DurationOfBlock > 0 )
             {
-                if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < _distanceToMoveBack)//idea being just move back
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, _speedOfMovement * Time.deltaTime);
-                }
+                _enemyShield.TryTurningOnShield();
             }
             else
             {
@@ -48,21 +42,35 @@ public class BlockAndMoveState : State
     /// </summary>
     public void RollingToBlock()
     {
-        //check to see if enemies sheild is not broken here, if it isnt, then run this function full.
-        DieRollResult = Random.Range(0, 100);
+        if(CanBlock)
+        {
+            Debug.Log("cannot roll again is blocking already.");
+            return;
+        }
+        else if(!_enemyShield.IsShieldBroken)
+        {
+            //check to see if enemies sheild is not broken here, if it isnt, then run this function full.
+            DieRollResult = Random.Range(0, 100);
 
-        if(DieRollResult <= PercentageToBlock)
-            CanBlock = true;
-        else
-            CanBlock = false;
-        Debug.Log("can block? " + CanBlock);
+            if (DieRollResult <= PercentageToBlock)
+                CanBlock = true;
+            else
+                CanBlock = false;
+            Debug.Log("can block? " + CanBlock);
+
+        }
+            
     }
 
     public override State RunCurrentState()
     {
         //if enemy cant block no more leave this state.
-        if (!CanBlock)
+        if (!CanBlock || _enemyShield.IsShieldBroken)
+        {
+            _enemyShield.TurnOffShield();
             return ChaseStateRef;
+        }
+           
 
         return this;
     }

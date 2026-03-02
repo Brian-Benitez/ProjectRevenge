@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShieldHealth: 10
+  EnemyShieldHealth: 5
   Shield: {fileID: 6264658101153515369}
   IsShieldBroken: 0
 --- !u!1 &5327061453718274649
