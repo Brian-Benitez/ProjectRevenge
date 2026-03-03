@@ -1,9 +1,12 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
+    [Header("Spiecal stats")]
+    public KeyCode SpecialKey;
+    public Transform SpeicalPos;
+    public float SpeicalRange;
+
     [Header("Transforms")]
     public Transform AttackPos;
     public Transform DirectionalLooks;
@@ -21,10 +24,12 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("Player attk damg")]
     public int PlayerLightAttkDamg;
     public int PlayerHeavyAttkDamg;
+    public int PlayerSpecialDamg;
 
     [Header("Type Of Attack")]
     public bool IsLightAttack = false;
     public bool IsHeavyAttack = false;
+    public bool IsSpecialAttack = false;
 
     [Header("LayerMasks")]
     public LayerMask WhatIsEnemies;
@@ -54,8 +59,15 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
             Debug.Log("light kill");
-            Hit(PlayerLightAttkDamg);
+            Hit(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
+        }
+
+        if(Input.GetKeyDown(SpecialKey) && CanMeleeAttackAgain)
+        {
+            Debug.Log("Special attack");
+            IsSpecialAttack = true;
+            Hit(PlayerSpecialDamg, SpeicalPos, SpeicalRange, WhatIsEnemies);
         }
 
         if (Input.GetMouseButton(0))
@@ -81,7 +93,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && IsHeavyAttack && CanMeleeAttackAgain)
         {
             Debug.Log("heavy kill");
-            Hit(PlayerHeavyAttkDamg);
+            Hit(PlayerHeavyAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
         }
 
@@ -98,10 +110,12 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
     }
 
-    void Hit(int dam)
+    void Hit(int dam, Transform pos, float range, LayerMask enemy)
     {
         IsAttacking = true;
-        Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, WhatIsEnemies);
+        
+        Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(pos.position, range, enemy);
+
         for (int i = 0; i < enemiesToDamges.Length; i++)
         {
             if (enemiesToDamges[i].GetComponent<ObjectHittableTrigger>() != null)
@@ -126,6 +140,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     void RestartMeleeBools()
     {
         IsHeavyAttack = false;
+        IsSpecialAttack = false;
         IsLightAttack = false;
         ChangedValues = false;
         _holdTime = 0f;
@@ -136,5 +151,6 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(AttackPos.position, AttackRange);
+        Gizmos.DrawWireSphere(SpeicalPos.position, SpeicalRange);
     }
 }
