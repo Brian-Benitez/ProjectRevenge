@@ -22,9 +22,9 @@ public class PlayerMeleeAttack : MonoBehaviour
     public float MaxHeavyWindUpSpeed;
 
     [Header("Player attk damg")]
-    public int PlayerLightAttkDamg;
-    public int PlayerHeavyAttkDamg;
-    public int PlayerSpecialDamg;
+    public float PlayerLightAttkDamg;
+    public float PlayerHeavyAttkDamg;
+    public float PlayerSpecialDamg;
 
     [Header("Type Of Attack")]
     public bool IsLightAttack = false;
@@ -110,7 +110,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
     }
 
-    void Hit(int dam, Transform pos, float range, LayerMask enemy)
+    void Hit(float dam, Transform pos, float range, LayerMask enemy)
     {
         IsAttacking = true;
         

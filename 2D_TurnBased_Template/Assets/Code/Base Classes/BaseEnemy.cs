@@ -6,7 +6,7 @@ public class BaseEnemy : MonoBehaviour
     public float EnemyHealth;
     public float MaxEnemyHealth;
     public float EnemySpeed;
-    public int EnemyDamage;
+    public float EnemyDamage;
 
     [Header("Enemy Souls Value")]
     public int EnemySoulsValue;
@@ -59,7 +59,7 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int  damage)
+    public void TakeDamage(float damage)
     {
         EnemyHealth -= damage;
         IsHit = true;   

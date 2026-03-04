@@ -5,9 +5,9 @@ using UnityEngine;
 public class BaseCharacter : MonoBehaviour// need to move melee and rage values here. Want this to be main place to change values
 {
     [Header("Health")]
-    public int CharacterHealthAmount;
-    public int CharacterMaxHealth;
-    public int CharacterMaxHealthLevel;
+    public float CharacterHealthAmount;
+    public float CharacterMaxHealth;
+    public float CharacterMaxHealthLevel;
 
     [Header("Range Dmg")]
     public int RangeDamg;
@@ -23,7 +23,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public TextMeshProUGUI UltAmountText;
     public TextMeshProUGUI MaxUltAmountText;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         CharacterHealthAmount -= damage;
         Debug.Log("player took: " + damage);

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyShield : MonoBehaviour
 {
-    public int EnemyShieldHealth;
+    public float EnemyShieldHealth;
     public GameObject Shield;
     public bool IsShieldBroken = false;
 
@@ -21,7 +21,7 @@ public class EnemyShield : MonoBehaviour
         this.gameObject.tag = "Enemy";
     }
 
-    public void ShieldTakeDamage(int dam)
+    public void ShieldTakeDamage(float dam)
     {
         EnemyShieldHealth -= dam;//this can make the shield health go to negative btw
         DoesShieldBreak();

@@ -8,8 +8,8 @@ public class ShieldController : MonoBehaviour
     public GameObject ShieldObject;
 
     [Header("Shield Info")]
-    public int ShieldHealth;
-    public int MaxShieldHealth;//Use this to upgrade
+    public float ShieldHealth;
+    public float MaxShieldHealth;//Use this to upgrade
     public int ShieldUpgradeIncrements;
 
     public bool IsShieldActive = false;
