@@ -58,14 +58,12 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
-            Debug.Log("light kill");
             Hit(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
         }
 
         if(Input.GetKeyDown(SpecialKey) && CanMeleeAttackAgain)
         {
-            Debug.Log("Special attack");
             IsSpecialAttack = true;
             Hit(PlayerSpecialDamg, SpeicalPos, SpeicalRange, WhatIsEnemies);
         }
@@ -92,7 +90,6 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && IsHeavyAttack && CanMeleeAttackAgain)
         {
-            Debug.Log("heavy kill");
             Hit(PlayerHeavyAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
         }

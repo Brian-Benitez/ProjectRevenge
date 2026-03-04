@@ -27,12 +27,7 @@ public class LevelUpManager : MonoBehaviour
     public bool UpgradedRange = false;
 
     public PlayerMovement PlayerMovementRef;
-    private PlayerInfo _playerInfo;
-
-    private void Start()
-    {
-        _playerInfo = GetComponent<PlayerInfo>();
-    }
+    public PlayerInfo _playerInfo;
 
     public void UpgradePlayerHealth()//used OnClick for UI.
     {
