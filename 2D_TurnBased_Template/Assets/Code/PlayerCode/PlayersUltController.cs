@@ -10,7 +10,6 @@ public class PlayersUltController : MonoBehaviour
     public int UltPoints;
     public int MaxUltPoints;
     public float UltDuration;
-    public float MaxUltDuration;
     public KeyCode UltActivationKey;
 
     public int BoostedMovementSpeed;
@@ -53,7 +52,7 @@ public class PlayersUltController : MonoBehaviour
             IsUpgradeOn = false;
             SetPlayerToNormalStats();
             RemoveAllUltPoints();
-            UltDuration += MaxUltDuration;
+            UltDuration += MaxUltPoints;
         }
 
         if(IsUlted && !IsUpgradeOn)

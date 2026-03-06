@@ -6,11 +6,14 @@ public class LevelUpManager : MonoBehaviour
     [Header("Upgrade imcrements")]
     public int HealthUpgradeImcrement;
     public int RangeUpgradeImcrement;
+    public int RageUpgradeIncrement;
 
     [Header("Cost per Upgrade")]
     public int CostForHealthUpgrade;
     public int CostForRangeUpgrade;
     public int CostForDashUpgrade;
+    public int CostyForMeleeUpgrade;
+    public int CostForRageUpgrade;
 
     [Header("Level of Upgrades")]
     public int HealthLevelUpgrade;
@@ -19,6 +22,9 @@ public class LevelUpManager : MonoBehaviour
     [Header("Texts")]
     public TextMeshProUGUI HealthCostAmountText;
     public TextMeshProUGUI HealthLevelAmountText;
+    public TextMeshProUGUI MeleeCostAmountText;
+    public TextMeshProUGUI RageCostAmountText;
+    public TextMeshProUGUI DashCostAmountText;
 
     public TextMeshProUGUI RangeCostAmountText;
     public TextMeshProUGUI RangeLevelAmountText;
@@ -34,11 +40,12 @@ public class LevelUpManager : MonoBehaviour
         if(_playerInfo.Souls >= CostForHealthUpgrade)
         {
             Debug.Log("upgraded health + " + HealthUpgradeImcrement);
-            _playerInfo.CharacterMaxHealthLevel += HealthUpgradeImcrement;
+            _playerInfo.CharacterMaxHealth += HealthUpgradeImcrement;
+            _playerInfo.HealAllHealth();
             _playerInfo.Souls -= CostForHealthUpgrade;
             _playerInfo.UpdatePlayersStats();
             UpgradedHealth = true;
-            UpdateUIForUpgradeMenu();
+            UpdateUIForUpgradeMenu(HealthCostAmountText, CostForHealthUpgrade);
         }
         else
         {
@@ -55,10 +62,21 @@ public class LevelUpManager : MonoBehaviour
             _playerInfo.Souls -= CostForRangeUpgrade;
             _playerInfo.UpdatePlayersStats();
             UpgradedRange = true;
-            UpdateUIForUpgradeMenu();
+            UpdateUIForUpgradeMenu(RangeCostAmountText, CostForRangeUpgrade);
         }
     }
 
+    public void UpgradeRage()
+    {
+        if(_playerInfo.Souls >= CostForRageUpgrade)
+        {
+            Debug.Log("upgraded rage");
+            _playerInfo.Souls -= CostForRageUpgrade;
+            PlayersUltController.Instance.MaxUltPoints += RageUpgradeIncrement;//gotta upgrade the ui for the upgrades
+            _playerInfo.UpdatePlayersStats();
+            UpdateUIForUpgradeMenu(RageCostAmountText, CostForRageUpgrade);
+        }
+    }
     public void UpgradeDash()
     {
         if(_playerInfo.Souls >= CostForDashUpgrade)
@@ -66,26 +84,11 @@ public class LevelUpManager : MonoBehaviour
             PlayerMovementRef.DashCoolDown -= PlayerMovementRef.DashCoolDownUpgrade;
             _playerInfo.Souls -= CostForDashUpgrade;
             _playerInfo.UpdatePlayersStats();
+            UpdateUIForUpgradeMenu(DashCostAmountText, CostForDashUpgrade);
         }
     }
-    public void UpdateUIForUpgradeMenu()//this needs work, cannot have all of this now
+    public void UpdateUIForUpgradeMenu(TextMeshProUGUI costText, int costAmount)
     {
-        if(UpgradedHealth)
-        {
-            //health ui updates
-            HealthLevelUpgrade += 1;
-            HealthCostAmountText.text = " " + CostForHealthUpgrade * 2;
-            HealthLevelAmountText.text = " " + HealthLevelUpgrade;
-            UpgradedHealth = false;
-        }
-        if(UpgradedRange)
-        {
-            //range ui updates
-            RangeLevelUpgrade += 1;
-            RangeCostAmountText.text = " " + CostForRangeUpgrade * 2;
-            RangeLevelAmountText.text = " " + RangeLevelUpgrade;
-            UpgradedRange = false;
-        }
-        
+        costText.text = " " + costAmount * 2;    
     }
 }
