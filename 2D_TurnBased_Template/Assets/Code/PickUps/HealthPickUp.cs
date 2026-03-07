@@ -3,19 +3,31 @@ using UnityEngine;
 public class HealthPickUp : BasePickUp
 {
     [Header("Health Info")]
-    public int HealthGain;
+    public float HealthGain;
 
-    public PlayerInfo PlayerInfoRef;
+    private PlayerInfo _playerInfoRef;
+    public GameObject Player;
 
+    private void Awake()
+    {
+        _playerInfoRef = Player.GetComponent<PlayerInfo>();
+    }
     //All pick up functions below
     public void HealPlayer()
     {
-        PlayerInfoRef.CharacterHealthAmount += HealthGain;
-
-        if(PlayerInfoRef.CharacterHealthAmount > PlayerInfoRef.CharacterMaxHealth)
+        if(_playerInfoRef.CharacterHealthAmount == _playerInfoRef.CharacterMaxHealth)
         {
-            PlayerInfoRef.CharacterHealthAmount = PlayerInfoRef.CharacterMaxHealth;
+            Debug.Log("health is full.");
         }
-        PlayerInfoRef.UpdatePlayersStats();
+        else
+        {
+            _playerInfoRef.CharacterHealthAmount += HealthGain;
+        }
+
+        if(_playerInfoRef.CharacterHealthAmount > _playerInfoRef.CharacterMaxHealth)
+        {
+            _playerInfoRef.CharacterHealthAmount = _playerInfoRef.CharacterMaxHealth;
+        }
+        _playerInfoRef.UpdatePlayersStats();
     }
 }

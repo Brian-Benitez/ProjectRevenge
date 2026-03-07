@@ -7,6 +7,10 @@ public class BaseEnemy : MonoBehaviour
     public float MaxEnemyHealth;
     public float EnemySpeed;
     public float EnemyDamage;
+    [Header("Item that can be dropped")]
+    public GameObject HealthPotion;
+    public GameObject RagePotion;
+    public int ChanceToDropItem;
 
     [Header("Enemy Souls Value")]
     public int EnemySoulsValue;
@@ -81,6 +85,7 @@ public class BaseEnemy : MonoBehaviour
             EnemysManager.Instance.RemoveEnemyFromList(this.gameObject);
             EnemysManager.Instance.EnableIsFullAggroToAnotherEnemy();
             EnemysManager.Instance.IsAllEnemiesDead();
+            DropAnItem();
             Destroy(this.gameObject);
         }
         else
@@ -99,5 +104,32 @@ public class BaseEnemy : MonoBehaviour
                 InstanteStun = true;
             }
         }
+    }
+    /// <summary>
+    /// rolls to see if the enemy drops an item or not.
+    /// </summary>
+    private void DropAnItem()
+    {
+        int chance = Random.Range(0, 100);
+
+        if(chance <= ChanceToDropItem)
+        {
+            int random = Random.Range(0, 10);
+            if (random <= 5)
+            {
+                Instantiate(HealthPotion, transform.position, Quaternion.identity);
+                Debug.Log("dropped health");
+            }
+            else
+            {
+                Instantiate(RagePotion, transform.position, Quaternion.identity);
+                Debug.Log("dropped rage");
+            }
+        }
+        else
+        {
+            Debug.Log("did not drop anything");
+        }
+       
     }
 }

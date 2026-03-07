@@ -331,4 +331,4 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   HealthGain: 4
-  PlayerInfoRef: {fileID: 0}
+  Player: {fileID: 0}
