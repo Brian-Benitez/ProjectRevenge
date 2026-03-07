@@ -89,7 +89,6 @@ public class MovementState : State
         }
 
         DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
-        Debug.Log(DistanceFromPlayer + " " + gameObject.name);
         
     }
 
