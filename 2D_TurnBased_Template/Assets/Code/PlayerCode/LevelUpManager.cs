@@ -7,6 +7,7 @@ public class LevelUpManager : MonoBehaviour
     public int HealthUpgradeImcrement;
     public int RangeUpgradeImcrement;
     public int RageUpgradeIncrement;
+    public float MeleeUpgradeIncrement;
 
     [Header("Cost per Upgrade")]
     public int CostForHealthUpgrade;
@@ -34,6 +35,7 @@ public class LevelUpManager : MonoBehaviour
 
     public PlayerMovement PlayerMovementRef;
     public PlayerInfo _playerInfo;
+    public PlayerMeleeAttack PlayerMeleeAttackRef;
 
     public void UpgradePlayerHealth()//used OnClick for UI.
     {
@@ -53,6 +55,18 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
+    public void UpgradeMeleeDam()
+    {
+        if(_playerInfo.Souls >= CostyForMeleeUpgrade)
+        {
+            PlayerMeleeAttackRef.PlayerLightAttkDamg += MeleeUpgradeIncrement;
+            PlayerMeleeAttackRef.PlayerHeavyAttkDamg += MeleeUpgradeIncrement;
+            PlayerMeleeAttackRef.PlayerSpecialDamg += MeleeUpgradeIncrement;
+            _playerInfo.Souls -= CostyForMeleeUpgrade;
+            _playerInfo.UpdatePlayersStats();
+            UpdateUIForUpgradeMenu(MeleeCostAmountText, CostyForMeleeUpgrade);
+        }
+    }
     public void UpgradeRangeDamage()//use for OnClick for UI.
     {
         if(_playerInfo.Souls >= CostForRangeUpgrade)

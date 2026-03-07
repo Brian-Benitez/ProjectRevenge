@@ -711,6 +711,9 @@ MonoBehaviour:
   MaxEnemyHealth: 5
   EnemySpeed: 1.5
   EnemyDamage: 1
+  HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
+  RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
+  ChanceToDropItem: 15
   EnemySoulsValue: 15
   IsHit: 0
   IsStunned: 0
