@@ -737,6 +737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
   AttackRange: 10
+  MeleeRange: 2
   MinimunDistanceForRangeAttack: 8
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   EnemyArcherRef: {fileID: 3818436561324985095}

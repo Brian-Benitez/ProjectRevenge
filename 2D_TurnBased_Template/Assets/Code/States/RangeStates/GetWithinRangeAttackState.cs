@@ -6,6 +6,7 @@ public class GetWithinRangeAttackState : State
     [Header("Is Within Range")]
     public bool WithinRangeAttack = false;
     public float AttackRange;
+    public float MeleeRange;
     [Header("Minimun distance to attack")]
     public float MinimunDistanceForRangeAttack;
  
@@ -32,6 +33,11 @@ public class GetWithinRangeAttackState : State
                 {
                     TurnOnWithinRangeBool();
                 }
+            }
+
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MeleeRange)//moving back
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed * Time.deltaTime);
             }
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)//moving towards
@@ -62,5 +68,6 @@ public class GetWithinRangeAttackState : State
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(this.gameObject.transform.position, AttackRange);
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, MeleeRange);
     }
 }

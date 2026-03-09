@@ -563,10 +563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb0df4d50b75ff4ba6918edd4e6fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 10
-  MaxEnemyHealth: 10
+  EnemyHealth: 8
+  MaxEnemyHealth: 8
   EnemySpeed: 2.5
-  EnemyDamage: 1
+  EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   ChanceToDropItem: 15
@@ -575,8 +575,8 @@ MonoBehaviour:
   IsStunned: 0
   InstanteStun: 0
   BuildUpStun: 1
-  ThresholdHealthToStun: 7
-  StunDuration: 1
+  ThresholdHealthToStun: 5
+  StunDuration: 0.5
   EnemyType: 1
   EnemyDifficulty: 1
 --- !u!114 &6627246155356475132
@@ -593,6 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
   AttackRange: 15
+  MeleeRange: 3
   MinimunDistanceForRangeAttack: 15
   EnemyAggroDistanceRef: {fileID: 5211125791650558122}
   EnemyArcherRef: {fileID: 4523472527908755746}
@@ -730,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 1.5
+  TimeBtwAttack: 1.7
   Projectile: {fileID: 6214239991093025471, guid: 104d95bdc178d7d47810f0d7c6790d50, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
   RangeDistance: 10

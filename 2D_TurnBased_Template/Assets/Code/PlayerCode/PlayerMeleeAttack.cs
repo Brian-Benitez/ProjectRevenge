@@ -35,14 +35,17 @@ public class PlayerMeleeAttack : MonoBehaviour
     public LayerMask WhatIsEnemies;
 
     [Header("Booleans")]
-    public bool CanMeleeAttackAgain = false;
     public bool IsAttacking = false;
+    public bool CanMeleeAttackAgain = false;
+    public bool CanSpeicalAgain = false;    
     public bool ChangedValues = false;
 
     //private vars
     private float _maxTimeBtwAttacks;
     private float _holdTime = 0f;
     private float _maxHoldTimeForHeavyAttk = 0.2f;
+    private float _specialCooldown = 0f;
+    private float _maxwaitTimeForSpeical = 0.8f;
     private PlayerMovement _playerMovement;
 
     private void Start()
@@ -62,10 +65,17 @@ public class PlayerMeleeAttack : MonoBehaviour
             _playerMovement.UnSlowPlayer();
         }
 
-        if(Input.GetKeyDown(SpecialKey) && CanMeleeAttackAgain)
+        _specialCooldown += Time.deltaTime;
+
+        if(_specialCooldown >= _maxwaitTimeForSpeical)
         {
             IsSpecialAttack = true;
+        }
+
+        if(Input.GetKeyDown(SpecialKey) && IsSpecialAttack)
+        {
             Hit(PlayerSpecialDamg, SpeicalPos, SpeicalRange, WhatIsEnemies);
+            _specialCooldown = 0;
         }
 
         if (Input.GetMouseButton(0))
@@ -141,7 +151,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         IsLightAttack = false;
         ChangedValues = false;
         _holdTime = 0f;
-        HeavyWindUpSpeed = 0f;  
+        HeavyWindUpSpeed = 0f;
     }
 
     private void OnDrawGizmosSelected()
