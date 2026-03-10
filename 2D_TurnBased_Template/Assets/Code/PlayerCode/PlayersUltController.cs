@@ -7,8 +7,8 @@ public class PlayersUltController : MonoBehaviour
 
     public bool IsUlted;
     public bool IsUpgradeOn;
-    public int UltPoints;
-    public int MaxUltPoints;
+    public float UltPoints;
+    public float MaxUltPoints;
     public float UltDuration;
     public KeyCode UltActivationKey;
 

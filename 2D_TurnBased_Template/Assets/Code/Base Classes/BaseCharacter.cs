@@ -10,7 +10,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public float CharacterMaxHealthLevel;
 
     [Header("Range Dmg")]
-    public int RangeDamg;
+    public float RangeDamg;
     [Header("Souls/XP")]
     public int Souls;
     [Header("Booleans")]
