@@ -10,7 +10,6 @@ public class ShieldController : MonoBehaviour
     [Header("Shield Info")]
     public float ShieldHealth;
     public float MaxShieldHealth;//Use this to upgrade
-    public int ShieldUpgradeIncrements;
 
     public bool IsShieldActive = false;
 
@@ -73,9 +72,9 @@ public class ShieldController : MonoBehaviour
         }
             
     }
-    public void UpgradeShield()
+    public void UpgradeShield(float increment)
     {
-        MaxShieldHealth += ShieldUpgradeIncrements;
+        MaxShieldHealth += increment;
         ShieldHealth = MaxShieldHealth;
     }
     void ChangePlayerLayerName() => PlayerController.Instance.Player.gameObject.tag = "Shield";
