@@ -39,20 +39,51 @@ public class LevelUpManager : MonoBehaviour
     public PlayerInfo _playerInfo;
     public PlayerMeleeAttack PlayerMeleeAttackRef;
 
-    private float _meleePercentTotal;
+    [Header("Level caps")]
+    private float _healthpercent;
+    private int _healthUpgradeLevel = 0;
+    public int _maxHealthUpgradeLevel;
+
+    private float _meleeUpgradePercent;
+    private int _meleeUpgradeLevel = 0;
+    public int _maxMeleeUpgradeLevel;
+
+    private float _rangeUpgradePercent;
+    private int _rangeUpgradeLevel = 0;
+    public int _maxRangeUpgradeLevel;
+
+    private float _rageUpgradePercent;
+    private int _rageUpgradeLevel = 0;
+    public int _maxRageUpgradeLevel;
+
+    private float _dashUpgradePercent;
+    private int _dashUpgradeLevel = 0;
+    public int _maxDashUpgradeLevel;
+
+    private float _shieldUpgradePercent;
+    private int _shieldUpgradeLevel = 0;
+    public int _maxShieldUpgradeLevel;
 
     public void UpgradePlayerHealth()//used OnClick for UI.
     {
         if(_playerInfo.Souls >= CostForHealthUpgrade)
         {
-            Debug.Log("upgraded health + " + HealthUpgradeImcrement);
-            _playerInfo.CharacterMaxHealth += HealthUpgradeImcrement;
-            _meleePercentTotal += HealthUpgradeImcrement;
-            _playerInfo.HealAllHealth();
-            _playerInfo.Souls -= CostForHealthUpgrade;
-            _playerInfo.UpdatePlayersStats();
-            CostForHealthUpgrade *= 2;
-            UpdateUIForUpgradeMenu(HealthCostAmountText, HealthPercentText, CostForHealthUpgrade, _meleePercentTotal);
+            if(_maxHealthUpgradeLevel == _healthUpgradeLevel)
+            {
+                Debug.Log("Max upgrade has been reached.");
+            }
+            else
+            {
+                Debug.Log("upgraded health + " + HealthUpgradeImcrement);
+                _playerInfo.CharacterMaxHealth += HealthUpgradeImcrement;
+                _healthpercent += HealthUpgradeImcrement;
+                _healthUpgradeLevel += 1;
+                _playerInfo.HealAllHealth();
+                _playerInfo.Souls -= CostForHealthUpgrade;
+                _playerInfo.UpdatePlayersStats();
+                CostForHealthUpgrade *= 2;
+                UpdateUIForUpgradeMenu(HealthCostAmountText, HealthPercentText, CostForHealthUpgrade, _healthpercent);
+            }
         }
         else
         {
@@ -62,64 +93,109 @@ public class LevelUpManager : MonoBehaviour
 
     public void UpgradeMeleeDam()
     {
-        if(_playerInfo.Souls >= CostyForMeleeUpgrade)
+        if(_maxMeleeUpgradeLevel == _meleeUpgradeLevel)
         {
-            Debug.Log("upgraded melee");
-            PlayerMeleeAttackRef.PlayerLightAttkDamg += MeleeUpgradeIncrement;
-            PlayerMeleeAttackRef.PlayerHeavyAttkDamg += MeleeUpgradeIncrement;
-            PlayerMeleeAttackRef.PlayerSpecialDamg += MeleeUpgradeIncrement;
-            _playerInfo.Souls -= CostyForMeleeUpgrade;
-            _playerInfo.UpdatePlayersStats();
-            CostyForMeleeUpgrade *= 2;
-            UpdateUIForUpgradeMenu(MeleeCostAmountText, MeleePercentText, CostyForMeleeUpgrade, MeleeUpgradeIncrement);
+            Debug.Log("maxed out");
+        }
+        else
+        {
+            if (_playerInfo.Souls >= CostyForMeleeUpgrade)
+            {
+                Debug.Log("upgraded melee");
+                PlayerMeleeAttackRef.PlayerLightAttkDamg += MeleeUpgradeIncrement;
+                PlayerMeleeAttackRef.PlayerHeavyAttkDamg += MeleeUpgradeIncrement;
+                PlayerMeleeAttackRef.PlayerSpecialDamg += MeleeUpgradeIncrement;
+                _meleeUpgradePercent += MeleeUpgradeIncrement;
+                _meleeUpgradeLevel += 1;
+                _playerInfo.Souls -= CostyForMeleeUpgrade;
+                _playerInfo.UpdatePlayersStats();
+                CostyForMeleeUpgrade *= 2;
+                UpdateUIForUpgradeMenu(MeleeCostAmountText, MeleePercentText, CostyForMeleeUpgrade, _meleeUpgradePercent);
+            }
         }
     }
     public void UpgradeRangeDamage()//use for OnClick for UI.
     {
-        if(_playerInfo.Souls >= CostForRangeUpgrade)
+        if(_maxRangeUpgradeLevel == _rangeUpgradeLevel)
         {
-            Debug.Log("Upgraded range damage + " +  CostForRangeUpgrade);
-            _playerInfo.RangeDamg += RangeUpgradeImcrement;
-            _playerInfo.Souls -= CostForRangeUpgrade;
-            _playerInfo.UpdatePlayersStats();
-            CostForRangeUpgrade *= 2;
-            UpdateUIForUpgradeMenu(RangeCostAmountText, RangePercentText, CostForRangeUpgrade, RangeUpgradeImcrement);
+            Debug.Log("maxed out");
+        }
+        else
+        {
+            if (_playerInfo.Souls >= CostForRangeUpgrade)
+            {
+                Debug.Log("Upgraded range damage + " + CostForRangeUpgrade);
+                _playerInfo.RangeDamg += RangeUpgradeImcrement;
+                _rangeUpgradePercent += RangeUpgradeImcrement;
+                _rangeUpgradeLevel += 1;
+                _playerInfo.Souls -= CostForRangeUpgrade;
+                _playerInfo.UpdatePlayersStats();
+                CostForRangeUpgrade *= 2;
+                UpdateUIForUpgradeMenu(RangeCostAmountText, RangePercentText, CostForRangeUpgrade, _rangeUpgradePercent);
+            }
         }
     }
 
     public void UpgradeRage()
     {
-        if(_playerInfo.Souls >= CostForRageUpgrade)
+        if(_maxRageUpgradeLevel == _rageUpgradeLevel)
         {
-            Debug.Log("upgraded rage");
-            _playerInfo.Souls -= CostForRageUpgrade;
-            PlayersUltController.Instance.MaxUltPoints += RageUpgradeIncrement;
-            _playerInfo.UpdatePlayersStats();
-            CostForRageUpgrade *= 2;
-            UpdateUIForUpgradeMenu(RageCostAmountText, RagePercentText, CostForRageUpgrade, RageUpgradeIncrement);
+            Debug.Log("maxxed out");
+        }
+        else
+        {
+            if (_playerInfo.Souls >= CostForRageUpgrade)
+            {
+                Debug.Log("upgraded rage");
+                _playerInfo.Souls -= CostForRageUpgrade;
+                _rageUpgradePercent += RageUpgradeIncrement;
+                _rageUpgradeLevel += 1;
+                PlayersUltController.Instance.MaxUltPoints += RageUpgradeIncrement;
+                _playerInfo.UpdatePlayersStats();
+                CostForRageUpgrade *= 2;
+                UpdateUIForUpgradeMenu(RageCostAmountText, RagePercentText, CostForRageUpgrade, _rageUpgradePercent);
+            }
         }
     }
     public void UpgradeDash()
     {
-        if(_playerInfo.Souls >= CostForDashUpgrade)
+        if(_maxDashUpgradeLevel == _dashUpgradeLevel)
         {
-            PlayerMovementRef.DashCoolDown -= PlayerMovementRef.DashCoolDownUpgrade;
-            _playerInfo.Souls -= CostForDashUpgrade;
-            _playerInfo.UpdatePlayersStats();
-            CostForDashUpgrade *= 2;
-            UpdateUIForUpgradeMenu(DashCostAmountText, DashPercentText, CostForDashUpgrade, PlayerMovementRef.DashCoolDownUpgrade);
+            Debug.Log("maxxed out");
+        }
+        else
+        {
+            if (_playerInfo.Souls >= CostForDashUpgrade)
+            {
+                PlayerMovementRef.DashCoolDown -= PlayerMovementRef.DashCoolDownUpgrade;
+                _playerInfo.Souls -= CostForDashUpgrade;
+                _dashUpgradeLevel += 1;
+                _dashUpgradePercent -= PlayerMovementRef.DashCoolDownUpgrade;
+                _playerInfo.UpdatePlayersStats();
+                CostForDashUpgrade *= 2;
+                UpdateUIForUpgradeMenu(DashCostAmountText, DashPercentText, CostForDashUpgrade, _dashUpgradePercent);
+            }
         }
     }
 
     public void UpgradeShield()
     {
-        if (_playerInfo.Souls >= CostForShieldUpgrade)
+        if(_maxShieldUpgradeLevel == _shieldUpgradeLevel)
         {
-            _playerInfo.Souls -= CostForShieldUpgrade;
-            _playerInfo.UpdatePlayersStats();
-            ShieldController.instance.UpgradeShield(ShieldUpgradeIncrement);
-            CostForShieldUpgrade *= 2;
-            UpdateUIForUpgradeMenu(ShieldCostAmountText, ShieldPercentText, CostForShieldUpgrade, ShieldUpgradeIncrement);
+            Debug.Log("maxxed out");
+        }
+        else
+        {
+            if (_playerInfo.Souls >= CostForShieldUpgrade)
+            {
+                _playerInfo.Souls -= CostForShieldUpgrade;
+                _shieldUpgradePercent += ShieldUpgradeIncrement;
+                _shieldUpgradeLevel += 1;
+                _playerInfo.UpdatePlayersStats();
+                ShieldController.instance.UpgradeShield(ShieldUpgradeIncrement);
+                CostForShieldUpgrade *= 2;
+                UpdateUIForUpgradeMenu(ShieldCostAmountText, ShieldPercentText, CostForShieldUpgrade, _shieldUpgradePercent);
+            }
         }
     }
     public void UpdateUIForUpgradeMenu(TextMeshProUGUI costText, TextMeshProUGUI percentUI, int costAmount, float upgradeIncrement)
