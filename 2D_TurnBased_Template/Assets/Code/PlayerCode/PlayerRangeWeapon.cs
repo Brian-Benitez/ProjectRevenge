@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlayerRangeWeapon : MonoBehaviour
 {
@@ -25,9 +24,10 @@ public class PlayerRangeWeapon : MonoBehaviour
         if (PlayerMovementRef.IsDashing)
             return;
 
-        if(Input.GetMouseButton(1) &&Input.GetMouseButtonDown(0) && CanRangeAttackAgain)
+        if(Input.GetMouseButton(1) && Input.GetMouseButtonDown(0) && PlayerAmmoController.Instance.DoesPlayerHaveAmmo() && CanRangeAttackAgain)
         {
             Instantiate(Projectile, ShotPoint.position, transform.rotation);
+            PlayerAmmoController.Instance.RemoveAmmo();
             RestartTimerForRangeAttacks();
         }
 

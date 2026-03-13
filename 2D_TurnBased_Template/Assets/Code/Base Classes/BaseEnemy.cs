@@ -85,6 +85,7 @@ public class BaseEnemy : MonoBehaviour
             EnemysManager.Instance.RemoveEnemyFromList(this.gameObject);
             EnemysManager.Instance.EnableIsFullAggroToAnotherEnemy();
             EnemysManager.Instance.IsAllEnemiesDead();
+            PlayerAmmoController.Instance.AddAmmo();
             DropAnItem();
             Destroy(this.gameObject);
         }
