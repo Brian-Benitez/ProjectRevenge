@@ -5,6 +5,7 @@ public class PlayerAmmoController : MonoBehaviour
     public static PlayerAmmoController Instance;
 
     public int AmmoAmount;
+    public int MaxAmountAmount;
     public bool HasAmmo = false;
 
     private void Awake()
@@ -22,7 +23,14 @@ public class PlayerAmmoController : MonoBehaviour
 
     public void AddAmmo()
     {
-        AmmoAmount++;
+        if(AmmoAmount >= MaxAmountAmount)
+        {
+            AmmoAmount = MaxAmountAmount;
+        }
+        else
+        {
+            AmmoAmount++;
+        }
     }
 
     public void RemoveAmmo()
