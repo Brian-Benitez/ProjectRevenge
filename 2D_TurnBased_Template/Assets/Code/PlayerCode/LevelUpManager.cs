@@ -34,6 +34,22 @@ public class LevelUpManager : MonoBehaviour
     public TextMeshProUGUI RangePercentText;
     public TextMeshProUGUI ShieldPercentText;
 
+    [Header("Buttons")]
+    public GameObject HealthButton;
+    public GameObject RageButton;
+    public GameObject MeleeButton;
+    public GameObject DashButton;
+    public GameObject RangeButton;
+    public GameObject ShieldButton;
+
+    [Header("Max Texts")]
+    public TextMeshProUGUI HealthMaxText;
+    public TextMeshProUGUI MeleeMaxText;
+    public TextMeshProUGUI RageMaxText;
+    public TextMeshProUGUI DashMaxText;
+    public TextMeshProUGUI RangeMaxText;
+    public TextMeshProUGUI ShieldMaxText;
+
     [Header("Scripts")]
     public PlayerMovement PlayerMovementRef;
     public PlayerInfo _playerInfo;
@@ -71,6 +87,7 @@ public class LevelUpManager : MonoBehaviour
             if(_maxHealthUpgradeLevel == _healthUpgradeLevel)
             {
                 Debug.Log("Max upgrade has been reached.");
+                DisableUpgradeButton(HealthMaxText, HealthButton);
             }
             else
             {
@@ -96,6 +113,7 @@ public class LevelUpManager : MonoBehaviour
         if(_maxMeleeUpgradeLevel == _meleeUpgradeLevel)
         {
             Debug.Log("maxed out");
+            DisableUpgradeButton(MeleeMaxText, MeleeButton);
         }
         else
         {
@@ -119,6 +137,7 @@ public class LevelUpManager : MonoBehaviour
         if(_maxRangeUpgradeLevel == _rangeUpgradeLevel)
         {
             Debug.Log("maxed out");
+            DisableUpgradeButton(RangeMaxText, RangeButton);
         }
         else
         {
@@ -141,6 +160,7 @@ public class LevelUpManager : MonoBehaviour
         if(_maxRageUpgradeLevel == _rageUpgradeLevel)
         {
             Debug.Log("maxxed out");
+            DisableUpgradeButton(RageMaxText, RageButton);
         }
         else
         {
@@ -162,6 +182,7 @@ public class LevelUpManager : MonoBehaviour
         if(_maxDashUpgradeLevel == _dashUpgradeLevel)
         {
             Debug.Log("maxxed out");
+            DisableUpgradeButton(DashMaxText, DashButton);
         }
         else
         {
@@ -183,6 +204,7 @@ public class LevelUpManager : MonoBehaviour
         if(_maxShieldUpgradeLevel == _shieldUpgradeLevel)
         {
             Debug.Log("maxxed out");
+            DisableUpgradeButton(ShieldMaxText, ShieldButton);
         }
         else
         {
@@ -203,5 +225,17 @@ public class LevelUpManager : MonoBehaviour
         costText.text = " " + costAmount;
         percentUI.text = " " + (decimal)upgradeIncrement + "%";
         Debug.Log("cost amount " + costAmount + " what is should be " + costAmount * 2);
+    }
+
+    public void DisableUpgradeButton(TextMeshProUGUI maxText, GameObject button)
+    {
+        button.SetActive(false);
+        maxText.gameObject.SetActive(true);
+    }
+
+    public void EnableUpgradeButton(TextMeshProUGUI maxText, GameObject button)
+    {
+        button.SetActive(true);
+        maxText.gameObject.SetActive(false);
     }
 }
