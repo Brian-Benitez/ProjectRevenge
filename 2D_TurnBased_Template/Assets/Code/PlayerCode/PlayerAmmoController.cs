@@ -8,6 +8,8 @@ public class PlayerAmmoController : MonoBehaviour
     public int MaxAmountAmount;
     public bool HasAmmo = false;
 
+    public PlayerInfo PlayerInfoRef;
+
     private void Awake()
     {
         if (Instance == null)
@@ -36,5 +38,6 @@ public class PlayerAmmoController : MonoBehaviour
     public void RemoveAmmo()
     {
         AmmoAmount--;
+        PlayerInfoRef.UpdatePlayersStats();
     }
 }

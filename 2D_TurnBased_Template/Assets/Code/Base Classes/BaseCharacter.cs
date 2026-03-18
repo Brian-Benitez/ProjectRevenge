@@ -22,6 +22,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public TextMeshProUGUI InGameSoulsText;
     public TextMeshProUGUI UltAmountText;
     public TextMeshProUGUI MaxUltAmountText;
+    public TextMeshProUGUI ArrowCountText;
 
     public void TakeDamage(float damage)
     {
@@ -64,5 +65,6 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         InGameSoulsText.text = " " + Souls;
         UltAmountText.text = " " + PlayersUltController.Instance.UltPoints;
         MaxUltAmountText.text = " " + PlayersUltController.Instance.MaxUltPoints;
+        ArrowCountText.text = " " + PlayerAmmoController.Instance.AmmoAmount;
     }
 }
