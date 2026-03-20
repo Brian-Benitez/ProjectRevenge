@@ -39,7 +39,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public bool CanMeleeAttackAgain = false;
     public bool CanSpeicalAgain = false;    
     public bool ChangedValues = false;
-
+    public HitObjectInOrderPuzzleManager HitObjectInOrderPuzzleManagerRef;
     //private vars
     private float _maxTimeBtwAttacks;
     private float _holdTime = 0f;
@@ -128,6 +128,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             if (enemiesToDamges[i].GetComponent<ObjectHittableTrigger>() != null)
             {
                 enemiesToDamges[i].GetComponent<ObjectHittableTrigger>().TurnIsOnOn();
+                HitObjectInOrderPuzzleManagerRef.CheckIfCanDoorOpen();
                 Debug.Log("turn on bool");
             }
             if(enemiesToDamges[i].GetComponent<BaseEnemy>() != null)

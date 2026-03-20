@@ -5,28 +5,31 @@ public class HitObjectInOrderPuzzleManager : MonoBehaviour
 {
     public List<ObjectHittableTrigger> HittableTriggers;
     public bool IsAllOn = false;
-    int AllOnCount = 0;
+    public int AllOnCount = 0;
     public DoorMoving DoorMovingRef;
 
-    private void Update()
+
+
+    public void CheckIfCanDoorOpen()
     {
-        if(IsAllTriggersOn())
+        if (IsAllTriggersOn())
         {
             IsAllOn = true;
             DoorMovingRef.OpenDoor = true;
             RestartAllCountNumber();
+            Debug.Log("door is open");
         }
-            
+        else
+            Debug.Log("cannot open door yet");
     }
 
     bool IsAllTriggersOn()
     {
+        RestartAllCountNumber();
         foreach(ObjectHittableTrigger trigger in HittableTriggers)
         {
             if(trigger.IsOn)
                 AllOnCount++;
-            else if(trigger.IsOn == false)
-                AllOnCount--;
         }
         if(AllOnCount >= 3)
             return true;

@@ -21,6 +21,7 @@ public class ObjectHittableTrigger : MonoBehaviour
         {
             IsOn = false;
             RestartTimer();
+            TurnIsOnOff();
         }
     }
 
