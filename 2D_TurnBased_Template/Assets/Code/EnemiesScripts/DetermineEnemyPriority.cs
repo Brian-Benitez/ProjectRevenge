@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class DetermineEnemyPriority : MonoBehaviour
 {
+    //DELETE ALL THIS
     [Header("Priority level")]
     public int EnemyPriorty;
     public bool IsFullAggro = false;
 
     [Header("Distances")]
-    public float FullAggroStopDistance;
-    public float OnePriorityDistance;
-    public float TwoPriorityDistance;
+    public float FightingDistance;
+    public float StandByDistance;
 
     private void Update()
     {
@@ -19,11 +19,11 @@ public class DetermineEnemyPriority : MonoBehaviour
     {
         float _distanceFromPlayer = Vector2.Distance(transform.position, playerpos.transform.position);  
         
-        if(_distanceFromPlayer <= OnePriorityDistance)
+        if(_distanceFromPlayer <= FightingDistance)
         {
             EnemyPriorty = 1;
         }
-        if(_distanceFromPlayer <= TwoPriorityDistance && _distanceFromPlayer > OnePriorityDistance)
+        if(_distanceFromPlayer <= StandByDistance && _distanceFromPlayer > FightingDistance)
         {
             EnemyPriorty = 2;
         }
@@ -31,7 +31,7 @@ public class DetermineEnemyPriority : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.darkOrange;
-        Gizmos.DrawWireSphere(transform.position, TwoPriorityDistance);
-        Gizmos.DrawWireSphere(transform.position, OnePriorityDistance);
+        Gizmos.DrawWireSphere(transform.position, StandByDistance);
+        Gizmos.DrawWireSphere(transform.position, FightingDistance);
     }
 }

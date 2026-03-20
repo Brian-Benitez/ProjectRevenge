@@ -577,6 +577,7 @@ MonoBehaviour:
   BuildUpStun: 1
   ThresholdHealthToStun: 5
   StunDuration: 0.5
+  EnemyAggroDistanceRef: {fileID: 5211125791650558122}
   EnemyType: 1
   EnemyDifficulty: 1
 --- !u!114 &6627246155356475132

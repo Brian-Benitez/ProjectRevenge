@@ -17,9 +17,9 @@ public class TriggerFight : MonoBehaviour
             ActivateAllEnemies();
             EnemysManager.Instance.DisableTrigger(FightID);
             EnemysManager.Instance.CurrentTriggerIndex = FightID;
-            EnemysManager.Instance.SetOneEnemyToFullAggroOnStart();
+            //EnemysManager.Instance.SetOneEnemyToFullAggroOnStart();
             DoorController.instance.CloseAllDoorsInLevel();
-            SetAnEnemyToBeFullAggro();
+            //SetAnEnemyToBeFullAggro();
         }
     }
     /// <summary>

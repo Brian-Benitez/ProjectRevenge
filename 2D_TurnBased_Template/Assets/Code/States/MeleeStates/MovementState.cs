@@ -9,7 +9,8 @@ public class MovementState : State
 
 
     [Header("Floats")]
-    public float AttackingRange;
+    public float FightingRange;
+    public float StandByRange;
     public float StoppingDistance;
     public float DistanceFromPlayer;
 
@@ -44,17 +45,13 @@ public class MovementState : State
     //changing distance code
     void ChangeStoppingDistannce()
     {
-        if(DetermineEnemyPriorityRef.IsFullAggro)
+        if(EnemyTurnController.Instance.IsThereAnOpenSlot && EnemyAggroDistanceRef.IsAggro)
         {
-            StoppingDistance = DetermineEnemyPriorityRef.FullAggroStopDistance;
+            StoppingDistance = FightingRange;
         }
-        if(DetermineEnemyPriorityRef.EnemyPriorty == 1)
+        else if(EnemyTurnController.Instance.IsThereAnOpenSlot == false && EnemyAggroDistanceRef.IsAggro)
         {
-            StoppingDistance = DetermineEnemyPriorityRef.OnePriorityDistance;
-        }
-        else if(DetermineEnemyPriorityRef.EnemyPriorty == 2)
-        {
-            StoppingDistance = DetermineEnemyPriorityRef.TwoPriorityDistance;
+            StoppingDistance = StandByRange;
         }
     }
     /// <summary>
@@ -62,34 +59,28 @@ public class MovementState : State
     /// </summary>
     void MoveBasedOnPriority()
     {
-        //below is shit, i know this, i will work on it later. Needs to be fun first the  optimized THIS IS BROKE WHEN RESPAWNING ENEMIESZ
-        /*if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.IsFullAggro)
+        if (EnemyTurnController.Instance.IsThereAnOpenSlot == true)
         {
-            AttackState.WithinRange = false;
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
-        */
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackingRange && DetermineEnemyPriorityRef.EnemyPriorty == 1)
-        {
-            AttackState.WithinRange = false;
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange)
+            {
+                AttackState.WithinRange = false;
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+            }
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
+            {
+                AttackState.WithinRange = true;
+                EnemyTurnController.Instance.AddEnemyToList(this.gameObject);
+            }
         }
-        if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= AttackingRange)
+        else
         {
-            AttackState.WithinRange = true;
-        }
-        
-        //priority 2 enemies here
-        if(DistanceFromPlayer <= StoppingDistance && DetermineEnemyPriorityRef.EnemyPriorty == 2)
-        {
-            Debug.Log("wait for your turn");
-        }
-        if (DistanceFromPlayer > StoppingDistance && DetermineEnemyPriorityRef.EnemyPriorty == 2)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+            if (DistanceFromPlayer > StandByRange)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+            }
         }
 
         DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
-        
     }
 
     public override State RunCurrentState()
