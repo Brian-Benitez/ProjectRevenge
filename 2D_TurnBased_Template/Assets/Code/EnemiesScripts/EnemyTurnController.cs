@@ -22,8 +22,7 @@ public class EnemyTurnController : MonoBehaviour
         CheckOnAmountOfEnemyThreats();
     }
 
-
-    public void AddEnemyToList(GameObject enemy)
+    public bool IsEnemyInList(GameObject enemy)
     {
         HaveBeenAdded = false;
         foreach (GameObject item in EnemiesAggroed)
@@ -34,6 +33,14 @@ public class EnemyTurnController : MonoBehaviour
                 HaveBeenAdded = true;
             }
         }
+
+        if (HaveBeenAdded)
+            return true;
+        else
+            return false;
+    }
+    public void AddEnemyToList(GameObject enemy)
+    {
         if (AmountOfDirectEnemyThreat == MaxAmountOfDirectEnemyThreat)
             Debug.Log("cannot add more enemies");
         else if(HaveBeenAdded  == false && AmountOfDirectEnemyThreat < MaxAmountOfDirectEnemyThreat)
@@ -41,7 +48,6 @@ public class EnemyTurnController : MonoBehaviour
             EnemiesAggroed.Add(enemy);
             AddAsDirectThreat();
         }
-        HaveBeenAdded = false;
     }
 
     public void RemoveEnemyFromList(GameObject enemy) => EnemiesAggroed.Remove(enemy);

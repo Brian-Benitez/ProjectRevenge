@@ -13,6 +13,7 @@ public class MovementState : State
     public float StandByRange;
     public float StoppingDistance;
     public float DistanceFromPlayer;
+    public bool IsAThreat = false;
 
     [Header("Scripts")]
     public EnemySwordsman EnemySwordsmanRef;
@@ -37,6 +38,10 @@ public class MovementState : State
         {
             ChangeStoppingDistannce();
             MoveBasedOnPriority();
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
+            {
+                IsAThreat = true;
+            }
         }
         else if (!EnemyAggroDistanceRef.IsAggro)
             return;
@@ -59,9 +64,9 @@ public class MovementState : State
     /// </summary>
     void MoveBasedOnPriority()
     {
-        if (EnemyTurnController.Instance.IsThereAnOpenSlot == true)
+        if (EnemyTurnController.Instance.IsThereAnOpenSlot == true || IsAThreat)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange || IsAThreat)
             {
                 AttackState.WithinRange = false;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
@@ -69,14 +74,17 @@ public class MovementState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
             {
                 AttackState.WithinRange = true;
-                EnemyTurnController.Instance.AddEnemyToList(this.gameObject);
+                if(EnemyTurnController.Instance.IsEnemyInList(this.gameObject) == false)
+                    EnemyTurnController.Instance.AddEnemyToList(this.gameObject);
+
+                IsAThreat = true;
             }
-        }
+        }  
         else
         {
-            if (DistanceFromPlayer > StandByRange)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange && EnemyTurnController.Instance.IsEnemyInList(this.gameObject) == false)
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
             }
         }
 
@@ -92,6 +100,13 @@ public class MovementState : State
             return AttackState;
 
         return this;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, FightingRange);
+        Gizmos.DrawWireSphere(transform.position, StandByRange);
     }
 
 }

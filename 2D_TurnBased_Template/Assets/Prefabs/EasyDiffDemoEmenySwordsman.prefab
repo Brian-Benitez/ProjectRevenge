@@ -692,8 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b73f734f239ce4c9fb99bdc27d37fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FightingRange: 2.5
-  StandByRange: 4
+  FightingRange: 2.8
+  StandByRange: 5
   StoppingDistance: 2
   DistanceFromPlayer: 0
   EnemySwordsmanRef: {fileID: 763097274553505534}
