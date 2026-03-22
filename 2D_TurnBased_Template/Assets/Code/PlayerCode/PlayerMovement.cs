@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
         Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
         if (Input.GetKey(KeyCode.Mouse1) || Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Stop moving");
             Rb.linearVelocity = new Vector2(0, 0);
             moveDirection = Vector2.zero;
         }

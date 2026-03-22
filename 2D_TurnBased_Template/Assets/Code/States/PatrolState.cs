@@ -22,20 +22,20 @@ public class PatrolState : State
 
     private void Patrol()
     {
-        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) < 0.5f)
+        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) < 1f)
             DidMakeItToFirstPoint = true;
 
-        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotTwo.transform.position) < 0.5f)
+        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotTwo.transform.position) < 1f)
             DidMakeItToFirstPoint = false;
 
-        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) > 0.5f && !DidMakeItToFirstPoint)
+        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) > 1f && !DidMakeItToFirstPoint)
         {
             EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotOne.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
         }
         
 
         
-        if(Vector2.Distance(transform.position, PatrolSpotTwo.transform.position) > 0.5f && DidMakeItToFirstPoint)
+        if(Vector2.Distance(transform.position, PatrolSpotTwo.transform.position) > 1f && DidMakeItToFirstPoint)
         {
             EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotTwo.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
         }
