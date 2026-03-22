@@ -293,6 +293,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3777268703821186300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182374059345362982}
+  - component: {fileID: 2931045070768758763}
+  m_Layer: 3
+  m_Name: PatrolState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1182374059345362982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777268703821186300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 420412308278162264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2931045070768758763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777268703821186300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a63dbadb83a4ea47803feb28d0cd0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatrolSpotOne: {fileID: 0}
+  PatrolSpotTwo: {fileID: 0}
+  EnemyGO: {fileID: 8044771803214212618}
+  BaseEnemyRef: {fileID: 763097274553505534}
+  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
+  MovementStateRef: {fileID: 3771332004520370198}
 --- !u!1 &3979199002658533547
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 3771332004520370198}
+  currentState: {fileID: 2931045070768758763}
 --- !u!1 &3992491481548650938
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +570,7 @@ Transform:
   - {fileID: 3546789916428154126}
   - {fileID: 5680161182226638595}
   - {fileID: 3288533199338745091}
+  - {fileID: 1182374059345362982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2294815640578897509
@@ -696,6 +747,7 @@ MonoBehaviour:
   StandByRange: 5
   StoppingDistance: 2
   DistanceFromPlayer: 0
+  IsAThreat: 0
   EnemySwordsmanRef: {fileID: 763097274553505534}
   EnemyAggroDistanceRef: {fileID: 3828468443647139524}
   DetermineEnemyPriorityRef: {fileID: 0}
