@@ -5,27 +5,29 @@ public class StunState : State
 {
     private float MaxStunTime;
 
-    BaseEnemy BaseEnemyRef;
-    MovementState ChaseStateRef;
+
+    public BaseEnemy BaseEnemyRef;
+    public MovementState MovementStateRef;
 
     private void Start()
     {
-        BaseEnemyRef = GetComponent<BaseEnemy>();
-        ChaseStateRef = GetComponent<MovementState>(); 
         MaxStunTime = BaseEnemyRef.StunDuration;
     }
 
     public IEnumerator StunLocked()
     {
-        StopAllCoroutines();    
+        Debug.Log("im running");
         BaseEnemyRef.IsStunned = true;
+        Debug.Log("im here");
         yield return new WaitForSeconds(MaxStunTime);
+        Debug.Log("did i make it");
         BaseEnemyRef.IsStunned = false;
+        Debug.Log("im done");
     }
     public override State RunCurrentState()
     {
         if (BaseEnemyRef.IsStunned == false)
-            return ChaseStateRef;
+            return MovementStateRef;
 
         else if (BaseEnemyRef.IsStunned)
             StartCoroutine(StunLocked());

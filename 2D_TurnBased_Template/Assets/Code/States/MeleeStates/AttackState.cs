@@ -29,7 +29,7 @@ public class AttackState : State//rename this to EnemyAttackState
     private EnemySwordsman EnemySwordsmanRef;
     //States ref here
     MovementState ChaseState;
-    StunState StunState;
+    public StunState StunState;
     BlockAndMoveState BlockAndMoveState;
     OpportunityToBeHitState OpportunityToBeHitState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
@@ -43,6 +43,7 @@ public class AttackState : State//rename this to EnemyAttackState
         EnemySwordsmanRef = gameObject.GetComponentInParent<EnemySwordsman>();
         ChaseState = GetComponentInParent<MovementState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
+        
 
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
         {

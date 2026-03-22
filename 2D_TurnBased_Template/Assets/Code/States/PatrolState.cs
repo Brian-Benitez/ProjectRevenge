@@ -31,7 +31,6 @@ public class PatrolState : State
         if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) > 0.5f && !DidMakeItToFirstPoint)
         {
             EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotOne.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
-            Debug.Log("moving towards next spot");
         }
         
 
@@ -39,7 +38,6 @@ public class PatrolState : State
         if(Vector2.Distance(transform.position, PatrolSpotTwo.transform.position) > 0.5f && DidMakeItToFirstPoint)
         {
             EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotTwo.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
-            Debug.Log("going towards orginal spot");
         }
        
     }

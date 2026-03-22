@@ -27,7 +27,6 @@ public class BaseEnemy : MonoBehaviour
     public float StunDuration;
 
     public EnemyAggroDistance EnemyAggroDistanceRef;
-    public DetermineEnemyPriority DetermineEnemyPriorityRef;
     KnockBackFeedBack _knockBackFeedBack;
 
     private void Start()
@@ -84,7 +83,6 @@ public class BaseEnemy : MonoBehaviour
             SoulsBankController.instance.SoulsBank += EnemySoulsValue;
             SoulsBankController.instance.PayoutToPlayer();
             EnemysManager.Instance.RemoveEnemyFromList(this.gameObject);
-            //EnemysManager.Instance.EnableIsFullAggroToAnotherEnemy();
             EnemysManager.Instance.IsAllEnemiesDead();
             PlayerAmmoController.Instance.AddAmmo();
             PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC

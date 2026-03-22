@@ -18,7 +18,6 @@ public class MovementState : State
     [Header("Scripts")]
     public EnemySwordsman EnemySwordsmanRef;
     public EnemyAggroDistance EnemyAggroDistanceRef;
-    public DetermineEnemyPriority DetermineEnemyPriorityRef;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
     private void Start()
