@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatrolState : State
@@ -6,7 +8,9 @@ public class PatrolState : State
     public GameObject PatrolSpotTwo;
     public GameObject EnemyGO;
 
-    public bool DidMakeItToFirstPoint = false;
+    public bool IsOnFirstPoint = false;
+    public bool IsOnSecondPoint = false;    
+    public bool IsWaitingOnPoint = false;
 
     public BaseEnemy BaseEnemyRef;
     public EnemyAggroDistance EnemyAggroDistanceRef;
@@ -14,7 +18,7 @@ public class PatrolState : State
 
     private void Update()
     {
-        if(EnemyAggroDistanceRef.IsAggro == false)
+        if (EnemyAggroDistanceRef.IsAggro == false)
         {
             Patrol();
         }
@@ -22,24 +26,44 @@ public class PatrolState : State
 
     private void Patrol()
     {
-        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) < 1f)
-            DidMakeItToFirstPoint = true;
-
-        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotTwo.transform.position) < 1f)
-            DidMakeItToFirstPoint = false;
-
-        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) > 1f && !DidMakeItToFirstPoint)
+        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) < 2f && IsOnFirstPoint == false)//start point
         {
-            EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotOne.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
+            IsOnFirstPoint = true;
+            IsOnSecondPoint = false;
+            IsWaitingOnPoint = true;
+        }
+
+        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotTwo.transform.position) < 2f && IsOnSecondPoint == false)
+        {
+           IsOnSecondPoint = true;
+           IsOnFirstPoint = false;
+           IsWaitingOnPoint = true;
+        }
+
+
+        if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) >= 2f && !IsOnFirstPoint)
+        {
+            if(IsWaitingOnPoint)   
+                StartCoroutine(PauseOnArrival());
+            else if(IsWaitingOnPoint == false)
+                EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotOne.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
         }
         
-
-        
-        if(Vector2.Distance(transform.position, PatrolSpotTwo.transform.position) > 1f && DidMakeItToFirstPoint)
+        if(Vector2.Distance(transform.position, PatrolSpotTwo.transform.position) >= 2f && !IsOnSecondPoint)
         {
-            EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotTwo.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
+            if (IsWaitingOnPoint)
+                StartCoroutine(PauseOnArrival());
+            else if (IsWaitingOnPoint == false)
+                EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotTwo.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
         }
-       
+    }
+
+    public IEnumerator PauseOnArrival()
+    {
+        Debug.Log("pause for a sec");
+        yield return new WaitForSeconds(4f);
+        Debug.Log("resume patrol");
+        IsWaitingOnPoint = false;
     }
 
     public override State RunCurrentState()
