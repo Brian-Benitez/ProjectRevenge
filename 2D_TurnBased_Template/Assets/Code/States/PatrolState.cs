@@ -43,13 +43,13 @@ public class PatrolState : State
 
         if (Vector2.Distance(EnemyGO.transform.position, PatrolSpotOne.transform.position) >= 2f && !IsOnFirstPoint)
         {
-            EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotOne.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
+            EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotOne.transform.position, BaseEnemyRef.PatrolSpeed * Time.deltaTime);
             
         }
         
         if(Vector2.Distance(transform.position, PatrolSpotTwo.transform.position) >= 2f && !IsOnSecondPoint)
         {
-            EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotTwo.transform.position, BaseEnemyRef.EnemySpeed * Time.deltaTime);
+            EnemyGO.transform.position = Vector2.MoveTowards(EnemyGO.transform.position, PatrolSpotTwo.transform.position, BaseEnemyRef.PatrolSpeed * Time.deltaTime);
             
         }
     }

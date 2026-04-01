@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
-  AggroDistance: 14
+  AggroDistance: 10
 --- !u!58 &7784250481907273731
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.020103455, y: 0}
-  m_Radius: 14
+  m_Radius: 10
 --- !u!1 &8044771803214212618
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +815,7 @@ MonoBehaviour:
   EnemyHealth: 4
   MaxEnemyHealth: 4
   EnemySpeed: 2.5
+  PatrolSpeed: 1
   EnemyDamage: 1
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
