@@ -18,6 +18,7 @@ public class BaseEnemy : MonoBehaviour
     [Header("demo stuff delete later")]
     public bool IsHit = false;
 
+    public bool IsDead = false;
     [Header("----------Stat Effects----------")]
     [Header("Stun Effect")]
     public bool IsStunned = false;//this controls the state to get off and on stuns effects
@@ -90,7 +91,9 @@ public class BaseEnemy : MonoBehaviour
             EnemyTurnController.Instance.RemoveAsDirectThreat();
             EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
             DropAnItem();
-            Destroy(this.gameObject);
+            IsDead = true;
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
         else
             Debug.Log("has health stil");

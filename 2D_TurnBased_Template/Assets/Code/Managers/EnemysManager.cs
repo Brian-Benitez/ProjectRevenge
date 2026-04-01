@@ -36,38 +36,6 @@ public class EnemysManager : MonoBehaviour
                 trigger.gameObject.SetActive(true); 
         }
     }
-    public void SetOneEnemyToFullAggroOnStart()
-    {
-        TriggerFights[CurrentTriggerIndex].Enemies[0].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
-    }
-    public void EnableIsFullAggroToAnotherEnemy()
-    {
-        int _countofEnemies = 0;
-
-        if(TriggerFights[CurrentTriggerIndex].Enemies.Count == 0)
-        {
-            Debug.Log("there are no enemies left to be aggro to");
-        }
-        else
-        {
-            for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
-            {
-                if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().EnemyType == BaseEnemy.TypeOfEnemy.Swordsman)
-                {
-                    if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro == false)
-                    {
-                        _countofEnemies++;
-                        Debug.Log("is not aggro");
-                    }
-                }  
-            }
-
-            if (_countofEnemies == TriggerFights[CurrentTriggerIndex].Enemies.Count)
-            {
-                TriggerFights[CurrentTriggerIndex].Enemies[0].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
-            }
-        } 
-    }
 
    /// <summary>
    /// Heals all enemies but does not reactive all of them
@@ -116,9 +84,23 @@ public class EnemysManager : MonoBehaviour
     }
     public void IsAllEnemiesDead()
     {
+        int _coutOfDisabledEnemies = 0;
+
+        for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
+        {
+            if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead)
+            {
+                _coutOfDisabledEnemies++;
+            }
+            if (TriggerFights[CurrentTriggerIndex].Enemies.Count == _coutOfDisabledEnemies)
+                DoorController.instance.OpenAllDoorsInLevel();
+        }
+
+        /*
         if (TriggerFights[CurrentTriggerIndex].Enemies.Count <= 0)
         {
             DoorController.instance.OpenAllDoorsInLevel();
         }
+        */
     }
 }
