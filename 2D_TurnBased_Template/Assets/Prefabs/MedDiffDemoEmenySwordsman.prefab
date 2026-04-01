@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 1710881456131844461}
+  currentState: {fileID: 3280170683452729875}
 --- !u!1 &3216166122795581568
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +401,7 @@ Transform:
   - {fileID: 7542078799433395916}
   - {fileID: 3967613304870831337}
   - {fileID: 5736047008751863760}
+  - {fileID: 3616656476653970256}
   - {fileID: 8571502783990917997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -930,10 +931,12 @@ MonoBehaviour:
   PatrolSpotOne: {fileID: 0}
   PatrolSpotTwo: {fileID: 0}
   EnemyGO: {fileID: 5295978787876234622}
-  DidMakeItToFirstPoint: 0
+  IsOnFirstPoint: 0
+  IsOnSecondPoint: 0
   BaseEnemyRef: {fileID: 9113469955481799094}
   EnemyAggroDistanceRef: {fileID: 2518910132756565181}
   MovementStateRef: {fileID: 2766800968437526379}
+  PausingState: {fileID: 3280170683452729875}
 --- !u!1 &7979956444630642051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1020,54 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 11
+--- !u!1 &8385133101396675992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3616656476653970256}
+  - component: {fileID: 3280170683452729875}
+  m_Layer: 3
+  m_Name: PausingState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3616656476653970256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385133101396675992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2682440749604508436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3280170683452729875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385133101396675992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e077f20caaecfc74ca94fe6b6ca62846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimerIsDone: 1
+  WaitTime: 2
+  EnemyAggroDistanceRef: {fileID: 2518910132756565181}
+  PatrolState: {fileID: 1710881456131844461}
 --- !u!1 &9065051810200549893
 GameObject:
   m_ObjectHideFlags: 0
