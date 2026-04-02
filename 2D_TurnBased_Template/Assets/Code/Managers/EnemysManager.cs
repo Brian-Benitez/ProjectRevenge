@@ -42,12 +42,9 @@ public class EnemysManager : MonoBehaviour
     {
         for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
         {
-            if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead)
-            {
-                TriggerFights[CurrentTriggerIndex].Enemies[i].gameObject.SetActive(true);
-                TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead = false;
-                TriggerFights[CurrentTriggerIndex].Enemies[i].transform.position = TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<PatrolState>().PatrolSpotOne.transform.position;
-            }
+            TriggerFights[CurrentTriggerIndex].Enemies[i].gameObject.SetActive(true);
+            TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead = false;
+            TriggerFights[CurrentTriggerIndex].Enemies[i].transform.position = TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<PatrolState>().PatrolSpotOne.transform.position;
         }
     }
     /// <summary>

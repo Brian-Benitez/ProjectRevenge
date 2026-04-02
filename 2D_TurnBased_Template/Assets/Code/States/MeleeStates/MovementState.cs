@@ -49,11 +49,11 @@ public class MovementState : State
     //changing distance code
     void ChangeStoppingDistannce()
     {
-        if(EnemyTurnController.Instance.IsThereAnOpenSlot && EnemyAggroDistanceRef.IsAggro)
+        if(EnemyTurnController.Instance.IsThereAnOpenSlot && EnemyAggroDistanceRef.IsAggro && IsAThreat)
         {
             StoppingDistance = FightingRange;
         }
-        else if(EnemyTurnController.Instance.IsThereAnOpenSlot == false && EnemyAggroDistanceRef.IsAggro)
+        else if(EnemyTurnController.Instance.IsThereAnOpenSlot == false && EnemyAggroDistanceRef.IsAggro && !IsAThreat)
         {
             StoppingDistance = StandByRange;
         }
