@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class TriggerFight : MonoBehaviour
@@ -14,9 +13,9 @@ public class TriggerFight : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("spawn enemies now");
-            EnemysManager.Instance.ActivateAllEnemies();
-            EnemysManager.Instance.DisableTrigger(FightID);
             EnemysManager.Instance.CurrentTriggerIndex = FightID;
+            EnemysManager.Instance.DisableTrigger(FightID);
+            EnemysManager.Instance.ActivateAllEnemies();
             DoorController.instance.CloseAllDoorsInLevel();
         }
     }

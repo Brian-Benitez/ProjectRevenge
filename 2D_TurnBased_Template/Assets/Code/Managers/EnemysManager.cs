@@ -38,7 +38,7 @@ public class EnemysManager : MonoBehaviour
     /// <summary>
     /// This restarts enemies and places them where they belong
     /// </summary>
-    public void ReplaceAllEnemiesInLevel()
+    public void RepositionAllEnemiesInLevel()
     {
         for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
         {
