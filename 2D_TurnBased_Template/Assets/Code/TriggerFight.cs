@@ -14,36 +14,10 @@ public class TriggerFight : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("spawn enemies now");
-            ActivateAllEnemies();
+            EnemysManager.Instance.ActivateAllEnemies();
             EnemysManager.Instance.DisableTrigger(FightID);
             EnemysManager.Instance.CurrentTriggerIndex = FightID;
-            //EnemysManager.Instance.SetOneEnemyToFullAggroOnStart();
             DoorController.instance.CloseAllDoorsInLevel();
-            //SetAnEnemyToBeFullAggro();
         }
-    }
-    /// <summary>
-    /// Activates all eneimes if it dont work write it the long way
-    /// </summary>
-    void ActivateAllEnemies() => Enemies.ToList().ForEach(enemies => enemies.gameObject.SetActive(true));
-    /// <summary>
-    /// Heals all enemies but does not active all of them
-    /// </summary>
-    public void RestartAllEnemies() => Enemies.ToList().ForEach(enemies => enemies.GetComponent<BaseEnemy>().HealSelfFully());
-
-    /// <summary>
-    /// One enemy needs to be set at priority 1!!!
-    /// </summary>
-    void SetAnEnemyToBeFullAggro()
-    {
-        var res = Enemies.ToList().Where(enemies => enemies.GetComponentInChildren<DetermineEnemyPriority>().EnemyPriorty == 1)
-                         .Select(x => x);
-                        
-        foreach (var enemy in res)
-        {
-            enemy.GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = true;
-            Debug.Log("This was ran");
-        }
-        
     }
 }

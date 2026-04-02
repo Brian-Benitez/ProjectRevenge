@@ -17,6 +17,15 @@ public class EnemysManager : MonoBehaviour
             Instance = this;
     }
 
+
+    public void EnableCurrentTriggerBox()
+    {
+        foreach (TriggerFight trigger in TriggerFights)
+        {
+            if (trigger.FightID == CurrentTriggerIndex)
+                trigger.gameObject.SetActive(true);
+        }
+    }
     public void DisableTrigger(int UsedFightId)
     {
         foreach(TriggerFight triggers in TriggerFights)
@@ -26,38 +35,21 @@ public class EnemysManager : MonoBehaviour
         }
     }
 
-    public void CheckIfTriggerIsCleared()
-    {
-        foreach(TriggerFight trigger in TriggerFights)
-        {
-            if(trigger.Enemies.Count <= 0)
-                trigger.gameObject.SetActive(false);
-            else
-                trigger.gameObject.SetActive(true); 
-        }
-    }
-
-   /// <summary>
-   /// Heals all enemies but does not reactive all of them
-   /// </summary>
-    public void HealsEnemiesInSection() => TriggerFights.ToList().ForEach(e => e.RestartAllEnemies());
-
-    public void TurnOffEnemyFullAggroBool()
+    /// <summary>
+    /// This restarts enemies and places them where they belong
+    /// </summary>
+    public void ReplaceAllEnemiesInLevel()
     {
         for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
         {
-            if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>() != null)
+            if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead)
             {
-                TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<DetermineEnemyPriority>().IsFullAggro = false;
-                Debug.Log("found it!");
-            }
-            else
-            {
-                Debug.Log("the components not there");
+                TriggerFights[CurrentTriggerIndex].Enemies[i].gameObject.SetActive(true);
+                TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead = false;
+                TriggerFights[CurrentTriggerIndex].Enemies[i].transform.position = TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<PatrolState>().PatrolSpotOne.transform.position;
             }
         }
     }
-
     /// <summary>
     /// Turn off all the most recent enemies the player fought
     /// </summary>
@@ -73,15 +65,7 @@ public class EnemysManager : MonoBehaviour
             TriggerFights[CurrentTriggerIndex].Enemies[i].SetActive(false);
         }
     }
-    /// <summary>
-    /// This calls when enemy is killed, then is removed from  trigger fights list of enemies
-    /// </summary>
-    /// <param name="enemy"></param>
-    public void RemoveEnemyFromList(GameObject enemy)
-    {
-        TriggerFights[CurrentTriggerIndex].Enemies.Remove(enemy);
-        Debug.Log("removing self from list");
-    }
+
     public void IsAllEnemiesDead()
     {
         int _coutOfDisabledEnemies = 1;
@@ -101,4 +85,15 @@ public class EnemysManager : MonoBehaviour
                 
         }
     }
+
+    /// <summary>
+    /// Activates all eneimes in section recntly fought
+    /// </summary>
+    public void ActivateAllEnemies() => TriggerFights[CurrentTriggerIndex].Enemies.ToList().ForEach(enemies => enemies.gameObject.SetActive(true));
+
+    /// <summary>
+    /// Heals all enemies in section recently fought
+    /// </summary>
+    public void HealsEnemiesInSection() => TriggerFights[CurrentTriggerIndex].Enemies.ToList().ForEach(e => e.GetComponent<BaseEnemy>().HealSelfFully());
+
 }
