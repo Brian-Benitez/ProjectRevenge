@@ -84,7 +84,6 @@ public class BaseEnemy : MonoBehaviour
             Debug.Log("im dead");
             SoulsBankController.instance.SoulsBank += EnemySoulsValue;
             SoulsBankController.instance.PayoutToPlayer();
-            EnemysManager.Instance.RemoveEnemyFromList(this.gameObject);
             EnemysManager.Instance.IsAllEnemiesDead();
             PlayerAmmoController.Instance.AddAmmo();
             PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
@@ -93,7 +92,6 @@ public class BaseEnemy : MonoBehaviour
             DropAnItem();
             IsDead = true;
             this.gameObject.SetActive(false);
-            //Destroy(this.gameObject);
         }
         else
             Debug.Log("has health stil");

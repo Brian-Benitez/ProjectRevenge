@@ -189,9 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc08db27b1029b94c8c85dd1d39677aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedOfProjectile: 6
-  LifeTimeOfProjectile: 6
-  DistanceOfProjectile: 6
+  SpeedOfProjectile: 9
+  LifeTimeOfProjectile: 9
+  DistanceOfProjectile: 9
   EnemyArcherGO: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   Enemy:
     serializedVersion: 2

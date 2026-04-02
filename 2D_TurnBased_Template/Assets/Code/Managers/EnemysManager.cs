@@ -84,23 +84,21 @@ public class EnemysManager : MonoBehaviour
     }
     public void IsAllEnemiesDead()
     {
-        int _coutOfDisabledEnemies = 0;
+        int _coutOfDisabledEnemies = 1;
 
         for (int i = 0; i < TriggerFights[CurrentTriggerIndex].Enemies.Count; i++)
         {
             if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead)
             {
                 _coutOfDisabledEnemies++;
+                Debug.Log("added one dead");
             }
             if (TriggerFights[CurrentTriggerIndex].Enemies.Count == _coutOfDisabledEnemies)
+            {
                 DoorController.instance.OpenAllDoorsInLevel();
+                Debug.Log("open door");
+            }
+                
         }
-
-        /*
-        if (TriggerFights[CurrentTriggerIndex].Enemies.Count <= 0)
-        {
-            DoorController.instance.OpenAllDoorsInLevel();
-        }
-        */
     }
 }
