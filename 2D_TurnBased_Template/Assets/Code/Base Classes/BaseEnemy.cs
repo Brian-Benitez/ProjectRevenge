@@ -82,15 +82,20 @@ public class BaseEnemy : MonoBehaviour
         if (EnemyHealth <= 0)
         {
             Debug.Log("im dead");
-            SoulsBankController.instance.SoulsBank += EnemySoulsValue;
-            SoulsBankController.instance.PayoutToPlayer();
-            EnemysManager.Instance.IsAllEnemiesDead();
-            PlayerAmmoController.Instance.AddAmmo();
-            PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
-            EnemyTurnController.Instance.RemoveAsDirectThreat();
-            EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
-            DropAnItem();
-            IsDead = true;
+            if (EnemyType == TypeOfEnemy.Object)
+                Debug.Log("object destroyed");
+            else
+            {
+                SoulsBankController.instance.SoulsBank += EnemySoulsValue;
+                SoulsBankController.instance.PayoutToPlayer();
+                EnemysManager.Instance.IsAllEnemiesDead();
+                PlayerAmmoController.Instance.AddAmmo();
+                PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
+                EnemyTurnController.Instance.RemoveAsDirectThreat();
+                EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
+                DropAnItem();
+                IsDead = true;
+            }  
             this.gameObject.SetActive(false);
         }
         else

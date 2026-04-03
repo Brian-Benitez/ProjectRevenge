@@ -103,10 +103,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 2
+  MaxEnemyHealth: 0
   EnemySpeed: 0
+  PatrolSpeed: 0
   EnemyDamage: 0
-  EnemyDamageRate: 0
+  HealthPotion: {fileID: 0}
+  RagePotion: {fileID: 0}
+  ChanceToDropItem: 0
+  EnemySoulsValue: 0
+  IsHit: 0
+  IsDead: 0
+  IsStunned: 0
+  InstanteStun: 0
+  BuildUpStun: 0
+  ThresholdHealthToStun: 0
+  StunDuration: 0
+  EnemyAggroDistanceRef: {fileID: 0}
   EnemyType: 0
+  EnemyDifficulty: 0
 --- !u!61 &4662031198350989736
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,7 +175,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8744662986570433596}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
