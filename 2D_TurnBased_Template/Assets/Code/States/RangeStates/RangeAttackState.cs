@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class RangeAttackState : State
 {
     public float TimeBtwAttack;
+    public float WindUpTime;
 
     public GameObject Projectile;
     public Transform ShotPoint;
@@ -12,6 +14,8 @@ public class RangeAttackState : State
     public bool IsAttacking = false;
     public bool IsStillWithinRange = false;
     public bool LockedOnPlayer = true;
+    public bool IsPlayingAnimation = true; 
+    
 
     //Below is for enemies who are meduim level and up.
     [Header("Below is for enemies who are meduim level and up")]
@@ -47,19 +51,7 @@ public class RangeAttackState : State
             IsStillWithinRange = true;
             if (CanRangeAttackAgain)//check if the distance hits the minium then attack here
             {
-                LockedOnPlayer = false;
-                if(_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Easy)
-                {
-                    Instantiate(Projectile, ShotPoint.position, transform.rotation);
-                    Debug.Log("shot");
-                }
-                if(_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
-                {
-                    Instantiate(Projectile, ShotPoint.position, transform.rotation);
-                    Instantiate(Projectile, ShotPointTwo.position, transform.rotation);
-                    Instantiate(Projectile, ShotPointThree.position, transform.rotation);
-                }
-                
+                StartCoroutine(WindUpArrowAttack());
                 RestartTimerForRangeAttacks();
             }
 
@@ -79,6 +71,28 @@ public class RangeAttackState : State
             IsStillWithinRange = false;
 
     }
+    void ArrowAttack()
+    {
+        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Easy)
+        {
+            Instantiate(Projectile, ShotPoint.position, transform.rotation);
+            Debug.Log("shot");
+        }
+        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        {
+            Instantiate(Projectile, ShotPoint.position, transform.rotation);
+            Instantiate(Projectile, ShotPointTwo.position, transform.rotation);
+            Instantiate(Projectile, ShotPointThree.position, transform.rotation);
+        }
+    }
+    IEnumerator WindUpArrowAttack()
+    {
+        IsPlayingAnimation = true;
+        yield return new WaitForSeconds(WindUpTime);
+        LockedOnPlayer = false;
+        ArrowAttack();
+        IsPlayingAnimation = false;
+    }
 
     void RestartTimerForRangeAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 
@@ -86,7 +100,6 @@ public class RangeAttackState : State
     {
         if (!IsStillWithinRange)
         {
-            Debug.Log("get back ti within range!");
             GetWithinRangeAttackState.TurnOffWithinRangeBool();
             return GetWithinRangeAttackState;
         }
@@ -97,7 +110,6 @@ public class RangeAttackState : State
         else
         {
             IsAttacking = true;
-            Debug.Log("still attaking "+ IsAttacking);
         }
 
             return this;
