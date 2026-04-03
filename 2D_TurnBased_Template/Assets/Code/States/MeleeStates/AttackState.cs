@@ -8,6 +8,7 @@ public class AttackState : State//rename this to EnemyAttackState
     public GameObject WindingUpIcon;
     public GameObject AttackingIcon;
     public bool IsRunning = false;
+    public bool IsPlayingAttackAni = false;
 
     [Header("Melee pos")]
     public Transform MeleePos;
@@ -112,6 +113,7 @@ public class AttackState : State//rename this to EnemyAttackState
     }
     public IEnumerator WindUpAttack()
     {
+        IsPlayingAttackAni = true;
         IsRunning = true;
         Debug.Log("Winding up attack " + WindUpTimeForMelee + " Seconds");
         yield return new WaitForSecondsRealtime(WindUpTimeForMelee);
@@ -121,6 +123,7 @@ public class AttackState : State//rename this to EnemyAttackState
         AttackingIcon.SetActive(true);
         _enemyWeaponRotationRef.IsAttacking = false;
         IsRunning = false;
+        IsPlayingAttackAni = false;
     }
 
     public override State RunCurrentState()
