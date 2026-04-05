@@ -21,14 +21,13 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
         if(collision.CompareTag("Shield"))
         {
             Debug.Log("shield is hit");
-            ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;//comment out. need to check if its melee or not
+            ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
             DestroyProjectile();
         }
-        */
+        
         if(collision.CompareTag("Player"))
         {
             Debug.Log("hit player");
