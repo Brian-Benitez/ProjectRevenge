@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 public class EnemyShield : MonoBehaviour
@@ -12,6 +13,7 @@ public class EnemyShield : MonoBehaviour
         {
             Shield.SetActive(true);
             this.gameObject.tag = "EnemyShield";
+            //this.gameObject.layer = 9;//enemy shield num
         }
     }
 
@@ -19,10 +21,12 @@ public class EnemyShield : MonoBehaviour
     {
         Shield.SetActive(false);
         this.gameObject.tag = "Enemy";
+        this.gameObject.layer = 3;// enemy layer num
     }
 
     public void ShieldTakeDamage(float dam)
     {
+        Debug.Log("shield is hit");
         EnemyShieldHealth -= dam;//this can make the shield health go to negative btw
         DoesShieldBreak();
     }

@@ -131,14 +131,16 @@ public class PlayerMeleeAttack : MonoBehaviour
                 HitObjectInOrderPuzzleManagerRef.CheckIfCanDoorOpen();
                 Debug.Log("turn on bool");
             }
-            if(enemiesToDamges[i].GetComponent<BaseEnemy>() != null)
-            {
-                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(dam);
-            }
             if (enemiesToDamges[i].CompareTag("EnemyShield"))
             {
                 enemiesToDamges[i].GetComponent<EnemyShield>().ShieldTakeDamage(dam);
             }
+            else if (enemiesToDamges[i].GetComponent<BaseEnemy>() != null)
+            {
+                enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(dam);
+                Debug.Log("hit enemieas");
+            }
+            
         }
         RestartTimerForAttacks();
         RestartMeleeBools();

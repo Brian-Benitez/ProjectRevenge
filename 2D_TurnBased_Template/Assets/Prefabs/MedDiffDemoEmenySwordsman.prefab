@@ -102,7 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 6246656192346290789}
+  BaseEnemy: {fileID: 9113469955481799094}
   AttackStateRef: {fileID: 4232709564529391995}
+  RangeAttackState: {fileID: 0}
 --- !u!95 &6246656192346290789
 Animator:
   serializedVersion: 7
@@ -347,7 +349,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   AttackMissedPlayer: 0
-  StunState: {fileID: 0}
+  StunState: {fileID: 2229198354024632843}
 --- !u!1 &4717282102042806213
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8360541887790813786}
   - component: {fileID: 9204330938970936805}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemyMeleeRotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShieldHealth: 8
+  EnemyShieldHealth: 5
   Shield: {fileID: 6264658101153515369}
   IsShieldBroken: 0
 --- !u!1 &6243354425971591692
@@ -678,7 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3967613304870831337}
   - component: {fileID: 2229198354024632843}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: StunState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,9 +727,9 @@ GameObject:
   - component: {fileID: 2705486564257355089}
   - component: {fileID: 8488769273273948018}
   - component: {fileID: 4810908415005953762}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Shield
-  m_TagString: Shield
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -848,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8384550635573644739}
   - component: {fileID: 2854919856162449321}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WindingUpIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5736047008751863760}
   - component: {fileID: 1710881456131844461}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PatrolState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +991,7 @@ GameObject:
   - component: {fileID: 2944765328012066471}
   - component: {fileID: 2518910132756565181}
   - component: {fileID: 8450370562394608458}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: AggroDistance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3616656476653970256}
   - component: {fileID: 3280170683452729875}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: PausingState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7542078799433395916}
   - component: {fileID: 5594558072242984079}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: AttackingIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
