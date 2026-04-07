@@ -47,6 +47,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     private float _specialCooldown = 0f;
     private float _maxwaitTimeForSpeical = 0.8f;
     private PlayerMovement _playerMovement;
+    public FlipSprite FlipSpriteRef;
 
     private void Start()
     {
@@ -74,6 +75,7 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         if(Input.GetKeyDown(SpecialKey) && IsSpecialAttack)
         {
+            FlipSpriteRef.PlayerLookAtMouse();
             Hit(PlayerSpecialDamg, SpeicalPos, SpeicalRange, WhatIsEnemies);
             _specialCooldown = 0;
         }
@@ -100,6 +102,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && IsHeavyAttack && CanMeleeAttackAgain)
         {
+            FlipSpriteRef.PlayerLookAtMouse();
             Hit(PlayerHeavyAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
         }

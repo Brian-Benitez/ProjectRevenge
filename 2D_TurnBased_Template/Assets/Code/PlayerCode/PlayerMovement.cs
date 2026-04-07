@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
+        //Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
         if (Input.GetKey(KeyCode.Mouse1) || Input.GetMouseButtonDown(0))
         {
             Rb.linearVelocity = new Vector2(0, 0);
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
         
-        Flip();
+        //Flip();
     }
 
     private void FixedUpdate()
@@ -132,6 +132,5 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             PlayerAnimationControllerRef.gameObject.transform.localScale = localScale;
         }
-
     }
 }

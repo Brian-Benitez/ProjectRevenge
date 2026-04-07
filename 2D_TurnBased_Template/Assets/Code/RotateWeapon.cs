@@ -13,6 +13,5 @@ public class RotateWeapon : MonoBehaviour
         Vector3 rotation = mousepos - transform.position;
         float rotz = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotz);
-
     }
 }
