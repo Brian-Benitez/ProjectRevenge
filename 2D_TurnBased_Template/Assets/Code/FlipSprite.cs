@@ -5,16 +5,20 @@ public class FlipSprite : MonoBehaviour
     [Header("Animator info")]
     public PlayerAnimationController PlayerAnimationControllerRef;
     public bool isFacingRight = true;
-    //public bool IsMeleeing = false;
+    public bool IsMeleeing = false;
     float Horizontal;
 
 
     private void Update()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
-        Flip();
-        if (Input.GetMouseButton(1) || Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(0))
             PlayerLookAtMouse();
+
+        if(!IsMeleeing)
+        {
+            Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
+            Flip();
+        }
     }
     private void Flip()//BUG WHERE IF U MOVE AND MELEE IT IS WRONG LOOKING
     {
@@ -29,6 +33,7 @@ public class FlipSprite : MonoBehaviour
 
     public void PlayerLookAtMouse()
     {
+        IsMeleeing = true;
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         difference.Normalize();
 
@@ -42,5 +47,6 @@ public class FlipSprite : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1); // activate looking left
             isFacingRight = false;
         }
+        
     }
 }

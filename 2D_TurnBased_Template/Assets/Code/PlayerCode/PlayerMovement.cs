@@ -25,13 +25,11 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePosition;
     float Horizontal;
     [Header("Animator info")]
+    public FlipSprite FlipSpriteRef;
     public PlayerAnimationController PlayerAnimationControllerRef;
-    public bool isFacingRight = true;
-
 
     private void Update()
     {
-        //Horizontal = Input.GetAxisRaw("Horizontal");//Litertty to rotate the sprite if it works
         if (Input.GetKey(KeyCode.Mouse1) || Input.GetMouseButtonDown(0))
         {
             Rb.linearVelocity = new Vector2(0, 0);
@@ -66,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("dash");
             StartCoroutine(Dash());
         }
-        
-        //Flip();
     }
 
     private void FixedUpdate()
@@ -113,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         StopPlayerMovement = true;
         IsDashPaused = true;
+        FlipSpriteRef.IsMeleeing = true;
     }
     /// <summary>
     /// Lets players move and dash again.
@@ -121,16 +118,6 @@ public class PlayerMovement : MonoBehaviour
     {
         StopPlayerMovement = false;
         IsDashPaused = false;
-    }
-
-    private void Flip()
-    {
-        if (isFacingRight && Horizontal < 0f || !isFacingRight && Horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = PlayerAnimationControllerRef.gameObject.transform.localScale;
-            localScale.x *= -1f;
-            PlayerAnimationControllerRef.gameObject.transform.localScale = localScale;
-        }
+        FlipSpriteRef.IsMeleeing = false;
     }
 }
