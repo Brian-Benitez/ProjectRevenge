@@ -184,9 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPriorty: 0
   IsFullAggro: 0
-  FullAggroStopDistance: 10
-  OnePriorityDistance: 10
-  TwoPriorityDistance: 10
+  FightingDistance: 0
+  StandByDistance: 0
 --- !u!1 &4448153179494053823
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4285936806981938576}
   - component: {fileID: 4839241095111752054}
+  - component: {fileID: 2564929790220554398}
   m_Layer: 0
   m_Name: TempArcher-0002
   m_TagString: Untagged
@@ -388,6 +388,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2564929790220554398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110741940316867064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42c0f2c79bdb764493654a8723fd6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendererRef: {fileID: 4839241095111752054}
 --- !u!1 &6472043413705405316
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,12 +579,14 @@ MonoBehaviour:
   EnemyHealth: 8
   MaxEnemyHealth: 8
   EnemySpeed: 2.5
+  PatrolSpeed: 0
   EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   ChanceToDropItem: 15
   EnemySoulsValue: 25
   IsHit: 0
+  IsDead: 0
   IsStunned: 0
   InstanteStun: 0
   BuildUpStun: 1
@@ -733,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeBtwAttack: 1.7
+  WindUpTime: 0
   Projectile: {fileID: 6214239991093025471, guid: 104d95bdc178d7d47810f0d7c6790d50, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
   RangeDistance: 10
@@ -740,6 +756,7 @@ MonoBehaviour:
   IsAttacking: 0
   IsStillWithinRange: 0
   LockedOnPlayer: 1
+  IsPlayingAnimation: 1
   ShotPointTwo: {fileID: 6948228698367970731}
   ShotPointThree: {fileID: 7662686658691191966}
 --- !u!1 &8298556570732031061

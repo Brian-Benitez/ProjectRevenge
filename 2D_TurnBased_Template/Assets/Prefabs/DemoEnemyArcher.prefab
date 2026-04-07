@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 6900682811053566897}
   - component: {fileID: 248539286870483841}
   - component: {fileID: 2606571140067528217}
+  - component: {fileID: 6809692529587595341}
   - component: {fileID: 1883718079532391234}
   m_Layer: 0
   m_Name: TempArcher-0002
@@ -319,6 +320,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6809692529587595341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474300252997196220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42c0f2c79bdb764493654a8723fd6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendererRef: {fileID: 248539286870483841}
 --- !u!114 &1883718079532391234
 MonoBehaviour:
   m_ObjectHideFlags: 0

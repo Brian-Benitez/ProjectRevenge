@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3499295826078542397}
   - component: {fileID: 3407191768688469561}
   - component: {fileID: 966934896450046312}
+  - component: {fileID: 4326836338821274930}
   - component: {fileID: 6246656192346290789}
   m_Layer: 0
   m_Name: TempSwordsman
@@ -105,6 +106,19 @@ MonoBehaviour:
   BaseEnemy: {fileID: 9113469955481799094}
   AttackStateRef: {fileID: 4232709564529391995}
   RangeAttackState: {fileID: 0}
+--- !u!114 &4326836338821274930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856877697181985631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42c0f2c79bdb764493654a8723fd6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRendererRef: {fileID: 3407191768688469561}
 --- !u!95 &6246656192346290789
 Animator:
   serializedVersion: 7
