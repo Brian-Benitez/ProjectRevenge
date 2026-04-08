@@ -3,11 +3,17 @@ using UnityEngine;
 public class PerksController : MonoBehaviour
 {
     public static PerksController Instance;
-    [Header("Rage Settings")]
+    [Header("Rage Perks Settings")]
     public GameObject RagePerksOptionsGo;
+  
+    [Header("Range Perks Settings")]
+    public RangePerks RangePerksRef;
+    public GameObject RangePerksOptionsGO;
 
+    [Header("UIs")]
     public GameObject PerksUIGO;
     public GameObject LevelUpUIGO;
+
 
     private void Awake()
     {
@@ -26,8 +32,11 @@ public class PerksController : MonoBehaviour
         PerksUIGO.SetActive(false);
     }
     public void EnableRagePerkOptions() => RagePerksOptionsGo.SetActive(true);
+
+    public void EnableRangePerkOptions() => RangePerksOptionsGO.SetActive(true);
     public void DisableAllGOs()
     {
         RagePerksOptionsGo.SetActive(false);
+        RangePerksOptionsGO.SetActive(false);
     }
 }

@@ -53,7 +53,7 @@ public class PlayersUltController : MonoBehaviour
         {
             IsUlted = false;
             IsUpgradeOn = false;
-            ResettingPlayerFromUlt();
+            ResettingPlayerFromPerk();
             RemoveAllUltPoints();
             UltDuration += MaxUltPoints;
         }
@@ -62,17 +62,20 @@ public class PlayersUltController : MonoBehaviour
         {
             IsUpgradeOn = true;
             Debug.Log("Start ult");
-            ActivateUlt();
+            ActivateRagePerk();
         }
     }
-
-    public void ActivateUlt()
+    /// <summary>
+    /// This is used when clicking on the button
+    /// </summary>
+    public void SetPureRageAsAPerk() => IsUsingPureRagePerk = true; 
+    public void ActivateRagePerk()
     {
         if (IsUsingPureRagePerk)
             EnablePureRagePerk();
     }
 
-    public void ResettingPlayerFromUlt()
+    public void ResettingPlayerFromPerk()
     {
         if (IsUsingPureRagePerk)
             SetPlayerToNormalStats();
