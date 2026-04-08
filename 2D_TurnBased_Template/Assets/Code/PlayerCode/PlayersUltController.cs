@@ -4,7 +4,10 @@ using UnityEngine;
 public class PlayersUltController : MonoBehaviour
 {
     public static PlayersUltController Instance;
+    [Header("Ult Booleans")]
+    public bool IsUsingPureRagePerk = false;
 
+    [Header("Ult Settings")]
     public bool IsUlted;
     public bool IsUpgradeOn;
     public float UltPoints;
@@ -12,9 +15,9 @@ public class PlayersUltController : MonoBehaviour
     public float UltDuration;
     public KeyCode UltActivationKey;
 
+    [Header("Pure Rage Perk Settings")]
     public int BoostedMovementSpeed;
     public float LoweredDashCoolDown;
-
     public int MeleeUpgradeDam;
     public int RangeUpgradeDam;
 
@@ -50,7 +53,7 @@ public class PlayersUltController : MonoBehaviour
         {
             IsUlted = false;
             IsUpgradeOn = false;
-            SetPlayerToNormalStats();
+            ResettingPlayerFromUlt();
             RemoveAllUltPoints();
             UltDuration += MaxUltPoints;
         }
@@ -65,6 +68,27 @@ public class PlayersUltController : MonoBehaviour
 
     public void ActivateUlt()
     {
+        if (IsUsingPureRagePerk)
+            EnablePureRagePerk();
+    }
+
+    public void ResettingPlayerFromUlt()
+    {
+        if (IsUsingPureRagePerk)
+            SetPlayerToNormalStats();
+    }
+
+    public void AddUltPoint(int amount)
+    {
+        UltPoints += amount;
+        PlayerInfoRef.UpdatePlayersStats();
+    }
+
+    public void RemoveAllUltPoints() => UltPoints = 0;
+
+    //--------------------------------------Pure Rage Perk Method----------------------------------------------------->
+    public void EnablePureRagePerk()
+    {
         //Movement upgrade
         PlayerMovementRef.FullSpeed += BoostedMovementSpeed;
         PlayerMovementRef.DashCoolDown -= LoweredDashCoolDown;
@@ -76,7 +100,6 @@ public class PlayersUltController : MonoBehaviour
         //Range upgrade
         PlayerInfoRef.RangeDamg += RangeUpgradeDam;
     }
-
     public void SetPlayerToNormalStats()
     {
         //Movement upgrade
@@ -90,18 +113,9 @@ public class PlayersUltController : MonoBehaviour
         //Range upgrade
         PlayerInfoRef.RangeDamg -= RangeUpgradeDam;
     }
+    //add more  ult perks here.
+   
+    
 
-    /// <summary>
-    /// Made it like this so i can add objs that will max it or just give one. Only place to add it.
-    /// </summary>
-    /// <param name="amount"></param>
-    public void AddUltPoint(int amount)
-    {
-        UltPoints += amount;
-        PlayerInfoRef.UpdatePlayersStats();
-    }
-    /// <summary>
-    /// Remove all ult points after using ult.
-    /// </summary>
-    public void RemoveAllUltPoints() => UltPoints = 0;
+    
 }
