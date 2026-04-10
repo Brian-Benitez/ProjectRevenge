@@ -18,7 +18,8 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     [Header("Texts")]
     public TextMeshProUGUI PlayersHealth;
     public TextMeshProUGUI PlayersMaxHealth;
-    public TextMeshProUGUI StatueSoulsText;
+    public TextMeshProUGUI UpgradeUISoulsText;// will fix this later
+    public TextMeshProUGUI PerksUISoulsText;//this too
     public TextMeshProUGUI InGameSoulsText;
     public TextMeshProUGUI UltAmountText;
     public TextMeshProUGUI MaxUltAmountText;
@@ -61,7 +62,8 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     {
         PlayersHealth.text = " " + CharacterHealthAmount;
         PlayersMaxHealth.text = " " + CharacterMaxHealth;
-        StatueSoulsText.text = " " + Souls;
+        UpgradeUISoulsText.text = " " + Souls;
+        PerksUISoulsText.text = " " + Souls;
         InGameSoulsText.text = " " + Souls;
         UltAmountText.text = " " + PlayersUltController.Instance.UltPoints;
         MaxUltAmountText.text = " " + PlayersUltController.Instance.MaxUltPoints;
