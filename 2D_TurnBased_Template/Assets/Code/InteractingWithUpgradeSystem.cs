@@ -4,6 +4,7 @@ using UnityEngine;
 public class InteractingWithUpgradeSystem : MonoBehaviour
 {
     public GameObject UpgradeUIGameObject;
+    public GameObject PerksUIGameObject;
     public GameObject EKeyPNG;
 
     public bool CanInteract = false;
@@ -29,6 +30,7 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Q))
             {
                 UpgradeUIGameObject.SetActive(false);
+                PerksUIGameObject.SetActive(false);
                 IsInteracting = false;
                 PlayerMovementRef.TurnOffStopPlayerMovement();
             }
@@ -37,6 +39,7 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
         if(IsInteracting)
             PlayerMovementRef.TurnOnStopPlayerMovement();
     }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         CanInteract = true;
