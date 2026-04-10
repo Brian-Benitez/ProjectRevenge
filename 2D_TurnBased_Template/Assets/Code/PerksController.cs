@@ -10,6 +10,10 @@ public class PerksController : MonoBehaviour
     public RangePerks RangePerksRef;
     public GameObject RangePerksOptionsGO;
 
+    [Header("Speical Perk Settings")]
+    public SpeicalPerk SpeicalPerkRef;
+    public GameObject SpeicalPerkOptionsGO;
+
     [Header("UIs")]
     public GameObject PerksUIGO;
     public GameObject LevelUpUIGO;
@@ -34,9 +38,12 @@ public class PerksController : MonoBehaviour
     public void EnableRagePerkOptions() => RagePerksOptionsGo.SetActive(true);
 
     public void EnableRangePerkOptions() => RangePerksOptionsGO.SetActive(true);
+
+    public void EnableSpeicalPerkOptions() => SpeicalPerkOptionsGO.SetActive(true);
     public void DisableAllGOs()
     {
         RagePerksOptionsGo.SetActive(false);
         RangePerksOptionsGO.SetActive(false);
+        SpeicalPerkOptionsGO.SetActive(false);
     }
 }
