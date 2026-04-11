@@ -40,6 +40,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public bool CanSpeicalAgain = false;    
     public bool ChangedValues = false;
     public HitObjectInOrderPuzzleManager HitObjectInOrderPuzzleManagerRef;
+    public HitPauseController HitPauseControllerRef;
     //private vars
     private float _maxTimeBtwAttacks;
     private float _holdTime = 0f;
@@ -64,6 +65,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             Hit(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
+            HitPauseControllerRef.PlayHitPauseCoroutine();
         }
 
         _specialCooldown += Time.deltaTime;
@@ -143,7 +145,6 @@ public class PlayerMeleeAttack : MonoBehaviour
                 enemiesToDamges[i].GetComponent<BaseEnemy>().TakeDamage(dam);
                 Debug.Log("hit enemieas");
             }
-            
         }
         RestartTimerForAttacks();
         RestartMeleeBools();

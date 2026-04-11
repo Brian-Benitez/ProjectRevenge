@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 7754686623634691582}
-  BaseEnemy: {fileID: 0}
+  BaseEnemy: {fileID: 763097274553505534}
   AttackStateRef: {fileID: 3481125080086476875}
   RangeAttackState: {fileID: 0}
 --- !u!1 &2962749354059967010
