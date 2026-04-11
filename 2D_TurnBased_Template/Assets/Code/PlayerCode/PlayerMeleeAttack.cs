@@ -129,16 +129,18 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     public IEnumerator WindUpAttack(float dam, Transform pos, float range, LayerMask enemy)
     {
+        IsAttacking = true;
         PlayerAnimationControllerRef.IsAttacking();
-        yield return new WaitForSeconds(AttackSpeed);
+        Debug.Log("wait");
+        yield return new WaitForSecondsRealtime(AttackSpeed);
         Hit(dam, pos, range, enemy);
         ActivateSlashRef.DeactivateSlashingArt();
         PlayerAnimationControllerRef.IsNotAttacking();
+        Debug.Log("wait no more");
+        IsAttacking = false;
     }
     void Hit(float dam, Transform pos, float range, LayerMask enemy)
     {
-        IsAttacking = true;
-        
         Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(pos.position, range, enemy);
 
         ActivateSlashRef.ActivateSlashingArt();
