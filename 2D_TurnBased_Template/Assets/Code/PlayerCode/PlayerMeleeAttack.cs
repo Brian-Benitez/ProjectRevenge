@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
@@ -15,7 +16,8 @@ public class PlayerMeleeAttack : MonoBehaviour
     public float AttackRange;
 
     [Header("Windup Stats")]
-    public float WindUpSpeed;
+    public float AttackSpeed;
+    public float WindUpDuration;
 
     [Header("Heavy Windup Stats")]
     public float HeavyWindUpSpeed;
@@ -41,6 +43,8 @@ public class PlayerMeleeAttack : MonoBehaviour
     public bool ChangedValues = false;
     public HitObjectInOrderPuzzleManager HitObjectInOrderPuzzleManagerRef;
     public HitPauseController HitPauseControllerRef;
+    public ActivateSlash ActivateSlashRef;
+    public PlayerAnimationController PlayerAnimationControllerRef;
     //private vars
     private float _maxTimeBtwAttacks;
     private float _holdTime = 0f;
@@ -53,7 +57,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     private void Start()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
-        _maxTimeBtwAttacks = WindUpSpeed;
+        _maxTimeBtwAttacks = WindUpDuration;
         RestartTimerForAttacks();
     }
 
@@ -63,9 +67,9 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
-            Hit(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
+            StartCoroutine(WindUpAttack(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies));
+            //Hit(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
-            HitPauseControllerRef.PlayHitPauseCoroutine();
         }
 
         _specialCooldown += Time.deltaTime;
@@ -109,7 +113,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             _playerMovement.UnSlowPlayer();
         }
 
-        if (WindUpSpeed <= 0f)
+        if (WindUpDuration <= 0f)
         {
             CanMeleeAttackAgain = true;
             IsAttacking = false;
@@ -117,16 +121,27 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         else
         {
-            WindUpSpeed -= Time.deltaTime;
+            WindUpDuration -= Time.deltaTime;
             CanMeleeAttackAgain = false;
         }
     }
 
+
+    public IEnumerator WindUpAttack(float dam, Transform pos, float range, LayerMask enemy)
+    {
+        PlayerAnimationControllerRef.IsAttacking();
+        yield return new WaitForSeconds(AttackSpeed);
+        Hit(dam, pos, range, enemy);
+        ActivateSlashRef.DeactivateSlashingArt();
+        PlayerAnimationControllerRef.IsNotAttacking();
+    }
     void Hit(float dam, Transform pos, float range, LayerMask enemy)
     {
         IsAttacking = true;
         
         Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(pos.position, range, enemy);
+
+        ActivateSlashRef.ActivateSlashingArt();
 
         for (int i = 0; i < enemiesToDamges.Length; i++)
         {
@@ -148,8 +163,10 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         RestartTimerForAttacks();
         RestartMeleeBools();
+
+        //HitPauseControllerRef.PlayHitPauseCoroutine();
     }
-    void RestartTimerForAttacks() => WindUpSpeed = _maxTimeBtwAttacks;
+    void RestartTimerForAttacks() => WindUpDuration = _maxTimeBtwAttacks;
 
     void RestartMeleeBools()
     {

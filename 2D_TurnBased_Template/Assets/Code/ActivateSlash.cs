@@ -5,17 +5,7 @@ public class ActivateSlash : MonoBehaviour
     public Animator SlashEffect;
     public PlayerMeleeAttack PlayerMeleeAttackRef;
 
+    public void ActivateSlashingArt() => SlashEffect.SetBool("IsSlashing", true);
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            SlashEffect.SetBool("IsSlashing", true);
-            Debug.Log("hhhh");
-        }
-        else if(PlayerMeleeAttackRef.IsAttacking == false)
-        {
-            SlashEffect.SetBool("IsSlashing", false);
-        }
-    }
+    public void DeactivateSlashingArt() => SlashEffect.SetBool("IsSlashing", false);
 }

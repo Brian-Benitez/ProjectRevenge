@@ -10,10 +10,6 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerMeleeAttackRef.IsAttacking)
-            IsAttacking();
-        else
-            IsNotAttacking();
         if (PlayerMovementRef.IsDashing)
             IsDashing();
         else
