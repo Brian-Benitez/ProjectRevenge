@@ -28,6 +28,7 @@ public class BaseEnemy : MonoBehaviour
     public int ThresholdHealthToStun;//Only use when build up stun is enabled.
     public float StunDuration;
 
+    public HitPauseController HitPauseControllerRef;
     public EnemyAggroDistance EnemyAggroDistanceRef;
     KnockBackFeedBack _knockBackFeedBack;
 
@@ -73,6 +74,7 @@ public class BaseEnemy : MonoBehaviour
         Debug.Log("enemy took: " + damage);
         DoesEnemyDie();
         CheckStatusEffects();
+        HitPauseControllerRef.PlayHitPauseCoroutine();
     }
 
     public void HealSelfFully() => EnemyHealth = MaxEnemyHealth;

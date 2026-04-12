@@ -42,7 +42,6 @@ public class PlayerMeleeAttack : MonoBehaviour
     public bool CanSpeicalAgain = false;    
     public bool ChangedValues = false;
     public HitObjectInOrderPuzzleManager HitObjectInOrderPuzzleManagerRef;
-    public HitPauseController HitPauseControllerRef;
     public ActivateSlash ActivateSlashRef;
     public PlayerAnimationController PlayerAnimationControllerRef;
     //private vars
@@ -129,7 +128,7 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     public IEnumerator WindUpAttack(float dam, Transform pos, float range, LayerMask enemy)
     {
-        IsAttacking = true;
+        
         PlayerAnimationControllerRef.IsAttacking();
         Debug.Log("wait");
         yield return new WaitForSecondsRealtime(AttackSpeed);
@@ -137,10 +136,10 @@ public class PlayerMeleeAttack : MonoBehaviour
         ActivateSlashRef.DeactivateSlashingArt();
         PlayerAnimationControllerRef.IsNotAttacking();
         Debug.Log("wait no more");
-        IsAttacking = false;
     }
     void Hit(float dam, Transform pos, float range, LayerMask enemy)
     {
+        IsAttacking = true;
         Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(pos.position, range, enemy);
 
         ActivateSlashRef.ActivateSlashingArt();
@@ -165,8 +164,6 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         RestartTimerForAttacks();
         RestartMeleeBools();
-
-        //HitPauseControllerRef.PlayHitPauseCoroutine();
     }
     void RestartTimerForAttacks() => WindUpDuration = _maxTimeBtwAttacks;
 

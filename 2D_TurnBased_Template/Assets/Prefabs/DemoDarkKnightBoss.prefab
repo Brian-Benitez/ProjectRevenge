@@ -182,6 +182,7 @@ MonoBehaviour:
   WindingUpIcon: {fileID: 0}
   AttackingIcon: {fileID: 0}
   IsRunning: 0
+  IsPlayingAttackAni: 0
   MeleePos: {fileID: 5351484751421859356}
   AttackRange: 1.6
   TimeBtwAttack: 0.8
@@ -192,6 +193,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   AttackMissedPlayer: 0
+  StunState: {fileID: 0}
 --- !u!1 &4770267563914590280
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,9 +271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeAttackPos: {fileID: 0}
   Player: {fileID: 0}
-  DKRangeDamage: 1
+  DKRangeDamage: 2
   RangeAttackRange: 1.41
-  TimeBtwAttack: 7
+  TimeBtwAttack: 5
   WindUpTimeForRange: 0.8
   CanRangeAttack: 0
   IsAttackingNow: 0
@@ -357,10 +359,10 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1904240453812623922}
   - {fileID: 2336050023999352589}
   - {fileID: 2526852655236450961}
   - {fileID: 591776886323903675}
-  - {fileID: 1904240453812623922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2020227170472374811
@@ -433,7 +435,7 @@ MonoBehaviour:
   CanStartRangeAttack: 0
   rangeAttack: {fileID: 4342819746663072318}
   AttackState: {fileID: 499970276011381823}
-  BaseEnemyRef: {fileID: 0}
+  BaseEnemyRef: {fileID: 3849610635453228326}
 --- !u!114 &3849610635453228326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,17 +448,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 20
-  MaxEnemyHealth: 20
+  EnemyHealth: 200
+  MaxEnemyHealth: 200
   EnemySpeed: 2
-  EnemyDamage: 4
+  PatrolSpeed: 0
+  EnemyDamage: 5
+  HealthPotion: {fileID: 0}
+  RagePotion: {fileID: 0}
+  ChanceToDropItem: 0
   EnemySoulsValue: 200
   IsHit: 0
+  IsDead: 0
   IsStunned: 0
   InstanteStun: 0
   BuildUpStun: 0
   ThresholdHealthToStun: 0
   StunDuration: 0
+  HitPauseControllerRef: {fileID: 0}
+  EnemyAggroDistanceRef: {fileID: 0}
   EnemyType: 0
   EnemyDifficulty: 0
 --- !u!50 &5096189896417039861

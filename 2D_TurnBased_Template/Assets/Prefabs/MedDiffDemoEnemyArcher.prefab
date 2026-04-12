@@ -592,6 +592,7 @@ MonoBehaviour:
   BuildUpStun: 1
   ThresholdHealthToStun: 5
   StunDuration: 0.5
+  HitPauseControllerRef: {fileID: 0}
   EnemyAggroDistanceRef: {fileID: 5211125791650558122}
   EnemyType: 1
   EnemyDifficulty: 1
@@ -747,8 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 1.7
-  WindUpTime: 0
+  TimeBtwAttack: 1
+  WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 104d95bdc178d7d47810f0d7c6790d50, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
   RangeDistance: 10

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8681952001661622948}
   - component: {fileID: 2827067915891889069}
-  - component: {fileID: 1850671707670007031}
   - component: {fileID: 1932574612876653587}
   - component: {fileID: 2208242282835314234}
   m_Layer: 0
@@ -91,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1850671707670007031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7601735655897461177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572bb86ac1d4023499fae14f79b8d4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DoorActivator: {fileID: 0}
-  DoorMovingRef: {fileID: 1932574612876653587}
 --- !u!114 &1932574612876653587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2627155579619779141, guid: 39ca0e4f0d7ce0e43997ec043b6b4b8a, type: 3}
       propertyPath: m_ShadowMesh.m_InitialTrim
-      value: 0.008
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2627155579619779141, guid: 39ca0e4f0d7ce0e43997ec043b6b4b8a, type: 3}
       propertyPath: m_PreviousShadowCastingSource

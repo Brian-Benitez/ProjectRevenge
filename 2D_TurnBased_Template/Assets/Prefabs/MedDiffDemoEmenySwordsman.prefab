@@ -356,7 +356,7 @@ MonoBehaviour:
   MeleePos: {fileID: 7916153532616726675}
   AttackRange: 1.11
   TimeBtwAttack: 0.5
-  WindUpTimeForMelee: 1.5
+  WindUpTimeForMelee: 1
   CanHitAgain: 1
   WithinRange: 0
   WhatisHittable:
@@ -600,8 +600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 8
-  MaxEnemyHealth: 8
+  EnemyHealth: 10
+  MaxEnemyHealth: 10
   EnemySpeed: 3.5
   PatrolSpeed: 1
   EnemyDamage: 2
@@ -616,6 +616,7 @@ MonoBehaviour:
   BuildUpStun: 1
   ThresholdHealthToStun: 4
   StunDuration: 1
+  HitPauseControllerRef: {fileID: 0}
   EnemyAggroDistanceRef: {fileID: 2518910132756565181}
   EnemyType: 0
   EnemyDifficulty: 1
@@ -681,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShieldHealth: 5
+  EnemyShieldHealth: 6
   Shield: {fileID: 6264658101153515369}
   IsShieldBroken: 0
 --- !u!1 &6243354425971591692
