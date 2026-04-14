@@ -44,7 +44,15 @@ public class EnemysManager : MonoBehaviour
         {
             TriggerFights[CurrentTriggerIndex].Enemies[i].gameObject.SetActive(true);
             TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().IsDead = false;
-            TriggerFights[CurrentTriggerIndex].Enemies[i].transform.position = TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<PatrolState>().PatrolSpotOne.transform.position;
+            if (TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponent<BaseEnemy>().EnemyType != BaseEnemy.TypeOfEnemy.Boss)
+            {
+                TriggerFights[CurrentTriggerIndex].Enemies[i].transform.position = TriggerFights[CurrentTriggerIndex].Enemies[i].GetComponentInChildren<PatrolState>().PatrolSpotOne.transform.position;
+            }
+            else
+            {
+                //place bosses transform here and place them in there spawn point
+            }
+           
         }
     }
     /// <summary>

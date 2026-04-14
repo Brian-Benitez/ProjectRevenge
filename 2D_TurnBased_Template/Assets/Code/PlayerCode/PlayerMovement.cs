@@ -27,10 +27,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animator info")]
     public FlipSprite FlipSpriteRef;
     public PlayerAnimationController PlayerAnimationControllerRef;
+    public PlayerStunnedState PlayerStunnedStateRef;
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1) || Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.Mouse1) || Input.GetMouseButtonDown(0) || PlayerStunnedStateRef.IsPlayerStuuned)
         {
             Rb.linearVelocity = new Vector2(0, 0);
             moveDirection = Vector2.zero;

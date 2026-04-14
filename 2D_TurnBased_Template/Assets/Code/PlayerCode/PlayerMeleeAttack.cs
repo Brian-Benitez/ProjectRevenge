@@ -44,6 +44,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public HitObjectInOrderPuzzleManager HitObjectInOrderPuzzleManagerRef;
     public ActivateSlash ActivateSlashRef;
     public PlayerAnimationController PlayerAnimationControllerRef;
+    public PlayerStunnedState PlayerStunnedStateRef;
     //private vars
     private float _maxTimeBtwAttacks;
     private float _holdTime = 0f;
@@ -63,6 +64,8 @@ public class PlayerMeleeAttack : MonoBehaviour
     private void Update()
     {
         DirectionalLooks.transform.position = AttackPos.position;//idk why this gets paused when i stop moving player
+        if (PlayerStunnedStateRef.IsPlayerStuuned)
+            return;
 
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {

@@ -2,17 +2,25 @@ using UnityEngine;
 
 public class FinalPhaseUpgrades : MonoBehaviour
 {
+    [Header("Settings")]
     public bool IsInPhaseTwo = false;
-
+    private float BossHalfHealth;
+    [Header("All upgrades below will be ADDED to the bosses stats")]
+    [Header("New Speed")]
     public float NewSpeed;
-    public int NewDamg;
+    [Header("New Melee stats")]
+    public int NewMeleeDamg;
     public float NewMeleeTimeToAttack;
-    
+    [Header("New range stats")]
+    public int NewRangeDam;
+    public float NewAttackRange;
+    public float NewRangeTimeToAttack;
+    [Header("Scrpits")]
     public BaseEnemy BaseEnemyRef;
     public DKRangeAttack DKRangeAttackRef;
     public AttackState AttackStateRef;
 
-    public float BossHalfHealth;
+    
 
     private void Start()
     {
@@ -49,21 +57,21 @@ public class FinalPhaseUpgrades : MonoBehaviour
     private void ChangeBossStats()
     {
         Debug.Log("changed");
-        BaseEnemyRef.EnemySpeed = NewSpeed;
-        BaseEnemyRef.EnemyDamage = NewDamg;
-        AttackStateRef.TimeBtwAttack = NewMeleeTimeToAttack;
-        DKRangeAttackRef.DKRangeDamage = 3;
-        DKRangeAttackRef.RangeAttackRange = 10;
-        DKRangeAttackRef.TimeBtwAttack = 3f;
+        BaseEnemyRef.EnemySpeed += NewSpeed;
+        BaseEnemyRef.EnemyDamage += NewMeleeDamg;
+        AttackStateRef.TimeBtwAttack -= NewMeleeTimeToAttack;
+        DKRangeAttackRef.DKRangeDamage += NewRangeDam;
+        DKRangeAttackRef.RangeAttackRange += NewAttackRange;
+        DKRangeAttackRef.TimeBtwAttack -= NewRangeTimeToAttack;
     }
 
     public void ChangeBossStatsToNormal()
     {
-        BaseEnemyRef.EnemySpeed = 3f;
-        BaseEnemyRef.EnemyDamage = 6;
-        AttackStateRef.TimeBtwAttack = 2;
-        DKRangeAttackRef.DKRangeDamage = 2;
-        DKRangeAttackRef.RangeAttackRange = 2;
-        DKRangeAttackRef.TimeBtwAttack = 2;
+        BaseEnemyRef.EnemySpeed -= NewSpeed;
+        BaseEnemyRef.EnemyDamage -= NewMeleeDamg;
+        AttackStateRef.TimeBtwAttack += NewMeleeTimeToAttack;
+        DKRangeAttackRef.DKRangeDamage -= NewRangeDam;
+        DKRangeAttackRef.RangeAttackRange -= NewAttackRange;
+        DKRangeAttackRef.TimeBtwAttack += NewRangeTimeToAttack;
     }
 }

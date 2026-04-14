@@ -179,8 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a874d8d26f7a8247a9151406dc61a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WindingUpIcon: {fileID: 0}
-  AttackingIcon: {fileID: 0}
   IsRunning: 0
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 5351484751421859356}
@@ -448,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 200
-  MaxEnemyHealth: 200
+  EnemyHealth: 125
+  MaxEnemyHealth: 125
   EnemySpeed: 2
   PatrolSpeed: 0
   EnemyDamage: 5
@@ -465,9 +463,8 @@ MonoBehaviour:
   ThresholdHealthToStun: 0
   StunDuration: 0
   HitPauseControllerRef: {fileID: 0}
-  EnemyAggroDistanceRef: {fileID: 0}
-  EnemyType: 0
-  EnemyDifficulty: 0
+  EnemyType: 2
+  EnemyDifficulty: 3
 --- !u!50 &5096189896417039861
 Rigidbody2D:
   serializedVersion: 5

@@ -29,13 +29,15 @@ public class BaseEnemy : MonoBehaviour
     public float StunDuration;
 
     public HitPauseController HitPauseControllerRef;
-    public EnemyAggroDistance EnemyAggroDistanceRef;
     KnockBackFeedBack _knockBackFeedBack;
 
     private void Start()
     {
         MaxEnemyHealth = EnemyHealth;
-        _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
+        if(EnemyType != TypeOfEnemy.Boss)
+        {
+            _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
+        }
     }
 
     [SerializeField]
@@ -43,6 +45,7 @@ public class BaseEnemy : MonoBehaviour
     {
         Swordsman, 
         Archer,
+        Boss,
         Object
     }
 
@@ -74,7 +77,10 @@ public class BaseEnemy : MonoBehaviour
         Debug.Log("enemy took: " + damage);
         DoesEnemyDie();
         CheckStatusEffects();
-        HitPauseControllerRef.PlayHitPauseCoroutine();
+        if(EnemyType != TypeOfEnemy.Boss)//temp
+        {
+            HitPauseControllerRef.PlayHitPauseCoroutine();
+        }
     }
 
     public void HealSelfFully() => EnemyHealth = MaxEnemyHealth;

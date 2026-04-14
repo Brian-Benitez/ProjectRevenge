@@ -10,6 +10,7 @@ public class PlayerRangeWeapon : MonoBehaviour
     public bool CanRangeAttackAgain;
 
     private float _maxTimeBtwAttacks;
+    public PlayerStunnedState PlayerStunnedStateRef;
     private PlayerMovement PlayerMovementRef;
 
     private void Start()
@@ -21,7 +22,7 @@ public class PlayerRangeWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerMovementRef.IsDashing)
+        if (PlayerMovementRef.IsDashing || PlayerStunnedStateRef.IsPlayerStuuned)
             return;
 
         if(Input.GetMouseButton(1) && Input.GetMouseButtonDown(0) && PlayerAmmoController.Instance.DoesPlayerHaveAmmo() && CanRangeAttackAgain)

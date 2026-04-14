@@ -5,8 +5,6 @@ using UnityEngine;
 public class AttackState : State//rename this to EnemyAttackState
 {
     [Header("Test demo")]
-    public GameObject WindingUpIcon;
-    public GameObject AttackingIcon;
     public bool IsRunning = false;
     public bool IsPlayingAttackAni = false;
 
@@ -68,7 +66,6 @@ public class AttackState : State//rename this to EnemyAttackState
 
         if (TimeBtwAttack <= 0f)
         {
-            WindingUpIcon.SetActive(true);
             CanHitAgain = true;
             return;
         }
@@ -119,8 +116,6 @@ public class AttackState : State//rename this to EnemyAttackState
         yield return new WaitForSecondsRealtime(WindUpTimeForMelee);
         Debug.Log("Winding up attack done");
         MeleeAttack();
-        WindingUpIcon.SetActive(false);
-        AttackingIcon.SetActive(true);
         _enemyWeaponRotationRef.IsAttacking = false;
         IsRunning = false;
         IsPlayingAttackAni = false;

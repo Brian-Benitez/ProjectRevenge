@@ -13,12 +13,10 @@ public class OpportunityToBeHitState : State
     {
         if(AttackState.TimeBtwAttack > 0f)
         {
-            Debug.Log("player can attack without worry");
             CanFightAgain = false;
         }
         else
         {
-            Debug.Log("Go back to fighting player");
             CanFightAgain = true;
         }
     }

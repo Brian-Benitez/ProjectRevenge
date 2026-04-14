@@ -18,8 +18,6 @@ public class DKChaseState : State
     {
         if (rangeAttack.CanRangeAttack)
             return;
-
-        //Debug.Log(DistanceFromPlayer = Vector2.Distance(transform.position, NPCController.Instance.Player.position));
         
         if(DistanceFromPlayer >= PreferedRangeAttkDistance && rangeAttack.CanRangeAttack)
             CanStartRangeAttack = true;  

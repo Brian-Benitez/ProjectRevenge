@@ -25,11 +25,14 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public TextMeshProUGUI MaxUltAmountText;
     public TextMeshProUGUI ArrowCountText;
 
+    public PlayerStunnedState PlayerStunnedStateRef;
+
     public void TakeDamage(float damage)
     {
         CharacterHealthAmount -= damage;
         Debug.Log("player took: " + damage);
         PlayersHealth.text = " " + CharacterHealthAmount;
+        PlayerStunnedStateRef.ActivatePlayerStunned();
         DoesCharacterDie();
     }
 
