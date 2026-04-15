@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeBtwAttack: 0.5
-  WindUpTime: 1.1
+  WindUpTime: 2
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 8604800931791002064}
   RangeDistance: 10
@@ -177,37 +177,6 @@ MonoBehaviour:
   IsPlayingAnimation: 0
   ShotPointTwo: {fileID: 4263232305946379098}
   ShotPointThree: {fileID: 8824331901901780249}
---- !u!1 &4578668735819613927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3403306158581050576}
-  m_Layer: 3
-  m_Name: EnemyPriority
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3403306158581050576
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4578668735819613927}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8739158315629441044}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5474300252997196220
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,9 +580,9 @@ Transform:
   - {fileID: 3126042514253719836}
   - {fileID: 8329797765379305929}
   - {fileID: 7767789757035812841}
-  - {fileID: 1858467422721983606}
   - {fileID: 3841734301679198151}
-  - {fileID: 3403306158581050576}
+  - {fileID: 3016192093805343814}
+  - {fileID: 1858467422721983606}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7083424955727007011
@@ -745,8 +714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb0df4d50b75ff4ba6918edd4e6fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 6
-  MaxEnemyHealth: 6
+  EnemyHealth: 5
+  MaxEnemyHealth: 5
   EnemySpeed: 1.5
   PatrolSpeed: 0
   EnemyDamage: 1
@@ -761,8 +730,7 @@ MonoBehaviour:
   BuildUpStun: 1
   ThresholdHealthToStun: 4
   StunDuration: 0.5
-  HitPauseControllerRef: {fileID: 0}
-  EnemyAggroDistanceRef: {fileID: 3572448280567692750}
+  HitPauseControllerRef: {fileID: 9184289616862122558}
   EnemyType: 1
   EnemyDifficulty: 0
 --- !u!114 &3836935540627045171
@@ -779,8 +747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
   AttackRange: 10
-  MeleeRange: 2
-  MinimunDistanceForRangeAttack: 8
+  MeleeRange: 5
+  MinimunDistanceForRangeAttack: 10
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   EnemyArcherRef: {fileID: 3818436561324985095}
 --- !u!114 &5727651949420622849
@@ -814,3 +782,48 @@ MonoBehaviour:
   Rb2d: {fileID: 4694136040254918480}
   Strength: 5010
   delay: 0.15
+--- !u!1 &8994200281661801719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3016192093805343814}
+  - component: {fileID: 9184289616862122558}
+  m_Layer: 0
+  m_Name: HitController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3016192093805343814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994200281661801719}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03930998, y: 0.9050901, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8739158315629441044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9184289616862122558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994200281661801719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bdaa1481b54ab4c9124dc6ac842d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitPauseWaitTime: 0.2

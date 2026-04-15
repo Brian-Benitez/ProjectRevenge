@@ -87,54 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1342850636614347735
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3664991192663444043}
-  - component: {fileID: 6780577285524566426}
-  m_Layer: 3
-  m_Name: PausingState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3664991192663444043
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342850636614347735}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 420412308278162264}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6780577285524566426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342850636614347735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e077f20caaecfc74ca94fe6b6ca62846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimerIsDone: 1
-  WaitTime: 2
-  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
-  PatrolState: {fileID: 2931045070768758763}
 --- !u!1 &1684985578124959192
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +133,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseEnemyRef: {fileID: 763097274553505534}
   MovementStateRef: {fileID: 3771332004520370198}
+--- !u!1 &2146197299577278209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4481422510804255457}
+  - component: {fileID: 970617011260581762}
+  m_Layer: 0
+  m_Name: PauseState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4481422510804255457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146197299577278209}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.030000687, y: -0.020000458, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 420412308278162264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970617011260581762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146197299577278209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e077f20caaecfc74ca94fe6b6ca62846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimerIsDone: 1
+  WaitTime: 2
+  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
+  PatrolState: {fileID: 2931045070768758763}
 --- !u!1 &2535473672352954059
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   BaseEnemyRef: {fileID: 763097274553505534}
   EnemyAggroDistanceRef: {fileID: 3828468443647139524}
   MovementStateRef: {fileID: 3771332004520370198}
-  PausingState: {fileID: 6780577285524566426}
+  PausingState: {fileID: 970617011260581762}
 --- !u!1 &3979199002658533547
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 6780577285524566426}
+  currentState: {fileID: 970617011260581762}
 --- !u!1 &3992491481548650938
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a874d8d26f7a8247a9151406dc61a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WindingUpIcon: {fileID: 8232254969510662895}
-  AttackingIcon: {fileID: 2962749354059967010}
   IsRunning: 0
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 5976774633233644905}
@@ -768,9 +766,9 @@ Transform:
   - {fileID: 3288533199338745091}
   - {fileID: 1182374059345362982}
   - {fileID: 6821506381673166192}
-  - {fileID: 3664991192663444043}
-  - {fileID: 3546789916428154126}
   - {fileID: 9168880141029374524}
+  - {fileID: 4481422510804255457}
+  - {fileID: 3546789916428154126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2294815640578897509
@@ -930,7 +928,6 @@ MonoBehaviour:
   ThresholdHealthToStun: 3
   StunDuration: 1.5
   HitPauseControllerRef: {fileID: 6523174012736294526}
-  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
   EnemyType: 0
   EnemyDifficulty: 0
 --- !u!114 &3771332004520370198

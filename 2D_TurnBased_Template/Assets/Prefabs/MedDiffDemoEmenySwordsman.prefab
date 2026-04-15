@@ -349,8 +349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a874d8d26f7a8247a9151406dc61a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WindingUpIcon: {fileID: 6357011157685049848}
-  AttackingIcon: {fileID: 9065051810200549893}
   IsRunning: 0
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 7916153532616726675}
@@ -457,6 +455,7 @@ Transform:
   - {fileID: 3967613304870831337}
   - {fileID: 5736047008751863760}
   - {fileID: 3616656476653970256}
+  - {fileID: 1305791617712490620}
   - {fileID: 8571502783990917997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -616,8 +615,7 @@ MonoBehaviour:
   BuildUpStun: 1
   ThresholdHealthToStun: 4
   StunDuration: 1
-  HitPauseControllerRef: {fileID: 0}
-  EnemyAggroDistanceRef: {fileID: 2518910132756565181}
+  HitPauseControllerRef: {fileID: 7471276463594559996}
   EnemyType: 0
   EnemyDifficulty: 1
 --- !u!114 &7548019549084103618
@@ -942,6 +940,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6444085070556245689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1305791617712490620}
+  - component: {fileID: 7471276463594559996}
+  m_Layer: 0
+  m_Name: HItController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1305791617712490620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444085070556245689}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3276749, y: -0.09416962, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2682440749604508436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7471276463594559996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444085070556245689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bdaa1481b54ab4c9124dc6ac842d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitPauseWaitTime: 0
 --- !u!1 &7237419764521502738
 GameObject:
   m_ObjectHideFlags: 0

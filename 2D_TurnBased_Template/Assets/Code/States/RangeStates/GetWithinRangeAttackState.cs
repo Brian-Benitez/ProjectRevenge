@@ -37,7 +37,7 @@ public class GetWithinRangeAttackState : State
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MeleeRange)//moving back
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
             }
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)//moving towards

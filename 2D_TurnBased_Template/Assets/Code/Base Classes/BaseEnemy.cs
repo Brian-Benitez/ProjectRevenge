@@ -77,10 +77,7 @@ public class BaseEnemy : MonoBehaviour
         Debug.Log("enemy took: " + damage);
         DoesEnemyDie();
         CheckStatusEffects();
-        if(EnemyType != TypeOfEnemy.Boss)//temp
-        {
-            HitPauseControllerRef.PlayHitPauseCoroutine();
-        }
+        
     }
 
     public void HealSelfFully() => EnemyHealth = MaxEnemyHealth;
@@ -92,6 +89,7 @@ public class BaseEnemy : MonoBehaviour
             Debug.Log("im dead");
             if (EnemyType == TypeOfEnemy.Object)
                 Debug.Log("object destroyed");
+
             else
             {
                 SoulsBankController.instance.SoulsBank += EnemySoulsValue;
@@ -107,7 +105,14 @@ public class BaseEnemy : MonoBehaviour
             this.gameObject.SetActive(false);
         }
         else
+        {
+            if (EnemyType != TypeOfEnemy.Boss)//temp
+            {
+                HitPauseControllerRef.PlayHitPauseCoroutine();
+            }
             Debug.Log("has health stil");
+        }
+            
     }
 
     public void CheckStatusEffects()
