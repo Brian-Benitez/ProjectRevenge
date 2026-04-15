@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerStunnedState : MonoBehaviour
+public class PlayerStunnedState : MonoBehaviour//WORK IN PROGRESS
 {
     public float StunDuration;
     public bool IsPlayerStuuned = false;

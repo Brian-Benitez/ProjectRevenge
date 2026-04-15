@@ -21,7 +21,7 @@ public class ShieldController : MonoBehaviour
     [Header("Shield key")]
     public KeyCode ShieldKey;
 
-    public PlayerStunnedState PlayerStunnedStateRef;
+    //public PlayerStunnedState PlayerStunnedStateRef;
     private PlayerMovement _playerMovement;
 
 
@@ -39,7 +39,7 @@ public class ShieldController : MonoBehaviour
 
     void Update()
     {
-        if(_playerMovement.IsDashing || PlayerStunnedStateRef.IsPlayerStuuned)
+        if(_playerMovement.IsDashing) //PlayerStunnedStateRef.IsPlayerStuuned)
             return;
 
         if(Input.GetKey(ShieldKey) && !IsShieldBroken)
