@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class OpportunityToBeHitState : State
-{
+{//DELETEE ALL THIS
     [Header("Stats")]
     public int TimesBossAttacked = 0;
     public bool CanFightAgain = false;
@@ -11,14 +11,7 @@ public class OpportunityToBeHitState : State
 
     private void Update()
     {
-        if(AttackState.TimeBtwAttack > 0f)
-        {
-            CanFightAgain = false;
-        }
-        else
-        {
-            CanFightAgain = true;
-        }
+        
     }
 
 

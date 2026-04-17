@@ -30,7 +30,7 @@ public class MovementState : State
 
     private void Update()
     {
-        if (_enemyWeaponRotationRef.IsAttacking)
+        if (_enemyWeaponRotationRef.IsAttacking || AttackState.WithinRange)
             return;
 
         if (EnemyAggroDistanceRef.IsAggro)

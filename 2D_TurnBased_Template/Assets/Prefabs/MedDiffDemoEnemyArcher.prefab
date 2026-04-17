@@ -138,54 +138,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4778071554281220267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
---- !u!1 &4235570004115118563
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3732020825783278092}
-  - component: {fileID: 59477733936713248}
-  m_Layer: 0
-  m_Name: EnemyPriority
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3732020825783278092
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235570004115118563}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7792463973501070681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &59477733936713248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235570004115118563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d73b17c3e61c14d8e42ed8fcb9fe76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyPriorty: 0
-  IsFullAggro: 0
-  FightingDistance: 0
-  StandByDistance: 0
 --- !u!1 &4448153179494053823
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,10 +394,9 @@ Transform:
   - {fileID: 765228637395614536}
   - {fileID: 4435327567272935342}
   - {fileID: 4778071554281220267}
-  - {fileID: 8252927944634645974}
   - {fileID: 6783123508345464235}
-  - {fileID: 3732020825783278092}
   - {fileID: 564412670899018400}
+  - {fileID: 8252927944634645974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5369697583226992711

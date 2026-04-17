@@ -59,7 +59,7 @@ public class FinalPhaseUpgrades : MonoBehaviour
         Debug.Log("changed");
         BaseEnemyRef.EnemySpeed += NewSpeed;
         BaseEnemyRef.EnemyDamage += NewMeleeDamg;
-        AttackStateRef.TimeBtwAttack -= NewMeleeTimeToAttack;
+        //AttackStateRef.TimeBtwAttack -= NewMeleeTimeToAttack;
         DKRangeAttackRef.DKRangeDamage += NewRangeDam;
         DKRangeAttackRef.RangeAttackRange += NewAttackRange;
         DKRangeAttackRef.TimeBtwAttack -= NewRangeTimeToAttack;
@@ -69,7 +69,7 @@ public class FinalPhaseUpgrades : MonoBehaviour
     {
         BaseEnemyRef.EnemySpeed -= NewSpeed;
         BaseEnemyRef.EnemyDamage -= NewMeleeDamg;
-        AttackStateRef.TimeBtwAttack += NewMeleeTimeToAttack;
+        //AttackStateRef.TimeBtwAttack += NewMeleeTimeToAttack;
         DKRangeAttackRef.DKRangeDamage -= NewRangeDam;
         DKRangeAttackRef.RangeAttackRange -= NewAttackRange;
         DKRangeAttackRef.TimeBtwAttack += NewRangeTimeToAttack;

@@ -5,20 +5,23 @@ using UnityEngine;
 public class AttackState : State//rename this to EnemyAttackState
 {
     [Header("Test demo")]
-    public bool IsRunning = false;
     public bool IsPlayingAttackAni = false;
 
     [Header("Melee pos")]
     public Transform MeleePos;
 
-    [Header("Enemys attack range and T.T.A")]
+    [Header("Attacks Settings")]
     public float AttackRange;
-    public float TimeBtwAttack;
     public float WindUpTimeForMelee;
+    public int AmountOfAttacks;
+    public int MaxAmountOfAttacks;
+    public float AttackCooldownTimer;
+    public float MaxTimerOfCooldown;
 
     [Header("Bools Conditions to attack")]
-    public bool CanHitAgain = true;
+    public bool IsWaiting = false;//do not DELETE
     public bool WithinRange = false;
+    public bool IsDoneCoolingDown = false;
 
     [Header("Layermasks for what can be hit")]
     public LayerMask WhatisHittable;
@@ -33,12 +36,10 @@ public class AttackState : State//rename this to EnemyAttackState
     OpportunityToBeHitState OpportunityToBeHitState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
-
-    private float _maxTimeBtwAttacks;
+    
 
     private void Start()
     {
-        _maxTimeBtwAttacks = TimeBtwAttack;
         EnemySwordsmanRef = gameObject.GetComponentInParent<EnemySwordsman>();
         ChaseState = GetComponentInParent<MovementState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
@@ -57,22 +58,28 @@ public class AttackState : State//rename this to EnemyAttackState
 
     void Update()
     {
-        if (CanHitAgain && WithinRange && !IsRunning)
+        if (IsDoneCoolingDown)
         {
-            _enemyWeaponRotationRef.IsAttacking = true;
-            StartCoroutine(WindUpAttack());
-            RestartTimerForAttacks();
+            if (!IsWaiting && WithinRange && AmountOfAttacks < MaxAmountOfAttacks)
+            {
+                _enemyWeaponRotationRef.IsAttacking = true;
+                StartCoroutine(WindUpAttack());
+            }
         }
 
-        if (TimeBtwAttack <= 0f)
+        if (AmountOfAttacks >= MaxAmountOfAttacks)
         {
-            CanHitAgain = true;
-            return;
-        }
-        else
-        {
-            TimeBtwAttack -= Time.deltaTime;
-            CanHitAgain = false;
+            IsDoneCoolingDown = false;
+            if (AttackCooldownTimer >= MaxTimerOfCooldown)
+            {
+                IsDoneCoolingDown = true;
+                AmountOfAttacks = 0;
+                AttackCooldownTimer = 0;
+            }
+            else
+            {
+                AttackCooldownTimer += Time.deltaTime;
+            }
         }
     }
 
@@ -102,23 +109,25 @@ public class AttackState : State//rename this to EnemyAttackState
                 Debug.Log("Enemy hit " + enemiesToDamges[i].gameObject.name + "for " + EnemySwordsmanRef.EnemyDamage);
             }
         }
-
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        /*
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)//rework later
         {
             BlockAndMoveState.RollingToBlock();
         }
+        */
     }
     public IEnumerator WindUpAttack()
     {
+        IsWaiting = true;
         IsPlayingAttackAni = true;
-        IsRunning = true;
         Debug.Log("Winding up attack " + WindUpTimeForMelee + " Seconds");
         yield return new WaitForSecondsRealtime(WindUpTimeForMelee);
         Debug.Log("Winding up attack done");
         MeleeAttack();
         _enemyWeaponRotationRef.IsAttacking = false;
-        IsRunning = false;
         IsPlayingAttackAni = false;
+        IsWaiting = false;
+        AmountOfAttacks++;
     }
 
     public override State RunCurrentState()
@@ -154,11 +163,8 @@ public class AttackState : State//rename this to EnemyAttackState
     {
         AttackMissedPlayer = false;
         WithinRange = false;
-        IsRunning = false;
         _enemyWeaponRotationRef.IsAttacking = false;
     }
-
-    void RestartTimerForAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 
     //----------------------------------------------------Debug--stuff--------------------------------------------------------------------->
     private void OnDrawGizmosSelected()
