@@ -349,14 +349,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a874d8d26f7a8247a9151406dc61a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRunning: 0
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 7916153532616726675}
   AttackRange: 1.11
-  TimeBtwAttack: 0.5
   WindUpTimeForMelee: 1
-  CanHitAgain: 1
+  MaxAmountOfAttacks: 2
+  MaxTimerOfCooldown: 4
+  IsWaiting: 0
   WithinRange: 0
+  IsDoneCoolingDown: 1
+  HasRolled: 0
   WhatisHittable:
     serializedVersion: 2
     m_Bits: 320
@@ -603,7 +605,7 @@ MonoBehaviour:
   MaxEnemyHealth: 10
   EnemySpeed: 3.5
   PatrolSpeed: 1
-  EnemyDamage: 2
+  EnemyDamage: 1.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   ChanceToDropItem: 25

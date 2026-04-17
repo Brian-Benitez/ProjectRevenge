@@ -13,15 +13,18 @@ public class AttackState : State//rename this to EnemyAttackState
     [Header("Attacks Settings")]
     public float AttackRange;
     public float WindUpTimeForMelee;
-    public int AmountOfAttacks;
+    private int AmountOfAttacks;
     public int MaxAmountOfAttacks;
-    public float AttackCooldownTimer;
+    private float AttackCooldownTimer;
     public float MaxTimerOfCooldown;
 
     [Header("Bools Conditions to attack")]
     public bool IsWaiting = false;//do not DELETE
     public bool WithinRange = false;
     public bool IsDoneCoolingDown = false;
+
+    [Header("Level 2 Enemies settings")]
+    public bool HasRolled = false;
 
     [Header("Layermasks for what can be hit")]
     public LayerMask WhatisHittable;
@@ -33,7 +36,6 @@ public class AttackState : State//rename this to EnemyAttackState
     MovementState ChaseState;
     public StunState StunState;
     BlockAndMoveState BlockAndMoveState;
-    OpportunityToBeHitState OpportunityToBeHitState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
     
@@ -44,15 +46,9 @@ public class AttackState : State//rename this to EnemyAttackState
         ChaseState = GetComponentInParent<MovementState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
         
-
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
         {
             BlockAndMoveState = GetComponentInParent<BlockAndMoveState>();
-        }
-
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
-        {
-            OpportunityToBeHitState = GetComponent<OpportunityToBeHitState>();
         }
     }
 
@@ -70,11 +66,18 @@ public class AttackState : State//rename this to EnemyAttackState
         if (AmountOfAttacks >= MaxAmountOfAttacks)
         {
             IsDoneCoolingDown = false;
+            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && !HasRolled)
+            {
+                HasRolled = true;
+                BlockAndMoveState.RollingToBlock();
+            }
             if (AttackCooldownTimer >= MaxTimerOfCooldown)
             {
                 IsDoneCoolingDown = true;
                 AmountOfAttacks = 0;
                 AttackCooldownTimer = 0;
+                if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && HasRolled)
+                    HasRolled = false;
             }
             else
             {
@@ -109,12 +112,6 @@ public class AttackState : State//rename this to EnemyAttackState
                 Debug.Log("Enemy hit " + enemiesToDamges[i].gameObject.name + "for " + EnemySwordsmanRef.EnemyDamage);
             }
         }
-        /*
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)//rework later
-        {
-            BlockAndMoveState.RollingToBlock();
-        }
-        */
     }
     public IEnumerator WindUpAttack()
     {
@@ -137,21 +134,17 @@ public class AttackState : State//rename this to EnemyAttackState
 
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && BlockAndMoveState.CanBlock)
         {
-            //block and move back state
-
+            //block
             return BlockAndMoveState;
         }
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Hard)
         {
             //do something
         }
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
-            return OpportunityToBeHitState;
-
         if (AttackMissedPlayer == true)
         {
             Debug.Log("go here");
-            //ChaseState.RestartDistance();
+            AmountOfAttacks = 0;
             RestartEnemy();
             return ChaseState;
         }

@@ -583,14 +583,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a874d8d26f7a8247a9151406dc61a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRunning: 0
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 5976774633233644905}
   AttackRange: 1.11
-  TimeBtwAttack: 0.5
   WindUpTimeForMelee: 2
-  CanHitAgain: 1
+  MaxAmountOfAttacks: 2
+  MaxTimerOfCooldown: 5
+  IsWaiting: 0
   WithinRange: 0
+  IsDoneCoolingDown: 1
+  HasRolled: 0
   WhatisHittable:
     serializedVersion: 2
     m_Bits: 320
