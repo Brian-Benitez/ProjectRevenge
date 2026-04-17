@@ -73,12 +73,12 @@ public class RangeAttackState : State
     }
     void ArrowAttack()
     {
-        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Easy)
+        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelOne)
         {
             Instantiate(Projectile, ShotPoint.position, transform.rotation);
             Debug.Log("shot");
         }
-        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo)
         {
             Instantiate(Projectile, ShotPoint.position, transform.rotation);
             Instantiate(Projectile, ShotPointTwo.position, transform.rotation);

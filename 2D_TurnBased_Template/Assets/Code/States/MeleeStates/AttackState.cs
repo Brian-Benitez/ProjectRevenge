@@ -46,7 +46,7 @@ public class AttackState : State//rename this to EnemyAttackState
         ChaseState = GetComponentInParent<MovementState>();
         _enemyWeaponRotationRef = GetComponentInParent<EnemyWeaponRotation>();
         
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo)
         {
             BlockAndMoveState = GetComponentInParent<BlockAndMoveState>();
         }
@@ -66,7 +66,7 @@ public class AttackState : State//rename this to EnemyAttackState
         if (AmountOfAttacks >= MaxAmountOfAttacks)
         {
             IsDoneCoolingDown = false;
-            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && !HasRolled)
+            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && !HasRolled)
             {
                 HasRolled = true;
                 BlockAndMoveState.RollingToBlock();
@@ -76,7 +76,7 @@ public class AttackState : State//rename this to EnemyAttackState
                 IsDoneCoolingDown = true;
                 AmountOfAttacks = 0;
                 AttackCooldownTimer = 0;
-                if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && HasRolled)
+                if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && HasRolled)
                     HasRolled = false;
             }
             else
@@ -132,12 +132,12 @@ public class AttackState : State//rename this to EnemyAttackState
         if (EnemySwordsmanRef.IsStunned)
             return StunState;
 
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Medium && BlockAndMoveState.CanBlock)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && BlockAndMoveState.CanBlock)
         {
             //block
             return BlockAndMoveState;
         }
-        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Hard)
+        if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelThree)
         {
             //do something
         }

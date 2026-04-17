@@ -51,9 +51,9 @@ public class BaseEnemy : MonoBehaviour
 
     public enum LevelOfEnemy
     {
-        Easy,
-        Medium,
-        Hard,
+        LevelOne,
+        LevelTwo,
+        LevelThree,
         Boss
     }
 
