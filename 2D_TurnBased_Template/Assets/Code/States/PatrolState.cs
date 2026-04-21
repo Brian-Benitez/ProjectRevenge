@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatrolState : State
@@ -13,8 +11,14 @@ public class PatrolState : State
 
     public BaseEnemy BaseEnemyRef;
     public EnemyAggroDistance EnemyAggroDistanceRef;
-    public MovementState MovementStateRef;
     public PausingState PausingState;
+
+    [Header("Swordmans Code")]
+    public MovementState MovementStateRef;
+
+    [Header("Archer Code")]
+    public GetWithinRangeAttackState GetWithinRangeAttackStateRef;
+
 
     private void Update()
     {
@@ -59,10 +63,15 @@ public class PatrolState : State
     public override State RunCurrentState()
     {
         if (EnemyAggroDistanceRef.IsAggro)
-            return MovementStateRef;
+        {
+            if(BaseEnemyRef.EnemyType == BaseEnemy.TypeOfEnemy.Swordsman)
+                return MovementStateRef;
+            if (BaseEnemyRef.EnemyType == BaseEnemy.TypeOfEnemy.Archer)
+                return GetWithinRangeAttackStateRef;
+        }   
         else if (IsOnFirstPoint || IsOnSecondPoint)
             return PausingState;
-        else
-            return this;
+
+        return this;
     }
 }
