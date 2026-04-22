@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 0.5
-  WindUpTime: 2
+  TimeBtwAttack: 2
+  WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 8604800931791002064}
   RangeDistance: 10
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 3836935540627045171}
+  currentState: {fileID: 3965967908714547658}
 --- !u!1 &8485797036752427633
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077f20caaecfc74ca94fe6b6ca62846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerIsDone: 0
+  TimerIsDone: 1
   WaitTime: 3
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   PatrolState: {fileID: 5730654184819664156}
@@ -821,7 +821,7 @@ MonoBehaviour:
   EnemyHealth: 5
   MaxEnemyHealth: 5
   EnemySpeed: 1.5
-  PatrolSpeed: 0
+  PatrolSpeed: 0.7
   EnemyDamage: 1
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}

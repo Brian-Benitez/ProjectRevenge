@@ -88,7 +88,7 @@ public class RangeAttackState : State
     IEnumerator WindUpArrowAttack()
     {
         IsPlayingAnimation = true;
-        yield return new WaitForSeconds(WindUpTime);
+        yield return new WaitForSecondsRealtime(WindUpTime);
         LockedOnPlayer = false;
         ArrowAttack();
         IsPlayingAnimation = false;

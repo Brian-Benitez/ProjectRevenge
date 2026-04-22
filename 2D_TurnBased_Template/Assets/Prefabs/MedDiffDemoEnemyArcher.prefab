@@ -587,7 +587,7 @@ MonoBehaviour:
   EnemyHealth: 8
   MaxEnemyHealth: 8
   EnemySpeed: 2.5
-  PatrolSpeed: 0
+  PatrolSpeed: 1.2
   EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077f20caaecfc74ca94fe6b6ca62846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerIsDone: 0
+  TimerIsDone: 1
   WaitTime: 3
   EnemyAggroDistanceRef: {fileID: 5211125791650558122}
   PatrolState: {fileID: 3100799416168084246}
