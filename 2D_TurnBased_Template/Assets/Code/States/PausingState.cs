@@ -18,7 +18,7 @@ public class PausingState : State
     }
     public override State RunCurrentState()
     {
-        if(TimerIsDone)
+        if(TimerIsDone|| EnemyAggroDistanceRef.IsAggro)
             return PatrolState;
         else if(PatrolState.IsOnFirstPoint || PatrolState.IsOnSecondPoint && !TimerIsDone)
         {
