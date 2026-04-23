@@ -11,8 +11,16 @@ public class Projectile : MonoBehaviour
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
 
-    [Header("Layers")]
-    public LayerMask Enemy;
+    
+    public enum CharacterType
+    {
+        Player,
+        Enemy
+    }
+
+    [Header("Whos throwing them")]
+    public CharacterType CharacterTypes;
+
     private void Start()
     {
         Invoke("DestroyProjectile", LifeTimeOfProjectile);
@@ -21,29 +29,34 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Shield"))
+        if(CharacterTypes == CharacterType.Player)
         {
-            Debug.Log("shield is hit");
-            ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
-            DestroyProjectile();
+            if (collision.CompareTag("Shield"))
+            {
+                Debug.Log("shield is hit");
+                ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
+                DestroyProjectile();
+            }
+            else if (collision.CompareTag("EnemyShield"))
+            {
+                Debug.Log("hit enemy shield");
+                collision.gameObject.GetComponent<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+            }
+            else if (collision.CompareTag("Enemy"))
+            {
+                Debug.Log("hit enemy");
+                collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                DestroyProjectile();
+            }
         }
-        
-        if(collision.CompareTag("Player"))
+        if(CharacterTypes == CharacterType.Enemy)
         {
-            Debug.Log("hit player");
-            PlayerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage);
-            DestroyProjectile();
-        }
-        else if(collision.CompareTag("EnemyShield"))
-        {
-            Debug.Log("hit enemy shield");
-            collision.gameObject.GetComponent<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
-        }
-        else if(collision.CompareTag("Enemy"))
-        {
-            Debug.Log("hit enemy");
-            collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
-            DestroyProjectile();
+            if (collision.CompareTag("Player"))
+            {
+                Debug.Log("hit player");
+                PlayerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage);
+                DestroyProjectile();
+            }
         }
     }
     private void Update()

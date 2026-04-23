@@ -193,9 +193,7 @@ MonoBehaviour:
   LifeTimeOfProjectile: 7
   DistanceOfProjectile: 7
   EnemyArcherGO: {fileID: 8818265710935858715, guid: f1c822726393b6e4fbd71802891f4d31, type: 3}
-  Enemy:
-    serializedVersion: 2
-    m_Bits: 448
+  CharacterTypes: 1
 --- !u!58 &1156570284194022711
 CircleCollider2D:
   m_ObjectHideFlags: 0
