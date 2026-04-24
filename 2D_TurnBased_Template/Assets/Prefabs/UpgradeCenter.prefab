@@ -324,5 +324,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeUIGameObject: {fileID: 0}
+  PerksUIGameObject: {fileID: 0}
   EKeyPNG: {fileID: 5074259301956922309}
+  InteracteWithUpgradeKey: 101
+  DismissUIKey: 27
   CanInteract: 0
+  IsInteracting: 0
+  CheckpointReached: 0
+  PlayerMovementRef: {fileID: 0}
