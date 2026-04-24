@@ -6,6 +6,7 @@ public class PlayersUltController : MonoBehaviour
     public static PlayersUltController Instance;
     [Header("Ult Booleans")]
     public bool IsUsingPureRagePerk = false;
+    public bool IsUsingRagePerk = false;
 
     [Header("Ult Settings")]
     public bool IsUlted;
@@ -68,7 +69,24 @@ public class PlayersUltController : MonoBehaviour
     /// <summary>
     /// This is used when clicking on the button
     /// </summary>
-    public void SetPureRageAsAPerk() => IsUsingPureRagePerk = true; 
+    public void SetPureRageAsAPerk()
+    {
+        IsUsingPureRagePerk = true;
+        IsUsingRagePerk = true;
+    }
+    public void CheckForDoubleEnablingPerks()//should move this to its own script.
+    {
+        if(!IsUsingRagePerk)
+        {
+            Debug.Log("can pick a perk");
+        }
+        else
+        {
+            Debug.Log("Is using a rage perk already");
+        }
+        
+    }
+
     public void ActivateRagePerk()
     {
         if (IsUsingPureRagePerk)
@@ -92,6 +110,8 @@ public class PlayersUltController : MonoBehaviour
     //--------------------------------------Pure Rage Perk Method----------------------------------------------------->
     public void EnablePureRagePerk()
     {
+        IsUsingRagePerk = true;
+        Debug.Log("is using pure rage perk!");
         //Movement upgrade
         PlayerMovementRef.FullSpeed += BoostedMovementSpeed;
         PlayerMovementRef.DashCoolDown -= LoweredDashCoolDown;

@@ -5,15 +5,24 @@ public class RangePerks : MonoBehaviour
     [Header("Increase Max Ammo Perk Settings")]
     public int MaxPerkAmmoAmount;
     public bool IsUsingMaxAmmoPerk = false;
+    public bool IsRangePerkEquipped = false;
 
     public void SetMaxAmmoPerk() => IsUsingMaxAmmoPerk = true;
     public void ActivateRangePerk()
     {
-        if (IsUsingMaxAmmoPerk)
-            MaxAmmoPerk();
+        if (!IsRangePerkEquipped)
+        {
+            if (IsUsingMaxAmmoPerk)
+                MaxAmmoPerk();
+        }
+        else
+        {
+            Debug.Log("has a perk already");
+        }
     }
     public void ResetPlayerFromRangePerk()
     {
+        IsRangePerkEquipped = false;
         if(IsUsingMaxAmmoPerk)
         {
             PlayerAmmoController.Instance.MaxAmountAmount -= MaxPerkAmmoAmount;
@@ -27,6 +36,7 @@ public class RangePerks : MonoBehaviour
 
     public void MaxAmmoPerk()
     {
+        IsRangePerkEquipped = true;
         PlayerAmmoController.Instance.MaxAmountAmount += MaxPerkAmmoAmount;
         PlayerAmmoController.Instance.AmmoAmount += MaxPerkAmmoAmount;
         PlayerAmmoController.Instance.PlayerInfoRef.UpdatePlayersStats();

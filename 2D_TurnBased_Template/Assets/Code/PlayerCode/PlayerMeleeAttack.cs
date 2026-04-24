@@ -131,14 +131,11 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     public IEnumerator WindUpAttack(float dam, Transform pos, float range, LayerMask enemy)
     {
-        
         PlayerAnimationControllerRef.IsAttacking();
-        Debug.Log("wait");
         yield return new WaitForSecondsRealtime(AttackSpeed);
         Hit(dam, pos, range, enemy);
         ActivateSlashRef.DeactivateSlashingArt();
         PlayerAnimationControllerRef.IsNotAttacking();
-        Debug.Log("wait no more");
     }
     void Hit(float dam, Transform pos, float range, LayerMask enemy)
     {
