@@ -35,6 +35,7 @@ public class AttackState : State//rename this to EnemyAttackState
     //States ref here
     MovementState ChaseState;
     public StunState StunState;
+    public DKChaseState DKChaseState;
     BlockAndMoveState BlockAndMoveState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
@@ -66,23 +67,24 @@ public class AttackState : State//rename this to EnemyAttackState
         if (AmountOfAttacks >= MaxAmountOfAttacks)
         {
             IsDoneCoolingDown = false;
+            AmountOfAttacks = 0;
+            AttackCooldownTimer = 0;
             if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && !HasRolled)
             {
                 HasRolled = true;
                 BlockAndMoveState.RollingToBlock();
             }
-            if (AttackCooldownTimer >= MaxTimerOfCooldown)
-            {
-                IsDoneCoolingDown = true;
-                AmountOfAttacks = 0;
-                AttackCooldownTimer = 0;
-                if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && HasRolled)
-                    HasRolled = false;
-            }
-            else
-            {
-                AttackCooldownTimer += Time.deltaTime;
-            }
+        }
+
+        if (AttackCooldownTimer >= MaxTimerOfCooldown)
+        {
+            IsDoneCoolingDown = true;
+            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && HasRolled)
+                HasRolled = false;
+        }
+        else
+        {
+            AttackCooldownTimer += Time.deltaTime;
         }
     }
 
@@ -146,7 +148,14 @@ public class AttackState : State//rename this to EnemyAttackState
             Debug.Log("go here");
             AmountOfAttacks = 0;
             RestartEnemy();
-            return ChaseState;
+            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
+            {
+                Debug.Log("we go here");
+                return DKChaseState;
+            }
+  
+            else
+                return ChaseState;
         }
 
         return this;

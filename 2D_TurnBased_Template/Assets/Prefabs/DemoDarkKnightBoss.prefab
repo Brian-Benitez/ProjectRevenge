@@ -48,6 +48,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAttacking: 0
+--- !u!1 &582389283756318556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7773834438598211213}
+  - component: {fileID: 4613468814989697254}
+  m_Layer: 0
+  m_Name: BossStageController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7773834438598211213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582389283756318556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887253511516265353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4613468814989697254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582389283756318556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b903ec3e13e09d45ba869b59bbe9bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFinalStage: 0
+  HasInitalizedFinalStage: 0
+  AmountOfAttkIncrease: 2
+  AttackDamIncrease: 2
+  RangeAttackDamIncrease: 2
+  MovementSpeedIncrease: 1
+  BossStats: {fileID: 3849610635453228326}
+  AttackStateRef: {fileID: 499970276011381823}
+  DKRangeAttackRef: {fileID: 4342819746663072318}
 --- !u!1 &3535749086534129970
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,9 +235,9 @@ MonoBehaviour:
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 5351484751421859356}
   AttackRange: 1.6
-  WindUpTimeForMelee: 1
-  MaxAmountOfAttacks: 0
-  MaxTimerOfCooldown: 0
+  WindUpTimeForMelee: 2
+  MaxAmountOfAttacks: 2
+  MaxTimerOfCooldown: 5
   IsWaiting: 0
   WithinRange: 0
   IsDoneCoolingDown: 0
@@ -194,6 +247,7 @@ MonoBehaviour:
     m_Bits: 64
   AttackMissedPlayer: 0
   StunState: {fileID: 0}
+  DKChaseState: {fileID: 6919487459235251188}
 --- !u!1 &4770267563914590280
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +334,7 @@ MonoBehaviour:
   WhatisHittable:
     serializedVersion: 2
     m_Bits: 64
+  _bossStagesControllerRef: {fileID: 4613468814989697254}
 --- !u!1 &5306375845474257040
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 4342819746663072318}
+  currentState: {fileID: 6919487459235251188}
 --- !u!1 &6898675534388969963
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +417,7 @@ Transform:
   - {fileID: 1904240453812623922}
   - {fileID: 2336050023999352589}
   - {fileID: 2526852655236450961}
+  - {fileID: 7773834438598211213}
   - {fileID: 591776886323903675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -436,6 +492,7 @@ MonoBehaviour:
   rangeAttack: {fileID: 4342819746663072318}
   AttackState: {fileID: 499970276011381823}
   BaseEnemyRef: {fileID: 3849610635453228326}
+  BossStagesControllerRef: {fileID: 4613468814989697254}
 --- !u!114 &3849610635453228326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,11 +505,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 100
-  MaxEnemyHealth: 100
+  EnemyHealth: 80
+  MaxEnemyHealth: 80
   EnemySpeed: 2
   PatrolSpeed: 0
-  EnemyDamage: 5
+  EnemyDamage: 3
   HealthPotion: {fileID: 0}
   RagePotion: {fileID: 0}
   ChanceToDropItem: 0

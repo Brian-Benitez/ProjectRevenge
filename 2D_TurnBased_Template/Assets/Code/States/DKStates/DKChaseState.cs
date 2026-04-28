@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DKChaseState : State
 {
-    private float MinimumDistanceFromPlayer = 5f;
+    private float MinimumDistanceFromPlayer = 4.5f;
     private float DistanceFromPlayer;
     private float PreferedRangeAttkDistance = 7f;
 
@@ -12,11 +12,12 @@ public class DKChaseState : State
     public DKRangeAttack rangeAttack;
     public AttackState AttackState;
     public BaseEnemy BaseEnemyRef;
+    public BossStagesController BossStagesControllerRef;
 
 
     private void Update()
     {
-        if (rangeAttack.CanRangeAttack)
+        if (rangeAttack.CanRangeAttack && BossStagesControllerRef.IsFinalStage)
             return;
         
         if(DistanceFromPlayer >= PreferedRangeAttkDistance && rangeAttack.CanRangeAttack)

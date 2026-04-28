@@ -23,17 +23,18 @@ public class DKRangeAttack : State
 
     private float _maxTimeBtwAttacks;
     DKChaseState dKChaseState;
+    public BossStagesController _bossStagesControllerRef;
     private void Start()
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
-        dKChaseState = GetComponentInParent<DKChaseState>(); 
+        dKChaseState = GetComponentInParent<DKChaseState>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (CanRangeAttack)
+        if (CanRangeAttack && _bossStagesControllerRef.IsFinalStage)
         {
             Debug.Log("jjooo");
             StartCoroutine(WindUpRangeAttack());
