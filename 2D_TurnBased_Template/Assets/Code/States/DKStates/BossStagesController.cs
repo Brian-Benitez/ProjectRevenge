@@ -21,13 +21,11 @@ public class BossStagesController : MonoBehaviour
         {
             if(!HasInitalizedFinalStage)
             {
-                IsFinalStage = true;
                 BossFinalStageUpgrade();
+                IsFinalStage = true;
                 HasInitalizedFinalStage = true;
             }
         }
-        else 
-            IsFinalStage = false;
     }
 
     void BossFinalStageUpgrade()
@@ -37,6 +35,7 @@ public class BossStagesController : MonoBehaviour
         BossStats.EnemySpeed += MovementSpeedIncrease;
         AttackStateRef.MaxAmountOfAttacks += AmountOfAttkIncrease;
         DKRangeAttackRef.DKRangeDamage += RangeAttackDamIncrease;
+        DKRangeAttackRef.RestartTimerForRangeAttacks();
     }
     void BossRestatStats()
     {

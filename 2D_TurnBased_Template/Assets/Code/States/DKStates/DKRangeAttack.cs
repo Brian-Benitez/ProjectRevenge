@@ -12,7 +12,10 @@ public class DKRangeAttack : State
     [Header("Enemys attack range and T.T.A")]
     public float RangeAttackRange;
     public float TimeBtwAttack;
+    private float _maxTimeBtwAttacks;
     public float WindUpTimeForRange;
+    public int AttackCount;
+    public int MaxAttackCount;
 
     [Header("Bools Conditions to attack")]
     public bool CanRangeAttack = false;
@@ -21,7 +24,7 @@ public class DKRangeAttack : State
     [Header("Layermasks for what can be hit")]
     public LayerMask WhatisHittable;
 
-    private float _maxTimeBtwAttacks;
+   
     DKChaseState dKChaseState;
     public BossStagesController _bossStagesControllerRef;
     private void Start()
@@ -30,14 +33,16 @@ public class DKRangeAttack : State
         dKChaseState = GetComponentInParent<DKChaseState>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        if (CanRangeAttack && _bossStagesControllerRef.IsFinalStage)
+        if (CanRangeAttack && _bossStagesControllerRef.IsFinalStage && AttackCount < MaxAttackCount)
         {
-            Debug.Log("jjooo");
             StartCoroutine(WindUpRangeAttack());
+        }
+
+        if(AttackCount >= MaxAttackCount)
+        {
+            AttackCount = 0;
         }
 
         if (TimeBtwAttack <= 0 && !IsAttackingNow)
@@ -54,7 +59,6 @@ public class DKRangeAttack : State
 
     void RangeAttack()
     {
-        
         Collider2D[] enemiesToDamges = Physics2D.OverlapCircleAll(RangeAttackPos.transform.position, RangeAttackRange, WhatisHittable);
         
         if (enemiesToDamges.Length == 0)
@@ -80,8 +84,9 @@ public class DKRangeAttack : State
         RangeAttack();
         RestartTimerForRangeAttacks();
         IsAttackingNow = false;
+        AttackCount++;
     }
-    void RestartTimerForRangeAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
+    public void RestartTimerForRangeAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 
     public override State RunCurrentState()
     {

@@ -17,7 +17,7 @@ public class DKChaseState : State
 
     private void Update()
     {
-        if (rangeAttack.CanRangeAttack && BossStagesControllerRef.IsFinalStage)
+        if (rangeAttack.CanRangeAttack && BossStagesControllerRef.IsFinalStage || AttackState.WithinRange || rangeAttack.IsAttackingNow)
             return;
         
         if(DistanceFromPlayer >= PreferedRangeAttkDistance && rangeAttack.CanRangeAttack)
