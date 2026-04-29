@@ -327,10 +327,13 @@ MonoBehaviour:
   Player: {fileID: 0}
   DKRangeDamage: 2
   RangeAttackRange: 1.41
-  TimeBtwAttack: 5
-  WindUpTimeForRange: 0.8
+  TimeBtwAttack: 10
+  WindUpTimeForRange: 1.5
+  AttackCount: 0
+  MaxAttackCount: 3
   CanRangeAttack: 0
   IsAttackingNow: 0
+  IsDoneFullAttack: 1
   WhatisHittable:
     serializedVersion: 2
     m_Bits: 64

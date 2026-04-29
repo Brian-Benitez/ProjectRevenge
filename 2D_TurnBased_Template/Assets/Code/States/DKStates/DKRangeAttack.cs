@@ -14,12 +14,13 @@ public class DKRangeAttack : State
     public float TimeBtwAttack;
     private float _maxTimeBtwAttacks;
     public float WindUpTimeForRange;
-    public int AttackCount;
+    private int AttackCount;
     public int MaxAttackCount;
 
     [Header("Bools Conditions to attack")]
     public bool CanRangeAttack = false;
     public bool IsAttackingNow = false;
+    public bool IsDoneFullAttack = true;
 
     [Header("Layermasks for what can be hit")]
     public LayerMask WhatisHittable;
@@ -35,22 +36,22 @@ public class DKRangeAttack : State
 
     void Update()
     {
-        if (CanRangeAttack && _bossStagesControllerRef.IsFinalStage && AttackCount < MaxAttackCount)
+        if (CanRangeAttack && _bossStagesControllerRef.IsFinalStage && !IsAttackingNow && AttackCount < MaxAttackCount)
         {
             StartCoroutine(WindUpRangeAttack());
         }
-
         if(AttackCount >= MaxAttackCount)
         {
             AttackCount = 0;
+            IsDoneFullAttack = true;
         }
-
         if (TimeBtwAttack <= 0 && !IsAttackingNow)
         {
             CanRangeAttack = true;
+            IsDoneFullAttack = false;
             return;
         }
-        else
+        else if(IsDoneFullAttack)
         {
             TimeBtwAttack -= Time.deltaTime;
             CanRangeAttack = false;
@@ -99,6 +100,5 @@ public class DKRangeAttack : State
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(RangeAttackPos.transform.position, RangeAttackRange);
     }
 }
