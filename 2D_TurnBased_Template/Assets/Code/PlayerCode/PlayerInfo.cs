@@ -7,5 +7,6 @@ public class PlayerInfo : BaseCharacter
     private void Start()
     {
         UpdatePlayersStats();
+        HealthBarUIRef.SetMaxHealth(CharacterMaxHealth);
     }
 }

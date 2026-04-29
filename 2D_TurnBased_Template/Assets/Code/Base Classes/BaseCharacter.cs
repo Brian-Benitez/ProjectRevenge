@@ -7,7 +7,6 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     [Header("Health")]
     public float CharacterHealthAmount;
     public float CharacterMaxHealth;
-    public float CharacterMaxHealthLevel;
 
     [Header("Range Dmg")]
     public float RangeDamg;
@@ -25,15 +24,23 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public TextMeshProUGUI MaxUltAmountText;
     public TextMeshProUGUI ArrowCountText;
 
+    public HealthBarUI HealthBarUIRef;
+
     public void TakeDamage(float damage)
     {
         CharacterHealthAmount -= damage;
+        SetHealth(-damage);
         Debug.Log("player took: " + damage);
         PlayersHealth.text = " " + CharacterHealthAmount;
         DoesCharacterDie();
     }
 
-    public void HealAllHealth() => CharacterHealthAmount = CharacterMaxHealth;//dont wanna add other var maybe do health level list take val there
+    public void SetHealth(float healthChange)
+    {
+        CharacterHealthAmount += healthChange;
+        healthChange = Mathf.Clamp(CharacterHealthAmount, 0, CharacterMaxHealth);
+        HealthBarUIRef.SetHealth(CharacterHealthAmount);
+    }
 
     public void DoesCharacterDie()
     {
@@ -41,7 +48,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         {
             IsCharacterDead = true;
             PlayerSpawnerController.Instance.SpawnPlayer();
-            HealAllHealth();
+            SetHealth(CharacterMaxHealth);
             UpdatePlayersStats();
             DoorController.instance.OpenAllDoorsInLevel();
             EnemysManager.Instance.EnableCurrentTriggerBox();
