@@ -38,8 +38,9 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public void SetHealth(float healthChange)
     {
         CharacterHealthAmount += healthChange;
+        CharacterHealthAmount = Mathf.Clamp(CharacterHealthAmount, 0, CharacterMaxHealth);
         healthChange = Mathf.Clamp(CharacterHealthAmount, 0, CharacterMaxHealth);
-        HealthBarUIRef.SetHealth(CharacterHealthAmount);
+        HealthBarUIRef.SetHealth(healthChange);
     }
 
     public void DoesCharacterDie()

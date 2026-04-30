@@ -95,6 +95,7 @@ public class LevelUpManager : MonoBehaviour
                 _playerInfo.CharacterMaxHealth += HealthUpgradeImcrement;
                 _healthpercent += HealthUpgradeImcrement;
                 _healthUpgradeLevel += 1;
+                _playerInfo.HealthBarUIRef.SetMaxHealth(_playerInfo.CharacterMaxHealth);
                 _playerInfo.SetHealth(_playerInfo.CharacterMaxHealth);
                 _playerInfo.Souls -= CostForHealthUpgrade;
                 _playerInfo.UpdatePlayersStats();

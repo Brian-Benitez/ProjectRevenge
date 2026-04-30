@@ -492,8 +492,9 @@ MonoBehaviour:
   IsOnSecondPoint: 0
   BaseEnemyRef: {fileID: 763097274553505534}
   EnemyAggroDistanceRef: {fileID: 3828468443647139524}
-  MovementStateRef: {fileID: 3771332004520370198}
   PausingState: {fileID: 970617011260581762}
+  MovementStateRef: {fileID: 3771332004520370198}
+  GetWithinRangeAttackStateRef: {fileID: 0}
 --- !u!1 &3979199002658533547
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +599,7 @@ MonoBehaviour:
     m_Bits: 320
   AttackMissedPlayer: 0
   StunState: {fileID: 4524825804764612815}
+  DKChaseState: {fileID: 0}
 --- !u!1 &6229005726687233467
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bdaa1481b54ab4c9124dc6ac842d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitPauseWaitTime: 0.2
+  HitPauseWaitTime: 0.1
 --- !u!1 &7258568105007961688
 GameObject:
   m_ObjectHideFlags: 0
