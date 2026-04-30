@@ -7,6 +7,7 @@ public class HealthPickUp : BasePickUp
 
     public void HealPlayer()
     {
-        HealingPlayerController.Instance.HealPlayer(HealthGain);
+        HealingPlayerController.Instance.PlayerInfoRef.SetHealth(HealthGain);
+        HealingPlayerController.Instance.PlayerInfoRef.UpdatePlayersStats();
     }
 }
