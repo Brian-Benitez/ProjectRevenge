@@ -15,8 +15,6 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     [Header("Booleans")]
     public bool IsCharacterDead = false;
     [Header("Texts")]
-    public TextMeshProUGUI PlayersHealth;
-    public TextMeshProUGUI PlayersMaxHealth;
     public TextMeshProUGUI UpgradeUISoulsText;// will fix this later
     public TextMeshProUGUI PerksUISoulsText;//this too
     public TextMeshProUGUI InGameSoulsText;
@@ -31,7 +29,6 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         CharacterHealthAmount -= damage;
         SetHealth(-damage);
         Debug.Log("player took: " + damage);
-        PlayersHealth.text = " " + CharacterHealthAmount;
         DoesCharacterDie();
     }
 
@@ -68,8 +65,6 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
 
     public void UpdatePlayersStats()
     {
-        PlayersHealth.text = " " + CharacterHealthAmount;
-        PlayersMaxHealth.text = " " + CharacterMaxHealth;
         UpgradeUISoulsText.text = " " + Souls;
         PerksUISoulsText.text = " " + Souls;
         InGameSoulsText.text = " " + Souls;
