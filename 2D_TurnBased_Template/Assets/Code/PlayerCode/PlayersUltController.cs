@@ -7,6 +7,7 @@ public class PlayersUltController : MonoBehaviour
     [Header("Ult Booleans")]
     public bool IsUsingPureRagePerk = false;
     public bool IsUsingRagePerk = false;
+    public bool IsUsingHealingRagePerk = false;
 
     [Header("Ult Settings")]
     public bool IsUlted;
@@ -91,6 +92,8 @@ public class PlayersUltController : MonoBehaviour
     {
         if (IsUsingPureRagePerk)
             EnablePureRagePerk();
+        if(IsUsingHealingRagePerk)
+            RageHealingPerk();
     }
 
     public void ResettingPlayerFromPerk()
@@ -107,7 +110,6 @@ public class PlayersUltController : MonoBehaviour
 
     public void RemoveAllUltPoints() => UltPoints = 0;
 
-    //--------------------------------------Pure Rage Perk Method----------------------------------------------------->
     public void EnablePureRagePerk()
     {
         IsUsingRagePerk = true;
@@ -123,6 +125,13 @@ public class PlayersUltController : MonoBehaviour
         //Range upgrade
         PlayerInfoRef.RangeDamg += RangeUpgradeDam;
     }
+
+    public void RageHealingPerk()
+    {
+        IsUsingHealingRagePerk = true;//maybe add a bit of a delay?
+        PlayerInfoRef.CharacterHealthAmount += MaxUltPoints;
+        Debug.Log("used ult points to heal...");
+    }
     public void SetPlayerToNormalStats()
     {
         //Movement upgrade
@@ -136,9 +145,4 @@ public class PlayersUltController : MonoBehaviour
         //Range upgrade
         PlayerInfoRef.RangeDamg -= RangeUpgradeDam;
     }
-    //add more  ult perks here.
-   
-    
-
-    
 }
