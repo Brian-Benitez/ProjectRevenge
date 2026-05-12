@@ -50,7 +50,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     private float _holdTime = 0f;
     private float _maxHoldTimeForHeavyAttk = 0.2f;
     private float _specialCooldown = 0f;
-    private float _maxwaitTimeForSpeical = 0.8f;
+    public float _maxwaitTimeForSpeical = 0.8f;
     private PlayerMovement _playerMovement;
     public FlipSprite FlipSpriteRef;
 
