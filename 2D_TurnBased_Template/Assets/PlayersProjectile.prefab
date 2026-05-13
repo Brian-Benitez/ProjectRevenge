@@ -189,13 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc08db27b1029b94c8c85dd1d39677aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedOfProjectile: 9
-  LifeTimeOfProjectile: 9
-  DistanceOfProjectile: 9
+  SpeedOfProjectile: 10
+  LifeTimeOfProjectile: 0.3
+  DistanceOfProjectile: 0.3
+  MaxDistance: 1
   EnemyArcherGO: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
-  Enemy:
-    serializedVersion: 2
-    m_Bits: 8
+  CharacterTypes: 0
 --- !u!61 &693050170576122649
 BoxCollider2D:
   m_ObjectHideFlags: 0

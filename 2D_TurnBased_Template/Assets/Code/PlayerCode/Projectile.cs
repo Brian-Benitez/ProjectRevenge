@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float SpeedOfProjectile;
     public float LifeTimeOfProjectile;
     public float DistanceOfProjectile;
+    public float MaxDistance;
 
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
