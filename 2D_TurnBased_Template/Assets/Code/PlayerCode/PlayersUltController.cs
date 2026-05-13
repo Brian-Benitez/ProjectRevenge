@@ -75,17 +75,16 @@ public class PlayersUltController : MonoBehaviour
         IsUsingPureRagePerk = true;
         IsUsingRagePerk = true;
     }
-    public void CheckForDoubleEnablingPerks()//should move this to its own script.
+
+    public void SetHealingRageAsPerk()
     {
-        if(!IsUsingRagePerk)
-        {
-            Debug.Log("can pick a perk");
-        }
-        else
-        {
-            Debug.Log("Is using a rage perk already");
-        }
-        
+        IsUsingRagePerk = true;
+        IsUsingHealingRagePerk = true;
+    }
+    public void RestartAllRagePerksBools()//should move this to its own script.
+    {
+        IsUsingHealingRagePerk = false;
+        IsUsingPureRagePerk = false;
     }
 
     public void ActivateRagePerk()
@@ -128,6 +127,7 @@ public class PlayersUltController : MonoBehaviour
 
     public void RageHealingPerk()
     {
+        IsUsingRagePerk = true;
         IsUsingHealingRagePerk = true;//maybe add a bit of a delay?
         PlayerInfoRef.CharacterHealthAmount += MaxUltPoints;
         Debug.Log("used ult points to heal...");
