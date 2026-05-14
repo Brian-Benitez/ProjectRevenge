@@ -5,7 +5,7 @@ public class PlayerAmmoController : MonoBehaviour
     public static PlayerAmmoController Instance;
 
     public int AmmoAmount;
-    public int MaxAmountAmount;
+    public int MaxAmmoAmount;
     public bool HasAmmo = false;
 
     public PlayerInfo PlayerInfoRef;
@@ -23,16 +23,9 @@ public class PlayerAmmoController : MonoBehaviour
         else return false;
     }
 
-    public void AddAmmo()
+    public void AddAmmo(int amountofammo)
     {
-        if(AmmoAmount >= MaxAmountAmount)
-        {
-            AmmoAmount = MaxAmountAmount;
-        }
-        else
-        {
-            AmmoAmount++;
-        }
+        AmmoAmount += Mathf.Clamp(amountofammo, 0, MaxAmmoAmount);
     }
 
     public void RemoveAmmo()

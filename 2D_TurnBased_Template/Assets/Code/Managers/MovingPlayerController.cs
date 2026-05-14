@@ -9,6 +9,7 @@ public class MovingPlayerController : MonoBehaviour
     public GameObject TutorialPos;
     public GameObject FirstLevelPos;
 
+
     private void Start()
     {
         PlayerPos.transform.position = TutorialPos.transform.position;

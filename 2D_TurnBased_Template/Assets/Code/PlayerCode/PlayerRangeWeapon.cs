@@ -6,13 +6,13 @@ public class PlayerRangeWeapon : MonoBehaviour
 
     public GameObject Projectile;
     public Transform ShotPoint;
+    public bool CanRangeAttackAgain;
+
     [Header("For upgrades below")]
     public bool IsUsingShotgunPerk = false;
     public Transform ShotPointTwo;
     public Transform ShotPointThree;
     public float LoweredRangeDistance;
-
-    public bool CanRangeAttackAgain;
 
     private float _maxTimeBtwAttacks;
     private PlayerMovement PlayerMovementRef;

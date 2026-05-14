@@ -29,9 +29,9 @@ public class RangePerks : MonoBehaviour
         IsRangePerkEquipped = false;
         if(IsUsingMaxAmmoPerk)
         {
-            PlayerAmmoController.Instance.MaxAmountAmount -= MaxPerkAmmoAmount;
+            PlayerAmmoController.Instance.MaxAmmoAmount -= MaxPerkAmmoAmount;
             PlayerAmmoController.Instance.AmmoAmount -= MaxPerkAmmoAmount;
-            if (PlayerAmmoController.Instance.MaxAmountAmount < 0 )
+            if (PlayerAmmoController.Instance.MaxAmmoAmount < 0 )
             {
                 PlayerAmmoController.Instance.AmmoAmount = 0;
             }
@@ -43,7 +43,7 @@ public class RangePerks : MonoBehaviour
     public void MaxAmmoPerk()
     {
         IsRangePerkEquipped = true;
-        PlayerAmmoController.Instance.MaxAmountAmount += MaxPerkAmmoAmount;
+        PlayerAmmoController.Instance.MaxAmmoAmount += MaxPerkAmmoAmount;
         PlayerAmmoController.Instance.AmmoAmount += MaxPerkAmmoAmount;
         PlayerAmmoController.Instance.PlayerInfoRef.UpdatePlayersStats();
         Debug.Log("max ammo perk is enabled");

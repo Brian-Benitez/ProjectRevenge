@@ -11,6 +11,11 @@ public class MainMenuController : MonoBehaviour
     {
         StartMenuPrefab.SetActive(true);
     }
+    public void OpenMainMenuScreen()
+    {
+        //fade to black
+        StartMenuPrefab.SetActive(true);
+    }
     public void StartingGame()
     {
         //add fade to black...
