@@ -180,7 +180,7 @@ MonoBehaviour:
   TimerIsDone: 1
   WaitTime: 2
   EnemyAggroDistanceRef: {fileID: 3828468443647139524}
-  PatrolState: {fileID: 2931045070768758763}
+  PatrolState: {fileID: 0}
 --- !u!1 &2535473672352954059
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,60 +441,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &3777268703821186300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1182374059345362982}
-  - component: {fileID: 2931045070768758763}
-  m_Layer: 3
-  m_Name: PatrolState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1182374059345362982
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3777268703821186300}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 420412308278162264}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2931045070768758763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3777268703821186300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a63dbadb83a4ea47803feb28d0cd0e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolSpotOne: {fileID: 0}
-  PatrolSpotTwo: {fileID: 0}
-  EnemyGO: {fileID: 8044771803214212618}
-  IsOnFirstPoint: 0
-  IsOnSecondPoint: 0
-  BaseEnemyRef: {fileID: 763097274553505534}
-  EnemyAggroDistanceRef: {fileID: 3828468443647139524}
-  PausingState: {fileID: 970617011260581762}
-  MovementStateRef: {fileID: 3771332004520370198}
-  GetWithinRangeAttackStateRef: {fileID: 0}
 --- !u!1 &3979199002658533547
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 970617011260581762}
+  currentState: {fileID: 3771332004520370198}
 --- !u!1 &3992491481548650938
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +714,6 @@ Transform:
   - {fileID: 4206373291767073470}
   - {fileID: 5680161182226638595}
   - {fileID: 3288533199338745091}
-  - {fileID: 1182374059345362982}
   - {fileID: 6821506381673166192}
   - {fileID: 9168880141029374524}
   - {fileID: 4481422510804255457}
@@ -917,7 +862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 4
   MaxEnemyHealth: 4
-  EnemySpeed: 2.5
+  EnemySpeed: 2
   PatrolSpeed: 1
   EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}

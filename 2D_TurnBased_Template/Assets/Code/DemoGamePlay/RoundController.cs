@@ -6,13 +6,16 @@ public class RoundController : MonoBehaviour
     [Header("Round Info")]
     public int RoundsCounter;
     public int BossEncounterThershold;
-    [Header("Timer info")]
+
+    [Header("Starting round info")]
     public bool IsRoundStarted = false;
-    public float CountdownToNewRound;
-    public float MaxTimeTillNewRound;
+    public KeyCode StartRoundKey;
 
     [Header("Upgrade GameObject")]
     public GameObject UpgradePrefab;
+
+    [Header("UI Start GameObject")]
+    public GameObject UIStartGameObject;
 
     [Header("Round Start Events")]
     public bool IsStartedEvent = false;
@@ -20,30 +23,29 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
-        if(CountdownToNewRound >= MaxTimeTillNewRound)
+        if(Input.GetKeyDown(StartRoundKey) && !IsRoundStarted)
         {
+            Debug.Log("start new round");
             IsRoundStarted = true;
+            UIStartGameObject.SetActive(false);
             IsStartedEvent = false;
-            EnemiesSpawner.Instance.IsAllEnemiesDead = false;
-            CountdownToNewRound = 0;
+        }
+        if (IsRoundStarted)
+        {
+            if (!IsStartedEvent)
+            {
+                EnemiesSpawner.Instance.IsAllEnemiesDead = false;
+                UpgradePrefab.SetActive(false);
+                IsStartedEvent = true;
+                StartRoundEvent.Invoke();
+            }
         }
         if (EnemiesSpawner.Instance.IsAllEnemiesDead)
         {
             IsRoundStarted = false;
             UpgradePrefab.SetActive(true);
-            CountdownToNewRound += Time.deltaTime;
+            UIStartGameObject.SetActive(true);
         }
-        if (IsRoundStarted)
-        {
-            if(!IsStartedEvent)
-            {
-                UpgradePrefab.SetActive(false);
-                //start round
-                StartRoundEvent.Invoke();
-                IsStartedEvent = true;
-            }
-        }
-        
     }
 
     public void IncrementRoundCounter() => RoundsCounter++; 

@@ -26,16 +26,10 @@ public class EnemiesSpawner : MonoBehaviour
             Instance = this;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.T))
-            SpawnEnemiesOnSpawnPoints();
-    }
-
     public void SpawnEnemiesOnSpawnPoints()
     {
-        MaxAmountOfEnemies += 3;
-        AmountOfEnemies = MaxAmountOfEnemies;
+        //MaxAmountOfEnemies += 3;
+        //AmountOfEnemies = MaxAmountOfEnemies;
         int dividedAmountOfEnmies = AmountOfEnemies / 2;
         int enemiesSpawnedInTotal = 0;
         for (int i = 0; i < SpawnPoints.Count; i++)
