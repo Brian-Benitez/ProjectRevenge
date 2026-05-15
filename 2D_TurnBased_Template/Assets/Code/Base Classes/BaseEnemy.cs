@@ -93,6 +93,8 @@ public class BaseEnemy : MonoBehaviour
             else
             {
                 SoulsBankController.instance.SoulsBank += EnemySoulsValue;
+                EnemiesSpawner.Instance.AmountOfEnemies--;
+                EnemiesSpawner.Instance.CheckOnTotalEnemies();
                 SoulsBankController.instance.PayoutToPlayer();
                 EnemysManager.Instance.IsAllEnemiesDead();
                 PlayerAmmoController.Instance.AddAmmo(1);
