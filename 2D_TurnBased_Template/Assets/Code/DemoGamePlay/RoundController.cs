@@ -5,7 +5,6 @@ public class RoundController : MonoBehaviour
 {
     [Header("Round Info")]
     public int RoundsCounter;
-    public int BossEncounterThershold;
 
     [Header("Starting round info")]
     public bool IsRoundStarted = false;
@@ -21,12 +20,16 @@ public class RoundController : MonoBehaviour
     public bool IsStartedEvent = false;
     public UnityEvent StartRoundEvent;
 
+    public bool IsRoundEnd = false;
+    public UnityEvent StartEndRoundEvent;
+
     private void Update()
     {
         if(Input.GetKeyDown(StartRoundKey) && !IsRoundStarted)
         {
             Debug.Log("start new round");
             IsRoundStarted = true;
+            IsRoundEnd = false;
             UIStartGameObject.SetActive(false);
             IsStartedEvent = false;
         }
@@ -41,10 +44,15 @@ public class RoundController : MonoBehaviour
             }
         }
         if (EnemiesSpawner.Instance.IsAllEnemiesDead)
-        {
-            IsRoundStarted = false;
-            UpgradePrefab.SetActive(true);
-            UIStartGameObject.SetActive(true);
+        { 
+            if(!IsRoundEnd)
+            {
+                IsRoundStarted = false;
+                UpgradePrefab.SetActive(true);
+                UIStartGameObject.SetActive(true);
+                IsRoundEnd = true;
+                StartEndRoundEvent.Invoke();
+            }
         }
     }
 

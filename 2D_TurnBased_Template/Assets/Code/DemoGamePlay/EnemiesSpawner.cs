@@ -6,19 +6,12 @@ public class EnemiesSpawner : MonoBehaviour
     public static EnemiesSpawner Instance;
 
     [Header("Note: Only make enemies be an even amount of them")]
-    public int AmountOfEnemies;
-    public int MaxAmountOfEnemies;
+    public int EnemiesAlive;
     public bool IsAllEnemiesDead = false;
-    [Header("Swordsman GameObject")]
-    public GameObject LevelOneSwordman;
-    public GameObject LevelTwoSwordman;
-    public GameObject LevelThreeSwordman;
-    [Header("Archers GameObject")]
-    public GameObject LevelOneArcher;
-    public GameObject LevelTwoArcher;
-    public GameObject LevelThreeArcher;
     [Header("Spawns Points")]
     public List<GameObject> SpawnPoints;
+
+    public TypesOfEnemiesPerRoundController TypesOfEnemiesPerRoundControllerRef;
 
     private void Awake()
     {
@@ -28,25 +21,29 @@ public class EnemiesSpawner : MonoBehaviour
 
     public void SpawnEnemiesOnSpawnPoints()
     {
-        //MaxAmountOfEnemies += 3;
-        //AmountOfEnemies = MaxAmountOfEnemies;
-        int dividedAmountOfEnmies = AmountOfEnemies / 2;
-        int enemiesSpawnedInTotal = 0;
+        int amountOfEnemiesPerSpawn = TypesOfEnemiesPerRoundControllerRef.MaxAmountOfEnemies / 4;
         for (int i = 0; i < SpawnPoints.Count; i++)
         {
-            if(enemiesSpawnedInTotal != AmountOfEnemies)
+            for (int j = 0; j < amountOfEnemiesPerSpawn; j++)
             {
-                for (int j = 0; j < dividedAmountOfEnmies; j++)
+                //spawn enemies here...
+                EnemiesAlive++;
+                if(TypesOfEnemiesPerRoundControllerRef.InGameEnemies.Count == 1)
                 {
-                    enemiesSpawnedInTotal++;
-                    Instantiate(LevelOneSwordman, SpawnPoints[i].transform.position, Quaternion.identity);
+                    Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[0], SpawnPoints[i].transform.position, Quaternion.identity);
+                }
+                else if(TypesOfEnemiesPerRoundControllerRef.InGameEnemies.Count == 2)
+                {
+                    Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[0], SpawnPoints[i].transform.position, Quaternion.identity);
+                    Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[1], SpawnPoints[i].transform.position, Quaternion.identity);
+                    EnemiesAlive++;
                 }
             }
         }
     }
     public void CheckOnTotalEnemies()
     {
-        if (AmountOfEnemies <= 0)
+        if (EnemiesAlive <= 0)
             IsAllEnemiesDead = true;
         else
             IsAllEnemiesDead = false;
