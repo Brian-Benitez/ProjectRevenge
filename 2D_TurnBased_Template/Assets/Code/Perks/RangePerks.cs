@@ -42,7 +42,6 @@ public class RangePerks : MonoBehaviour
 
     public void MaxAmmoPerk()
     {
-        IsRangePerkEquipped = true;
         PlayerAmmoController.Instance.MaxAmmoAmount += MaxPerkAmmoAmount;
         PlayerAmmoController.Instance.AmmoAmount += MaxPerkAmmoAmount;
         PlayerAmmoController.Instance.PlayerInfoRef.UpdatePlayersStats();
@@ -51,7 +50,6 @@ public class RangePerks : MonoBehaviour
 
     public void ShotgunPerk()
     {
-        IsRangePerkEquipped = true;
         PlayerRangeWeaponRef.IsUsingShotgunPerk = true;
         PlayerRangeWeaponRef.ChangeArrowsDurations();
         Debug.Log("is using shotgun perk");
