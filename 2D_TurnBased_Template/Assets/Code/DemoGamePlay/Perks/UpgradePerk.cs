@@ -1,16 +1,23 @@
+using TMPro;
 using UnityEngine;
 
 public class UpgradePerk : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public TextMeshPro PerklvlText, CostAmountText, PerkEXPText;
+    public float PerkLvl, IncrementMultipler, CostAmount, PerkEXP;
+
+    public void UpdateUI()
     {
-        
+        PerkLvl++;
+        CostAmount = IncrementMultipler * CostAmount;
+        PerklvlText.text = "Lvl: " + PerkLvl;
+        CostAmountText.text = " " + CostAmount;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void UpgradePerkHere()
     {
-        
+        //do magic
     }
+
 }

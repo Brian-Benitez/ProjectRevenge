@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelUpAblility : MonoBehaviour
 {
     public TextMeshProUGUI AbilityLvlText, CostAmountText;
-    public float IncrementingAbilityAmount, CostAmount, PriceMultipler;
+    public float IncrementingAbilityAmount, CostAmount, PriceMultipler;//We still need to do the rest of the abilities. Only done health.
     public int AbilityLvl;
 
     public void UpdateAbilityUI()
