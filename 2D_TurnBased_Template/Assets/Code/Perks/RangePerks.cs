@@ -14,10 +14,10 @@ public class RangePerks : MonoBehaviour
     {
         if (!IsRangePerkEquipped)
         {
-            if (IsUsingMaxAmmoPerk)
-                MaxAmmoPerk();
-            if (IsUsingShotgunPerk)
-                ShotgunPerk();
+            //if (IsUsingMaxAmmoPerk)
+                //MaxAmmoPerk();
+            //if (IsUsingShotgunPerk)
+                //ShotgunPerk();
         }
         else
         {
@@ -39,7 +39,7 @@ public class RangePerks : MonoBehaviour
         if (IsUsingShotgunPerk)
             PlayerRangeWeaponRef.NormalArrowDurations();
     }
-
+    /*
     public void MaxAmmoPerk()
     {
         PlayerAmmoController.Instance.MaxAmmoAmount += MaxPerkAmmoAmount;
@@ -47,14 +47,15 @@ public class RangePerks : MonoBehaviour
         PlayerAmmoController.Instance.PlayerInfoRef.UpdatePlayersStats();
         Debug.Log("max ammo perk is enabled");
     }
-
+    */
+    /*
     public void ShotgunPerk()
     {
         PlayerRangeWeaponRef.IsUsingShotgunPerk = true;
         PlayerRangeWeaponRef.ChangeArrowsDurations();
         Debug.Log("is using shotgun perk");
     }
-
+    */
     public void RestartAllPerks()
     {
         IsUsingShotgunPerk = false;

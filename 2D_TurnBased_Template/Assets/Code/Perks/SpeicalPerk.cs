@@ -19,25 +19,25 @@ public class SpeicalPerk : MonoBehaviour
     {
         if(!IsSpeicalPerkEquipped)
         {
-            if (IsUsingIncreaseRadiusPerk)
-                IncreaseSpeicalRadius();
-            if (IsUsingRageQuakePerk)
-                RageQuakeUpgrade();
+           // if (IsUsingIncreaseRadiusPerk)
+               // IncreaseSpeicalRadius();
+            //if (IsUsingRageQuakePerk)
+               // RageQuakeUpgrade();
         }
         else
         {
             Debug.Log("Cannot enable a perk, has perk already");
         }
     }
-
+    /*
     void IncreaseSpeicalRadius()
     {
-        IsSpeicalPerkEquipped = true;
         PlayerMeleeAttackRef.SpeicalRange += Mathf.Clamp(AddedRadiusForSpeical, 0, 3.9f);
         PlayerMeleeAttackRef._maxwaitTimeForSpeical += .16f;//increase wait time 
         Debug.Log("radius is increased");
     }
-
+    */
+    /*
     void RageQuakeUpgrade()
     {
         IsSpeicalPerkEquipped = true;
@@ -45,6 +45,7 @@ public class SpeicalPerk : MonoBehaviour
         PlayerMeleeAttackRef.SpeicalRange -= 0.6f;
         Debug.Log("increased speical damg");
     }
+    */
 
     public void RestartPlayerSpeicalSettings()
     {

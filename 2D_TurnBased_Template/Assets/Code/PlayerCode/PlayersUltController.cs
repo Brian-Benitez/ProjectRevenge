@@ -6,7 +6,6 @@ public class PlayersUltController : MonoBehaviour
     public static PlayersUltController Instance;
     [Header("Ult Booleans")]
     public bool IsUsingPureRagePerk = false;
-    public bool IsUsingRagePerk = false;
     public bool IsUsingHealingRagePerk = false;
 
     [Header("Ult Settings")]
@@ -29,6 +28,8 @@ public class PlayersUltController : MonoBehaviour
     public PlayerMovement PlayerMovementRef;
     public PlayerMeleeAttack PlayerMeleeAttackRef;
     public PlayerInfo PlayerInfoRef;
+    public PureRagePerk PureRagePerkRef;
+    public HealingRagePerk HealingRagePerkRef;
 
     private void Awake()
     {
@@ -67,32 +68,13 @@ public class PlayersUltController : MonoBehaviour
             ActivateRagePerk();
         }
     }
-    /// <summary>
-    /// This is used when clicking on the button
-    /// </summary>
-    public void SetPureRageAsAPerk()
-    {
-        IsUsingPureRagePerk = true;
-        IsUsingRagePerk = true;
-    }
-
-    public void SetHealingRageAsPerk()
-    {
-        IsUsingRagePerk = true;
-        IsUsingHealingRagePerk = true;
-    }
-    public void RestartAllRagePerksBools()//should move this to its own script.
-    {
-        IsUsingHealingRagePerk = false;
-        IsUsingPureRagePerk = false;
-    }
 
     public void ActivateRagePerk()
     {
         if (IsUsingPureRagePerk)
-            EnablePureRagePerk();
-        if(IsUsingHealingRagePerk)
-            RageHealingPerk();
+            PureRagePerkRef.EnablePerk();
+        if (IsUsingHealingRagePerk)
+            HealingRagePerkRef.EnablePerk();
     }
 
     public void ResettingPlayerFromPerk()
@@ -108,30 +90,7 @@ public class PlayersUltController : MonoBehaviour
     }
 
     public void RemoveAllUltPoints() => UltPoints = 0;
-
-    public void EnablePureRagePerk()
-    {
-        IsUsingRagePerk = true;
-        Debug.Log("is using pure rage perk!");
-        //Movement upgrade
-        PlayerMovementRef.FullSpeed += BoostedMovementSpeed;
-        PlayerMovementRef.DashCoolDown -= LoweredDashCoolDown;
-
-        //Melee upgrade
-        PlayerMeleeAttackRef.PlayerLightAttkDamg += MeleeUpgradeDam;
-        PlayerMeleeAttackRef.PlayerHeavyAttkDamg += MeleeUpgradeDam;
-
-        //Range upgrade
-        PlayerInfoRef.RangeDamg += RangeUpgradeDam;
-    }
-
-    public void RageHealingPerk()
-    {
-        IsUsingRagePerk = true;
-        IsUsingHealingRagePerk = true;//maybe add a bit of a delay?
-        PlayerInfoRef.CharacterHealthAmount += MaxUltPoints;
-        Debug.Log("used ult points to heal...");
-    }
+    
     public void SetPlayerToNormalStats()
     {
         //Movement upgrade
@@ -144,5 +103,6 @@ public class PlayersUltController : MonoBehaviour
 
         //Range upgrade
         PlayerInfoRef.RangeDamg -= RangeUpgradeDam;
+        IsUsingPureRagePerk = false;
     }
 }
