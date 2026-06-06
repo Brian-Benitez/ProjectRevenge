@@ -10,8 +10,12 @@ public class PerksController : MonoBehaviour
     public GameObject AllPerksUI;
     public GameObject PerksUIGO;
     public GameObject LevelUpUIGO;
+    [Header("everything below must be moved!")]
     [Header("Highlights")]
     public List<GameObject> Highlights;
+
+    [Header("Archers For Images")]
+    public List<GameObject> PosForImages;
 
 
     private void Awake()
@@ -50,7 +54,7 @@ public class PerksController : MonoBehaviour
     public void SetListIndexToFirstSlot() => ListIndex = 0;
     public void SetListIndexToSecondSlot() => ListIndex = 1;
     public void SetListIndexToThirdSlot() => ListIndex = 2;
-
+    //move this to new script
     public void SetHighlight()
     {
         foreach (GameObject go in Highlights)
@@ -58,6 +62,15 @@ public class PerksController : MonoBehaviour
             go.SetActive(false);
         }
         Highlights[ListIndex].SetActive(true);
+    }
+
+    public void PlaceIconsOnSlotsUI()
+    {
+        Debug.Log("place icon here");
+        for (int i = 0; i < ListOfActivePerks.Count; i++)
+        {
+           ListOfActivePerks[i].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = PosForImages[i].gameObject.transform.position;
+        }
     }
     public void EnableAllPerksMenu() => AllPerksUI.SetActive(true);
     public void EnablePerksUI()
