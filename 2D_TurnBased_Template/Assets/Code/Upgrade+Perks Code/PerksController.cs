@@ -7,6 +7,7 @@ public class PerksController : MonoBehaviour
     public static PerksController Instance;
     public int MaxAmountOfPerks;
     public List<GameObject> ListOfActivePerks;
+    public int ListIndex;
     [Header("UIs")]
     public GameObject AllPerksUI;
     public GameObject PerksUIGO;
@@ -23,26 +24,32 @@ public class PerksController : MonoBehaviour
     public void AddPerkToList(GameObject GO)
     {
         bool _isPerkInList = false;
-        if (ListOfActivePerks.Count < MaxAmountOfPerks)
-        {
-            for (int i = 0; i < ListOfActivePerks.Count; i++)
-            {
-                if (ListOfActivePerks[i].name == GO.name)
-                {
-                    Debug.Log("Perk is already in a slot!");
-                    _isPerkInList = true;
-                }
-            }
 
-            if(!_isPerkInList)
+        for (int i = 0; i < ListOfActivePerks.Count; i++)//use if(listofactiveperks.contains(GO)
+        {
+            if (ListOfActivePerks[i].name == GO.name)
             {
-                ListOfActivePerks.Add(GO);
-                Debug.Log(GO.name + " IS ENBALED!");
+                Debug.Log("Perk is already in a slot!");
+                _isPerkInList = true;
             }
         }
-        else
-            Debug.Log("All Perk Slots Are Filled!");
+
+        if (!_isPerkInList)
+        {
+            if (ListOfActivePerks.Count >= MaxAmountOfPerks)
+            {
+                ListOfActivePerks.RemoveAt(ListIndex);
+                Debug.Log("remove perk that was previously there");
+            }
+            ListOfActivePerks.Insert(ListIndex, GO);
+            Debug.Log(GO.name + " Is enabled!");
+        }
     }
+
+    //Note, have it so when player clicks on the perk box they can switch it up with the code above.
+    public void SetListIndexToFirstSlot() => ListIndex = 0;
+    public void SetListIndexToSecondSlot() => ListIndex = 1;
+    public void SetListIndexToThirdSlot() => ListIndex = 2;
     public void EnableAllPerksMenu() => AllPerksUI.SetActive(true);
     public void EnablePerksUI()
     {
