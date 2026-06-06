@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradePerk : MonoBehaviour
 {
     public TextMeshPro PerkLvlText, CostAmountText, PerkEXPText;
     public float PerkLvl, IncrementMultipler, CostAmount, PerkEXP;
+    public Image PerkImage;
 
     public void UpdateUI()
     {

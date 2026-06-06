@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-
 public class PerksController : MonoBehaviour
 {
     public static PerksController Instance;
@@ -12,6 +10,8 @@ public class PerksController : MonoBehaviour
     public GameObject AllPerksUI;
     public GameObject PerksUIGO;
     public GameObject LevelUpUIGO;
+    [Header("Highlights")]
+    public List<GameObject> Highlights;
 
 
     private void Awake()
@@ -50,6 +50,15 @@ public class PerksController : MonoBehaviour
     public void SetListIndexToFirstSlot() => ListIndex = 0;
     public void SetListIndexToSecondSlot() => ListIndex = 1;
     public void SetListIndexToThirdSlot() => ListIndex = 2;
+
+    public void SetHighlight()
+    {
+        foreach (GameObject go in Highlights)
+        {
+            go.SetActive(false);
+        }
+        Highlights[ListIndex].SetActive(true);
+    }
     public void EnableAllPerksMenu() => AllPerksUI.SetActive(true);
     public void EnablePerksUI()
     {
