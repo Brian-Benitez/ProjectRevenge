@@ -9,4 +9,9 @@ public class ShotgunPerk : UpgradePerk
         PlayerRangeWeaponRef.ChangeArrowsDurations();
         PerksController.Instance.AddPerkToList(this.gameObject);
     }
+
+    public override void DisablePerk()
+    {
+        PlayerRangeWeaponRef.NormalArrowDurations();
+    }
 }

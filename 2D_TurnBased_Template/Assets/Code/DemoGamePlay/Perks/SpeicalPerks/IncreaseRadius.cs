@@ -12,4 +12,11 @@ public class IncreaseRadius : UpgradePerk
         PlayerMeleeAttackRef._maxwaitTimeForSpeical += AdditionalWaitTime;//increase wait time .16f
         PerksController.Instance.AddPerkToList(this.gameObject);
     }
+
+    public override void DisablePerk()
+    {
+        PlayerMeleeAttackRef.SpeicalRange -= Mathf.Clamp(AddedRadiusForSpeical, 0, 3.9f);
+        PlayerMeleeAttackRef._maxwaitTimeForSpeical -= AdditionalWaitTime;
+        Debug.Log("radius is decrease");
+    }
 }

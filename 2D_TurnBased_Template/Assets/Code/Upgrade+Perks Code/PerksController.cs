@@ -44,6 +44,7 @@ public class PerksController : MonoBehaviour
             if (ListOfActivePerks.Count >= MaxAmountOfPerks)
             {
                 ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = IconsResetPOS.transform.position;
+                ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().DisablePerk();
                 ListOfActivePerks.RemoveAt(ListIndex);
                 Debug.Log("remove perk that was previously there");
             }

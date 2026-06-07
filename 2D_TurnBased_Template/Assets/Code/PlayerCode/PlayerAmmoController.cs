@@ -30,7 +30,7 @@ public class PlayerAmmoController : MonoBehaviour
 
     public void RemoveAmmo()
     {
-        AmmoAmount--;
+        AmmoAmount -= Mathf.Clamp(1, 0, MaxAmmoAmount);
         PlayerInfoRef.UpdatePlayersStats();
     }
 }
