@@ -16,6 +16,7 @@ public class PerksController : MonoBehaviour
 
     [Header("Archers For Images")]
     public List<GameObject> PosForImages;
+    public GameObject IconsResetPOS;
 
 
     private void Awake()
@@ -42,6 +43,7 @@ public class PerksController : MonoBehaviour
         {
             if (ListOfActivePerks.Count >= MaxAmountOfPerks)
             {
+                ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = IconsResetPOS.transform.position;
                 ListOfActivePerks.RemoveAt(ListIndex);
                 Debug.Log("remove perk that was previously there");
             }
@@ -72,6 +74,13 @@ public class PerksController : MonoBehaviour
            ListOfActivePerks[i].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = PosForImages[i].gameObject.transform.position;
         }
     }
+
+    public void RemoveIconOnSlotsUI()
+    {
+        Debug.Log("remove icon on UI");
+        PosForImages[ListIndex].gameObject.transform.position = IconsResetPOS.transform.position;
+    }
+
     public void EnableAllPerksMenu() => AllPerksUI.SetActive(true);
     public void EnablePerksUI()
     {
