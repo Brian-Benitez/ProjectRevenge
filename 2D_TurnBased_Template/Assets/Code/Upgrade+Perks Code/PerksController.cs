@@ -45,10 +45,13 @@ public class PerksController : MonoBehaviour
             {
                 ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = IconsResetPOS.transform.position;
                 ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().DisablePerk();
+                ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().IsPerkActive = false;
                 ListOfActivePerks.RemoveAt(ListIndex);
                 Debug.Log("remove perk that was previously there");
             }
             ListOfActivePerks.Insert(ListIndex, GO);
+            //ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().EnablePerk();
+            ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().IsPerkActive = true;
             Debug.Log(GO.name + " Is enabled!");
         }
     }

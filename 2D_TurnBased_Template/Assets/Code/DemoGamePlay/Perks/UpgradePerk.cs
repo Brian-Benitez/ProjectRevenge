@@ -8,6 +8,7 @@ public class UpgradePerk : MonoBehaviour
     public float PerkLvl, IncrementMultipler, CostAmount, PerkEXP;
     public Image PerkImage;
 
+    public bool IsPerkActive = false;
     public void UpdateUI()
     {
         PerkLvl++;
