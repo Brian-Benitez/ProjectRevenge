@@ -872,10 +872,10 @@ MonoBehaviour:
   IsHit: 0
   IsDead: 0
   IsStunned: 0
-  InstanteStun: 0
-  BuildUpStun: 1
+  InstanteStun: 1
+  BuildUpStun: 0
   ThresholdHealthToStun: 3
-  StunDuration: 1.5
+  StunDuration: 1
   HitPauseControllerRef: {fileID: 6523174012736294526}
   EnemyType: 0
   EnemyDifficulty: 0

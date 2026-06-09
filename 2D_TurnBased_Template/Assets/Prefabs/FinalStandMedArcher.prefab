@@ -599,7 +599,7 @@ MonoBehaviour:
   InstanteStun: 0
   BuildUpStun: 1
   ThresholdHealthToStun: 5
-  StunDuration: 0.5
+  StunDuration: 1.5
   HitPauseControllerRef: {fileID: 1728808975762281706}
   EnemyType: 1
   EnemyDifficulty: 1
