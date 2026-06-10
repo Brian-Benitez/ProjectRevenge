@@ -30,7 +30,7 @@ public class AttackState : State//rename this to EnemyAttackState
     public LayerMask WhatisHittable;
 
     public bool AttackMissedPlayer = false;
-
+    private IEnumerator _windupCoroutine;
     private EnemySwordsman EnemySwordsmanRef;
     //States ref here
     MovementState ChaseState;
@@ -38,8 +38,6 @@ public class AttackState : State//rename this to EnemyAttackState
     public DKChaseState DKChaseState;
     BlockAndMoveState BlockAndMoveState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
-
-    
 
     private void Start()
     {
@@ -51,41 +49,17 @@ public class AttackState : State//rename this to EnemyAttackState
         {
             BlockAndMoveState = GetComponentInParent<BlockAndMoveState>();
         }
+        _windupCoroutine = WindUpAttack();
     }
 
     void Update()
     {
-        if (IsDoneCoolingDown)
-        {
-            if (!IsWaiting && WithinRange && !StunState.IsStunned && AmountOfAttacks < MaxAmountOfAttacks)
-            {
-                _enemyWeaponRotationRef.IsAttacking = true;
-                StartCoroutine(WindUpAttack());
-            }
-        }
-
-        if (AmountOfAttacks >= MaxAmountOfAttacks)
-        {
-            IsDoneCoolingDown = false;
-            AmountOfAttacks = 0;
-            AttackCooldownTimer = 0;
-            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && !HasRolled)
-            {
-                HasRolled = true;
-                BlockAndMoveState.RollingToBlock();
-            }
-        }
-
         if (AttackCooldownTimer >= MaxTimerOfCooldown)
         {
-            IsDoneCoolingDown = true;
-            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && HasRolled)
-                HasRolled = false;
+            AttackCooldownTimer = MaxTimerOfCooldown;
         }
         else
-        {
             AttackCooldownTimer += Time.deltaTime;
-        }
     }
 
     void MeleeAttack()
@@ -131,10 +105,38 @@ public class AttackState : State//rename this to EnemyAttackState
 
     public override State RunCurrentState()
     {
-        if (StunState.IsStunned)
+        if(StunState.IsStunned)
         {
-            RestartEnemy();
-            //restart attack sequnce...
+            StopCoroutine(_windupCoroutine);
+            return StunState;
+        }
+
+        if (IsDoneCoolingDown)
+        {
+            if (!IsWaiting && WithinRange && AmountOfAttacks < MaxAmountOfAttacks)
+            {
+                _enemyWeaponRotationRef.IsAttacking = true;
+                StartCoroutine(WindUpAttack());
+            }
+        }
+
+        if (AmountOfAttacks >= MaxAmountOfAttacks)
+        {
+            IsDoneCoolingDown = false;
+            AmountOfAttacks = 0;
+            AttackCooldownTimer = 0;
+            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && !HasRolled)
+            {
+                HasRolled = true;
+                BlockAndMoveState.RollingToBlock();
+            }
+        }
+
+        if (AttackCooldownTimer >= MaxTimerOfCooldown)
+        {
+            IsDoneCoolingDown = true;
+            if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && HasRolled)
+                HasRolled = false;
         }
 
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && BlockAndMoveState.CanBlock)
@@ -167,7 +169,6 @@ public class AttackState : State//rename this to EnemyAttackState
         AttackMissedPlayer = false;
         WithinRange = false;
         _enemyWeaponRotationRef.IsAttacking = false;
-        AttackCooldownTimer = 0;
     }
 
     //----------------------------------------------------Debug--stuff--------------------------------------------------------------------->
