@@ -18,6 +18,7 @@ public class MovementState : State
     [Header("Scripts")]
     public EnemySwordsman EnemySwordsmanRef;
     public EnemyAggroDistance EnemyAggroDistanceRef;
+    public StunState StunStateRef;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
     private void Start()
@@ -30,7 +31,7 @@ public class MovementState : State
 
     private void Update()
     {
-        if (_enemyWeaponRotationRef.IsAttacking || AttackState.WithinRange)
+        if (_enemyWeaponRotationRef.IsAttacking || AttackState.WithinRange || StunStateRef.IsStunned)
             return;
 
         if (EnemyAggroDistanceRef.IsAggro)
@@ -92,9 +93,6 @@ public class MovementState : State
 
     public override State RunCurrentState()
     {
-        if (BaseEnemyRef.IsStunned)
-            return StunState;
-
         if (AttackState.WithinRange)
             return AttackState;
 

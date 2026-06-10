@@ -13,9 +13,9 @@ public class AttackState : State//rename this to EnemyAttackState
     [Header("Attacks Settings")]
     public float AttackRange;
     public float WindUpTimeForMelee;
-    private int AmountOfAttacks;
+    public int AmountOfAttacks;
     public int MaxAmountOfAttacks;
-    private float AttackCooldownTimer;
+    public float AttackCooldownTimer;
     public float MaxTimerOfCooldown;
 
     [Header("Bools Conditions to attack")]
@@ -57,7 +57,7 @@ public class AttackState : State//rename this to EnemyAttackState
     {
         if (IsDoneCoolingDown)
         {
-            if (!IsWaiting && WithinRange && AmountOfAttacks < MaxAmountOfAttacks)
+            if (!IsWaiting && WithinRange && !StunState.IsStunned && AmountOfAttacks < MaxAmountOfAttacks)
             {
                 _enemyWeaponRotationRef.IsAttacking = true;
                 StartCoroutine(WindUpAttack());
@@ -131,8 +131,11 @@ public class AttackState : State//rename this to EnemyAttackState
 
     public override State RunCurrentState()
     {
-        if (EnemySwordsmanRef.IsStunned)
-            return StunState;
+        if (StunState.IsStunned)
+        {
+            RestartEnemy();
+            //restart attack sequnce...
+        }
 
         if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo && BlockAndMoveState.CanBlock)
         {
@@ -145,8 +148,6 @@ public class AttackState : State//rename this to EnemyAttackState
         }
         if (AttackMissedPlayer == true)
         {
-            Debug.Log("go here");
-            AmountOfAttacks = 0;
             RestartEnemy();
             if (EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
             {
@@ -166,6 +167,7 @@ public class AttackState : State//rename this to EnemyAttackState
         AttackMissedPlayer = false;
         WithinRange = false;
         _enemyWeaponRotationRef.IsAttacking = false;
+        AttackCooldownTimer = 0;
     }
 
     //----------------------------------------------------Debug--stuff--------------------------------------------------------------------->

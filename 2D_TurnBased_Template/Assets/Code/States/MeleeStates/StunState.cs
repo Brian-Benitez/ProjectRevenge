@@ -3,34 +3,49 @@ using UnityEngine;
 
 public class StunState : State
 {
+    [Header("----------Stat Effects----------")]
+    public bool IsStunned = false;
+    [Header("Stun Effect")]
+    public bool InstanteStun = false;
+    public float StunDuration;
+
     private float MaxStunTime;
-
-
     public BaseEnemy BaseEnemyRef;
     public MovementState MovementStateRef;
+    public KnockBackFeedBack KnockBackFeedBackRef;
 
     private void Start()
     {
-        MaxStunTime = BaseEnemyRef.StunDuration;
+        MaxStunTime = StunDuration;
+    }
+    /// <summary>
+    /// Checks if enemy gets stunned + knocks enemies back as well.
+    /// </summary>
+    public void IsEnemyStunned()
+    {
+        if(InstanteStun)
+        {
+            IsStunned = true;
+            StartCoroutine(StunLocked());
+        }
+        else
+            IsStunned = false;
     }
 
     public IEnumerator StunLocked()
     {
-        Debug.Log("im running");
-        BaseEnemyRef.IsStunned = true;
-        Debug.Log("im here");
+        Debug.Log("is stunned");
+        IsStunned = true;
+        KnockBackFeedBackRef.PlayFeedBack(PlayerController.Instance.Player.gameObject);
         yield return new WaitForSeconds(MaxStunTime);
-        Debug.Log("did i make it");
-        BaseEnemyRef.IsStunned = false;
-        Debug.Log("im done");
+        IsStunned = false;
+        Debug.Log("not stunned");
     }
     public override State RunCurrentState()
     {
-        if (BaseEnemyRef.IsStunned == false)
+        if (IsStunned == false)
             return MovementStateRef;
-
-        else if (BaseEnemyRef.IsStunned)
-            StartCoroutine(StunLocked());
+            
         return this;
     }
 }

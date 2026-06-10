@@ -19,25 +19,13 @@ public class BaseEnemy : MonoBehaviour
     public bool IsHit = false;
 
     public bool IsDead = false;
-    [Header("----------Stat Effects----------")]
-    [Header("Stun Effect")]
-    public bool IsStunned = false;//this controls the state to get off and on stuns effects
-    public bool InstanteStun = false;//Normal grunt enemies
-    public bool BuildUpStun  = false;//mini bosses/bosses
-    [Header("Only use when build up stun is enabled.")]
-    public int ThresholdHealthToStun;//Only use when build up stun is enabled.
-    public float StunDuration;
 
     public HitPauseController HitPauseControllerRef;
-    KnockBackFeedBack _knockBackFeedBack;
+    public StunState StunStateRef;
 
     private void Start()
     {
         MaxEnemyHealth = EnemyHealth;
-        if(EnemyType != TypeOfEnemy.Boss)
-        {
-            _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
-        }
     }
 
     [SerializeField]
@@ -62,12 +50,14 @@ public class BaseEnemy : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (IsHit && IsStunned)
         {
             _knockBackFeedBack.PlayFeedBack(PlayerController.Instance.Player.gameObject);
             IsHit = false;
             Debug.Log("KNOCKED BACK");
         }
+        */
     }
 
     public void TakeDamage(float damage)
@@ -75,9 +65,8 @@ public class BaseEnemy : MonoBehaviour
         EnemyHealth -= damage;
         IsHit = true;   
         Debug.Log("enemy took: " + damage);
+        StunStateRef.IsEnemyStunned();
         DoesEnemyDie();
-        CheckStatusEffects();
-        
     }
 
     public void HealSelfFully() => EnemyHealth = MaxEnemyHealth;
@@ -96,7 +85,6 @@ public class BaseEnemy : MonoBehaviour
                 EnemiesSpawner.Instance.EnemiesAlive--;
                 EnemiesSpawner.Instance.CheckOnTotalEnemies();
                 SoulsBankController.instance.PayoutToPlayer();
-                EnemysManager.Instance.IsAllEnemiesDead();
                 PlayerAmmoController.Instance.AddAmmo(1);
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
                 EnemyTurnController.Instance.RemoveAsDirectThreat();
@@ -117,19 +105,7 @@ public class BaseEnemy : MonoBehaviour
             
     }
 
-    public void CheckStatusEffects()
-    {
-        if (InstanteStun)
-            IsStunned = true;
-        else if (BuildUpStun)
-        {
-            if(EnemyHealth <= ThresholdHealthToStun )
-            {
-                BuildUpStun = false;
-                InstanteStun = true;
-            }
-        }
-    }
+  
     /// <summary>
     /// rolls to see if the enemy drops an item or not.
     /// </summary>

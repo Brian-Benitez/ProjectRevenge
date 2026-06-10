@@ -41,7 +41,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public bool CanMeleeAttackAgain = false;
     public bool CanSpeicalAgain = false;    
     public bool ChangedValues = false;
-    public HitObjectInOrderPuzzleManager HitObjectInOrderPuzzleManagerRef;
+
     public ActivateSlash ActivateSlashRef;
     public PlayerAnimationController PlayerAnimationControllerRef;
     //public PlayerStunnedState PlayerStunnedStateRef;
@@ -146,12 +146,6 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         for (int i = 0; i < enemiesToDamges.Length; i++)
         {
-            if (enemiesToDamges[i].GetComponent<ObjectHittableTrigger>() != null)
-            {
-                enemiesToDamges[i].GetComponent<ObjectHittableTrigger>().TurnIsOnOn();
-                HitObjectInOrderPuzzleManagerRef.CheckIfCanDoorOpen();
-                Debug.Log("turn on bool");
-            }
             if (enemiesToDamges[i].CompareTag("EnemyShield"))
             {
                 enemiesToDamges[i].GetComponent<EnemyShield>().ShieldTakeDamage(dam);

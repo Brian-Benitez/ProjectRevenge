@@ -28252,7 +28252,6 @@ MonoBehaviour:
   CanMeleeAttackAgain: 0
   CanSpeicalAgain: 0
   ChangedValues: 0
-  HitObjectInOrderPuzzleManagerRef: {fileID: 0}
   ActivateSlashRef: {fileID: 1322071813}
   PlayerAnimationControllerRef: {fileID: 7878350318701407153}
   _maxwaitTimeForSpeical: 0.8
@@ -36071,6 +36070,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555615435}
   m_CullTransparentMesh: 1
+--- !u!1001 &1571720568
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -172.26093
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -180.20905
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420412308278162264, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763097274553505534, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: EnemyHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 763097274553505534, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: StunDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 763097274553505534, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: MaxEnemyHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771332004520370198, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: StunStateRef
+      value: 
+      objectReference: {fileID: 1612228868}
+    - target: {fileID: 8044771803214212618, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+      propertyPath: m_Name
+      value: FinalStandDemoFighter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
 --- !u!1 &1575552376
 GameObject:
   m_ObjectHideFlags: 0
@@ -37065,6 +37137,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606019491}
   m_CullTransparentMesh: 1
+--- !u!114 &1612228868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4524825804764612815, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
+  m_PrefabInstance: {fileID: 1571720568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38917b389ef7a91479fcdec4063e20e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1615641660
 GameObject:
   m_ObjectHideFlags: 0
@@ -46955,3 +47038,4 @@ SceneRoots:
   - {fileID: 1580986368}
   - {fileID: 839568628}
   - {fileID: 110136108}
+  - {fileID: 1571720568}

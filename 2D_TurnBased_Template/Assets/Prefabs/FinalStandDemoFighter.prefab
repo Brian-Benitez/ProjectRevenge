@@ -131,8 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38917b389ef7a91479fcdec4063e20e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsStunned: 0
+  InstanteStun: 1
+  StunDuration: 5
+  EnemyGO: {fileID: 8044771803214212618}
   BaseEnemyRef: {fileID: 763097274553505534}
   MovementStateRef: {fileID: 3771332004520370198}
+  KnockBackFeedBackRef: {fileID: 8478864681154725586}
 --- !u!1 &2146197299577278209
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,12 +876,8 @@ MonoBehaviour:
   EnemySoulsValue: 25
   IsHit: 0
   IsDead: 0
-  IsStunned: 0
-  InstanteStun: 1
-  BuildUpStun: 0
-  ThresholdHealthToStun: 3
-  StunDuration: 1
   HitPauseControllerRef: {fileID: 6523174012736294526}
+  StunStateRef: {fileID: 4524825804764612815}
   EnemyType: 0
   EnemyDifficulty: 0
 --- !u!114 &3771332004520370198
