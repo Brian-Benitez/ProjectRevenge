@@ -16,6 +16,7 @@ public class GetWithinRangeAttackState : State
     [Header("Scripts")]
     public EnemyAggroDistance EnemyAggroDistanceRef;
     public EnemyArcher EnemyArcherRef;
+    public StunState StunStateRef;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class GetWithinRangeAttackState : State
 
     private void Update()
     {
+        if (StunStateRef.IsStunned)
+            return;
         if(EnemyAggroDistanceRef.IsAggro)
         {
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MinimunDistanceForRangeAttack)
@@ -52,6 +55,8 @@ public class GetWithinRangeAttackState : State
     }
     public override State RunCurrentState()
     {
+        if (StunStateRef.IsStunned)
+            return StunStateRef;
         if (WithinRangeAttack && EnemyAggroDistanceRef.IsAggro)
         {
             return RangeAttackState;

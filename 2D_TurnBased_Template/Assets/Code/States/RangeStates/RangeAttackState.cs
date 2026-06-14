@@ -14,7 +14,10 @@ public class RangeAttackState : State
     public bool IsAttacking = false;
     public bool IsStillWithinRange = false;
     public bool LockedOnPlayer = true;
-    public bool IsPlayingAnimation = true; 
+    public bool IsPlayingAnimation = true;
+
+    public StunState StunStateRef;
+    private IEnumerator _windUpArrowAttack;
     
 
     //Below is for enemies who are meduim level and up.
@@ -33,11 +36,14 @@ public class RangeAttackState : State
         TimeBtwAttack = 0;
         GetWithinRangeAttackState = GetComponentInParent<GetWithinRangeAttackState>();
         _enemyArcherRef = GetComponentInParent<EnemyArcher>();
+        _windUpArrowAttack = WindUpArrowAttack();
     }
 
 
     private void Update()
     {
+        if (StunStateRef.IsStunned)
+            return;
         //This deals with rotating weapon below
         if(LockedOnPlayer)
         {
@@ -45,7 +51,7 @@ public class RangeAttackState : State
             float angle = Mathf.Atan2(lookat.y, lookat.x) * Mathf.Rad2Deg - 90;
             transform.Rotate(0, 0, angle);
         }
-
+        
         if (GetWithinRangeAttackState.WithinRangeAttack)
         {
             IsStillWithinRange = true;
@@ -98,6 +104,11 @@ public class RangeAttackState : State
 
     public override State RunCurrentState()
     {
+        if (StunStateRef.IsStunned)
+        {
+            StopCoroutine(_windUpArrowAttack);
+            return StunStateRef;
+        }
         if (!IsStillWithinRange)
         {
             GetWithinRangeAttackState.TurnOffWithinRangeBool();

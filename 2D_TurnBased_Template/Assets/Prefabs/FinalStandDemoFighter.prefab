@@ -134,7 +134,6 @@ MonoBehaviour:
   IsStunned: 0
   InstanteStun: 1
   StunDuration: 5
-  EnemyGO: {fileID: 8044771803214212618}
   BaseEnemyRef: {fileID: 763097274553505534}
   MovementStateRef: {fileID: 3771332004520370198}
   KnockBackFeedBackRef: {fileID: 8478864681154725586}
@@ -539,7 +538,9 @@ MonoBehaviour:
   MeleePos: {fileID: 5976774633233644905}
   AttackRange: 1.11
   WindUpTimeForMelee: 2
+  AmountOfAttacks: 0
   MaxAmountOfAttacks: 2
+  AttackCooldownTimer: 0
   MaxTimerOfCooldown: 5
   IsWaiting: 0
   WithinRange: 0
@@ -899,6 +900,7 @@ MonoBehaviour:
   IsAThreat: 0
   EnemySwordsmanRef: {fileID: 763097274553505534}
   EnemyAggroDistanceRef: {fileID: 3828468443647139524}
+  StunStateRef: {fileID: 4524825804764612815}
 --- !u!114 &8478864681154725586
 MonoBehaviour:
   m_ObjectHideFlags: 0
