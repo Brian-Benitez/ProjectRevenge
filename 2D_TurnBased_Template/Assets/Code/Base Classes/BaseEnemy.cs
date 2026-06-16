@@ -6,7 +6,6 @@ public class BaseEnemy : MonoBehaviour
     public float EnemyHealth;
     public float MaxEnemyHealth;
     public float EnemySpeed;
-    public float PatrolSpeed;
     public float EnemyDamage;
     [Header("Item that can be dropped")]
     public GameObject HealthPotion;
