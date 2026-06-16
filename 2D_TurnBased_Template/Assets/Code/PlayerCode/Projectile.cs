@@ -11,16 +11,22 @@ public class Projectile : MonoBehaviour
 
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
-
     
     public enum CharacterType
     {
         Player,
         Enemy
     }
+    public enum TypeOfProjectile
+    {
+        Arrow,
+        MagicMissle
+    }
 
     [Header("Whos throwing them")]
     public CharacterType CharacterTypes;
+    [Header("Type Of Projectile")]
+    public TypeOfProjectile TypeOfProjectiles;
 
     private void Start()
     {
@@ -62,7 +68,14 @@ public class Projectile : MonoBehaviour
     }
     private void Update()
     {
+        if(TypeOfProjectiles == TypeOfProjectile.MagicMissle)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, SpeedOfProjectile * Time.deltaTime);
+        }
+        else if(TypeOfProjectiles == TypeOfProjectile.Arrow)
+        {
             transform.Translate(Vector2.up * SpeedOfProjectile * Time.deltaTime);
+        }
     }
 
     void DestroyProjectile()
