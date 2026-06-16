@@ -48,18 +48,6 @@ public class BaseEnemy : MonoBehaviour
     public TypeOfEnemy EnemyType;
     public LevelOfEnemy EnemyDifficulty;
 
-    private void Update()
-    {
-        /*
-        if (IsHit && IsStunned)
-        {
-            _knockBackFeedBack.PlayFeedBack(PlayerController.Instance.Player.gameObject);
-            IsHit = false;
-            Debug.Log("KNOCKED BACK");
-        }
-        */
-    }
-
     public void TakeDamage(float damage)
     {
         EnemyHealth -= damage;
