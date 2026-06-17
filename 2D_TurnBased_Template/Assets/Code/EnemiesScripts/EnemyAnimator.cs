@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyAnimator : MonoBehaviour
 {
     public Animator Animator;
-    //public MovementState MovementState;
     public BaseEnemy BaseEnemy;
     public AttackState AttackStateRef;
     public RangeAttackState RangeAttackState;
