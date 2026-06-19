@@ -582,7 +582,6 @@ MonoBehaviour:
   EnemyHealth: 7
   MaxEnemyHealth: 7
   EnemySpeed: 2.5
-  PatrolSpeed: 1.2
   EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
@@ -747,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 4
+  TimeBtwAttack: 3.8
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 104d95bdc178d7d47810f0d7c6790d50, type: 3}
   ShotPoint: {fileID: 1914830513478111286}

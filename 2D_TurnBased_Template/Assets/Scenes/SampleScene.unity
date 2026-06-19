@@ -6471,18 +6471,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3a83297d70e5f44a06ed8bcd5790e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundCounter: 0
-  RoundInterationCounter: 0
   MaxAmountOfEnemies: 8
   MaxAmountOfBosses: 1
   InGameEnemies: []
+  EyeMosnters:
+  - {fileID: 4134511273469573415, guid: 815573aa40ccee24783fd41215f8b706, type: 3}
   SwordsmanGameObjects:
   - {fileID: 8044771803214212618, guid: 5ebdc3c35570936428af325254aa418d, type: 3}
   - {fileID: 5295978787876234622, guid: f9336c63bbc19b54b802e915dc120d47, type: 3}
+  AOEEnemies:
+  - {fileID: 2937306818464322211, guid: 3e8b5365e23355b4da2392bed9863087, type: 3}
   ArchersGameObjects:
   - {fileID: 8818265710935858715, guid: 2f0fa27f4742b3d40b712e4529c4450b, type: 3}
   - {fileID: 6472043413705405316, guid: c7c355dc2e0331c44abbd01607e8ab4b, type: 3}
+  Wizards:
+  - {fileID: 8824564027631054714, guid: 7ff0715f8fd2a854c9603472931357b4, type: 3}
   BossGameObject: {fileID: 6898675534388969963, guid: 77e84dc9073e3bf42bffb029145fa3ef, type: 3}
+  RoundControllerRef: {fileID: 1414053473}
 --- !u!1 &393807769
 GameObject:
   m_ObjectHideFlags: 0
@@ -33706,6 +33711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoundsCounter: 0
+  TotalAmountOfRoundsWon: 0
+  MaxAmountOfRounds: 10
   IsRoundStarted: 0
   StartRoundKey: 13
   UpgradePrefab: {fileID: 315112527}
@@ -33754,8 +33761,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 388334981}
-        m_TargetAssemblyTypeName: TypesOfEnemiesPerRoundController, Assembly-CSharp
+      - m_Target: {fileID: 1414053473}
+        m_TargetAssemblyTypeName: RoundController, Assembly-CSharp
         m_MethodName: IncreaseRoundCounter
         m_Mode: 1
         m_Arguments:

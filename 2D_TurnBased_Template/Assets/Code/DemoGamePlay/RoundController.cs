@@ -5,6 +5,8 @@ public class RoundController : MonoBehaviour
 {
     [Header("Round Info")]
     public int RoundsCounter;
+    public int TotalAmountOfRoundsWon;
+    public int MaxAmountOfRounds;
 
     [Header("Starting round info")]
     public bool IsRoundStarted = false;
@@ -56,5 +58,12 @@ public class RoundController : MonoBehaviour
         }
     }
 
-    public void IncrementRoundCounter() => RoundsCounter++; 
+    public void IncreaseRoundCounter()
+    {
+        if (RoundsCounter == MaxAmountOfRounds)
+            RoundsCounter = 0;
+        else
+            RoundsCounter += Mathf.Clamp(1, 0, MaxAmountOfRounds);
+        TotalAmountOfRoundsWon++;
+    }
 }

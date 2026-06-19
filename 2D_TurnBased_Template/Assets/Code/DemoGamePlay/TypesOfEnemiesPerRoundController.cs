@@ -3,29 +3,25 @@ using UnityEngine;
 
 public class TypesOfEnemiesPerRoundController : MonoBehaviour
 {
-    public int RoundCounter;
-    public int RoundInterationCounter;
-
     [Header("Max enemies in round")]
     public int MaxAmountOfEnemies;
     public int MaxAmountOfBosses;
 
     [Header("Enemies")]
     public List<GameObject> InGameEnemies;
+    public List<GameObject> EyeMosnters;
     public List<GameObject> SwordsmanGameObjects;
+    public List<GameObject> AOEEnemies;
     public List<GameObject> ArchersGameObjects;
+    public List<GameObject> Wizards;
     public GameObject BossGameObject;
 
-    public void IncreaseRoundCounter()
-    {
-        if (RoundCounter == 5)
-            RoundCounter = 0;
-        else
-            RoundCounter += Mathf.Clamp(1, 0, 5);
-    }
+    public RoundController RoundControllerRef;
+
+    
     public void TypeOfEnemiesForRound()
     {
-        switch (RoundCounter)
+        switch (RoundControllerRef.RoundsCounter)
         {
             case 0://just level one sword enemies
                 FirstWaveEnemies();
@@ -34,27 +30,35 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
             case 1://level one archers and swords
                 SecondWaveEnemies();
-                Debug.Log("this is round 2");
                 break;
 
             case 2://level two archers and swords
                 ThirdWaveEnemies();
-                Debug.Log("this is round 3");
                 break;
 
             case 3://level three archers and swords
                 FourthWaveEnemies();
-                Debug.Log("this is round 4");
                 break;
 
             case 4://either all archers or swords lvl 3
                 FifthWaveEnemies();
-                Debug.Log("this is round 5");
                 break;
 
-            case 5://boss 
+            case 5:
                 SixthWaveEnemies();
-                Debug.Log("this is round 6");
+                break;
+
+            case 6:
+                SeventhWaveEnemies();
+                break;
+
+            case 7:
+                EighthWaveEnemies();
+                break;
+
+            case 9://boss 
+                NinthWaveEnemies();
+                Debug.Log("this is round 10");
                 break;
 
 
@@ -63,43 +67,55 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void FirstWaveEnemies()
     {
+        InGameEnemies.Add(EyeMosnters[0]);
+    }
+
+    void SecondWaveEnemies()
+    {
+        InGameEnemies.Add(EyeMosnters[0]);
         InGameEnemies.Add(SwordsmanGameObjects[0]);
         Debug.Log("added level one enemies");
     }
 
-    void SecondWaveEnemies()
+     void ThirdWaveEnemies()
+     {
+        InGameEnemies.Add(EyeMosnters[0]);
+        InGameEnemies.Add(ArchersGameObjects[0]);
+    }
+
+    void FourthWaveEnemies()
     {
         InGameEnemies.Add(SwordsmanGameObjects[0]);
         InGameEnemies.Add(ArchersGameObjects[0]);
         Debug.Log("added both archers and swordsman as enemies");
     }
 
-     void ThirdWaveEnemies()
-     {
+    void FifthWaveEnemies()
+    {
         InGameEnemies.Add(SwordsmanGameObjects[1]);
         InGameEnemies.Add(ArchersGameObjects[1]);
         Debug.Log("added both archers and swordsman as enemies Lvl 2");
-     }
+    }
 
-    void FourthWaveEnemies()
+    void SixthWaveEnemies()
     {
         InGameEnemies.Add(SwordsmanGameObjects[2]);
         InGameEnemies.Add(ArchersGameObjects[2]);
         Debug.Log("added both archers and swordsman as enemies Lvl 3");
     }
 
-    void FifthWaveEnemies()
+    void SeventhWaveEnemies()
     {
         bool isAllArchers = false;
         bool isAllSwordsman = false;//can add more later and more unique
 
         int results = Random.Range(0, 1);
-        if(results == 0)
+        if (results == 0)
         {
             isAllArchers = true;
             Debug.Log("is a all archer turn");
         }
-        else if(results == 1)
+        else if (results == 1)
         {
             Debug.Log("is a all swordsman turn");
             isAllSwordsman = true;
@@ -115,10 +131,12 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
         }
     }
 
-    void SixthWaveEnemies()
+    void EighthWaveEnemies()
     {
-        InGameEnemies.Add(BossGameObject);
+        InGameEnemies.Add(Wizards[0]);
+        InGameEnemies.Add(AOEEnemies[0]);
     }
+    void NinthWaveEnemies() => InGameEnemies.Add(BossGameObject);
 
     public void RemoveAllEnemiesFromList() => InGameEnemies.Clear();
 }

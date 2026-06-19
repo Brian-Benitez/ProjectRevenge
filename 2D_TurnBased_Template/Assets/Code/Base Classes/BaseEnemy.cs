@@ -79,7 +79,8 @@ public class BaseEnemy : MonoBehaviour
                 DropAnItem();
                 IsDead = true;
             }  
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
         else
         {
