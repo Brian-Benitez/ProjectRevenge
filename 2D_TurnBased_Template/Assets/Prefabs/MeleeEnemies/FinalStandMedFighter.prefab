@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd18073b76faa54faa96672ce37704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
+  currentState: {fileID: 2766800968437526379}
 --- !u!1 &3216166122795581568
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,8 +725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsStunned: 0
-  InstanteStun: 0
-  StunDuration: 0
+  InstanteStun: 1
+  StunDuration: 4
   BaseEnemyRef: {fileID: 9113469955481799094}
   MovementStateRef: {fileID: 2766800968437526379}
   KnockBackFeedBackRef: {fileID: 7548019549084103618}
