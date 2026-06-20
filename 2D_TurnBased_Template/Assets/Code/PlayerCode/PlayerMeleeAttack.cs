@@ -3,20 +3,33 @@ using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
-    [Header("Spiecal stats")]
-    public KeyCode SpecialKey;
-    public Transform SpeicalPos;
-    public float SpeicalRange;
+    [Header("Booleans")]
+    public bool IsAttacking = false;
+    public bool CanMeleeAttackAgain = false;
+    public bool CanSpeicalAgain = false;
+    public bool ChangedValues = false;
 
-    [Header("Transforms")]
-    public Transform AttackPos;
-    public Transform DirectionalLooks;
+    [Header("Type Of Attack")]
+    public bool IsLightAttack = false;
+    public bool IsHeavyAttack = false;
+    public bool IsSpecialAttack = false;
 
     [Header("Amount Of Attacks")]
     public int MaxAmountOfAttacks;
     private int AmountOfAttacks;
     private float TimerToRestartAttacks;
     public float MaxTimerToRestartAttack;
+
+
+    [Header("Spiecal stats")]
+    public KeyCode SpecialKey;
+    public Transform SpeicalPos;
+    public float SpeicalRange;
+    public float _maxwaitTimeForSpeical = 0.8f;
+
+    [Header("Transforms")]
+    public Transform AttackPos;
+    public Transform DirectionalLooks;
 
     [Header("----------Stats----------")]
     [Header("Floats")]
@@ -35,31 +48,19 @@ public class PlayerMeleeAttack : MonoBehaviour
     public float PlayerHeavyAttkDamg;
     public float PlayerSpecialDamg;
 
-    [Header("Type Of Attack")]
-    public bool IsLightAttack = false;
-    public bool IsHeavyAttack = false;
-    public bool IsSpecialAttack = false;
-
     [Header("LayerMasks")]
     public LayerMask WhatIsEnemies;
 
-    [Header("Booleans")]
-    public bool IsAttacking = false;
-    public bool CanMeleeAttackAgain = false;
-    public bool CanSpeicalAgain = false;    
-    public bool ChangedValues = false;
-
+    [Header("Scripts")]
     public ActivateSlash ActivateSlashRef;
     public PlayerAnimationController PlayerAnimationControllerRef;
-    //public PlayerStunnedState PlayerStunnedStateRef;
-    //private vars
+    private PlayerMovement _playerMovement;
+    public FlipSprite FlipSpriteRef;
+
     private float _maxTimeBtwAttacks;
     private float _holdTime = 0f;
     private float _maxHoldTimeForHeavyAttk = 0.2f;
     private float _specialCooldown = 0f;
-    public float _maxwaitTimeForSpeical = 0.8f;
-    private PlayerMovement _playerMovement;
-    public FlipSprite FlipSpriteRef;
 
     private void Start()
     {
