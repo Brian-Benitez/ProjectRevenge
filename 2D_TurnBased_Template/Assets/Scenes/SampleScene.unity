@@ -6215,8 +6215,12 @@ MonoBehaviour:
   DashInputKey: 32
   DashSpeed: 18
   DashDuration: 0.25
-  DashCoolDown: 1.2
+  DashCoolDown: 0.3
   DashCoolDownUpgrade: 0.2
+  UsedDashes: 0
+  MaxUsedDashes: 3
+  TimerForMaxUsedDashes: 0
+  MaxTimeForMaxUsedDashes: 0.8
   IsDashing: 0
   CanDash: 1
   IsDashPaused: 0

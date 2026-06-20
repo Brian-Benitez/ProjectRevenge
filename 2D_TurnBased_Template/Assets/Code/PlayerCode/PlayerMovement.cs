@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public float DashDuration;
     public float DashCoolDown;
     public float DashCoolDownUpgrade;
+    [Header("Amount Of Dashes")]
+    public int UsedDashes;
+    public int MaxUsedDashes;
+    public float TimerForMaxUsedDashes;
+    public float MaxTimeForMaxUsedDashes;
     public bool IsDashing;
     public bool CanDash = true;
     public bool IsDashPaused = false;
@@ -60,10 +65,27 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnimationControllerRef.IsMoving();
         }
 
+        if(UsedDashes == MaxUsedDashes)
+        {
+            if(TimerForMaxUsedDashes >= MaxTimeForMaxUsedDashes)
+            {
+                IsDashPaused = false;
+                TimerForMaxUsedDashes = 0;
+                UsedDashes = 0;
+            }
+            else
+            {
+                IsDashPaused = true;
+                Debug.Log("start a long ish cooldown now");
+                TimerForMaxUsedDashes += Time.deltaTime;
+            }
+        }
+
         if (Input.GetKeyDown(DashInputKey) && CanDash && !IsDashPaused)
         {
             Debug.Log("dash");
             StartCoroutine(Dash());
+            UsedDashes++;//note:this makes it so if player dashes once it will still be there until 3 dashes.
         }
     }
 
