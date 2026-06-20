@@ -28243,10 +28243,11 @@ MonoBehaviour:
   SpeicalRange: 3
   AttackPos: {fileID: 1091878788}
   DirectionalLooks: {fileID: 524028573}
+  MaxAmountOfAttacks: 3
+  MaxTimerToRestartAttack: 0.65
   AttackRange: 1
   AttackSpeed: 0.1
   WindUpDuration: 0.4
-  HeavyWindUpSpeed: 0
   MaxHeavyWindUpSpeed: 1
   PlayerLightAttkDamg: 1
   PlayerHeavyAttkDamg: 3

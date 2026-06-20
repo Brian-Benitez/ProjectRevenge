@@ -11,6 +11,13 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("Transforms")]
     public Transform AttackPos;
     public Transform DirectionalLooks;
+
+    [Header("Amount Of Attacks")]
+    public int MaxAmountOfAttacks;
+    private int AmountOfAttacks;
+    private float TimerToRestartAttacks;
+    public float MaxTimerToRestartAttack;
+
     [Header("----------Stats----------")]
     [Header("Floats")]
     public float AttackRange;
@@ -20,7 +27,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public float WindUpDuration;
 
     [Header("Heavy Windup Stats")]
-    public float HeavyWindUpSpeed;
+    private float HeavyWindUpSpeed;
     public float MaxHeavyWindUpSpeed;
 
     [Header("Player attk damg")]
@@ -64,14 +71,24 @@ public class PlayerMeleeAttack : MonoBehaviour
     private void Update()
     {
         DirectionalLooks.transform.position = AttackPos.position;//idk why this gets paused when i stop moving player
-        //if (PlayerStunnedStateRef.IsPlayerStuuned)
-            //return;
+
+        if(AmountOfAttacks >= MaxAmountOfAttacks)
+        {
+            if(TimerToRestartAttacks >= MaxTimerToRestartAttack)
+            {
+                TimerToRestartAttacks = 0;
+                CanMeleeAttackAgain = true;
+                AmountOfAttacks = 0;
+            }
+            TimerToRestartAttacks += Time.deltaTime;
+            CanMeleeAttackAgain = false;
+        }
 
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
             StartCoroutine(WindUpAttack(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies));
-            //Hit(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies);
             _playerMovement.UnSlowPlayer();
+            AmountOfAttacks++;
         }
 
         _specialCooldown += Time.deltaTime;
