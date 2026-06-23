@@ -7,6 +7,7 @@ public class BaseEnemy : MonoBehaviour
     public float MaxEnemyHealth;
     public float EnemySpeed;
     public float EnemyDamage;
+
     [Header("Item that can be dropped")]
     public GameObject HealthPotion;
     public GameObject RagePotion;
@@ -72,6 +73,10 @@ public class BaseEnemy : MonoBehaviour
                 EnemiesSpawner.Instance.EnemiesAlive--;
                 EnemiesSpawner.Instance.CheckOnTotalEnemies();
                 SoulsBankController.instance.PayoutToPlayer();
+                if(EnemyType == TypeOfEnemy.Boss)
+                {
+                    SoulsBankController.instance.PayoutBossSoulToPlayer();
+                }
                 PlayerAmmoController.Instance.AddAmmo(1);
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
                 EnemyTurnController.Instance.RemoveAsDirectThreat();

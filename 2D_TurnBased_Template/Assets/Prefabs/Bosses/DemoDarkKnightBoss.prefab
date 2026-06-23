@@ -236,7 +236,9 @@ MonoBehaviour:
   MeleePos: {fileID: 5351484751421859356}
   AttackRange: 1.6
   WindUpTimeForMelee: 2
+  AmountOfAttacks: 0
   MaxAmountOfAttacks: 2
+  AttackCooldownTimer: 0
   MaxTimerOfCooldown: 5
   IsWaiting: 0
   WithinRange: 0
@@ -329,7 +331,6 @@ MonoBehaviour:
   RangeAttackRange: 1.41
   TimeBtwAttack: 10
   WindUpTimeForRange: 1.5
-  AttackCount: 0
   MaxAttackCount: 3
   CanRangeAttack: 0
   IsAttackingNow: 0
@@ -511,20 +512,15 @@ MonoBehaviour:
   EnemyHealth: 80
   MaxEnemyHealth: 80
   EnemySpeed: 2
-  PatrolSpeed: 0
   EnemyDamage: 3
   HealthPotion: {fileID: 0}
   RagePotion: {fileID: 0}
   ChanceToDropItem: 0
-  EnemySoulsValue: 200
+  EnemySoulsValue: 1000
   IsHit: 0
   IsDead: 0
-  IsStunned: 0
-  InstanteStun: 0
-  BuildUpStun: 0
-  ThresholdHealthToStun: 0
-  StunDuration: 0
   HitPauseControllerRef: {fileID: 0}
+  StunStateRef: {fileID: 0}
   EnemyType: 2
   EnemyDifficulty: 3
 --- !u!50 &5096189896417039861
