@@ -5,6 +5,7 @@ public class SoulsBankController : MonoBehaviour
     public static SoulsBankController instance;
     [Header("Souls Bank")]
     public int SoulsBank;
+    public int DemonBossSoulsBank;
     public int DemonBossSoulsIncrements;
 
     public GameObject PlayerGO;
@@ -23,5 +24,9 @@ public class SoulsBankController : MonoBehaviour
 
     public void PayoutToPlayer() => _playerInfo.Souls += SoulsBank;
 
-    public void PayoutBossSoulToPlayer() => _playerInfo.DemonSouls += DemonBossSoulsIncrements;
+    public void PayoutBossSoulToPlayer()
+    {
+        _playerInfo.DemonSouls += DemonBossSoulsIncrements;
+        DemonBossSoulsBank += DemonBossSoulsIncrements;
+    }
 }

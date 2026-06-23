@@ -14,11 +14,14 @@ public class IncreaseRadius : UpgradePerk
     }
     public override void EnablePerk()
     {
-        if(!IsPerkActive)
+        if(IsPerkOwned || CanBePurchased)
         {
-            PlayerMeleeAttackRef.SpeicalRange += AddedRadiusForSpeical;
-            PlayerMeleeAttackRef._maxwaitTimeForSpeical += AdditionalWaitTime;//increase wait time .16f
-            PerksController.Instance.AddPerkToList(this.gameObject);
+            if (!IsPerkActive)
+            {
+                PlayerMeleeAttackRef.SpeicalRange += AddedRadiusForSpeical;
+                PlayerMeleeAttackRef._maxwaitTimeForSpeical += AdditionalWaitTime;//increase wait time .16f
+                PerksController.Instance.AddPerkToList(this.gameObject);
+            }
         }
         else
         {

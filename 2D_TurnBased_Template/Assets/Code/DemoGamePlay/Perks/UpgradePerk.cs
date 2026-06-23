@@ -9,6 +9,8 @@ public class UpgradePerk : MonoBehaviour
     public Image PerkImage;
 
     public bool IsPerkActive = false;
+    public bool CanBePurchased = false;
+    public bool IsPerkOwned = false;
     public void UpdateUI()
     {
         PerkLvl++;
@@ -27,5 +29,19 @@ public class UpgradePerk : MonoBehaviour
     public virtual void DisablePerk()
     {
         //disable perk stuff here.
+    }
+
+    public void TryPurchasingPerk()
+    {
+        if (CostAmount >= SoulsBankController.instance.DemonBossSoulsBank)
+        {
+            CanBePurchased = true;
+            IsPerkOwned = true;
+        }
+        else
+        {
+            Debug.Log("cannot purchase perk.");
+            CanBePurchased = false;
+        }
     }
 }
