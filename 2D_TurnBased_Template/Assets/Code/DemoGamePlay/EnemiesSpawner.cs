@@ -9,7 +9,9 @@ public class EnemiesSpawner : MonoBehaviour
     public int EnemiesAlive;
     public bool IsAllEnemiesDead = false;
     [Header("Spawns Points")]
-    public List<GameObject> SpawnPoints;
+    public List<List<GameObject>> AllListOfSpawnPoints;
+    public List<GameObject> SpawnPointACount8;
+    public List<GameObject> SpawnPointBCount8;
 
     public TypesOfEnemiesPerRoundController TypesOfEnemiesPerRoundControllerRef;
 
@@ -18,27 +20,49 @@ public class EnemiesSpawner : MonoBehaviour
         if (Instance == null)
             Instance = this;
     }
-
-    public void SpawnEnemiesOnSpawnPoints()
+    private void Start()
     {
-        int amountOfEnemiesPerSpawn = TypesOfEnemiesPerRoundControllerRef.MaxAmountOfEnemies / 4;
-        for (int i = 0; i < SpawnPoints.Count; i++)
+        AllListOfSpawnPoints = new List<List<GameObject>>();
+        AllListOfSpawnPoints.Add(SpawnPointACount8);
+        AllListOfSpawnPoints.Add(SpawnPointBCount8);
+    }
+
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.V))
         {
-            for (int j = 0; j < amountOfEnemiesPerSpawn; j++)
+            PickASpawnPointAndSpawn();
+        }
+    }
+    public void PickASpawnPointAndSpawn()
+    {
+        int listindex = Random.Range(0, AllListOfSpawnPoints.Count);
+        Debug.Log("this spawner: " + AllListOfSpawnPoints[listindex]);
+
+        SpawnEnemiesOnSpawnPoints(AllListOfSpawnPoints[listindex]);
+    }
+    public void SpawnEnemiesOnSpawnPoints(List<GameObject> listofspawnpoints)
+    {
+        //int amountOfEnemiesPerSpawn = TypesOfEnemiesPerRoundControllerRef.MaxAmountOfEnemies / 4;
+        for (int i = 0; i < listofspawnpoints.Count; i++)
+        {
+            //spawn enemies here...
+            EnemiesAlive++;
+            if (TypesOfEnemiesPerRoundControllerRef.InGameEnemies.Count == 1)
             {
-                //spawn enemies here...
-                EnemiesAlive++;
-                if(TypesOfEnemiesPerRoundControllerRef.InGameEnemies.Count == 1)
-                {
-                    Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[0], SpawnPoints[i].transform.position, Quaternion.identity);
-                }
-                else if(TypesOfEnemiesPerRoundControllerRef.InGameEnemies.Count == 2)
-                {
-                    Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[0], SpawnPoints[i].transform.position, Quaternion.identity);
-                    Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[1], SpawnPoints[i].transform.position, Quaternion.identity);
-                    EnemiesAlive++;
-                }
+                Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[0], listofspawnpoints[i].transform.position, Quaternion.identity);
             }
+            else if (TypesOfEnemiesPerRoundControllerRef.InGameEnemies.Count == 2)
+            {
+                Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[0], listofspawnpoints[i].transform.position, Quaternion.identity);
+                Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[1], listofspawnpoints[i].transform.position, Quaternion.identity);
+                EnemiesAlive++;
+            }
+            //for (int j = 0; j < amountOfEnemiesPerSpawn; j++)
+            //{
+                
+            //}
         }
     }
     public void CheckOnTotalEnemies()
