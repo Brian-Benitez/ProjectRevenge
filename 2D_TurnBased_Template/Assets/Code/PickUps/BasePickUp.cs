@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class BasePickUp : MonoBehaviour
 {
     public GameObject EKeyButtonGO;
-    public enum TypeOfPickUp { Collectable, Potion};
+    public enum TypeOfPickUp { Collectable, Potion, BossSoul};
     public TypeOfPickUp PickUpType;
 
     bool WithinRange = false;
@@ -15,7 +15,7 @@ public class BasePickUp : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && WithinRange)
         {
-            if(PickUpType == TypeOfPickUp.Potion)
+            if(PickUpType == TypeOfPickUp.Potion || PickUpType == TypeOfPickUp.BossSoul)
             {
                 Debug.Log("pick up object");
                 OnPickUp.Invoke();

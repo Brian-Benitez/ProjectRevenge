@@ -11,6 +11,7 @@ public class BaseEnemy : MonoBehaviour
     [Header("Item that can be dropped")]
     public GameObject HealthPotion;
     public GameObject RagePotion;
+    public GameObject BossSoulsObj;
     public int ChanceToDropItem;
 
     [Header("Enemy Souls Value")]
@@ -73,10 +74,6 @@ public class BaseEnemy : MonoBehaviour
                 EnemiesSpawner.Instance.EnemiesAlive--;
                 EnemiesSpawner.Instance.CheckOnTotalEnemies();
                 SoulsBankController.instance.PayoutToPlayer();
-                if(EnemyType == TypeOfEnemy.Boss)
-                {
-                    SoulsBankController.instance.PayoutBossSoulToPlayer();
-                }
                 PlayerAmmoController.Instance.AddAmmo(1);
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
                 EnemyTurnController.Instance.RemoveAsDirectThreat();
@@ -84,7 +81,6 @@ public class BaseEnemy : MonoBehaviour
                 DropAnItem();
                 IsDead = true;
             }  
-            //this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
         else
@@ -104,26 +100,32 @@ public class BaseEnemy : MonoBehaviour
     /// </summary>
     private void DropAnItem()
     {
-        int chance = Random.Range(0, 100);
-
-        if(chance <= ChanceToDropItem)
+        if(EnemyType == TypeOfEnemy.Boss)
         {
-            int random = Random.Range(0, 10);
-            if (random <= 5)
-            {
-                Instantiate(HealthPotion, transform.position, Quaternion.identity);
-                Debug.Log("dropped health");
-            }
-            else
-            {
-                Instantiate(RagePotion, transform.position, Quaternion.identity);
-                Debug.Log("dropped rage");
-            }
+            Instantiate(BossSoulsObj, transform.position, Quaternion.identity);
         }
         else
         {
-            Debug.Log("did not drop anything");
+            int chance = Random.Range(0, 100);
+
+            if (chance <= ChanceToDropItem)
+            {
+                int random = Random.Range(0, 10);
+                if (random <= 5)
+                {
+                    Instantiate(HealthPotion, transform.position, Quaternion.identity);
+                    Debug.Log("dropped health");
+                }
+                else
+                {
+                    Instantiate(RagePotion, transform.position, Quaternion.identity);
+                    Debug.Log("dropped rage");
+                }
+            }
+            else
+            {
+                Debug.Log("did not drop anything");
+            }
         }
-       
     }
 }

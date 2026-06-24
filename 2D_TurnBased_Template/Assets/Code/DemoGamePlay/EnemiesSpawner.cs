@@ -38,7 +38,7 @@ public class EnemiesSpawner : MonoBehaviour
     public void PickASpawnPointAndSpawn()
     {
         int listindex = Random.Range(0, AllListOfSpawnPoints.Count);
-        Debug.Log("this spawner: " + AllListOfSpawnPoints[listindex]);
+        Debug.Log("this spawner: " + listindex);
 
         SpawnEnemiesOnSpawnPoints(AllListOfSpawnPoints[listindex]);
     }

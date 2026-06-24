@@ -2580,6 +2580,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &128463032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128463033}
+  m_Layer: 0
+  m_Name: EnemySpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &128463033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128463032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -175.83151, y: -175.341, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 743239078}
+  - {fileID: 2122954648}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &136244794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,11 +7239,12 @@ MonoBehaviour:
   CharacterMaxHealth: 15
   RangeDamg: 1
   Souls: 1000
-  DemonSouls: 0
+  BossSouls: 0
   IsCharacterDead: 0
   UpgradeUISoulsText: {fileID: 813151912}
   PerksUISoulsText: {fileID: 1792489266}
   InGameSoulsText: {fileID: 1653471621}
+  InGameBossSoulText: {fileID: 1288633815}
   UltAmountText: {fileID: 758317788}
   MaxUltAmountText: {fileID: 1217409400}
   ArrowCountText: {fileID: 741257064}
@@ -14066,8 +14100,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743239077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -175.27902, y: -175.18555, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.55249023, y: 0.15545654, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14079,7 +14113,7 @@ Transform:
   - {fileID: 1598779200}
   - {fileID: 207063374}
   - {fileID: 1677041769}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 128463033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &748019925
 GameObject:
@@ -48703,8 +48737,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122954647}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -175.27902, y: -175.18555, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.55249023, y: 0.15545654, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48716,7 +48750,7 @@ Transform:
   - {fileID: 337438046}
   - {fileID: 1131764888}
   - {fileID: 1990916964}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 128463033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122998509
 GameObject:
@@ -50272,6 +50306,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 519420032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8424500186120057407
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 126269282101802777, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_Name
+      value: BossSoulPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -171.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -179.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117234426760203326, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
+      propertyPath: PlayerInfoRef
+      value: 
+      objectReference: {fileID: 386186108}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
 --- !u!4 &8882318358740592141
 Transform:
   m_ObjectHideFlags: 0
@@ -50310,5 +50405,5 @@ SceneRoots:
   - {fileID: 1580986368}
   - {fileID: 839568628}
   - {fileID: 110136108}
-  - {fileID: 743239078}
-  - {fileID: 2122954648}
+  - {fileID: 128463033}
+  - {fileID: 8424500186120057407}

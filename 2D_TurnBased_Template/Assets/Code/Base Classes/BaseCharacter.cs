@@ -12,13 +12,14 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public float RangeDamg;
     [Header("Souls/XP")]
     public int Souls;
-    public int DemonSouls;
+    public int BossSouls;
     [Header("Booleans")]
     public bool IsCharacterDead = false;
     [Header("Texts")]
     public TextMeshProUGUI UpgradeUISoulsText;// will fix this later
     public TextMeshProUGUI PerksUISoulsText;//this too
     public TextMeshProUGUI InGameSoulsText;
+    public TextMeshProUGUI InGameBossSoulText;
     public TextMeshProUGUI UltAmountText;
     public TextMeshProUGUI MaxUltAmountText;
     public TextMeshProUGUI ArrowCountText;
@@ -64,6 +65,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         UpgradeUISoulsText.text = " " + Souls;
         PerksUISoulsText.text = " " + Souls;
         InGameSoulsText.text = " " + Souls;
+        InGameBossSoulText.text = " " + BossSouls;
         UltAmountText.text = " " + PlayersUltController.Instance.UltPoints;
         MaxUltAmountText.text = " " + PlayersUltController.Instance.MaxUltPoints;
         ArrowCountText.text = " " + PlayerAmmoController.Instance.AmmoAmount;
