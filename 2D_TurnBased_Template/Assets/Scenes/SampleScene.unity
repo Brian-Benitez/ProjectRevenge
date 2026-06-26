@@ -4113,6 +4113,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 743239078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &228032350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228032351}
+  m_Layer: 0
+  m_Name: StatsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &228032351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228032350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 498.87354, y: 257.7741, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1929690282}
+  - {fileID: 1854783365}
+  - {fileID: 1490441808}
+  - {fileID: 287232073}
+  - {fileID: 549956199}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230751803
 GameObject:
   m_ObjectHideFlags: 0
@@ -5116,6 +5152,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263040778}
   m_CullTransparentMesh: 1
+--- !u!1 &287232072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287232073}
+  - component: {fileID: 287232074}
+  m_Layer: 0
+  m_Name: RangeUpgradeStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &287232073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287232072}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228032351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287232074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287232072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8d6d2989678db48a8650dad1119072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsLvlText: {fileID: 0}
+  CostAmountText: {fileID: 0}
+  IncrementingStatsAmount: 0
+  CostAmount: 0
+  MinCostAmount: 0
+  PriceMultipler: 0
+  StatsLvl: 0
+  PlayerInfoRef: {fileID: 0}
 --- !u!1 &294273210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10140,9 +10228,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1273448702}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthUpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeAbility
+        m_MethodName: UpgradeStat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10443,6 +10531,58 @@ RectTransform:
   m_AnchoredPosition: {x: -260, y: 67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &549956198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549956199}
+  - component: {fileID: 549956200}
+  m_Layer: 0
+  m_Name: RageUpgradeStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &549956199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549956198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228032351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549956200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549956198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3533302390838e647871bc288b2e604d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsLvlText: {fileID: 0}
+  CostAmountText: {fileID: 0}
+  IncrementingStatsAmount: 0
+  CostAmount: 0
+  MinCostAmount: 0
+  PriceMultipler: 0
+  StatsLvl: 0
+  PlayerInfoRef: {fileID: 0}
 --- !u!1 &550474179
 GameObject:
   m_ObjectHideFlags: 0
@@ -25461,7 +25601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Health Upgrade
+  m_text: 'Regain Health
 
 '
   m_isRightToLeft: 0
@@ -27127,12 +27267,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2b28f729b2861448177a345d4bb2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityLvlText: {fileID: 102738021}
+  StatsLvlText: {fileID: 0}
   CostAmountText: {fileID: 236862850}
-  IncrementingAbilityAmount: 5
+  IncrementingStatsAmount: 0
   CostAmount: 800
+  MinCostAmount: 0
   PriceMultipler: 1
-  AbilityLvl: 1
+  StatsLvl: 0
   PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &963343668
 GameObject:
@@ -27244,8 +27385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartSpawner: {fileID: 2076776279}
-  StatueSpawner: {fileID: 0}
-  InteractingWithUpgradeSystemRef: {fileID: 0}
 --- !u!1 &985241121
 GameObject:
   m_ObjectHideFlags: 0
@@ -32567,7 +32706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1248499721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33242,7 +33381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesAggroed: []
   AmountOfDirectEnemyThreat: 0
-  MaxAmountOfDirectEnemyThreat: 3
+  MaxAmountOfDirectEnemyThreat: 4
   IsThereAnOpenSlot: 0
 --- !u!1 &1273052047
 GameObject:
@@ -33389,7 +33528,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1273448703}
-  - component: {fileID: 1273448702}
   m_Layer: 5
   m_Name: HealthUpgrade
   m_TagString: Untagged
@@ -33397,25 +33535,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1273448702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273448701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e2b28f729b2861448177a345d4bb2a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityLvlText: {fileID: 407187171}
-  CostAmountText: {fileID: 1027498378}
-  IncrementingAbilityAmount: 5
-  CostAmount: 800
-  PriceMultipler: 1
-  AbilityLvl: 1
-  PlayerInfoRef: {fileID: 386186108}
 --- !u!224 &1273448703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36042,7 +36161,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 359838166}
         m_TargetAssemblyTypeName: EnemiesSpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemiesOnSpawnPoints
+        m_MethodName: PickASpawnPointAndSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37092,6 +37211,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488630609}
   m_CullTransparentMesh: 1
+--- !u!1 &1490441807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490441808}
+  - component: {fileID: 1490441809}
+  m_Layer: 0
+  m_Name: MeleeUpgradeStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1490441808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490441807}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228032351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1490441809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490441807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98110c93d7e98504991e5cc4dd68ee32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsLvlText: {fileID: 0}
+  CostAmountText: {fileID: 0}
+  IncrementingStatsAmount: 0
+  CostAmount: 0
+  MinCostAmount: 0
+  PriceMultipler: 0
+  StatsLvl: 0
+  PlayerMeleeAttackRef: {fileID: 0}
+  PlayerInfoRef: {fileID: 0}
 --- !u!1 &1507940735
 GameObject:
   m_ObjectHideFlags: 0
@@ -38458,6 +38630,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuPrefab: {fileID: 1131550051}
   GameOverPrefab: {fileID: 1248499720}
+  AllPerks:
+  - {fileID: 1943565647}
+  - {fileID: 1402817338}
+  - {fileID: 805741181}
+  - {fileID: 1040306015}
+  - {fileID: 1263395586}
+  - {fileID: 1233170377}
+  RoundControllerRef: {fileID: 1414053473}
 --- !u!4 &1556314983
 Transform:
   m_ObjectHideFlags: 0
@@ -40147,7 +40327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1636709607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44327,6 +44507,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 743239078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1854783364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854783365}
+  - component: {fileID: 1854783366}
+  m_Layer: 0
+  m_Name: ShieldUpgradeStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854783365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854783364}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228032351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854783366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854783364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777c52c1ac852004f8e7d23b4fa2fd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsLvlText: {fileID: 0}
+  CostAmountText: {fileID: 1930018042}
+  IncrementingStatsAmount: 0
+  CostAmount: 500
+  MinCostAmount: 0
+  PriceMultipler: 1
+  StatsLvl: 1
+  PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &1858375293
 GameObject:
   m_ObjectHideFlags: 0
@@ -45410,6 +45642,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2bf1bc3caccf014da8cd7f8823075f8, type: 3}
+--- !u!1 &1929690281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929690282}
+  - component: {fileID: 1929690283}
+  m_Layer: 0
+  m_Name: HealthUpgradeStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929690282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929690281}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228032351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929690283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929690281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2b28f729b2861448177a345d4bb2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatsLvlText: {fileID: 407187171}
+  CostAmountText: {fileID: 1027498378}
+  IncrementingStatsAmount: 0
+  CostAmount: 800
+  MinCostAmount: 0
+  PriceMultipler: 1
+  StatsLvl: 1
+  PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &1930018040
 GameObject:
   m_ObjectHideFlags: 0
@@ -50450,6 +50734,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1994977307}
   - {fileID: 1012860348}
+  - {fileID: 228032351}
   - {fileID: 988244937}
   - {fileID: 386186103}
   - {fileID: 1949009256}

@@ -28,13 +28,6 @@ public class EnemiesSpawner : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            PickASpawnPointAndSpawn();
-        }
-    }
     public void PickASpawnPointAndSpawn()
     {
         int listindex = Random.Range(0, AllListOfSpawnPoints.Count);
@@ -44,7 +37,6 @@ public class EnemiesSpawner : MonoBehaviour
     }
     public void SpawnEnemiesOnSpawnPoints(List<GameObject> listofspawnpoints)
     {
-        //int amountOfEnemiesPerSpawn = TypesOfEnemiesPerRoundControllerRef.MaxAmountOfEnemies / 4;
         for (int i = 0; i < listofspawnpoints.Count; i++)
         {
             //spawn enemies here...
@@ -59,10 +51,6 @@ public class EnemiesSpawner : MonoBehaviour
                 Instantiate(TypesOfEnemiesPerRoundControllerRef.InGameEnemies[1], listofspawnpoints[i].transform.position, Quaternion.identity);
                 EnemiesAlive++;
             }
-            //for (int j = 0; j < amountOfEnemiesPerSpawn; j++)
-            //{
-                
-            //}
         }
     }
     public void CheckOnTotalEnemies()

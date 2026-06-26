@@ -32,8 +32,11 @@ public class IncreaseRadius : UpgradePerk
 
     public override void DisablePerk()
     {
-        PlayerMeleeAttackRef.SpeicalRange = OldRadiusSpeical;
-        PlayerMeleeAttackRef._maxwaitTimeForSpeical -= AdditionalWaitTime;
-        Debug.Log("radius is decrease");
+        if(IsPerkActive)
+        {
+            PlayerMeleeAttackRef.SpeicalRange = OldRadiusSpeical;
+            PlayerMeleeAttackRef._maxwaitTimeForSpeical -= AdditionalWaitTime;
+            Debug.Log("radius is decrease");
+        }
     }
 }

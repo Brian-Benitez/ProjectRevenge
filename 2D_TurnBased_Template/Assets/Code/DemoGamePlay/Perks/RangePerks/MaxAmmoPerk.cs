@@ -20,10 +20,11 @@ public class MaxAmmoPerk : UpgradePerk
 
     public override void DisablePerk()
     {
-        PlayerAmmoController.Instance.MaxAmmoAmount -= MaxPerkAmmoAmount; //Mathf.Clamp(MaxPerkAmmoAmount, 5, 8);
-        //PlayerAmmoController.Instance.MaxAmmoAmount = Mathf.Clamp(MaxPerkAmmoAmount, 5, 8);
-        PlayerAmmoController.Instance.AmmoAmount -= MaxPerkAmmoAmount;//Mathf.Clamp(MaxPerkAmmoAmount, 0, PlayerAmmoController.Instance.MaxAmmoAmount);
-        //PlayerAmmoController.Instance.AmmoAmount = Mathf.Clamp(MaxPerkAmmoAmount, 0, PlayerAmmoController.Instance.MaxAmmoAmount);
-        Debug.Log("remove max ammo perk");
+        if(IsPerkActive)
+        {
+            PlayerAmmoController.Instance.MaxAmmoAmount -= MaxPerkAmmoAmount;
+            PlayerAmmoController.Instance.AmmoAmount -= MaxPerkAmmoAmount;
+            Debug.Log("remove max ammo perk");
+        }
     }
 }
