@@ -1,12 +1,14 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BaseCharacter : MonoBehaviour// need to move melee and rage values here. Want this to be main place to change values
 {
     [Header("Health")]
     public float CharacterHealthAmount;
     public float CharacterMaxHealth;
+    public float BaseLineHealth = 15f;
 
     [Header("Range Dmg")]
     public float RangeDamg;
@@ -25,7 +27,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public TextMeshProUGUI ArrowCountText;
 
     public HealthBarUI HealthBarUIRef;
-
+    public GameOverController GameOverControllerRef;
     public void TakeDamage(float damage)
     {
         CharacterHealthAmount -= damage;
@@ -39,7 +41,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         CharacterHealthAmount += healthChange;
         CharacterHealthAmount = Mathf.Clamp(CharacterHealthAmount, 0, CharacterMaxHealth);
         healthChange = Mathf.Clamp(CharacterHealthAmount, 0, CharacterMaxHealth);
-        HealthBarUIRef.SetHealth(healthChange);
+        HealthBarUIRef.SetUIHealth(healthChange);
     }
 
     public void DoesCharacterDie()
@@ -47,10 +49,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         if (CharacterHealthAmount <= 0)
         {
             IsCharacterDead = true;
-            PlayerSpawnerController.Instance.SpawnPlayer();
-            SetHealth(CharacterMaxHealth);
-            UpdatePlayersStats();
-            Debug.Log("everything restarts");
+            GameOverControllerRef.TurnOnGameOverScreen();
         }
         else
         {

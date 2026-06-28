@@ -28,6 +28,7 @@ public class LevelUpStat : MonoBehaviour
     public virtual void RestartStat()
     {
         StatsLvl = 0;
+        PriceMultipler = 1;
         CostAmount = MinCostAmount;
         UpdateStatsUI();
     }

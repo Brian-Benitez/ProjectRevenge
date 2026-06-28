@@ -7,12 +7,12 @@ public class HealthBarUI : MonoBehaviour
 
     public RectTransform HealthBar;
 
-    public void SetMaxHealth(float maxHealth)
+    public void SetUIMaxHealth(float maxHealth)
     {
         MaxHealth = maxHealth;
     }
 
-    public void SetHealth(float health)
+    public void SetUIHealth(float health)
     {
         Health = health;
         float newWidth = (Health / MaxHealth) * Width;
