@@ -5,11 +5,13 @@ public class GameOverController : MonoBehaviour
 {
     public GameObject MainMenuPrefab;
     public GameObject GameOverPrefab;
+    public GameObject LevelUpPrefab;
     public List<UpgradePerk> AllPerks;
     public List<LevelUpStat> AllStats;
     [Header("Scripts")]
     public RoundController RoundControllerRef;
     public PlayerInfo PlayerInfoRef;
+    public TypesOfEnemiesPerRoundController TypesOfEnemiesPerRoundControllerRef;
 
     public void GoToMainMenu()
     {
@@ -23,6 +25,9 @@ public class GameOverController : MonoBehaviour
 
     public void RestartGame() 
     {
+        PlayerInfoRef.PlayersCore.SetActive(true);
+        TypesOfEnemiesPerRoundControllerRef.RemoveAllEnemiesFromList();
+        PlayerInfoRef.IsCharacterDead = false;
         PlayerInfoRef.HealthBarUIRef.SetUIHealth(PlayerInfoRef.BaseLineHealth);
         PlayerInfoRef.SetHealth(PlayerInfoRef.BaseLineHealth);
         GameOverPrefab.SetActive(false);
@@ -33,6 +38,7 @@ public class GameOverController : MonoBehaviour
         PlayerSpawnerController.Instance.SpawnPlayer();
         RestartAllPlayersPerks();
         RestartAllPlayersStats();
+        LevelUpPrefab.SetActive(true); 
     }
 
     void RestartAllPlayersPerks()

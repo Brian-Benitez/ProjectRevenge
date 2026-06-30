@@ -74,8 +74,8 @@ public class MovementState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
             {
                 AttackState.WithinRange = true;
-                if(EnemyTurnController.Instance.IsEnemyInList(this.gameObject) == false)
-                    EnemyTurnController.Instance.AddEnemyToList(this.gameObject);
+                //if(EnemyTurnController.Instance.IsEnemyInList(this.gameObject) == false)
+                    //EnemyTurnController.Instance.AddEnemyToList(this.gameObject);
 
                 IsAThreat = true;
             }

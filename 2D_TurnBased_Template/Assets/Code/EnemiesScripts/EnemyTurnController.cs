@@ -39,7 +39,7 @@ public class EnemyTurnController : MonoBehaviour
         else
             return false;
     }
-    public void AddEnemyToList(GameObject enemy)
+    public void AddEnemyToList(GameObject enemy)//needs work
     {
         if (AmountOfDirectEnemyThreat == MaxAmountOfDirectEnemyThreat)
             Debug.Log("cannot add more enemies");

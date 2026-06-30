@@ -8,7 +8,8 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
     public int MaxAmountOfBosses;
 
     [Header("Enemies")]
-    public List<GameObject> InGameEnemies;
+    public List<GameObject> ListOfEnemies;
+    public List<GameObject> TypesOfInGameEnemies;
     public List<GameObject> EyeMosnters;
     public List<GameObject> SwordsmanGameObjects;
     public List<GameObject> AOEEnemies;
@@ -17,6 +18,7 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
     public GameObject BossGameObject;
 
     public RoundController RoundControllerRef;
+    public EnemiesSpawner EnemiesSpawnerRef;
 
     
     public void TypeOfEnemiesForRound()
@@ -67,40 +69,40 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void FirstWaveEnemies()
     {
-        InGameEnemies.Add(EyeMosnters[0]);
+        TypesOfInGameEnemies.Add(EyeMosnters[0]);
     }
 
     void SecondWaveEnemies()
     {
-        InGameEnemies.Add(EyeMosnters[0]);
-        InGameEnemies.Add(SwordsmanGameObjects[0]);
+        TypesOfInGameEnemies.Add(EyeMosnters[0]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[0]);
         Debug.Log("added level one enemies");
     }
 
      void ThirdWaveEnemies()
      {
-        InGameEnemies.Add(EyeMosnters[0]);
-        InGameEnemies.Add(ArchersGameObjects[0]);
+        TypesOfInGameEnemies.Add(EyeMosnters[0]);
+        TypesOfInGameEnemies.Add(ArchersGameObjects[0]);
     }
 
     void FourthWaveEnemies()
     {
-        InGameEnemies.Add(SwordsmanGameObjects[0]);
-        InGameEnemies.Add(ArchersGameObjects[0]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[0]);
+        TypesOfInGameEnemies.Add(ArchersGameObjects[0]);
         Debug.Log("added both archers and swordsman as enemies");
     }
 
     void FifthWaveEnemies()
     {
-        InGameEnemies.Add(SwordsmanGameObjects[1]);
-        InGameEnemies.Add(ArchersGameObjects[1]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[1]);
+        TypesOfInGameEnemies.Add(ArchersGameObjects[1]);
         Debug.Log("added both archers and swordsman as enemies Lvl 2");
     }
 
     void SixthWaveEnemies()
     {
-        InGameEnemies.Add(SwordsmanGameObjects[2]);
-        InGameEnemies.Add(ArchersGameObjects[2]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[2]);
+        TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
         Debug.Log("added both archers and swordsman as enemies Lvl 3");
     }
 
@@ -123,20 +125,34 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
         if (isAllArchers)
         {
-            InGameEnemies.Add(ArchersGameObjects[2]);
+            TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
         }
         else if (isAllSwordsman)
         {
-            InGameEnemies.Add(SwordsmanGameObjects[2]);
+            TypesOfInGameEnemies.Add(SwordsmanGameObjects[2]);
         }
     }
 
     void EighthWaveEnemies()
     {
-        InGameEnemies.Add(Wizards[0]);
-        InGameEnemies.Add(AOEEnemies[0]);
+        TypesOfInGameEnemies.Add(Wizards[0]);
+        TypesOfInGameEnemies.Add(AOEEnemies[0]);
     }
-    void NinthWaveEnemies() => InGameEnemies.Add(BossGameObject);
+    void NinthWaveEnemies() => TypesOfInGameEnemies.Add(BossGameObject);
 
-    public void RemoveAllEnemiesFromList() => InGameEnemies.Clear();
+    public void RemoveAllEnemiesFromList()
+    {
+        if(ListOfEnemies != null)
+        {
+            for (int i = 0; i < ListOfEnemies.Count; i++)
+            {
+                Destroy(ListOfEnemies[i]);
+            }
+        }
+       
+        TypesOfInGameEnemies.Clear();
+        ListOfEnemies.Clear();
+        EnemiesSpawnerRef.EnemiesAlive = 0;
+        EnemiesSpawnerRef.IsAllEnemiesDead = true;
+    }
 }

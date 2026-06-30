@@ -26,6 +26,8 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     public TextMeshProUGUI MaxUltAmountText;
     public TextMeshProUGUI ArrowCountText;
 
+    public GameObject PlayersCore; 
+
     public HealthBarUI HealthBarUIRef;
     public GameOverController GameOverControllerRef;
     public void TakeDamage(float damage)
@@ -50,6 +52,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
         {
             IsCharacterDead = true;
             GameOverControllerRef.TurnOnGameOverScreen();
+            PlayersCore.SetActive(false);
         }
         else
         {
