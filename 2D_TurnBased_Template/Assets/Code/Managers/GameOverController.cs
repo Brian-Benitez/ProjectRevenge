@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameOverController : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameOverController : MonoBehaviour
     public GameObject LevelUpPrefab;
     public List<UpgradePerk> AllPerks;
     public List<LevelUpStat> AllStats;
+    public TextMeshProUGUI RoundsSurvived;
     [Header("Scripts")]
     public RoundController RoundControllerRef;
     public PlayerInfo PlayerInfoRef;
@@ -21,10 +23,13 @@ public class GameOverController : MonoBehaviour
     public void TurnOnGameOverScreen()
     {
         GameOverPrefab.SetActive(true);
+        RoundsSurvived.text = "" + RoundControllerRef.RoundsCounter;
     }
 
     public void RestartGame() 
     {
+        RoundControllerRef.RoundsCounter = 0;
+        RoundsSurvived.text = "" + RoundControllerRef.RoundsCounter;
         PlayerInfoRef.PlayersCore.SetActive(true);
         TypesOfEnemiesPerRoundControllerRef.RemoveAllEnemiesFromList();
         PlayerInfoRef.IsCharacterDead = false;

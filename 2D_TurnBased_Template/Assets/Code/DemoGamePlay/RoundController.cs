@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ public class RoundController : MonoBehaviour
     public int RoundsCounter;
     public int TotalAmountOfRoundsWon;
     public int MaxAmountOfRounds;
+    public TextMeshProUGUI RoundsText;
 
     [Header("Starting round info")]
     public bool IsRoundStarted = false;
@@ -65,5 +67,6 @@ public class RoundController : MonoBehaviour
         else
             RoundsCounter += Mathf.Clamp(1, 0, MaxAmountOfRounds);
         TotalAmountOfRoundsWon++;
+        RoundsText.text = "" + TotalAmountOfRoundsWon;
     }
 }
