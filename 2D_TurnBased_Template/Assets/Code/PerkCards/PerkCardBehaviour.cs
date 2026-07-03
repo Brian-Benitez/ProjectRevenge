@@ -6,8 +6,11 @@ using DG.Tweening;
 public class PerkCardBehaviour : MonoBehaviour
 {
     public RectTransform MovablePartOfCard;
+    public float SpeedOfMovement;
+    public float AmountOfDistance;
     public bool IsUp = false;
     public bool IsNotPicked = false;
+    public bool IsPickedOnChoice = false;
     public Vector2 ToRestartArea;
     int UILayer;
 
@@ -20,16 +23,16 @@ public class PerkCardBehaviour : MonoBehaviour
     {
         if(IsNotPicked)
         {
-            MovablePartOfCard.DOAnchorPos(ToRestartArea, .5f);
+            MovablePartOfCard.DOAnchorPos(ToRestartArea, SpeedOfMovement);
         }
         if(IsPointerOverUIElement() && IsUp == false)
         {
-            MovablePartOfCard.DOAnchorPosY(15f, .7f);
+            MovablePartOfCard.DOAnchorPosY(AmountOfDistance, SpeedOfMovement);
             IsUp = true;
         }
         else if(!IsPointerOverUIElement() && IsUp)
         {
-            MovablePartOfCard.DOAnchorPosY(-15f, .7f);
+            MovablePartOfCard.DOAnchorPosY(-AmountOfDistance, SpeedOfMovement);
             IsUp = false;
         }
     }
