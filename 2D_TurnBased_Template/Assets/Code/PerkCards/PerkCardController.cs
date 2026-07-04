@@ -10,12 +10,14 @@ public class PerkCardController : MonoBehaviour
     public List<RectTransform> PerkCards;
 
     public List<Vector2> AnchorsForCards;
+    public Vector2 PickedCardPos;
+    public Vector2 PlayerCardsPilePos;
     public Vector2 RestartCardsPos;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            RestartCards();
+            StartCoroutine(PickedACard());
 
         if(Input.GetKeyDown(KeyCode.DownArrow))
                 StartCoroutine(PlaceCardsOnScreen());
@@ -24,21 +26,38 @@ public class PerkCardController : MonoBehaviour
 
     public IEnumerator PlaceCardsOnScreen()
     {
-        
         PerkCardsChoices[0].DOAnchorPos(AnchorsForCards[0], .5f);
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.4f);
         PerkCardsChoices[1].DOAnchorPos(AnchorsForCards[1], .5f);
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.4f);
         PerkCardsChoices[2].DOAnchorPos(AnchorsForCards[2], .5f);
     }
 
-    public void RestartCards()
+    public IEnumerator PickedACard()
     {
-        PerkCardsChoices[0].DOAnchorPos(RestartCardsPos, .5f);
-        PerkCardsChoices[1].DOAnchorPos(RestartCardsPos, .5f);
-        PerkCardsChoices[2].DOAnchorPos(RestartCardsPos, .5f);
+        for (int i = 0; i < PerkCardsChoices.Count; i++)
+        {
+            if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
+            {
+                PerkCardsChoices[i].DOAnchorPos(PickedCardPos, 1f);
+            }
+            else
+            {
+                PerkCardsChoices[i].DOAnchorPos(RestartCardsPos, .5f);
+            }
+        }
+
+        yield return new WaitForSecondsRealtime(3f);
+
+        for (int i = 0; i < PerkCardsChoices.Count; i++)
+        {
+            if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
+            {
+                PerkCardsChoices[i].DOAnchorPos(PlayerCardsPilePos, 1f);
+            }
+        }
     }
-    void PickThreeCards()
+    void RandomlyPickingThreeCards()
     {
         for (int i = 0; i < 5; i++)
         {

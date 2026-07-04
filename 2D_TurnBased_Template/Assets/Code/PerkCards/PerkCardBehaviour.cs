@@ -37,7 +37,11 @@ public class PerkCardBehaviour : MonoBehaviour
         }
     }
 
-
+    public void PickThisCard()
+    {
+        Debug.Log("is clicked on");
+        IsPickedOnChoice = true;
+    }
     //Returns 'true' if we touched or hovering on Unity UI element.
     public bool IsPointerOverUIElement()
     {
