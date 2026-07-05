@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
-
 public class PerkCardController : MonoBehaviour
 {
+    public RectTransform BackroundCanvas;
     public List<RectTransform> PerkCardsChoices;
     public List<RectTransform> PerkCards;
 
@@ -13,19 +13,25 @@ public class PerkCardController : MonoBehaviour
     public Vector2 PickedCardPos;
     public Vector2 PlayerCardsPilePos;
     public Vector2 RestartCardsPos;
+    public Vector2 RestartBackroundPos;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            StartCoroutine(PickedACard());
-
-        if(Input.GetKeyDown(KeyCode.DownArrow))
-                StartCoroutine(PlaceCardsOnScreen());
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            RandomlyPickingThreeCards();
+            MoveBackroundOnScreen();
+            StartPlaceCardsOnScreenCoroutine();
+        }
     }
 
-
-    public IEnumerator PlaceCardsOnScreen()
+    public void MoveBackroundOnScreen() => BackroundCanvas.DOAnchorPos(PickedCardPos, 1f);
+    public void RestartBackroundOnScreen() => BackroundCanvas.DOAnchorPos(RestartBackroundPos, .5f);
+    public void StartPlaceCardsOnScreenCoroutine() => StartCoroutine(PlaceCardsOnScreen());
+    private IEnumerator PlaceCardsOnScreen()
     {
+        yield return new WaitForSecondsRealtime(1f);
         PerkCardsChoices[0].DOAnchorPos(AnchorsForCards[0], .5f);
         yield return new WaitForSecondsRealtime(0.4f);
         PerkCardsChoices[1].DOAnchorPos(AnchorsForCards[1], .5f);
@@ -33,7 +39,8 @@ public class PerkCardController : MonoBehaviour
         PerkCardsChoices[2].DOAnchorPos(AnchorsForCards[2], .5f);
     }
 
-    public IEnumerator PickedACard()
+    public void StartPickedACardCoroutine() => StartCoroutine(PickedACard());
+    private IEnumerator PickedACard()
     {
         for (int i = 0; i < PerkCardsChoices.Count; i++)
         {
@@ -53,13 +60,14 @@ public class PerkCardController : MonoBehaviour
         {
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
             {
-                PerkCardsChoices[i].DOAnchorPos(PlayerCardsPilePos, 1f);
+                PerkCardsChoices[i].DOAnchorPos(PlayerCardsPilePos, .5f);
             }
         }
+        RestartBackroundOnScreen();
     }
-    void RandomlyPickingThreeCards()
+    public void RandomlyPickingThreeCards()//sometimes its only two.. we will see if it happens again more
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             if(PerkCardsChoices.Count == 3)
             {
@@ -80,4 +88,6 @@ public class PerkCardController : MonoBehaviour
             }
         }
     }
+
+    public void RemoveAllPerkCardsFromList() => PerkCardsChoices.Clear();
 }
