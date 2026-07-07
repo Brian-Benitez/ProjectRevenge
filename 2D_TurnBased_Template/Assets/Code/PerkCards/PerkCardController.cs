@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class PerkCardController : MonoBehaviour
 {
@@ -31,12 +32,15 @@ public class PerkCardController : MonoBehaviour
     public void StartPlaceCardsOnScreenCoroutine() => StartCoroutine(PlaceCardsOnScreen());
     private IEnumerator PlaceCardsOnScreen()
     {
+        TurnOffButtons();
         yield return new WaitForSecondsRealtime(1f);
         PerkCardsChoices[0].DOAnchorPos(AnchorsForCards[0], .5f);
         yield return new WaitForSecondsRealtime(0.4f);
         PerkCardsChoices[1].DOAnchorPos(AnchorsForCards[1], .5f);
         yield return new WaitForSecondsRealtime(0.4f);
         PerkCardsChoices[2].DOAnchorPos(AnchorsForCards[2], .5f);
+        yield return new WaitForSecondsRealtime(1f);
+        TurnOnButtons();
     }
 
     public void StartPickedACardCoroutine() => StartCoroutine(PickedACard());
@@ -88,6 +92,23 @@ public class PerkCardController : MonoBehaviour
             }
         }
     }
+
+    public void TurnOffButtons()
+    {
+        for (int i = 0; i < PerkCardsChoices.Count; i++)
+        {
+            PerkCardsChoices[i].GetComponentInChildren<Button>().interactable = false;
+        }
+    }
+
+    public void TurnOnButtons()
+    {
+        for (int i = 0; i < PerkCardsChoices.Count; i++)
+        {
+            PerkCardsChoices[i].GetComponentInChildren<Button>().interactable = true;
+        }
+    }
+
 
     public void RemoveAllPerkCardsFromList() => PerkCardsChoices.Clear();
 }
