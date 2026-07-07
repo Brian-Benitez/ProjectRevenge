@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class PerkCardController : MonoBehaviour
 {
     public RectTransform BackroundCanvas;
+    public List<RectTransform> PlayersActivePerks;
     public List<RectTransform> PerkCardsChoices;
     public List<RectTransform> PerkCards;
 
     public List<Vector2> AnchorsForCards;
     public Vector2 PickedCardPos;
     public Vector2 PlayerCardsPilePos;
+    public Vector2 WaitForRemovingPos;
     public Vector2 RestartCardsPos;
     public Vector2 RestartBackroundPos;
 
@@ -51,6 +53,7 @@ public class PerkCardController : MonoBehaviour
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
             {
                 PerkCardsChoices[i].DOAnchorPos(PickedCardPos, 1f);
+                PlayersActivePerks.Add(PerkCardsChoices[i]);
             }
             else
             {
@@ -90,6 +93,32 @@ public class PerkCardController : MonoBehaviour
                     PerkCardsChoices.Add(PerkCards[index]);
                 }
             }
+        }
+    }
+
+    public void CheckIfTheresRoomForAPerk()
+    {
+        if(PlayersActivePerks.Count == 3)
+        {
+            Debug.Log("player is picking a perk card with maxxed out slots, making them pick...");
+            for (int i = 0; i < PerkCardsChoices.Count; i++)
+            {
+                if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
+                {
+                    PerkCardsChoices[i].DOAnchorPos(WaitForRemovingPos, 1f);
+                }
+                else
+                {
+                    PerkCardsChoices[i].DOAnchorPos(RestartCardsPos, .5f);
+                }
+            }
+            PlayersActivePerks[0].DOAnchorPos(AnchorsForCards[0], .5f);
+            PlayersActivePerks[1].DOAnchorPos(AnchorsForCards[1], .5f);
+            PlayersActivePerks[2].DOAnchorPos(AnchorsForCards[2], .5f);
+        }
+        else
+        {
+            StartPickedACardCoroutine();
         }
     }
 
