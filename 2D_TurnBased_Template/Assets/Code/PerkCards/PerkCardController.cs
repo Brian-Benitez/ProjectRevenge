@@ -29,6 +29,19 @@ public class PerkCardController : MonoBehaviour
         }
     }
 
+    public void CheckIfTheresRoomForAPerk()
+    {
+        if (PlayersVisualActivePerks.Count >= PerksController.Instance.MaxAmountOfPerks)
+        {
+            Debug.Log("player is picking a perk card with maxxed out slots, making them pick...");
+            ReadyCardsForOneDiscard();
+        }
+        else
+        {
+            StartPickedACardCoroutine();
+        }
+    }
+
     public void MoveBackroundOnScreen() => BackroundCanvas.DOAnchorPos(PickedCardPos, 1f);
     public void RestartBackroundOnScreen() => BackroundCanvas.DOAnchorPos(RestartBackroundPos, .5f);
     public void StartPlaceCardsOnScreenCoroutine() => StartCoroutine(PlaceCardsOnScreen());
@@ -54,6 +67,7 @@ public class PerkCardController : MonoBehaviour
             {
                 PerkCardsChoices[i].DOAnchorPos(PickedCardPos, 1f);
                 PlayersVisualActivePerks.Add(PerkCardsChoices[i]);
+                PerkCardsChoices[i].GetComponent<UpgradePerk>().IsPerkPicked = true;
             }
             else
             {
@@ -81,6 +95,7 @@ public class PerkCardController : MonoBehaviour
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
             {
                 PlayersVisualActivePerks.Add(PerkCardsChoices[i]);
+                PerkCardsChoices[i].GetComponent<UpgradePerk>().IsPerkPicked = true;
             }
         }
 
@@ -124,18 +139,7 @@ public class PerkCardController : MonoBehaviour
         }
     }
 
-    public void CheckIfTheresRoomForAPerk()
-    {
-        if(PlayersVisualActivePerks.Count >= 3)//change this to a var later
-        {
-            Debug.Log("player is picking a perk card with maxxed out slots, making them pick...");
-            ReadyCardsForOneDiscard();  
-        }
-        else
-        {
-            StartPickedACardCoroutine();
-        }
-    }
+   
 
     private void ReadyCardsForOneDiscard()
     {

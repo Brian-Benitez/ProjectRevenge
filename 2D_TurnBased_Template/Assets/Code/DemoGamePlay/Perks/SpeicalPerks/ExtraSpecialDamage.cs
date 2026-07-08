@@ -8,14 +8,11 @@ public class ExtraSpecialDamage : UpgradePerk
     public PlayerMeleeAttack PlayerMeleeAttackRef;
     public override void EnablePerk()
     {
-        if(IsPerkOwned || CanBePurchased)
+        if (!IsPerkActive)
         {
-            if (!IsPerkActive)
-            {
-                PlayerMeleeAttackRef.PlayerSpecialDamg += AddedDamage;//1;
-                PlayerMeleeAttackRef.SpeicalRange -= DecreaseRangeAmount;//0.6f;
-                PerksController.Instance.AddPerkToList(this.gameObject);
-            }
+            PlayerMeleeAttackRef.PlayerSpecialDamg += AddedDamage;//1;
+            PlayerMeleeAttackRef.SpeicalRange -= DecreaseRangeAmount;//0.6f;
+            PerksController.Instance.AddPerkToList(this.gameObject);
         }
     }
 
