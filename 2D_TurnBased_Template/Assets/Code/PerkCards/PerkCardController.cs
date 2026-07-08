@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class PerkCardController : MonoBehaviour
 {
     public RectTransform BackroundCanvas;
-    public List<RectTransform> PlayersActivePerks;
+    public List<RectTransform> PlayersVisualActivePerks;
     public List<RectTransform> PerkCardsChoices;
-    public List<RectTransform> PerkCards;
+    public List<RectTransform> AllPerkCards;
 
     public List<Vector2> AnchorsForCards;
     public Vector2 PickedCardPos;
@@ -23,7 +23,7 @@ public class PerkCardController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            RandomlyPickingThreeCards();
+            RandomlyPickingChoiceCards();
             MoveBackroundOnScreen();
             StartPlaceCardsOnScreenCoroutine();
         }
@@ -53,7 +53,7 @@ public class PerkCardController : MonoBehaviour
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
             {
                 PerkCardsChoices[i].DOAnchorPos(PickedCardPos, 1f);
-                PlayersActivePerks.Add(PerkCardsChoices[i]);
+                PlayersVisualActivePerks.Add(PerkCardsChoices[i]);
             }
             else
             {
@@ -80,27 +80,27 @@ public class PerkCardController : MonoBehaviour
         {
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
             {
-                PlayersActivePerks.Add(PerkCardsChoices[i]);
+                PlayersVisualActivePerks.Add(PerkCardsChoices[i]);
             }
         }
 
-        for (int i = 0; i < PlayersActivePerks.Count; i++)//animation of moving cards
+        for (int i = 0; i < PlayersVisualActivePerks.Count; i++)//animation of moving cards
         {
-            if (PlayersActivePerks[i].GetComponent<PerkCardBehaviour>().IsBeingRemoved == true)
+            if (PlayersVisualActivePerks[i].GetComponent<PerkCardBehaviour>().IsBeingRemoved == true)
             {
-                PlayersActivePerks[i].DOAnchorPos(RestartCardsPos, .5f);
+                PlayersVisualActivePerks[i].DOAnchorPos(RestartCardsPos, .5f);
             }
             else
             {
-                PlayersActivePerks[i].DOAnchorPos(PlayerCardsPilePos, .5f);
+                PlayersVisualActivePerks[i].DOAnchorPos(PlayerCardsPilePos, .5f);
             }
         }
 
-        for (int i = 0; i < PlayersActivePerks.Count; i++)//remove perk from list
+        for (int i = 0; i < PlayersVisualActivePerks.Count; i++)//remove perk from list
         {
-            if (PlayersActivePerks[i].GetComponent<PerkCardBehaviour>().IsBeingRemoved == true)
+            if (PlayersVisualActivePerks[i].GetComponent<PerkCardBehaviour>().IsBeingRemoved == true)
             {
-                PlayersActivePerks.Remove(PlayersActivePerks[i]);
+                PlayersVisualActivePerks.Remove(PlayersVisualActivePerks[i]);
             }
         }
 
@@ -108,32 +108,25 @@ public class PerkCardController : MonoBehaviour
 
         RestartBackroundOnScreen();
     }
-    public void RandomlyPickingThreeCards()//sometimes its only two.. we will see if it happens again more
+    public void RandomlyPickingChoiceCards()
     {
-        for (int i = 0; i < 10; i++)
+        while (PerkCardsChoices.Count < PerksController.Instance.MaxAmountOfPerks)
         {
-            if(PerkCardsChoices.Count == 3)
+            int index = Random.Range(0, AllPerkCards.Count);
+            if (PerkCardsChoices.Contains(AllPerkCards[index]))
             {
-                Debug.Log("Max perks has been picked");
+                Debug.Log("added this card already...restarting");
             }
             else
             {
-                int index = Random.Range(0, PerkCards.Count);
-                if (PerkCardsChoices.Contains(PerkCards[index]))
-                {
-                    Debug.Log("added this card already...restarting");
-                }
-                else
-                {
-                    PerkCardsChoices.Add(PerkCards[index]);
-                }
+                PerkCardsChoices.Add(AllPerkCards[index]);
             }
         }
     }
 
     public void CheckIfTheresRoomForAPerk()
     {
-        if(PlayersActivePerks.Count >= 3)//change this to a var later
+        if(PlayersVisualActivePerks.Count >= 3)//change this to a var later
         {
             Debug.Log("player is picking a perk card with maxxed out slots, making them pick...");
             ReadyCardsForOneDiscard();  
@@ -158,10 +151,10 @@ public class PerkCardController : MonoBehaviour
             }
         }
 
-        for (int J = 0; J < PlayersActivePerks.Count; J++)//putting active perks on screen and making them have the disable button on
+        for (int J = 0; J < PlayersVisualActivePerks.Count; J++)//putting active perks on screen and making them have the disable button on
         {
-            PlayersActivePerks[J].GetComponent<PerkCardBehaviour>().TurnOffEnableButton();//gotta turn it on again here
-            PlayersActivePerks[J].DOAnchorPos(AnchorsForCards[J], .5f);
+            PlayersVisualActivePerks[J].GetComponent<PerkCardBehaviour>().TurnOffEnableButton();//gotta turn it on again here
+            PlayersVisualActivePerks[J].DOAnchorPos(AnchorsForCards[J], .5f);
         }
     }
 
