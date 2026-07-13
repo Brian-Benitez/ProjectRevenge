@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: RestartPlayerSpeicalSettings
         m_Mode: 1
@@ -1880,7 +1880,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: TurnOffAllBoolsInSpeicalPerk
         m_Mode: 1
@@ -1892,7 +1892,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: ActivateRageQuakePerk
         m_Mode: 1
@@ -1904,7 +1904,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: ActivateSpeicalPerk
         m_Mode: 1
@@ -3798,6 +3798,237 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180569060}
   m_CullTransparentMesh: 1
+--- !u!1001 &187421982
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1984954335}
+    m_Modifications:
+    - target: {fileID: 1974496331080907576, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_Name
+      value: ExtraSpeicalDamPerkCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1982623517}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 187421985}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartPickedACardCoroutine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EnablePerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PerkCardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ExtraSpecialDamage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1982623517}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 187421985}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartDiscardACardCorutine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisablePerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PerkCardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ExtraSpecialDamage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1974496331080907576, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 187421985}
+  m_SourcePrefab: {fileID: 100100000, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+--- !u!224 &187421983 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3721221941647051947, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+  m_PrefabInstance: {fileID: 187421982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &187421984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1974496331080907576, guid: a2209e00624b73443a733b3a51b51c73, type: 3}
+  m_PrefabInstance: {fileID: 187421982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &187421985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187421984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d6f3c283b50164b9a544b61c033f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PerkLvlText: {fileID: 0}
+  CostAmountText: {fileID: 0}
+  PerkEXPText: {fileID: 0}
+  PerkLvl: 0
+  IncrementMultipler: 0
+  CostAmount: 0
+  PerkEXP: 0
+  PerkImage: {fileID: 1512470211}
+  IsPerkPicked: 0
+  IsPerkActive: 0
+  AddedDamage: 1
+  DecreaseRangeAmount: 0.6
+  PlayerMeleeAttackRef: {fileID: 1131129220}
 --- !u!1 &194952629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5325,6 +5556,241 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263040778}
   m_CullTransparentMesh: 1
+--- !u!1001 &264568200
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1984954335}
+    m_Modifications:
+    - target: {fileID: 1974496331080907576, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_Name
+      value: PureRagePerkCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 627
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1982623517}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 264568203}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartPickedACardCoroutine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EnablePerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PerkCardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PureRagePerk, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1982623517}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 264568203}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartDiscardACardCorutine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisablePerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PerkCardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PureRagePerk, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: e799edf5728e95c468db944f24063388, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1974496331080907576, guid: e799edf5728e95c468db944f24063388, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 264568203}
+  m_SourcePrefab: {fileID: 100100000, guid: e799edf5728e95c468db944f24063388, type: 3}
+--- !u!224 &264568201 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3721221941647051947, guid: e799edf5728e95c468db944f24063388, type: 3}
+  m_PrefabInstance: {fileID: 264568200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &264568202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1974496331080907576, guid: e799edf5728e95c468db944f24063388, type: 3}
+  m_PrefabInstance: {fileID: 264568200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &264568203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264568202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404468c927e03df408ad2b3402716c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PerkLvlText: {fileID: 0}
+  CostAmountText: {fileID: 0}
+  PerkEXPText: {fileID: 0}
+  PerkLvl: 0
+  IncrementMultipler: 0
+  CostAmount: 0
+  PerkEXP: 0
+  PerkImage: {fileID: 768782120}
+  IsPerkPicked: 0
+  IsPerkActive: 0
+  BoostedMovementSpeed: 0
+  LoweredDashCoolDown: 0
+  MeleeUpgradeDam: 0
+  RangeUpgradeDam: 0
+  PlayerMovementRef: {fileID: 386186101}
+  PlayerMeleeAttackRef: {fileID: 1131129220}
+  PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &287232072
 GameObject:
   m_ObjectHideFlags: 0
@@ -7207,7 +7673,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: TurnOffSpeicalPerks
         m_Mode: 1
@@ -7219,7 +7685,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: RestartPlayerSpeicalSettings
         m_Mode: 1
@@ -7231,7 +7697,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: TurnOffAllBoolsInSpeicalPerk
         m_Mode: 1
@@ -7506,6 +7972,7 @@ MonoBehaviour:
   RangeDamg: 1
   Souls: 10000
   BossSouls: 0
+  XP: 0
   IsCharacterDead: 0
   UpgradeUISoulsText: {fileID: 813151912}
   PerksUISoulsText: {fileID: 1792489266}
@@ -8950,55 +9417,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468556725}
   m_CullTransparentMesh: 1
---- !u!1 &477004656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 477004658}
-  - component: {fileID: 477004657}
-  m_Layer: 0
-  m_Name: RangePerks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &477004657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477004656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9470cbec6dce1f4f9c5c68267731c75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxPerkAmmoAmount: 3
-  IsUsingMaxAmmoPerk: 0
-  IsUsingShotgunPerk: 0
-  IsRangePerkEquipped: 0
-  PlayerRangeWeaponRef: {fileID: 1441544237}
---- !u!4 &477004658
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477004656}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1012860348}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477567017
 GameObject:
   m_ObjectHideFlags: 0
@@ -9061,6 +9479,7 @@ Transform:
   m_Children:
   - {fileID: 823456627}
   - {fileID: 15450440}
+  - {fileID: 783533567}
   - {fileID: 1280447260}
   - {fileID: 393807770}
   - {fileID: 1271006811}
@@ -11458,7 +11877,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: ResetPlayerFromRangePerk
         m_Mode: 1
@@ -11470,7 +11889,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: RestartAllPerks
         m_Mode: 1
@@ -14583,7 +15002,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: SetMaxAmmoPerk
         m_Mode: 1
@@ -14595,7 +15014,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: ActivateRangePerk
         m_Mode: 1
@@ -15237,6 +15656,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInfoRef: {fileID: 386186108}
+--- !u!1 &783533566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783533567}
+  - component: {fileID: 783533568}
+  m_Layer: 0
+  m_Name: XpController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783533567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783533566}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.35382, y: -136.06773, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 481305509}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783533568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783533566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57160b16530ab02489bd15629cf4ed70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStats: {fileID: 386186108}
 --- !u!1 &790175355
 GameObject:
   m_ObjectHideFlags: 0
@@ -25846,7 +26310,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: ResetPlayerFromRangePerk
         m_Mode: 1
@@ -25858,7 +26322,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: RestartAllPerks
         m_Mode: 1
@@ -27660,7 +28124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1943565647}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ExtraSpecialDamage, Assembly-CSharp
         m_MethodName: EnablePerk
         m_Mode: 1
@@ -27847,10 +28311,7 @@ Transform:
   m_LocalPosition: {x: -781.8626, y: -259.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1943565646}
-  - {fileID: 1263395585}
-  - {fileID: 1402817337}
+  m_Children: []
   m_Father: {fileID: 1012860348}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963343670
@@ -28788,8 +29249,6 @@ Transform:
   m_Children:
   - {fileID: 963343669}
   - {fileID: 1982623516}
-  - {fileID: 477004658}
-  - {fileID: 1658610933}
   - {fileID: 1536016092}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31289,7 +31748,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: SetShotgunPerk
         m_Mode: 1
@@ -31301,7 +31760,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 477004657}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RangePerks, Assembly-CSharp
         m_MethodName: ActivateRangePerk
         m_Mode: 1
@@ -33634,67 +34093,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258636149}
   m_CullTransparentMesh: 1
---- !u!1 &1263395584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1263395585}
-  - component: {fileID: 1263395586}
-  m_Layer: 0
-  m_Name: PureRagePerk
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1263395585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263395584}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 963343669}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1263395586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263395584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404468c927e03df408ad2b3402716c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 768782120}
-  IsPerkPicked: 0
-  IsPerkActive: 0
-  BoostedMovementSpeed: 0
-  LoweredDashCoolDown: 0
-  MeleeUpgradeDam: 0
-  RangeUpgradeDam: 0
-  PlayerMovementRef: {fileID: 386186101}
-  PlayerMeleeAttackRef: {fileID: 1131129220}
-  PlayerInfoRef: {fileID: 386186108}
 --- !u!1001 &1268800727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36326,61 +36724,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399696453}
   m_CullTransparentMesh: 1
---- !u!1 &1402817336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1402817337}
-  - component: {fileID: 1402817338}
-  m_Layer: 0
-  m_Name: HealingRagePerk
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1402817337
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402817336}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 963343669}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1402817338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402817336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b71ebdf7eda8448b6db4d31620352e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 589158067}
-  IsPerkPicked: 0
-  IsPerkActive: 0
-  PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &1414053471
 GameObject:
   m_ObjectHideFlags: 0
@@ -38529,8 +38872,237 @@ MonoBehaviour:
   PlayerMovementRef: {fileID: 386186101}
   PlayerMeleeAttackRef: {fileID: 1131129220}
   PlayerInfoRef: {fileID: 386186108}
-  PureRagePerkRef: {fileID: 1263395586}
-  HealingRagePerkRef: {fileID: 1402817338}
+  PureRagePerkRef: {fileID: 0}
+  HealingRagePerkRef: {fileID: 0}
+--- !u!1001 &1540077173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1984954335}
+    m_Modifications:
+    - target: {fileID: 1974496331080907576, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_Name
+      value: HealingRagePerkCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 634
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1982623517}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1540077176}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartPickedACardCoroutine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EnablePerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PerkCardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: HealingRagePerk, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819764912552506927, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1982623517}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1540077176}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartDiscardACardCorutine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisablePerk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PerkCardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: HealingRagePerk, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656002613124619752, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1974496331080907576, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1540077176}
+  m_SourcePrefab: {fileID: 100100000, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+--- !u!224 &1540077174 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3721221941647051947, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+  m_PrefabInstance: {fileID: 1540077173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1540077175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1974496331080907576, guid: 32fdc745e2215114a9b27ca549c6eacd, type: 3}
+  m_PrefabInstance: {fileID: 1540077173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1540077176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540077175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b71ebdf7eda8448b6db4d31620352e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PerkLvlText: {fileID: 0}
+  CostAmountText: {fileID: 0}
+  PerkEXPText: {fileID: 0}
+  PerkLvl: 0
+  IncrementMultipler: 0
+  CostAmount: 0
+  PerkEXP: 0
+  PerkImage: {fileID: 589158067}
+  IsPerkPicked: 0
+  IsPerkActive: 0
+  PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &1541700943
 GameObject:
   m_ObjectHideFlags: 0
@@ -38775,11 +39347,11 @@ MonoBehaviour:
   GameOverPrefab: {fileID: 1248499720}
   LevelUpPrefab: {fileID: 315112527}
   AllPerks:
-  - {fileID: 1943565647}
-  - {fileID: 1402817338}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 1263395586}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   AllStats:
   - {fileID: 1929690283}
@@ -40266,7 +40838,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1402817338}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealingRagePerk, Assembly-CSharp
         m_MethodName: ReadyHealingRagePerk
         m_Mode: 1
@@ -41165,56 +41737,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656613963}
   m_CullTransparentMesh: 1
---- !u!1 &1658610931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1658610933}
-  - component: {fileID: 1658610932}
-  m_Layer: 0
-  m_Name: SpeicalPerks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1658610932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658610931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63351d8f058c68142ae14ead13c8d75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AddedRadiusForSpeical: 0.9
-  IsUsingIncreaseRadiusPerk: 0
-  IsUsingRageQuakePerk: 0
-  IsSpeicalPerkEquipped: 0
-  IsNotUsingAnyPerks: 0
-  PlayerMeleeAttackRef: {fileID: 1131129220}
---- !u!4 &1658610933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658610931}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1012860348}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664000657
 GameObject:
   m_ObjectHideFlags: 0
@@ -45041,7 +45563,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: TurnOffSpeicalPerks
         m_Mode: 1
@@ -45053,7 +45575,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: RestartPlayerSpeicalSettings
         m_Mode: 1
@@ -45065,7 +45587,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: TurnOffAllBoolsInSpeicalPerk
         m_Mode: 1
@@ -45340,7 +45862,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1263395586}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PureRagePerk, Assembly-CSharp
         m_MethodName: ReadyPureRagePerk
         m_Mode: 1
@@ -46009,7 +46531,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: RestartPlayerSpeicalSettings
         m_Mode: 1
@@ -46021,7 +46543,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: TurnOffAllBoolsInSpeicalPerk
         m_Mode: 1
@@ -46033,7 +46555,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: ActivateIncreaseRadiusPerk
         m_Mode: 1
@@ -46045,7 +46567,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1658610932}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpeicalPerk, Assembly-CSharp
         m_MethodName: ActivateSpeicalPerk
         m_Mode: 1
@@ -46141,63 +46663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
---- !u!1 &1943565645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1943565646}
-  - component: {fileID: 1943565647}
-  m_Layer: 0
-  m_Name: ExtraSpeicalDamage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1943565646
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943565645}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 963343669}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1943565647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943565645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d6f3c283b50164b9a544b61c033f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 1512470211}
-  IsPerkPicked: 0
-  IsPerkActive: 0
-  AddedDamage: 1
-  DecreaseRangeAmount: 0.6
-  PlayerMeleeAttackRef: {fileID: 1131129220}
 --- !u!1 &1944963120
 GameObject:
   m_ObjectHideFlags: 0
@@ -47238,6 +47703,9 @@ MonoBehaviour:
   - {fileID: 3721221940193948860}
   - {fileID: 3721221941373602430}
   - {fileID: 3721221941691737319}
+  - {fileID: 187421983}
+  - {fileID: 264568201}
+  - {fileID: 1540077174}
   AnchorsForCards:
   - {x: -373, y: -22}
   - {x: 2, y: -22}
@@ -47282,6 +47750,9 @@ RectTransform:
   - {fileID: 3721221940193948860}
   - {fileID: 3721221941373602430}
   - {fileID: 3721221941691737319}
+  - {fileID: 187421983}
+  - {fileID: 264568201}
+  - {fileID: 1540077174}
   m_Father: {fileID: 1949009256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
