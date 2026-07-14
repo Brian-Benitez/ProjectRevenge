@@ -15,7 +15,7 @@ public class BaseCharacter : MonoBehaviour// need to move melee and rage values 
     [Header("Souls/XP")]
     public int Souls;
     public int BossSouls;
-    public int XP;
+    public float XP;
     [Header("Booleans")]
     public bool IsCharacterDead = false;
     [Header("Texts")]

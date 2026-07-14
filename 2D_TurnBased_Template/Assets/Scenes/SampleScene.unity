@@ -15700,7 +15700,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57160b16530ab02489bd15629cf4ed70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelUpThershold: 500
+  MinLevelUpThershold: 500
+  ThersholdMultiplier: 0.5
+  MinLevelUpMultiplier: 0.5
   PlayerStats: {fileID: 386186108}
+  PerkCardControllerRef: {fileID: 1982623517}
 --- !u!1 &790175355
 GameObject:
   m_ObjectHideFlags: 0
@@ -36823,6 +36828,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1414053473}
         m_TargetAssemblyTypeName: RoundController, Assembly-CSharp
         m_MethodName: IncreaseRoundCounter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 783533568}
+        m_TargetAssemblyTypeName: XPController, Assembly-CSharp
+        m_MethodName: CanLevelUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
