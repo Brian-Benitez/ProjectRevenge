@@ -27,6 +27,8 @@ public class RoundController : MonoBehaviour
     public bool IsRoundEnd = false;
     public UnityEvent StartEndRoundEvent;
 
+    public UnityEvent BossDefeatedEvent;
+
     private void Update()
     {
         if(Input.GetKeyDown(StartRoundKey) && !IsRoundStarted)
@@ -69,4 +71,8 @@ public class RoundController : MonoBehaviour
         TotalAmountOfRoundsWon++;
         RoundsText.text = "" + TotalAmountOfRoundsWon;
     }
+    /// <summary>
+    /// Only when boss is defeated
+    /// </summary>
+    public void RestartRoundCounter() => RoundsCounter = 0;
 }

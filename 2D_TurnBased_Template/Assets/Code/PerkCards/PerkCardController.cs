@@ -18,17 +18,6 @@ public class PerkCardController : MonoBehaviour
     public Vector2 RestartCardsPos;
     public Vector2 RestartBackroundPos;
 
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            RandomlyPickingChoiceCards();
-            MoveBackroundOnScreen();
-            StartPlaceCardsOnScreenCoroutine();
-        }
-    }
-
     public void CheckIfTheresRoomForAPerk()
     {
         if (PlayersVisualActivePerks.Count >= PerksController.Instance.MaxAmountOfPerks)

@@ -19,6 +19,7 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     public RoundController RoundControllerRef;
     public EnemiesSpawner EnemiesSpawnerRef;
+    public UpgradeEnemiesController UpgradeEnemiesControllerRef;
 
     
     public void TypeOfEnemiesForRound()
@@ -154,5 +155,14 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
         ListOfEnemies.Clear();
         EnemiesSpawnerRef.EnemiesAlive = 0;
         EnemiesSpawnerRef.IsAllEnemiesDead = true;
+    }
+
+    public void UpgradeAllEnemies()
+    {
+        UpgradeEnemiesControllerRef.UpgradeEnemyShields(EyeMosnters);
+        UpgradeEnemiesControllerRef.UpgradeEnemyShields(SwordsmanGameObjects);
+        UpgradeEnemiesControllerRef.UpgradeEnemyShields(AOEEnemies);
+        UpgradeEnemiesControllerRef.UpgradeEnemyShields(ArchersGameObjects);
+        UpgradeEnemiesControllerRef.UpgradeEnemyShields(Wizards);
     }
 }
