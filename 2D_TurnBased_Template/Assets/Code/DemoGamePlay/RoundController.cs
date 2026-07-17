@@ -58,6 +58,7 @@ public class RoundController : MonoBehaviour
                 UIStartGameObject.SetActive(true);
                 IsRoundEnd = true;
                 StartEndRoundEvent.Invoke();
+
             }
         }
     }

@@ -33,7 +33,7 @@ public class XPController : MonoBehaviour
             Debug.Log("player can level up");
             PerkCardControllerRef.RandomlyPickingChoiceCards();
             PerkCardControllerRef.MoveBackroundOnScreen();
-            PerkCardControllerRef.StartPickedACardCoroutine();
+            PerkCardControllerRef.StartPlaceCardsOnScreenCoroutine();
             RaiseLevelUpThershold();
         }
     }
