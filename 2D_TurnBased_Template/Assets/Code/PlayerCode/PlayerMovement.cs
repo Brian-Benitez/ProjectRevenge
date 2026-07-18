@@ -76,14 +76,12 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 IsDashPaused = true;
-                Debug.Log("start a long ish cooldown now");
                 TimerForMaxUsedDashes += Time.deltaTime;
             }
         }
 
         if (Input.GetKeyDown(DashInputKey) && CanDash && !IsDashPaused)
         {
-            Debug.Log("dash");
             StartCoroutine(Dash());
             UsedDashes++;//note:this makes it so if player dashes once it will still be there until 3 dashes.
         }

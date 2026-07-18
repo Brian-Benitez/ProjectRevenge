@@ -4017,14 +4017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d6f3c283b50164b9a544b61c033f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 1512470211}
   IsPerkPicked: 0
   IsPerkActive: 0
   AddedDamage: 1
@@ -5775,20 +5767,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404468c927e03df408ad2b3402716c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 768782120}
   IsPerkPicked: 0
   IsPerkActive: 0
-  BoostedMovementSpeed: 0
+  BoostedMovementSpeed: 3
   LoweredDashCoolDown: 0
-  MeleeUpgradeDam: 0
-  RangeUpgradeDam: 0
+  MeleeUpgradeDam: 3
+  RangeUpgradeDam: 3
   PlayerMovementRef: {fileID: 386186101}
   PlayerMeleeAttackRef: {fileID: 1131129220}
   PlayerInfoRef: {fileID: 386186108}
@@ -7840,12 +7824,12 @@ MonoBehaviour:
   DashInputKey: 32
   DashSpeed: 18
   DashDuration: 0.25
-  DashCoolDown: 0.15
+  DashCoolDown: 0.1
   DashCoolDownUpgrade: 0.2
   UsedDashes: 0
   MaxUsedDashes: 3
   TimerForMaxUsedDashes: 0
-  MaxTimeForMaxUsedDashes: 0.8
+  MaxTimeForMaxUsedDashes: 0.5
   IsDashing: 0
   CanDash: 1
   IsDashPaused: 0
@@ -31185,7 +31169,7 @@ MonoBehaviour:
   DirectionalLooks: {fileID: 524028573}
   AttackRange: 1
   AttackSpeed: 0.1
-  WindUpDuration: 0.4
+  WindUpDuration: 0.3
   MaxHeavyWindUpSpeed: 1
   PlayerLightAttkDamg: 1
   PlayerHeavyAttkDamg: 3
@@ -39042,8 +39026,8 @@ MonoBehaviour:
   PlayerMovementRef: {fileID: 386186101}
   PlayerMeleeAttackRef: {fileID: 1131129220}
   PlayerInfoRef: {fileID: 386186108}
-  PureRagePerkRef: {fileID: 0}
-  HealingRagePerkRef: {fileID: 0}
+  PureRagePerkRef: {fileID: 264568203}
+  HealingRagePerkRef: {fileID: 1540077176}
 --- !u!1001 &1540077173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39262,14 +39246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b71ebdf7eda8448b6db4d31620352e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 589158067}
   IsPerkPicked: 0
   IsPerkActive: 0
   PlayerInfoRef: {fileID: 386186108}
@@ -39517,12 +39493,12 @@ MonoBehaviour:
   GameOverPrefab: {fileID: 1248499720}
   LevelUpPrefab: {fileID: 315112527}
   AllPerks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 187421985}
+  - {fileID: 1540077176}
+  - {fileID: 3721221941691737320}
+  - {fileID: 3721221940193948861}
+  - {fileID: 264568203}
+  - {fileID: 3721221941373602431}
   AllStats:
   - {fileID: 1929690283}
   - {fileID: 1490441809}
@@ -50771,6 +50747,10 @@ PrefabInstance:
       propertyPath: PlayerMeleeAttackRef
       value: 
       objectReference: {fileID: 1131129220}
+    - target: {fileID: 1487583854475867127, guid: c7e05187e802d914ebb14e5cb457ed1d, type: 3}
+      propertyPath: AddedRadiusForSpeical
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7193919736677052680, guid: c7e05187e802d914ebb14e5cb457ed1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -51169,16 +51149,49 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 316235588127159872, guid: a1da514a58e2ac6448e696cd5c0d85d1, type: 3}
   m_PrefabInstance: {fileID: 1954422140610510596}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3721221940193948861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3192199971694776009, guid: a1da514a58e2ac6448e696cd5c0d85d1, type: 3}
+  m_PrefabInstance: {fileID: 1954422140610510596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493b8282a8638cf4098b6eb0b7ed0d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3721221941373602430 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2448828348590733548, guid: 581c25973d758d443bf4821e958b70de, type: 3}
   m_PrefabInstance: {fileID: 7108927324480060160}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3721221941373602431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1336643221255244746, guid: 581c25973d758d443bf4821e958b70de, type: 3}
+  m_PrefabInstance: {fileID: 7108927324480060160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ab476a1240f6e4b9d20cdce6521eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3721221941691737319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1431306927127768365, guid: c7e05187e802d914ebb14e5cb457ed1d, type: 3}
   m_PrefabInstance: {fileID: 1434546327278486189}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3721221941691737320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1487583854475867127, guid: c7e05187e802d914ebb14e5cb457ed1d, type: 3}
+  m_PrefabInstance: {fileID: 1434546327278486189}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f6f67a791e02c46b2c102bef71058e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4163921957983382526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51492,67 +51505,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 519420032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8424500186120057407
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 126269282101802777, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_Name
-      value: BossSoulPickUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -171.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -179.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 277391325685941182, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7117234426760203326, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
-      propertyPath: PlayerInfoRef
-      value: 
-      objectReference: {fileID: 386186108}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
 --- !u!4 &8882318358740592141
 Transform:
   m_ObjectHideFlags: 0
@@ -51593,4 +51545,3 @@ SceneRoots:
   - {fileID: 839568628}
   - {fileID: 110136108}
   - {fileID: 128463033}
-  - {fileID: 8424500186120057407}

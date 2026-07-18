@@ -43,14 +43,12 @@ public class PerksController : MonoBehaviour
         {
             if (ListOfActivePerks.Count >= MaxAmountOfPerks)
             {
-                ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = IconsResetPOS.transform.position;
                 ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().DisablePerk();
                 ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().IsPerkActive = false;
                 ListOfActivePerks.RemoveAt(ListIndex);
                 Debug.Log("remove perk that was previously there");
             }
             ListOfActivePerks.Insert(ListIndex, GO);
-            //ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().EnablePerk();
             ListOfActivePerks[ListIndex].GetComponent<UpgradePerk>().IsPerkActive = true;
             Debug.Log(GO.name + " Is enabled!");
         }
@@ -68,15 +66,6 @@ public class PerksController : MonoBehaviour
             go.SetActive(false);
         }
         Highlights[ListIndex].SetActive(true);
-    }
-
-    public void PlaceIconsOnSlotsUI()
-    {
-        Debug.Log("place icon here");
-        for (int i = 0; i < ListOfActivePerks.Count; i++)
-        {
-           ListOfActivePerks[i].GetComponent<UpgradePerk>().PerkImage.gameObject.transform.position = PosForImages[i].gameObject.transform.position;
-        }
     }
 
     public void RemoveIconOnSlotsUI()

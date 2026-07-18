@@ -41,7 +41,7 @@ public class XPController : MonoBehaviour
     public void RaiseLevelUpThershold()
     {
         float newThershold = MinLevelUpThershold * ThersholdMultiplier;
-        LevelUpThershold = newThershold;
+        LevelUpThershold += newThershold;
         ThersholdMultiplier += 0.5f;
     }
 }
