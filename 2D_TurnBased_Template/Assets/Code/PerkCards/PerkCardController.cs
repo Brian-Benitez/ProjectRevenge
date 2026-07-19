@@ -28,6 +28,7 @@ public class PerkCardController : MonoBehaviour
         else
         {
             StartPickedACardCoroutine();
+            Debug.Log("did i play");
         }
     }
 
@@ -56,6 +57,7 @@ public class PerkCardController : MonoBehaviour
             {
                 PerkCardsChoices[i].DOAnchorPos(PickedCardPos, 1f);
                 PlayersVisualActivePerks.Add(PerkCardsChoices[i]);
+                AllPerkCards.Remove(PerkCardsChoices[i]);//remove from list so it doesnt get picked again
                 PerkCardsChoices[i].GetComponent<UpgradePerk>().IsPerkPicked = true;
             }
             else
@@ -74,6 +76,7 @@ public class PerkCardController : MonoBehaviour
             }
         }
         RestartBackroundOnScreen();
+        PerkCardsChoices.Clear();
     }
 
     public void StartDiscardACardCorutine() => StartCoroutine(DiscardACard());
@@ -105,6 +108,7 @@ public class PerkCardController : MonoBehaviour
             if (PlayersVisualActivePerks[i].GetComponent<PerkCardBehaviour>().IsBeingRemoved == true)
             {
                 PlayersVisualActivePerks.Remove(PlayersVisualActivePerks[i]);
+                AllPerkCards.Add(PlayersVisualActivePerks[i]);//add removed perk back in all perk list
             }
         }
 
@@ -114,9 +118,11 @@ public class PerkCardController : MonoBehaviour
     }
     public void RandomlyPickingChoiceCards()
     {
+        Debug.Log("whats the count " + AllPerkCards.Count);
         while (PerkCardsChoices.Count < PerksController.Instance.MaxAmountOfPerks)
         {
             int index = Random.Range(0, AllPerkCards.Count);
+
             if (PerkCardsChoices.Contains(AllPerkCards[index]))
             {
                 Debug.Log("added this card already...restarting");
@@ -126,6 +132,7 @@ public class PerkCardController : MonoBehaviour
                 PerkCardsChoices.Add(AllPerkCards[index]);
             }
         }
+        Debug.Log("found 3 cards!");
     }
 
    

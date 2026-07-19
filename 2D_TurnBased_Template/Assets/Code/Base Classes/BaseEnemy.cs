@@ -88,7 +88,7 @@ public class BaseEnemy : MonoBehaviour
         {
             if (EnemyType != TypeOfEnemy.Boss)//temp
             {
-                HitPauseControllerRef.PlayHitPauseCoroutine();
+                //HitPauseControllerRef.PlayHitPauseCoroutine();
             }
             Debug.Log("has health stil");
         }

@@ -38,6 +38,7 @@ public class RoundController : MonoBehaviour
             IsRoundEnd = false;
             UIStartGameObject.SetActive(false);
             IsStartedEvent = false;
+            EnemiesSpawner.Instance.IsAllEnemiesDead = false;
         }
         if (IsRoundStarted)
         {

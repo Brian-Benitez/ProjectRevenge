@@ -17,7 +17,7 @@ public class PerkCardBehaviour : MonoBehaviour
     {
         Debug.Log("is clicked on");
         IsPickedOnChoice = true;
-        MovablePartOfCard.DOAnchorPosY(AmountOfDistance, SpeedOfMovement);
+        //MovablePartOfCard.DOAnchorPosY(AmountOfDistance, SpeedOfMovement);
     }
 
     public void RemoveThisCard()
