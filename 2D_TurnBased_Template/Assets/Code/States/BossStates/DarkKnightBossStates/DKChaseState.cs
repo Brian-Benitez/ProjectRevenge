@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class DKChaseState : State
 {
-    private float MinimumDistanceFromPlayer = 4.5f;
+    private float MinimumDistanceFromPlayer = 5.5f;
     private float DistanceFromPlayer;
-    private float PreferedRangeAttkDistance = 7f;
+    private float PreferedRangeAttkDistance = 6.5f;
 
     public bool CanStartRangeAttack = false;
 

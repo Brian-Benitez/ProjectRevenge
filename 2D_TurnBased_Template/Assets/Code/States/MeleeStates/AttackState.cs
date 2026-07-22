@@ -36,6 +36,7 @@ public class AttackState : State//rename this to EnemyAttackState
     MovementState ChaseState;
     public StunState StunState;
     public DKChaseState DKChaseState;
+    public BossVunerableState BossVunerableStateRef;
     BlockAndMoveState BlockAndMoveState;
     EnemyWeaponRotation _enemyWeaponRotationRef;
 
@@ -128,6 +129,10 @@ public class AttackState : State//rename this to EnemyAttackState
             {
                 HasRolled = true;
                 BlockAndMoveState.RollingToBlock();
+            }
+            if(EnemySwordsmanRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.Boss)
+            {
+                return BossVunerableStateRef;
             }
         }
 

@@ -32,7 +32,6 @@ Transform:
   m_Children:
   - {fileID: 3894477977744420997}
   - {fileID: 5351484751421859356}
-  - {fileID: 4715473242639133786}
   m_Father: {fileID: 887253511516265353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7925413548750406758
@@ -101,6 +100,54 @@ MonoBehaviour:
   BossStats: {fileID: 3849610635453228326}
   AttackStateRef: {fileID: 499970276011381823}
   DKRangeAttackRef: {fileID: 4342819746663072318}
+--- !u!1 &1714670026662093447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6074239206484288611}
+  - component: {fileID: 6024488812762598492}
+  m_Layer: 0
+  m_Name: VunerableState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6074239206484288611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714670026662093447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887253511516265353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6024488812762598492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714670026662093447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfc28df0bc49294b9af4fc01f2f39a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttkCooldown: 0
+  MaxCooldown: 5
+  StunStateRef: {fileID: 2419263769339304645}
+  AttackStateRef: {fileID: 499970276011381823}
 --- !u!1 &3535749086534129970
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,12 +281,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 5351484751421859356}
-  AttackRange: 1.6
-  WindUpTimeForMelee: 2
+  AttackRange: 2
+  WindUpTimeForMelee: 4
   AmountOfAttacks: 0
   MaxAmountOfAttacks: 2
   AttackCooldownTimer: 0
-  MaxTimerOfCooldown: 5
+  MaxTimerOfCooldown: 4
   IsWaiting: 0
   WithinRange: 0
   IsDoneCoolingDown: 0
@@ -250,6 +297,7 @@ MonoBehaviour:
   AttackMissedPlayer: 0
   StunState: {fileID: 2419263769339304645}
   DKChaseState: {fileID: 6919487459235251188}
+  BossVunerableStateRef: {fileID: 6024488812762598492}
 --- !u!1 &4770267563914590280
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,10 +323,11 @@ Transform:
   m_GameObject: {fileID: 4770267563914590280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.38, y: -0.03999996, z: 0}
+  m_LocalPosition: {x: 4.18, y: -0.03999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4715473242639133786}
   m_Father: {fileID: 2336050023999352589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4939175555022516872
@@ -509,16 +558,17 @@ Transform:
   m_GameObject: {fileID: 6898675534388969963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.67, y: 3.16, z: 0}
+  m_LocalPosition: {x: 23.03, y: 3.9, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7773834438598211213}
   - {fileID: 1904240453812623922}
   - {fileID: 2336050023999352589}
   - {fileID: 2526852655236450961}
   - {fileID: 5325995947593159450}
   - {fileID: 564792326751577675}
+  - {fileID: 6074239206484288611}
+  - {fileID: 7773834438598211213}
   - {fileID: 591776886323903675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -609,7 +659,7 @@ MonoBehaviour:
   EnemyHealth: 80
   MaxEnemyHealth: 80
   EnemySpeed: 2
-  EnemyDamage: 3
+  EnemyDamage: 2.5
   HealthPotion: {fileID: 0}
   RagePotion: {fileID: 0}
   BossSoulsObj: {fileID: 0}
@@ -681,7 +731,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05051127, y: -0.0662961}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -691,7 +741,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2.0859954, y: 2.448289}
   m_EdgeRadius: 0
 --- !u!1 &8406396823220310970
 GameObject:
@@ -719,11 +769,11 @@ Transform:
   m_GameObject: {fileID: 8406396823220310970}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3900003, y: -0.07, z: 0}
-  m_LocalScale: {x: 2.8599226, y: 3.0082843, z: 1}
+  m_LocalPosition: {x: 0.010000229, y: -0.029999971, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2336050023999352589}
+  m_Father: {fileID: 5351484751421859356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1109737719437729734
 SpriteRenderer:
