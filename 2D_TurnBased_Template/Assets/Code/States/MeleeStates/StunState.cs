@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class StunState : State
+public class StunState : MonoBehaviour
 {
     [Header("----------Stat Effects----------")]
     public bool IsStunned = false;
@@ -10,8 +10,6 @@ public class StunState : State
     public float StunDuration;
 
     private float MaxStunTime;
-    public BaseEnemy BaseEnemyRef;
-    public MovementState MovementStateRef;
     public KnockBackFeedBack KnockBackFeedBackRef;
 
     private void Start()
@@ -40,12 +38,5 @@ public class StunState : State
         yield return new WaitForSeconds(MaxStunTime);
         IsStunned = false;
         Debug.Log("not stunned");
-    }
-    public override State RunCurrentState()
-    {
-        if (IsStunned == false)
-            return MovementStateRef;
-            
-        return this;
     }
 }

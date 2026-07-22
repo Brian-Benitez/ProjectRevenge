@@ -58,6 +58,10 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
             case 7:
                 EighthWaveEnemies();
                 break;
+            
+            case 8:
+                Debug.Log("whats up");
+                break;
 
             case 9://boss 
                 NinthWaveEnemies();

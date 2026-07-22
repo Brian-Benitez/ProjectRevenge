@@ -248,7 +248,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   AttackMissedPlayer: 0
-  StunState: {fileID: 0}
+  StunState: {fileID: 2419263769339304645}
   DKChaseState: {fileID: 6919487459235251188}
 --- !u!1 &4770267563914590280
 GameObject:
@@ -339,6 +339,53 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _bossStagesControllerRef: {fileID: 4613468814989697254}
+--- !u!1 &4944301132821556859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564792326751577675}
+  - component: {fileID: 1103768065713936288}
+  m_Layer: 0
+  m_Name: KnockbackController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564792326751577675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944301132821556859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887253511516265353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103768065713936288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944301132821556859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7148123d0227f4489914ad636892c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb2d: {fileID: 5096189896417039861}
+  Strength: 16
+  delay: 0.15
 --- !u!1 &5306375845474257040
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +431,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 6919487459235251188}
+--- !u!1 &5816598581460841872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5325995947593159450}
+  - component: {fileID: 2419263769339304645}
+  m_Layer: 0
+  m_Name: StunController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5325995947593159450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816598581460841872}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2383264, y: 0.031636637, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887253511516265353}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2419263769339304645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816598581460841872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38917b389ef7a91479fcdec4063e20e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStunned: 0
+  InstanteStun: 0
+  StunDuration: 3
+  KnockBackFeedBackRef: {fileID: 1103768065713936288}
 --- !u!1 &6898675534388969963
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,10 +513,12 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7773834438598211213}
   - {fileID: 1904240453812623922}
   - {fileID: 2336050023999352589}
   - {fileID: 2526852655236450961}
-  - {fileID: 7773834438598211213}
+  - {fileID: 5325995947593159450}
+  - {fileID: 564792326751577675}
   - {fileID: 591776886323903675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -515,12 +612,12 @@ MonoBehaviour:
   EnemyDamage: 3
   HealthPotion: {fileID: 0}
   RagePotion: {fileID: 0}
+  BossSoulsObj: {fileID: 0}
   ChanceToDropItem: 0
   EnemySoulsValue: 1000
   IsHit: 0
   IsDead: 0
-  HitPauseControllerRef: {fileID: 0}
-  StunStateRef: {fileID: 0}
+  StunStateRef: {fileID: 2419263769339304645}
   EnemyType: 2
   EnemyDifficulty: 3
 --- !u!50 &5096189896417039861

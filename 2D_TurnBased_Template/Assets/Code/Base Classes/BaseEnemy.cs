@@ -21,7 +21,6 @@ public class BaseEnemy : MonoBehaviour
 
     public bool IsDead = false;
 
-    public HitPauseController HitPauseControllerRef;
     public StunState StunStateRef;
 
     private void Start()
@@ -84,15 +83,6 @@ public class BaseEnemy : MonoBehaviour
             }  
             Destroy(this.gameObject);
         }
-        else
-        {
-            if (EnemyType != TypeOfEnemy.Boss)//temp
-            {
-                //HitPauseControllerRef.PlayHitPauseCoroutine();
-            }
-            Debug.Log("has health stil");
-        }
-            
     }
 
   

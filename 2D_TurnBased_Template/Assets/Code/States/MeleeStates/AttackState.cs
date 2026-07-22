@@ -108,7 +108,6 @@ public class AttackState : State//rename this to EnemyAttackState
         if(StunState.IsStunned)
         {
             StopCoroutine(_windupCoroutine);
-            return StunState;
         }
 
         if (IsDoneCoolingDown)

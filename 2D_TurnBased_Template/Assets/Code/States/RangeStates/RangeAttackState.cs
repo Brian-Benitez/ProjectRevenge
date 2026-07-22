@@ -107,7 +107,6 @@ public class RangeAttackState : State
         if (StunStateRef.IsStunned)
         {
             StopCoroutine(_windUpArrowAttack);
-            return StunStateRef;
         }
         if (!IsStillWithinRange)
         {

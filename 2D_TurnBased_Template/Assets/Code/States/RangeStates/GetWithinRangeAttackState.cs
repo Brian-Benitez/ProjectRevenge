@@ -55,8 +55,6 @@ public class GetWithinRangeAttackState : State
     }
     public override State RunCurrentState()
     {
-        if (StunStateRef.IsStunned)
-            return StunStateRef;
         if (WithinRangeAttack && EnemyAggroDistanceRef.IsAggro)
         {
             return RangeAttackState;

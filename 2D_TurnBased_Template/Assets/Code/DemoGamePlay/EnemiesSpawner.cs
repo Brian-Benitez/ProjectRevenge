@@ -32,10 +32,9 @@ public class EnemiesSpawner : MonoBehaviour
 
     public void PickASpawnPointAndSpawn()
     {
-        if(TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.RoundsCounter == 9)//Boss fight
+        if(TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.RoundsCounter == 10)//Boss fight
         {
-            int index = AllListOfSpawnPoints.LastIndexOf(BossSpawnPoints);
-            SpawnEnemiesOnSpawnPoints(AllListOfSpawnPoints[index]);
+            SpawnEnemiesOnSpawnPoints(BossSpawnPoints);
         }
         else
         {
@@ -46,8 +45,9 @@ public class EnemiesSpawner : MonoBehaviour
     }
     public void SpawnEnemiesOnSpawnPoints(List<GameObject> listofspawnpoints)
     {
-        if (TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.RoundsCounter == 9)//Boss fight
+        if (TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.RoundsCounter == 10)//Boss fight
         {
+            Debug.Log("did i hit here");
             EnemiesAlive++;
             var enemyInstance = Instantiate(TypesOfEnemiesPerRoundControllerRef.TypesOfInGameEnemies[0], listofspawnpoints[0].transform.position, Quaternion.identity);
             TypesOfEnemiesPerRoundControllerRef.ListOfEnemies.Add(enemyInstance);
