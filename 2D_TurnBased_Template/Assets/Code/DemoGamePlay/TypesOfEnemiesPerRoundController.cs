@@ -24,50 +24,57 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
     
     public void TypeOfEnemiesForRound()
     {
-        switch (RoundControllerRef.RoundsCounter)
+        Debug.Log("FUCK SHIT");
+        switch (RoundControllerRef.EnemiesWaveCounter)
         {
-            case 0://just level one sword enemies
+            case 1://just level one sword enemies
                 FirstWaveEnemies();
                 Debug.Log("this is round 1");
                 break;
 
-            case 1://level one archers and swords
+            case 2://level one archers and swords
                 SecondWaveEnemies();
+                Debug.Log("this is round 2");
                 break;
 
-            case 2://level two archers and swords
+            case 3://level two archers and swords
                 ThirdWaveEnemies();
+                Debug.Log("this is round 3");
                 break;
 
-            case 3://level three archers and swords
+            case 4://level three archers and swords
                 FourthWaveEnemies();
+                Debug.Log("this is round 4");
                 break;
 
-            case 4://either all archers or swords lvl 3
+            case 5://either all archers or swords lvl 3
                 FifthWaveEnemies();
                 break;
 
-            case 5:
+            case 6:
                 SixthWaveEnemies();
                 break;
 
-            case 6:
+            case 7:
                 SeventhWaveEnemies();
                 break;
 
-            case 7:
+            case 8:
                 EighthWaveEnemies();
                 break;
             
-            case 8:
+            case 9:
                 Debug.Log("whats up");
                 break;
 
-            case 9://boss 
+            case 10://boss 
                 NinthWaveEnemies();
                 Debug.Log("this is round 10");
                 break;
 
+            default:
+                Debug.Log("what");
+                break;
 
         }
     }

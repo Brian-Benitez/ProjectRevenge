@@ -118,7 +118,6 @@ public class PerkCardController : MonoBehaviour
     }
     public void RandomlyPickingChoiceCards()
     {
-        Debug.Log("whats the count " + AllPerkCards.Count);
         while (PerkCardsChoices.Count < PerksController.Instance.MaxAmountOfPerks)
         {
             int index = Random.Range(0, AllPerkCards.Count);

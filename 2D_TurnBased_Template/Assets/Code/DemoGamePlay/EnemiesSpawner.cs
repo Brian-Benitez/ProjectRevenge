@@ -32,20 +32,21 @@ public class EnemiesSpawner : MonoBehaviour
 
     public void PickASpawnPointAndSpawn()
     {
-        if(TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.RoundsCounter == 10)//Boss fight
+        if(TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.EnemiesWaveCounter == 10)//Boss fight
         {
             SpawnEnemiesOnSpawnPoints(BossSpawnPoints);
+            Debug.Log("boss time");
         }
         else
         {
             int listindex = Random.Range(0, AllListOfSpawnPoints.Count);
-            Debug.Log("this spawner: " + listindex);
             SpawnEnemiesOnSpawnPoints(AllListOfSpawnPoints[listindex]);
+            Debug.Log("grunt time");
         }      
     }
     public void SpawnEnemiesOnSpawnPoints(List<GameObject> listofspawnpoints)
     {
-        if (TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.RoundsCounter == 10)//Boss fight
+        if (TypesOfEnemiesPerRoundControllerRef.RoundControllerRef.EnemiesWaveCounter == 10)//Boss fight
         {
             Debug.Log("did i hit here");
             EnemiesAlive++;

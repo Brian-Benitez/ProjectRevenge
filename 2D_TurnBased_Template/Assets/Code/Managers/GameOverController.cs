@@ -23,20 +23,20 @@ public class GameOverController : MonoBehaviour
     public void TurnOnGameOverScreen()
     {
         GameOverPrefab.SetActive(true);
-        RoundsSurvived.text = "" + RoundControllerRef.RoundsCounter;
+        RoundsSurvived.text = "" + RoundControllerRef.EnemiesWaveCounter;
     }
 
     public void RestartGame() 
     {
         PlayerInfoRef.XP = 0;
-        RoundsSurvived.text = "" + RoundControllerRef.RoundsCounter;
+        RoundsSurvived.text = "" + RoundControllerRef.EnemiesWaveCounter;
         PlayerInfoRef.PlayersCore.SetActive(true);
         TypesOfEnemiesPerRoundControllerRef.RemoveAllEnemiesFromList();
         PlayerInfoRef.IsCharacterDead = false;
         PlayerInfoRef.HealthBarUIRef.SetUIHealth(PlayerInfoRef.BaseLineHealth);
         PlayerInfoRef.SetHealth(PlayerInfoRef.BaseLineHealth);
         GameOverPrefab.SetActive(false);
-        RoundControllerRef.RoundsCounter = 0;
+        RoundControllerRef.EnemiesWaveCounter = 0;
         RoundControllerRef.TotalAmountOfRoundsWon = 0;
         SoulsBankController.instance.DemonBossSoulsBank = 0;
         SoulsBankController.instance.SoulsBank = 0;

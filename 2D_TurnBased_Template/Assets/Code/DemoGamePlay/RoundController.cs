@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class RoundController : MonoBehaviour
 {
     [Header("Round Info")]
-    public int RoundsCounter;
+    public int EnemiesWaveCounter;
     public int TotalAmountOfRoundsWon;
     public int MaxAmountOfRounds;
     public TextMeshProUGUI RoundsText;
@@ -66,15 +66,19 @@ public class RoundController : MonoBehaviour
 
     public void IncreaseRoundCounter()
     {
-        if (RoundsCounter == MaxAmountOfRounds)
+        if (EnemiesWaveCounter == MaxAmountOfRounds)
+        {
             RestartRoundCounter();
+            EnemiesWaveCounter += Mathf.Clamp(1, 0, MaxAmountOfRounds);
+        }
         else
-            RoundsCounter += Mathf.Clamp(1, 0, MaxAmountOfRounds);
+            EnemiesWaveCounter += Mathf.Clamp(1, 0, MaxAmountOfRounds);
         TotalAmountOfRoundsWon++;
         RoundsText.text = "" + TotalAmountOfRoundsWon;
+        Debug.Log("what round are we on " + EnemiesWaveCounter);
     }
     /// <summary>
     /// Only when boss is defeated
     /// </summary>
-    public void RestartRoundCounter() => RoundsCounter = 1;
+    public void RestartRoundCounter() => EnemiesWaveCounter = 0;
 }
