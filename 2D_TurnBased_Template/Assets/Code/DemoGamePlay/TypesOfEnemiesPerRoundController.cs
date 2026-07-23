@@ -64,11 +64,12 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
                 break;
             
             case 9:
+                NintheWaveEnemies();
                 Debug.Log("whats up");
                 break;
 
             case 10://boss 
-                NinthWaveEnemies();
+                TenthWaveEnemies();
                 Debug.Log("this is round 10");
                 break;
 
@@ -150,7 +151,13 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
         TypesOfInGameEnemies.Add(Wizards[0]);
         TypesOfInGameEnemies.Add(AOEEnemies[0]);
     }
-    void NinthWaveEnemies() => TypesOfInGameEnemies.Add(BossGameObject);
+
+    void NintheWaveEnemies()
+    {
+        TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
+        TypesOfInGameEnemies.Add(Wizards[0]);
+    }
+    void TenthWaveEnemies() => TypesOfInGameEnemies.Add(BossGameObject);
 
     public void RemoveAllEnemiesFromList()
     {
