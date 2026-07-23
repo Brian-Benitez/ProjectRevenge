@@ -77,7 +77,6 @@ public class DKRangeAttack : State
 
     public IEnumerator WindUpRangeAttack()
     {
-        Debug.Log("before");
         RangeAttackPos.transform.position = Player.transform.position;
         IsAttackingNow = true;
         Debug.Log("Winding up attack " + WindUpTimeForRange + " Seconds");

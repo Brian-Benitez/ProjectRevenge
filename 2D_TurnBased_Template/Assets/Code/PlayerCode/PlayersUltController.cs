@@ -72,9 +72,9 @@ public class PlayersUltController : MonoBehaviour
     public void ActivateRagePerk()
     {
         if (IsUsingPureRagePerk)
-            PureRagePerkRef.EnablePerk();
+            PureRagePerkRef.ActivatePureRagePerk();
         if (IsUsingHealingRagePerk)
-            HealingRagePerkRef.EnablePerk();
+            HealingRagePerkRef.ActivateHealPerk();
     }
 
     public void ResettingPlayerFromPerk()

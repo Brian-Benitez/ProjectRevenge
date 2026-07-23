@@ -29,7 +29,6 @@ public class GameOverController : MonoBehaviour
     public void RestartGame() 
     {
         PlayerInfoRef.XP = 0;
-        RoundControllerRef.RoundsCounter = 0;
         RoundsSurvived.text = "" + RoundControllerRef.RoundsCounter;
         PlayerInfoRef.PlayersCore.SetActive(true);
         TypesOfEnemiesPerRoundControllerRef.RemoveAllEnemiesFromList();

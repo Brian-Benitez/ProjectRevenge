@@ -67,7 +67,7 @@ public class RoundController : MonoBehaviour
     public void IncreaseRoundCounter()
     {
         if (RoundsCounter == MaxAmountOfRounds)
-            RoundsCounter = 0;
+            RestartRoundCounter();
         else
             RoundsCounter += Mathf.Clamp(1, 0, MaxAmountOfRounds);
         TotalAmountOfRoundsWon++;
@@ -76,5 +76,5 @@ public class RoundController : MonoBehaviour
     /// <summary>
     /// Only when boss is defeated
     /// </summary>
-    public void RestartRoundCounter() => RoundsCounter = 0;
+    public void RestartRoundCounter() => RoundsCounter = 1;
 }

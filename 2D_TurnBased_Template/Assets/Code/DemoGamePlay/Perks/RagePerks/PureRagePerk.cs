@@ -21,8 +21,11 @@ public class PureRagePerk : UpgradePerk
     }
     public override void EnablePerk()
     {
-        
-        //Movement upgrade
+        PlayersUltController.Instance.IsUsingPureRagePerk = true;
+    }
+
+    public void ActivatePureRagePerk()
+    {
         PlayerMovementRef.FullSpeed += BoostedMovementSpeed;
         PlayerMovementRef.DashCoolDown -= LoweredDashCoolDown;
 
@@ -32,7 +35,6 @@ public class PureRagePerk : UpgradePerk
 
         //Range upgrade
         PlayerInfoRef.RangeDamg += RangeUpgradeDam;
-        
     }
 
     public override void DisablePerk()

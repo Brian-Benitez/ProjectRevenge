@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2336050023999352589}
   - component: {fileID: 7925413548750406758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MeleeRotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7773834438598211213}
   - component: {fileID: 4613468814989697254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BossStageController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6074239206484288611}
   - component: {fileID: 6024488812762598492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VunerableState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904240453812623922}
   - component: {fileID: 3876169680282659467}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TempDarkKnight-0001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3894477977744420997}
   - component: {fileID: 499970276011381823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DKMeleeState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5351484751421859356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MeleePos
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2526852655236450961}
   - component: {fileID: 4342819746663072318}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DKRangeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 564792326751577675}
   - component: {fileID: 1103768065713936288}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KnockbackController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591776886323903675}
   - component: {fileID: 4474087975244994645}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5325995947593159450}
   - component: {fileID: 2419263769339304645}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StunController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 3849610635453228326}
   - component: {fileID: 5096189896417039861}
   - component: {fileID: 1360617825300077979}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DemoDarkKnightBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -656,13 +656,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 80
-  MaxEnemyHealth: 80
+  EnemyHealth: 2
+  MaxEnemyHealth: 2
   EnemySpeed: 2
   EnemyDamage: 2.5
   HealthPotion: {fileID: 0}
   RagePotion: {fileID: 0}
-  BossSoulsObj: {fileID: 0}
+  BossSoulsObj: {fileID: 126269282101802777, guid: f54c8a0bec1e1634b84e73ba3016080c, type: 3}
   ChanceToDropItem: 0
   EnemySoulsValue: 1000
   IsHit: 0
@@ -753,7 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4715473242639133786}
   - component: {fileID: 1109737719437729734}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VisualMeleeRaduis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

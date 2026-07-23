@@ -132,7 +132,6 @@ public class PerkCardController : MonoBehaviour
                 PerkCardsChoices.Add(AllPerkCards[index]);
             }
         }
-        Debug.Log("found 3 cards!");
     }
 
    
