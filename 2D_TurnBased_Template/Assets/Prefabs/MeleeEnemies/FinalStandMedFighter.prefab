@@ -352,7 +352,7 @@ MonoBehaviour:
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 7916153532616726675}
   AttackRange: 1.11
-  WindUpTimeForMelee: 1
+  WindUpTimeForMelee: 3
   AmountOfAttacks: 0
   MaxAmountOfAttacks: 2
   AttackCooldownTimer: 0
@@ -367,6 +367,7 @@ MonoBehaviour:
   AttackMissedPlayer: 0
   StunState: {fileID: 2229198354024632843}
   DKChaseState: {fileID: 0}
+  BossVunerableStateRef: {fileID: 0}
 --- !u!1 &4717282102042806213
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,17 +601,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 9
-  MaxEnemyHealth: 9
+  EnemyHealth: 8
+  MaxEnemyHealth: 8
   EnemySpeed: 3.5
   EnemyDamage: 1.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
+  BossSoulsObj: {fileID: 0}
   ChanceToDropItem: 25
   EnemySoulsValue: 25
   IsHit: 0
   IsDead: 0
-  HitPauseControllerRef: {fileID: 7471276463594559996}
   StunStateRef: {fileID: 2229198354024632843}
   EnemyType: 0
   EnemyDifficulty: 1
@@ -727,8 +728,6 @@ MonoBehaviour:
   IsStunned: 0
   InstanteStun: 1
   StunDuration: 4
-  BaseEnemyRef: {fileID: 9113469955481799094}
-  MovementStateRef: {fileID: 2766800968437526379}
   KnockBackFeedBackRef: {fileID: 7548019549084103618}
 --- !u!1 &6264658101153515369
 GameObject:

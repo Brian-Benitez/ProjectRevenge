@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 4
+  TimeBtwAttack: 5
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 8604800931791002064}
@@ -587,8 +587,6 @@ MonoBehaviour:
   IsStunned: 0
   InstanteStun: 1
   StunDuration: 2
-  BaseEnemyRef: {fileID: 3818436561324985095}
-  MovementStateRef: {fileID: 0}
   KnockBackFeedBackRef: {fileID: 587120249393042125}
 --- !u!1 &8818265710935858715
 GameObject:
@@ -766,17 +764,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb0df4d50b75ff4ba6918edd4e6fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 5
-  MaxEnemyHealth: 5
+  EnemyHealth: 4
+  MaxEnemyHealth: 4
   EnemySpeed: 1.5
   EnemyDamage: 1
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
+  BossSoulsObj: {fileID: 0}
   ChanceToDropItem: 15
   EnemySoulsValue: 15
   IsHit: 0
   IsDead: 0
-  HitPauseControllerRef: {fileID: 9184289616862122558}
   StunStateRef: {fileID: 6606801238363406728}
   EnemyType: 1
   EnemyDifficulty: 0

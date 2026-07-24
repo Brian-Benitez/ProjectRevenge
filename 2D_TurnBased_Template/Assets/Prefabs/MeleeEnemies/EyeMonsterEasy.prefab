@@ -384,11 +384,11 @@ MonoBehaviour:
   EnemyDamage: 0.25
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
+  BossSoulsObj: {fileID: 0}
   ChanceToDropItem: 10
   EnemySoulsValue: 5
   IsHit: 0
   IsDead: 0
-  HitPauseControllerRef: {fileID: 5462386715564437734}
   StunStateRef: {fileID: 7763967762685455712}
   EnemyType: 0
   EnemyDifficulty: 0
@@ -659,9 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsStunned: 0
   InstanteStun: 1
-  StunDuration: 4
-  BaseEnemyRef: {fileID: 8926540402292713874}
-  MovementStateRef: {fileID: 5395828272852139487}
+  StunDuration: 3
   KnockBackFeedBackRef: {fileID: 2325236257380668269}
 --- !u!1 &6247574129375452646
 GameObject:
@@ -770,6 +768,7 @@ MonoBehaviour:
   AttackMissedPlayer: 0
   StunState: {fileID: 7763967762685455712}
   DKChaseState: {fileID: 0}
+  BossVunerableStateRef: {fileID: 0}
 --- !u!1 &6825738997899284852
 GameObject:
   m_ObjectHideFlags: 0
