@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 7548019549084103618}
   - component: {fileID: 2766800968437526379}
   - component: {fileID: 2908071471798872749}
-  - component: {fileID: 3059539186523356831}
   m_Layer: 3
   m_Name: FinalStandMedFighter
   m_TagString: Enemy
@@ -455,6 +454,7 @@ Transform:
   - {fileID: 3499295826078542397}
   - {fileID: 8360541887790813786}
   - {fileID: 2705486564257355089}
+  - {fileID: 7546386793471259286}
   - {fileID: 2944765328012066471}
   - {fileID: 3967613304870831337}
   - {fileID: 1305791617712490620}
@@ -666,21 +666,6 @@ MonoBehaviour:
   DieRollResult: 0
   PercentageToBlock: 50
   DurationOfBlock: 2
---- !u!114 &3059539186523356831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5295978787876234622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyShieldHealth: 6
-  Shield: {fileID: 6264658101153515369}
-  IsShieldBroken: 0
 --- !u!1 &6243354425971591692
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +792,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2784314}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.12941177}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -981,3 +966,50 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 10
+--- !u!1 &8703460520783229758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7546386793471259286}
+  - component: {fileID: 487913554245484201}
+  m_Layer: 0
+  m_Name: ShieldController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7546386793471259286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8703460520783229758}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2682440749604508436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487913554245484201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8703460520783229758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyShieldHealth: 6
+  Shield: {fileID: 6264658101153515369}
+  IsShieldBroken: 0

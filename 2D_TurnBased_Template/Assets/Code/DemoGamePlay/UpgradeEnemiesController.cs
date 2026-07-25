@@ -12,9 +12,9 @@ public class UpgradeEnemiesController : MonoBehaviour
     {
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].GetComponent<EnemyShield>().EnemyShieldHealth = 0;
-            enemies[i].GetComponent<EnemyShield>().EnemyShieldHealth += ShieldUpgradeIncrement;
-            enemies[i].GetComponent<EnemyShield>().TryTurningOnShield();
+            enemies[i].GetComponentInChildren<EnemyShield>().EnemyShieldHealth = 0;
+            enemies[i].GetComponentInChildren<EnemyShield>().EnemyShieldHealth += ShieldUpgradeIncrement;
+            enemies[i].GetComponentInChildren<EnemyShield>().TryTurningOnShield();
         }
     }
 
@@ -22,8 +22,8 @@ public class UpgradeEnemiesController : MonoBehaviour
     {
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].GetComponent<EnemyShield>().EnemyShieldHealth = 0;
-            enemies[i].GetComponent<EnemyShield>().TurnOffShield();
+            enemies[i].GetComponentInChildren<EnemyShield>().EnemyShieldHealth = 0;
+            enemies[i].GetComponentInChildren<EnemyShield>().TurnOffShield();
         }
     }
 }

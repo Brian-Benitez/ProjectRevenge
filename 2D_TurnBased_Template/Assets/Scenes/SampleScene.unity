@@ -37019,7 +37019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889cc5ae2952c9a4cbb56c5414bbdc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 1
+  TimeBtwAttack: 0.7
   Projectile: {fileID: 7751274533733551356, guid: b2bf1bc3caccf014da8cd7f8823075f8, type: 3}
   ShotPoint: {fileID: 367848260}
   CanRangeAttackAgain: 0

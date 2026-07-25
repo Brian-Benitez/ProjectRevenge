@@ -24,7 +24,6 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
     
     public void TypeOfEnemiesForRound()
     {
-        Debug.Log("FUCK SHIT");
         switch (RoundControllerRef.EnemiesWaveCounter)
         {
             case 1://just level one sword enemies
