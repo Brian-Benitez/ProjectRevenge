@@ -19,7 +19,7 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     public RoundController RoundControllerRef;
     public EnemiesSpawner EnemiesSpawnerRef;
-    public UpgradeEnemiesController UpgradeEnemiesControllerRef;
+    public EnemiesShieldUpgradeController UpgradeEnemiesControllerRef;
 
     
     public void TypeOfEnemiesForRound()

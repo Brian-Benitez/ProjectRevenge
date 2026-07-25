@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyShield : MonoBehaviour
 {
     public float EnemyShieldHealth;
+    public GameObject EnemyParentObject;
     public GameObject Shield;
     public bool IsShieldBroken = false;
 
@@ -11,16 +12,15 @@ public class EnemyShield : MonoBehaviour
         if(!IsShieldBroken)
         {
             Shield.SetActive(true);
-            this.gameObject.tag = "EnemyShield";
-            //this.gameObject.layer = 9;//enemy shield num
+            EnemyParentObject.gameObject.tag = "EnemyShield";
         }
     }
 
     public void TurnOffShield()
     {
         Shield.SetActive(false);
-        this.gameObject.tag = "Enemy";
-        this.gameObject.layer = 3;// enemy layer num
+        EnemyParentObject.tag = "Enemy";
+        EnemyParentObject.layer = 3;// enemy layer num
     }
 
     public void ShieldTakeDamage(float dam)
@@ -36,6 +36,7 @@ public class EnemyShield : MonoBehaviour
             IsShieldBroken = true;
             Shield.SetActive(false);
             Debug.Log("shield is broken");
+            EnemyParentObject.gameObject.tag = "Enemy";
             return;
         }
         else

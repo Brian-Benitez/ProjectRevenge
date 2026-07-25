@@ -80,7 +80,13 @@ public class BaseEnemy : MonoBehaviour
                 EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
                 DropAnItem();
                 IsDead = true;
-            }  
+            }
+            
+            if(EnemyType == TypeOfEnemy.Boss)
+            {
+                Debug.Log("start buffing enemies");
+                BuffEnemiesManager.Instance.StartBossDefeatedEvent();
+            }
             Destroy(this.gameObject);
         }
     }

@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour
             else if (collision.CompareTag("EnemyShield"))
             {
                 Debug.Log("hit enemy shield");
-                collision.gameObject.GetComponent<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                collision.gameObject.GetComponentInChildren<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
             }
             else if (collision.CompareTag("Enemy"))
             {

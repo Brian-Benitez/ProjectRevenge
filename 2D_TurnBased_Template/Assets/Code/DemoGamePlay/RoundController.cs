@@ -20,14 +20,12 @@ public class RoundController : MonoBehaviour
     [Header("UI Start GameObject")]
     public GameObject UIStartGameObject;
 
-    [Header("Round Start Events")]
+    [Header("Round Start Events")]//put all this in separate class..
     public bool IsStartedEvent = false;
     public UnityEvent StartRoundEvent;
 
     public bool IsRoundEnd = false;
     public UnityEvent StartEndRoundEvent;
-
-    public UnityEvent BossDefeatedEvent;
 
     private void Update()
     {

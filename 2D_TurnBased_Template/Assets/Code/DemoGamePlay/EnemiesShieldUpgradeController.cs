@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeEnemiesController : MonoBehaviour
+public class EnemiesShieldUpgradeController : MonoBehaviour
 {
-    public float ShieldUpgradeIncrement;
-    public float Increments;
+    public float UpgradeIncrements;
+    private float ShieldUpgradeIncrement;
 
-    public void AddToShieldIncrement() => ShieldUpgradeIncrement += Increments;
+    public void AddToShieldIncrement() => ShieldUpgradeIncrement += UpgradeIncrements;
 
     public void UpgradeEnemyShields(List<GameObject> enemies)
     {

@@ -166,7 +166,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             if (enemiesToDamges[i].CompareTag("EnemyShield"))
             {
-                enemiesToDamges[i].GetComponent<EnemyShield>().ShieldTakeDamage(dam);
+                enemiesToDamges[i].GetComponentInChildren<EnemyShield>().ShieldTakeDamage(dam);
             }
             else if (enemiesToDamges[i].GetComponent<BaseEnemy>() != null)
             {

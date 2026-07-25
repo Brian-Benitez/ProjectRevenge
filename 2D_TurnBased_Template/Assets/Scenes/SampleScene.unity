@@ -5801,12 +5801,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272330923}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.35382, y: 136.06773, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 481305509}
+  m_Father: {fileID: 1327381137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &272330925
 MonoBehaviour:
@@ -5817,11 +5817,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 272330923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16a431caa42e7146912821f6443459b, type: 3}
+  m_Script: {fileID: 11500000, guid: 483643b36b2e19843827b64fa86bd8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShieldUpgradeIncrement: 0
-  Increments: 0.5
+  UpgradeIncrements: 3
 --- !u!1 &287232072
 GameObject:
   m_ObjectHideFlags: 0
@@ -9520,7 +9519,6 @@ Transform:
   - {fileID: 574168714}
   - {fileID: 1556314983}
   - {fileID: 966024954}
-  - {fileID: 272330924}
   m_Father: {fileID: 1994977307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481731380
@@ -13608,6 +13606,7 @@ Transform:
   - {fileID: 359838165}
   - {fileID: 388334980}
   - {fileID: 315112531}
+  - {fileID: 1327381137}
   m_Father: {fileID: 1994977307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700607663
@@ -35582,6 +35581,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1327381136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327381137}
+  - component: {fileID: 1327381138}
+  m_Layer: 0
+  m_Name: BuffEnemiesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1327381137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327381136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 272330924}
+  m_Father: {fileID: 697484356}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327381138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327381136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b9d23165a582b42939986faa20cacc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossDefeatedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 272330925}
+        m_TargetAssemblyTypeName: EnemiesShieldUpgradeController, Assembly-CSharp
+        m_MethodName: AddToShieldIncrement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 388334981}
+        m_TargetAssemblyTypeName: TypesOfEnemiesPerRoundController, Assembly-CSharp
+        m_MethodName: UpgradeAllEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1339301787
 GameObject:
   m_ObjectHideFlags: 0
@@ -36839,7 +36910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290ad0ad2c910e34f9e895b065f53655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemiesWaveCounter: 0
+  EnemiesWaveCounter: 9
   TotalAmountOfRoundsWon: 0
   MaxAmountOfRounds: 10
   RoundsText: {fileID: 1171648889}
@@ -36906,33 +36977,6 @@ MonoBehaviour:
       - m_Target: {fileID: 783533568}
         m_TargetAssemblyTypeName: XPController, Assembly-CSharp
         m_MethodName: CanLevelUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  BossDefeatedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 272330925}
-        m_TargetAssemblyTypeName: UpgradeEnemiesController, Assembly-CSharp
-        m_MethodName: AddToShieldIncrement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 388334981}
-        m_TargetAssemblyTypeName: TypesOfEnemiesPerRoundController, Assembly-CSharp
-        m_MethodName: UpgradeAllEnemies
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
