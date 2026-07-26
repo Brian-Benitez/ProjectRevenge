@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SoulsBankController : MonoBehaviour
 {
-    public static SoulsBankController instance;
+    public static SoulsBankController Instance;
     [Header("Souls Bank")]
     public int SoulsBank;
     public int DemonBossSoulsBank;
@@ -13,8 +13,8 @@ public class SoulsBankController : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-            instance = this;
+        if(Instance == null)
+            Instance = this;
     }
 
     private void Start()

@@ -69,10 +69,10 @@ public class BaseEnemy : MonoBehaviour
 
             else
             {
-                SoulsBankController.instance.SoulsBank += EnemySoulsValue;
+                SoulsBankController.Instance.SoulsBank += EnemySoulsValue;
                 EnemiesSpawner.Instance.EnemiesAlive--;
                 EnemiesSpawner.Instance.CheckOnTotalEnemies();
-                SoulsBankController.instance.PayoutToPlayer();
+                SoulsBankController.Instance.PayoutToPlayer();
                 XPController.Instance.AddXPToPlayer(EnemySoulsValue);
                 PlayerAmmoController.Instance.AddAmmo(1);
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC

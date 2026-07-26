@@ -31,6 +31,7 @@ public class GameOverController : MonoBehaviour
         PlayerInfoRef.XP = 0;
         RoundsSurvived.text = "" + RoundControllerRef.EnemiesWaveCounter;
         PlayerInfoRef.PlayersCore.SetActive(true);
+        BuffEnemiesManager.Instance.StartRestartEnemiesShieldEvent();
         TypesOfEnemiesPerRoundControllerRef.RemoveAllEnemiesFromList();
         PlayerInfoRef.IsCharacterDead = false;
         PlayerInfoRef.HealthBarUIRef.SetUIHealth(PlayerInfoRef.BaseLineHealth);
@@ -38,8 +39,8 @@ public class GameOverController : MonoBehaviour
         GameOverPrefab.SetActive(false);
         RoundControllerRef.EnemiesWaveCounter = 0;
         RoundControllerRef.TotalAmountOfRoundsWon = 0;
-        SoulsBankController.instance.DemonBossSoulsBank = 0;
-        SoulsBankController.instance.SoulsBank = 0;
+        SoulsBankController.Instance.DemonBossSoulsBank = 0;
+        SoulsBankController.Instance.SoulsBank = 0;
         PlayerSpawnerController.Instance.SpawnPlayer();
         RestartAllPlayersPerks();
         RestartAllPlayersStats();
