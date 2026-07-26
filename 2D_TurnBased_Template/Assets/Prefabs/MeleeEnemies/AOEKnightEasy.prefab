@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768b729d61df31349bdc0d3e0040a8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyShieldHealth: 3
+  EnemyShieldHealth: 0
   EnemyParentObject: {fileID: 2937306818464322211}
   Shield: {fileID: 7350315898153948488}
   IsShieldBroken: 0

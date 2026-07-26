@@ -181,4 +181,13 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
         UpgradeEnemiesControllerRef.UpgradeEnemyShields(ArchersGameObjects);
         UpgradeEnemiesControllerRef.UpgradeEnemyShields(Wizards);
     }
+
+    public void RestartEnemiesShield()
+    {
+        UpgradeEnemiesControllerRef.RestartEnemyShields(EyeMosnters);
+        UpgradeEnemiesControllerRef.RestartEnemyShields(SwordsmanGameObjects);
+        UpgradeEnemiesControllerRef.RestartEnemyShields(AOEEnemies);
+        UpgradeEnemiesControllerRef.RestartEnemyShields(ArchersGameObjects);
+        UpgradeEnemiesControllerRef.RestartEnemyShields(Wizards);
+    }
 }

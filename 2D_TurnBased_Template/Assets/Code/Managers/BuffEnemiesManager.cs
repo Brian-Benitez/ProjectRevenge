@@ -5,6 +5,7 @@ public class BuffEnemiesManager : MonoBehaviour
 {
     public static BuffEnemiesManager Instance;
     public UnityEvent BossDefeatedEvent;
+    public UnityEvent RestartEnemiesShieldEvent;
 
     private void Awake()
     {
@@ -12,5 +13,10 @@ public class BuffEnemiesManager : MonoBehaviour
             Instance = this;
     }
 
+    private void Start()
+    {
+        StartRestartEnemiesShieldEvent();
+    }
     public void StartBossDefeatedEvent() => BossDefeatedEvent.Invoke();
+    public void StartRestartEnemiesShieldEvent() => RestartEnemiesShieldEvent.Invoke();
 }

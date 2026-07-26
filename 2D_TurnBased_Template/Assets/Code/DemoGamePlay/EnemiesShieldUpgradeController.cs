@@ -7,6 +7,7 @@ public class EnemiesShieldUpgradeController : MonoBehaviour
     private float ShieldUpgradeIncrement;
 
     public void AddToShieldIncrement() => ShieldUpgradeIncrement += UpgradeIncrements;
+    public void RestartShieldIncrements() => ShieldUpgradeIncrement = 0;
 
     public void UpgradeEnemyShields(List<GameObject> enemies)
     {
@@ -20,6 +21,7 @@ public class EnemiesShieldUpgradeController : MonoBehaviour
 
     public void RestartEnemyShields(List<GameObject> enemies)
     {
+        RestartShieldIncrements();
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].GetComponentInChildren<EnemyShield>().EnemyShieldHealth = 0;

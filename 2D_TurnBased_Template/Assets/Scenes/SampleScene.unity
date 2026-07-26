@@ -23353,6 +23353,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RestartEnemiesShieldEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 272330925}
+        m_TargetAssemblyTypeName: EnemiesShieldUpgradeController, Assembly-CSharp
+        m_MethodName: RestartShieldIncrements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 388334981}
+        m_TargetAssemblyTypeName: TypesOfEnemiesPerRoundController, Assembly-CSharp
+        m_MethodName: RestartEnemiesShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1353354798
 GameObject:
   m_ObjectHideFlags: 0
@@ -23910,7 +23937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290ad0ad2c910e34f9e895b065f53655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemiesWaveCounter: 0
+  EnemiesWaveCounter: 9
   TotalAmountOfRoundsWon: 0
   MaxAmountOfRounds: 10
   RoundsText: {fileID: 1171648889}
