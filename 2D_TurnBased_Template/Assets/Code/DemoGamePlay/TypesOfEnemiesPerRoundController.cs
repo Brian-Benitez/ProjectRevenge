@@ -113,9 +113,8 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void SixthWaveEnemies()
     {
-        TypesOfInGameEnemies.Add(SwordsmanGameObjects[2]);
-        TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
-        Debug.Log("added both archers and swordsman as enemies Lvl 3");
+        TypesOfInGameEnemies.Add(Wizards[0]);
+        TypesOfInGameEnemies.Add(ArchersGameObjects[1]);
     }
 
     void SeventhWaveEnemies()
@@ -147,14 +146,14 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void EighthWaveEnemies()
     {
-        TypesOfInGameEnemies.Add(Wizards[0]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[2]);
         TypesOfInGameEnemies.Add(AOEEnemies[0]);
     }
 
     void NintheWaveEnemies()
     {
         TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
-        TypesOfInGameEnemies.Add(Wizards[0]);
+        TypesOfInGameEnemies.Add(AOEEnemies[0]);
     }
     void TenthWaveEnemies() => TypesOfInGameEnemies.Add(BossGameObject);
 
