@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3192199971694776009}
   - component: {fileID: 3028853367981256655}
   m_Layer: 10
-  m_Name: MaxAmmoPerkCard
+  m_Name: DoubleArrowReturnCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
