@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Max Ammo
+  m_text: Double Arrows Per Kill
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 25.2
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -193,17 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493b8282a8638cf4098b6eb0b7ed0d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PerkLvlText: {fileID: 0}
-  CostAmountText: {fileID: 0}
-  PerkEXPText: {fileID: 0}
-  PerkLvl: 0
-  IncrementMultipler: 0
-  CostAmount: 0
-  PerkEXP: 0
-  PerkImage: {fileID: 0}
   IsPerkPicked: 0
   IsPerkActive: 0
-  MaxPerkAmmoAmount: 3
+  ArrowsMultipler: 2
 --- !u!114 &3028853367981256655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,8 +444,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -530,8 +522,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29, y: -96.6}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -52.1443, y: -78.8}
+  m_SizeDelta: {x: 37.711, y: 18.597}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6170427238255284762
 CanvasRenderer:
@@ -697,7 +689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add +3 to total arrow amount.
+  m_text: Doubles the amount of arrows the player gets per kill.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -724,10 +716,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
+  m_fontSize: 18.85
   m_fontSizeBase: 15
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

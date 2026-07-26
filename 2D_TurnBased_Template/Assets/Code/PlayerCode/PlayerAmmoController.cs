@@ -6,6 +6,7 @@ public class PlayerAmmoController : MonoBehaviour
 
     public int AmmoAmount;
     public int MaxAmmoAmount;
+    public int AmountOfArrowsReturned;
     public bool HasAmmo = false;
 
     public PlayerInfo PlayerInfoRef;
@@ -23,9 +24,9 @@ public class PlayerAmmoController : MonoBehaviour
         else return false;
     }
 
-    public void AddAmmo(int amountofammo)
+    public void AddAmmo()
     {
-        AmmoAmount += Mathf.Clamp(amountofammo, 0, MaxAmmoAmount);
+        AmmoAmount += 1 * AmountOfArrowsReturned;
     }
 
     public void RemoveAmmo()

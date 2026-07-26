@@ -2594,6 +2594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmmoAmount: 5
   MaxAmmoAmount: 5
+  AmountOfArrowsReturned: 1
   HasAmmo: 0
   PlayerInfoRef: {fileID: 386186108}
 --- !u!1 &207063373
