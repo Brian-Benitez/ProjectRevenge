@@ -16,7 +16,7 @@ public class LevelUpStat : MonoBehaviour
     {
         CostAmount += CostAmount * PriceMultipler;
         StatsLvl++;
-        StatsLvlText.text = "Lvl: " + StatsLvl;
+        //StatsLvlText.text = "Lvl: " + StatsLvl;
         CostAmountText.text = " " + CostAmount;
     }
     
