@@ -48,6 +48,7 @@ public class Projectile : MonoBehaviour
             {
                 Debug.Log("hit enemy shield");
                 collision.gameObject.GetComponentInChildren<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                DestroyProjectile();
             }
             else if (collision.CompareTag("Enemy"))
             {
@@ -62,6 +63,10 @@ public class Projectile : MonoBehaviour
             {
                 Debug.Log("hit player");
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage);
+                DestroyProjectile();
+            }
+            if(collision.CompareTag("Shield"))
+            {
                 DestroyProjectile();
             }
         }

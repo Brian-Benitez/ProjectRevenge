@@ -51,6 +51,7 @@ public class PerkCardController : MonoBehaviour
     public void StartPickedACardCoroutine() => StartCoroutine(PickedACard());
     private IEnumerator PickedACard()
     {
+        TurnOffButtons(PerkCardsChoices);
         for (int i = 0; i < PerkCardsChoices.Count; i++)
         {
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)
@@ -82,6 +83,7 @@ public class PerkCardController : MonoBehaviour
     public void StartDiscardACardCorutine() => StartCoroutine(DiscardACard());
     private IEnumerator DiscardACard()
     {
+        TurnOffButtons(PerkCardsChoices);
         for (int i = 0; i < PerkCardsChoices.Count; i++)//adding choosen card
         {
             if (PerkCardsChoices[i].GetComponent<PerkCardBehaviour>().IsPickedOnChoice)

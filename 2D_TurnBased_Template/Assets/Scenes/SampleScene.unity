@@ -4696,7 +4696,7 @@ MonoBehaviour:
   RangeDamg: 1
   Souls: 0
   BossSouls: 0
-  XP: 0
+  XP: 590
   IsCharacterDead: 0
   UpgradeUISoulsText: {fileID: 813151912}
   PerksUISoulsText: {fileID: 1792489266}
@@ -4722,12 +4722,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShieldObject: {fileID: 1478672680}
-  ShieldHealth: 6
-  MaxShieldHealth: 6
+  ShieldHealth: 3
+  MaxShieldHealth: 3
   IsShieldActive: 0
   IsShieldBroken: 0
-  ShieldCoolDownTimer: 20
-  ShieldBreakDuration: 10
+  ShieldBreakDuration: 20
   ShieldKey: 113
 --- !u!1 &388334979
 GameObject:
