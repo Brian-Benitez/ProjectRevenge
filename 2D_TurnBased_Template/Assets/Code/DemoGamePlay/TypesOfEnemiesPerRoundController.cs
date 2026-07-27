@@ -91,10 +91,10 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
         Debug.Log("added level one enemies");
     }
 
-     void ThirdWaveEnemies()
-     {
-        TypesOfInGameEnemies.Add(EyeMosnters[0]);
-        TypesOfInGameEnemies.Add(ArchersGameObjects[0]);
+    void ThirdWaveEnemies()
+    {
+       TypesOfInGameEnemies.Add(EyeMosnters[0]);
+       TypesOfInGameEnemies.Add(ArchersGameObjects[0]);
     }
 
     void FourthWaveEnemies()
@@ -106,7 +106,7 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void FifthWaveEnemies()
     {
-        TypesOfInGameEnemies.Add(SwordsmanGameObjects[1]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[0]);
         TypesOfInGameEnemies.Add(ArchersGameObjects[1]);
         Debug.Log("added both archers and swordsman as enemies Lvl 2");
     }
@@ -136,11 +136,11 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
         if (isAllArchers)
         {
-            TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
+            TypesOfInGameEnemies.Add(ArchersGameObjects[1]);
         }
         else if (isAllSwordsman)
         {
-            TypesOfInGameEnemies.Add(SwordsmanGameObjects[2]);
+            TypesOfInGameEnemies.Add(SwordsmanGameObjects[1]);
         }
     }
 

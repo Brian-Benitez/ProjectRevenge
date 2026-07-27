@@ -15,7 +15,7 @@ public class ShieldController : MonoBehaviour
 
     [Header("Cooldown")]
     public bool IsShieldBroken = false;
-    public float ShieldCoolDownTimer = 0;
+    private float ShieldCoolDownTimer = 0;
     public float ShieldBreakDuration;
 
     [Header("Shield key")]

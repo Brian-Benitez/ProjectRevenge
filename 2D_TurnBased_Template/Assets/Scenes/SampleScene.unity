@@ -3771,8 +3771,8 @@ MonoBehaviour:
   StatsLvlText: {fileID: 1557804454}
   CostAmountText: {fileID: 892756228}
   IncrementingStatsAmount: 0
-  CostAmount: 800
-  MinCostAmount: 800
+  CostAmount: 1000
+  MinCostAmount: 1000
   PriceMultipler: 1
   StatsLvl: 0
   PlayerInfoRef: {fileID: 386186108}
@@ -4694,9 +4694,9 @@ MonoBehaviour:
   CharacterMaxHealth: 15
   BaseLineHealth: 15
   RangeDamg: 1
-  Souls: 10000
+  Souls: 0
   BossSouls: 0
-  XP: 480
+  XP: 0
   IsCharacterDead: 0
   UpgradeUISoulsText: {fileID: 813151912}
   PerksUISoulsText: {fileID: 1792489266}
@@ -4726,7 +4726,7 @@ MonoBehaviour:
   MaxShieldHealth: 6
   IsShieldActive: 0
   IsShieldBroken: 0
-  ShieldCoolDownTimer: 0
+  ShieldCoolDownTimer: 20
   ShieldBreakDuration: 10
   ShieldKey: 113
 --- !u!1 &388334979
@@ -6300,7 +6300,7 @@ MonoBehaviour:
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
-  UpdateMethod: 2
+  UpdateMethod: 0
   BlendUpdateMethod: 1
   LensModeOverride:
     Enabled: 0
@@ -8847,8 +8847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57160b16530ab02489bd15629cf4ed70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelUpThershold: 500
-  MinLevelUpThershold: 500
+  LevelUpThershold: 600
+  MinLevelUpThershold: 600
   ThersholdMultiplier: 0.5
   MinLevelUpMultiplier: 0.5
   PlayerStats: {fileID: 386186108}
@@ -19566,7 +19566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 800
+  m_text: 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24923,8 +24923,8 @@ MonoBehaviour:
   StatsLvlText: {fileID: 841386744}
   CostAmountText: {fileID: 1575552378}
   IncrementingStatsAmount: 0
-  CostAmount: 500
-  MinCostAmount: 500
+  CostAmount: 1000
+  MinCostAmount: 1000
   PriceMultipler: 1
   StatsLvl: 0
   PlayerMeleeAttackRef: {fileID: 1131129220}
@@ -24986,7 +24986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade Melee Damage By 10%.
+  m_text: Upgrade Melee Damage By 5%.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28846,11 +28846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8589843651656629222, guid: b2bf1bc3caccf014da8cd7f8823075f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.63
+      value: -8.97
       objectReference: {fileID: 0}
     - target: {fileID: 8589843651656629222, guid: b2bf1bc3caccf014da8cd7f8823075f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.46
+      value: 6.15
       objectReference: {fileID: 0}
     - target: {fileID: 8589843651656629222, guid: b2bf1bc3caccf014da8cd7f8823075f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31956,7 +31956,7 @@ Transform:
   m_GameObject: {fileID: 6969460405574961475}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.3, y: 4.75, z: 10}
+  m_LocalPosition: {x: 10.3, y: 5.5, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
