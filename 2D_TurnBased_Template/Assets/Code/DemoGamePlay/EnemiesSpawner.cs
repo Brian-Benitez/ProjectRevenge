@@ -8,6 +8,7 @@ public class EnemiesSpawner : MonoBehaviour
 
     [Header("Note: Only make enemies be an even amount of them")]
     public int EnemiesAlive;
+    private int _maxForOneCertainEnemy = 5;
     public bool IsAllEnemiesDead = false;
     [Header("Spawns Points")]
     public List<List<GameObject>> AllListOfSpawnPoints;
@@ -55,6 +56,7 @@ public class EnemiesSpawner : MonoBehaviour
         }
         else
         {
+            int _counter = 0;
             for (int i = 0; i < listofspawnpoints.Count; i++)
             {
                 //spawn enemies here...
@@ -66,11 +68,18 @@ public class EnemiesSpawner : MonoBehaviour
                 }
                 else if (TypesOfEnemiesPerRoundControllerRef.TypesOfInGameEnemies.Count == 2)
                 {
-                    var enemyInstance1 = Instantiate(TypesOfEnemiesPerRoundControllerRef.TypesOfInGameEnemies[0], listofspawnpoints[i].transform.position, Quaternion.identity);
-                    TypesOfEnemiesPerRoundControllerRef.ListOfEnemies.Add(enemyInstance1);
-                    var enemyInstance2 = Instantiate(TypesOfEnemiesPerRoundControllerRef.TypesOfInGameEnemies[1], listofspawnpoints[i].transform.position, Quaternion.identity);
-                    TypesOfEnemiesPerRoundControllerRef.ListOfEnemies.Add(enemyInstance2);
-                    EnemiesAlive++;
+                    if(_counter < _maxForOneCertainEnemy)
+                    {
+                        var enemyInstance1 = Instantiate(TypesOfEnemiesPerRoundControllerRef.TypesOfInGameEnemies[0], listofspawnpoints[i].transform.position, Quaternion.identity);
+                        TypesOfEnemiesPerRoundControllerRef.ListOfEnemies.Add(enemyInstance1);
+                        _counter++;
+                    }
+                    else
+                    {
+                        var enemyInstance2 = Instantiate(TypesOfEnemiesPerRoundControllerRef.TypesOfInGameEnemies[1], listofspawnpoints[i].transform.position, Quaternion.identity);
+                        TypesOfEnemiesPerRoundControllerRef.ListOfEnemies.Add(enemyInstance2);//issue here!
+                    }
+                    
                 }
             }
         }  

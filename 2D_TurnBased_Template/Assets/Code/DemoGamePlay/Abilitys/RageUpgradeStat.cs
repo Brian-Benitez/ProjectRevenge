@@ -12,6 +12,7 @@ public class RageUpgradeStat : LevelUpStat
             StatsLvl++;
             PlayersUltController.Instance.MaxUltPoints += IncrementingStatsAmount;
             PlayerInfoRef.UpdatePlayersStats();
+            UpdateStatsUI();
         }
     }
 }

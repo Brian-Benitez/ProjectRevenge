@@ -11,6 +11,7 @@ public class RangeUpgradeStat : LevelUpStat
             StatsLvl++;
             PlayerInfoRef.Souls -= (int)CostAmount;
             PlayerInfoRef.UpdatePlayersStats();
+            UpdateStatsUI();
         }
     }
 }

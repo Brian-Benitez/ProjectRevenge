@@ -26,6 +26,7 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
             if (Input.GetKeyDown(InteracteWithUpgradeKey))
             {
                 UpgradeUIGameObject.SetActive(true);
+                XPController.Instance.IsUpgrading = true;
                 IsInteracting = true;
                 CheckpointReached = true;
             }
@@ -35,6 +36,7 @@ public class InteractingWithUpgradeSystem : MonoBehaviour
                 PerksUIGameObject.SetActive(false);
                 IsInteracting = false;
                 PlayerMovementRef.TurnOffStopPlayerMovement();
+                XPController.Instance.IsUpgrading = false;
             }
         }
         //makes player not move when in menu

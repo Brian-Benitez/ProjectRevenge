@@ -3,6 +3,7 @@ using UnityEngine;
 public class XPController : MonoBehaviour
 {
     public static XPController Instance;
+    public bool IsUpgrading = false;
     public float LevelUpThershold;
     public float MinLevelUpThershold;
     public float ThersholdMultiplier;
@@ -31,6 +32,7 @@ public class XPController : MonoBehaviour
         if(PlayerStats.XP >= LevelUpThershold)
         {
             Debug.Log("player can level up");
+            IsUpgrading = true;
             PerkCardControllerRef.RandomlyPickingChoiceCards();
             PerkCardControllerRef.MoveBackroundOnScreen();
             PerkCardControllerRef.StartPlaceCardsOnScreenCoroutine();

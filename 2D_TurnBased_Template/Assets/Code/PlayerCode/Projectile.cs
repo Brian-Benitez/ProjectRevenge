@@ -67,6 +67,7 @@ public class Projectile : MonoBehaviour
             }
             if(collision.CompareTag("Shield"))
             {
+                PlayerController.Instance.Player.GetComponent<ShieldController>().ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
                 DestroyProjectile();
             }
         }

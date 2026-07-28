@@ -15,6 +15,7 @@ public class MeleeUpgradeStat : LevelUpStat
             StatsLvl++;
             PlayerInfoRef.Souls -= (int)CostAmount;
             PlayerInfoRef.UpdatePlayersStats();
+            UpdateStatsUI();
         }
     }
 }

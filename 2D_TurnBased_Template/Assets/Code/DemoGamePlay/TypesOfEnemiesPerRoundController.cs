@@ -114,7 +114,7 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
     void SixthWaveEnemies()
     {
         TypesOfInGameEnemies.Add(Wizards[0]);
-        TypesOfInGameEnemies.Add(ArchersGameObjects[1]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[0]);
     }
 
     void SeventhWaveEnemies()

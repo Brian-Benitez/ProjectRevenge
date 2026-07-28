@@ -12,6 +12,7 @@ public class ShieldUpgrade : LevelUpStat
             ShieldController.instance.UpgradeShield(IncrementingStatsAmount);
             CostAmount *= 2;
             PlayerInfoRef.UpdatePlayersStats();
+            UpdateStatsUI();
         }
     }
 }

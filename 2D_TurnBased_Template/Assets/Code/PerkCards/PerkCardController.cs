@@ -78,6 +78,7 @@ public class PerkCardController : MonoBehaviour
         }
         RestartBackroundOnScreen();
         PerkCardsChoices.Clear();
+        XPController.Instance.IsUpgrading = false;
     }
 
     public void StartDiscardACardCorutine() => StartCoroutine(DiscardACard());

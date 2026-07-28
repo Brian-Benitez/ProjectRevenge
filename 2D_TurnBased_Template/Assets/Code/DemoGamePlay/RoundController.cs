@@ -29,7 +29,7 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(StartRoundKey) && !IsRoundStarted)
+        if(Input.GetKeyDown(StartRoundKey) && !IsRoundStarted && XPController.Instance.IsUpgrading == false)
         {
             Debug.Log("start new round");
             IsRoundStarted = true;

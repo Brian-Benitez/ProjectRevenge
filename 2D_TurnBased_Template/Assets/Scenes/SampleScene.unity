@@ -1610,18 +1610,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 287232074}
-        m_TargetAssemblyTypeName: LevelUpStat, Assembly-CSharp
-        m_MethodName: UpdateStatsUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &137859480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4178,18 +4166,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1490441809}
         m_TargetAssemblyTypeName: MeleeUpgradeStat, Assembly-CSharp
         m_MethodName: UpgradeStat
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1490441809}
-        m_TargetAssemblyTypeName: LevelUpStat, Assembly-CSharp
-        m_MethodName: UpdateStatsUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7182,18 +7158,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1854783366}
-        m_TargetAssemblyTypeName: LevelUpStat, Assembly-CSharp
-        m_MethodName: UpdateStatsUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &569786629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8846,6 +8810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57160b16530ab02489bd15629cf4ed70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsUpgrading: 0
   LevelUpThershold: 600
   MinLevelUpThershold: 600
   ThersholdMultiplier: 0.5
@@ -21274,8 +21239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -125}
-  m_SizeDelta: {x: 324.28, y: 50}
+  m_AnchoredPosition: {x: 0, y: 245}
+  m_SizeDelta: {x: 382.95, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157980866
 MonoBehaviour:
@@ -21306,8 +21271,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283322111
+  m_fontColor: {r: 1, g: 0.3066038, b: 0.3066038, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21330,7 +21295,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -23101,18 +23066,6 @@ MonoBehaviour:
       - m_Target: {fileID: 960082757}
         m_TargetAssemblyTypeName: HealthUpgradeScript, Assembly-CSharp
         m_MethodName: UpgradeStat
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 960082757}
-        m_TargetAssemblyTypeName: LevelUpStat, Assembly-CSharp
-        m_MethodName: UpdateStatsUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29369,9 +29322,9 @@ Transform:
   - {fileID: 1182902470}
   - {fileID: 1636709610}
   - {fileID: 1361498919}
-  - {fileID: 2146729798}
   - {fileID: 1248499721}
   - {fileID: 1984954335}
+  - {fileID: 2146729798}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959016506
