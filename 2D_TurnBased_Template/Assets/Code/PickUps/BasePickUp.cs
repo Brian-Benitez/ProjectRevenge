@@ -39,9 +39,11 @@ public class BasePickUp : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         EKeyButtonGO.SetActive(false);
         WithinRange = false;
     }
+  
 }

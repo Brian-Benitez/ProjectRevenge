@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 2
+  TimeBtwAttack: 6.5
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 23679f3630a3a544a86e94924e8aa37e, type: 3}
   ShotPoint: {fileID: 760799864920403555}

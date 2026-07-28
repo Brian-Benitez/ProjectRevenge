@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsStunned: 0
-  InstanteStun: 0
+  InstanteStun: 1
   StunDuration: 2
   KnockBackFeedBackRef: {fileID: 8499558688546495071}
 --- !u!1 &1527374948768823290
