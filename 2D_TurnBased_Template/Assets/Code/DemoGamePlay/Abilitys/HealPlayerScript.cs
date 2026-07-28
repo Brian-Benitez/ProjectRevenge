@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthUpgradeScript : LevelUpStat
+public class HealPlayerScript : LevelUpStat
 {
     [Header("Scripts")]
     public PlayerInfo PlayerInfoRef;
