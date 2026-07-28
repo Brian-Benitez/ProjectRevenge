@@ -28,5 +28,6 @@ public class SoulsBankController : MonoBehaviour
     {
         _playerInfo.BossSouls += DemonBossSoulsIncrements;
         DemonBossSoulsBank += DemonBossSoulsIncrements;
+        _playerInfo.UpdatePlayersStats();
     }
 }
