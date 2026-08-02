@@ -113,8 +113,8 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void SixthWaveEnemies()
     {
-        TypesOfInGameEnemies.Add(Wizards[0]);
         TypesOfInGameEnemies.Add(SwordsmanGameObjects[0]);
+        TypesOfInGameEnemies.Add(Wizards[0]);
     }
 
     void SeventhWaveEnemies()
@@ -146,14 +146,14 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void EighthWaveEnemies()
     {
-        TypesOfInGameEnemies.Add(SwordsmanGameObjects[2]);
         TypesOfInGameEnemies.Add(AOEEnemies[0]);
+        TypesOfInGameEnemies.Add(SwordsmanGameObjects[1]);
     }
 
     void NintheWaveEnemies()
     {
-        TypesOfInGameEnemies.Add(ArchersGameObjects[2]);
         TypesOfInGameEnemies.Add(AOEEnemies[0]);
+        TypesOfInGameEnemies.Add(ArchersGameObjects[1]);
     }
     void TenthWaveEnemies() => TypesOfInGameEnemies.Add(BossGameObject);
 
