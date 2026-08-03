@@ -22797,8 +22797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesFightingPlayer: []
-  AmountOfDirectEnemyThreat: 0
-  MaxAmountOfDirectEnemyThreat: 2
+  MaxAmountOfDirectEnemyThreat: 4
   IsThereAnOpenSlot: 0
 --- !u!1 &1273448701
 GameObject:

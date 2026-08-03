@@ -5,7 +5,6 @@ public class EnemyTurnController : MonoBehaviour
 {
     public static EnemyTurnController Instance;
     public List<GameObject> EnemiesFightingPlayer;
-    public int AmountOfDirectEnemyThreat;
     public int MaxAmountOfDirectEnemyThreat;
     public bool IsThereAnOpenSlot = false;
 
@@ -30,12 +29,11 @@ public class EnemyTurnController : MonoBehaviour
     }
     public void TryAddingEnemyToList(GameObject enemy)
     {
-        if (AmountOfDirectEnemyThreat == MaxAmountOfDirectEnemyThreat)
+        if (EnemiesFightingPlayer.Count == MaxAmountOfDirectEnemyThreat)
             Debug.Log("cannot add more enemies");
-        else if(enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer == false && AmountOfDirectEnemyThreat < MaxAmountOfDirectEnemyThreat)
+        else if(enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer == false && EnemiesFightingPlayer.Count < MaxAmountOfDirectEnemyThreat)
         {
             EnemiesFightingPlayer.Add(enemy);
-            AddAsDirectThreat();
             enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer = true;
         }
     }
@@ -50,24 +48,9 @@ public class EnemyTurnController : MonoBehaviour
     /// </summary>
     public void CheckOnAmountOfEnemyThreats()
     {
-        if (AmountOfDirectEnemyThreat == MaxAmountOfDirectEnemyThreat)
+        if (EnemiesFightingPlayer.Count == MaxAmountOfDirectEnemyThreat)
             IsThereAnOpenSlot = false;
         else
             IsThereAnOpenSlot = true;
-    }
-
-    private void AddAsDirectThreat()
-    {
-        if (AmountOfDirectEnemyThreat >= MaxAmountOfDirectEnemyThreat)
-            AmountOfDirectEnemyThreat = MaxAmountOfDirectEnemyThreat;
-        else
-            AmountOfDirectEnemyThreat++;
-    }
-    public void RemoveAsDirectThreat()
-    {
-        if (AmountOfDirectEnemyThreat <= 0)
-            AmountOfDirectEnemyThreat = 0;
-        else
-            AmountOfDirectEnemyThreat--;
     }
 }

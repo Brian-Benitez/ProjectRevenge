@@ -77,7 +77,6 @@ public class BaseEnemy : MonoBehaviour
                 PlayerAmmoController.Instance.AddAmmo();
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().UpdatePlayersStats();//i dont like how im doing this give ref to SBC
                 EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
-                EnemyTurnController.Instance.RemoveAsDirectThreat();
                 DropAnItem();
                 IsDead = true;
             }
