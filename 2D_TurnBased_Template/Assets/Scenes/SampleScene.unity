@@ -22796,9 +22796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8f789c08ebe954693fbbdf43d6cc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemiesAggroed: []
+  EnemiesFightingPlayer: []
   AmountOfDirectEnemyThreat: 0
-  MaxAmountOfDirectEnemyThreat: 4
+  MaxAmountOfDirectEnemyThreat: 3
   IsThereAnOpenSlot: 0
 --- !u!1 &1273448701
 GameObject:
@@ -24207,7 +24207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290ad0ad2c910e34f9e895b065f53655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemiesWaveCounter: 7
+  EnemiesWaveCounter: 0
   TotalAmountOfRoundsWon: 0
   MaxAmountOfRounds: 10
   RoundsText: {fileID: 1171648889}

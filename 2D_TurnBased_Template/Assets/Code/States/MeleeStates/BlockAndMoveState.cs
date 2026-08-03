@@ -15,7 +15,7 @@ public class BlockAndMoveState : State
     {
         _maxDurationOfBlock = DurationOfBlock;
         ChaseStateRef = GetComponent<MovementState>();
-        _enemyShield = GetComponent<EnemyShield>();
+        _enemyShield = GetComponentInChildren<EnemyShield>();
     }
     private void Update()
     {

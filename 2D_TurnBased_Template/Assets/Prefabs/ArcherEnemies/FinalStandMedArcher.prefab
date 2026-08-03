@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
+  IsFightingPlayer: 0
   AggroDistance: 10
 --- !u!58 &5664749913713384146
 CircleCollider2D:

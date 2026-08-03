@@ -4,11 +4,10 @@ using UnityEngine;
 public class EnemyTurnController : MonoBehaviour
 {
     public static EnemyTurnController Instance;
-    public List<GameObject> EnemiesAggroed;
+    public List<GameObject> EnemiesFightingPlayer;
     public int AmountOfDirectEnemyThreat;
     public int MaxAmountOfDirectEnemyThreat;
     public bool IsThereAnOpenSlot = false;
-    private bool HaveBeenAdded = false;
 
     private void Awake()
     {
@@ -24,33 +23,31 @@ public class EnemyTurnController : MonoBehaviour
 
     public bool IsEnemyInList(GameObject enemy)
     {
-        HaveBeenAdded = false;
-        foreach (GameObject item in EnemiesAggroed)
-        {
-            if (item.name == enemy.name)
-            {
-                Debug.Log("enemy is already in list");
-                HaveBeenAdded = true;
-            }
-        }
-
-        if (HaveBeenAdded)
+        if(enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer)
             return true;
         else
             return false;
     }
-    public void AddEnemyToList(GameObject enemy)//needs work
+    public void TryAddingEnemyToList(GameObject enemy)
     {
         if (AmountOfDirectEnemyThreat == MaxAmountOfDirectEnemyThreat)
             Debug.Log("cannot add more enemies");
-        else if(HaveBeenAdded  == false && AmountOfDirectEnemyThreat < MaxAmountOfDirectEnemyThreat)
+        else if(enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer == false && AmountOfDirectEnemyThreat < MaxAmountOfDirectEnemyThreat)
         {
-            EnemiesAggroed.Add(enemy);
+            EnemiesFightingPlayer.Add(enemy);
             AddAsDirectThreat();
+            enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer = true;
         }
     }
 
-    public void RemoveEnemyFromList(GameObject enemy) => EnemiesAggroed.Remove(enemy);
+    public void RemoveEnemyFromList(GameObject enemy)
+    {
+        if(EnemiesFightingPlayer.Count > 1)
+        {
+            EnemiesFightingPlayer.Remove(enemy);
+            enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer = false;
+        }
+    }
     /// <summary>
     /// Checks to see if there any slots left to fight the player.
     /// </summary>
@@ -62,7 +59,7 @@ public class EnemyTurnController : MonoBehaviour
             IsThereAnOpenSlot = true;
     }
 
-    public void AddAsDirectThreat()
+    private void AddAsDirectThreat()
     {
         if (AmountOfDirectEnemyThreat > MaxAmountOfDirectEnemyThreat)
             AmountOfDirectEnemyThreat = MaxAmountOfDirectEnemyThreat;
@@ -71,7 +68,7 @@ public class EnemyTurnController : MonoBehaviour
     }
     public void RemoveAsDirectThreat()
     {
-        if (AmountOfDirectEnemyThreat < 0)
+        if (AmountOfDirectEnemyThreat <= 0)
             AmountOfDirectEnemyThreat = 0;
         else
             AmountOfDirectEnemyThreat--;

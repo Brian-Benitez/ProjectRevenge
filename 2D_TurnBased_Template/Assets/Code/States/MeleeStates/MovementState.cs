@@ -4,16 +4,12 @@ public class MovementState : State
 {
     [Header("States")]
     AttackState AttackState;
-    StunState StunState;
-    BaseEnemy BaseEnemyRef;
-
 
     [Header("Floats")]
     public float FightingRange;
     public float StandByRange;
     public float StoppingDistance;
     public float DistanceFromPlayer;
-    public bool IsAThreat = false;
 
     [Header("Scripts")]
     public EnemySwordsman EnemySwordsmanRef;
@@ -24,8 +20,6 @@ public class MovementState : State
     private void Start()
     {
         AttackState = GetComponentInChildren<AttackState>();
-        StunState = GetComponent<StunState>();
-        BaseEnemyRef = GetComponent<BaseEnemy>();
         _enemyWeaponRotationRef = GetComponentInChildren<EnemyWeaponRotation>();
     }
 
@@ -36,25 +30,25 @@ public class MovementState : State
 
         if (EnemyAggroDistanceRef.IsAggro)
         {
-            ChangeStoppingDistannce();
-            MoveBasedOnPriority();
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
             {
-                IsAThreat = true;
+                EnemyAggroDistanceRef.IsFightingPlayer = true;
             }
+            ChangeStoppingDistance();
+            MoveBasedOnPriority();
         }
         else if (!EnemyAggroDistanceRef.IsAggro)
             return;
        
     }
     //changing distance code
-    void ChangeStoppingDistannce()
+    void ChangeStoppingDistance()
     {
-        if(EnemyTurnController.Instance.IsThereAnOpenSlot && EnemyAggroDistanceRef.IsAggro && IsAThreat)
+        if(EnemyAggroDistanceRef.IsAggro && EnemyAggroDistanceRef.IsFightingPlayer)
         {
             StoppingDistance = FightingRange;
         }
-        else if(EnemyTurnController.Instance.IsThereAnOpenSlot == false && EnemyAggroDistanceRef.IsAggro && !IsAThreat)
+        else if(EnemyAggroDistanceRef.IsAggro && !EnemyAggroDistanceRef.IsFightingPlayer)
         {
             StoppingDistance = StandByRange;
         }
@@ -64,9 +58,9 @@ public class MovementState : State
     /// </summary>
     void MoveBasedOnPriority()
     {
-        if (EnemyTurnController.Instance.IsThereAnOpenSlot == true || IsAThreat)
+        if (EnemyAggroDistanceRef.IsFightingPlayer || Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange || IsAThreat)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange)
             {
                 AttackState.WithinRange = false;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
@@ -74,20 +68,18 @@ public class MovementState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
             {
                 AttackState.WithinRange = true;
-                //if(EnemyTurnController.Instance.IsEnemyInList(this.gameObject) == false)
-                    //EnemyTurnController.Instance.AddEnemyToList(this.gameObject);
-
-                IsAThreat = true;
+                EnemyAggroDistanceRef.IsFightingPlayer = true;//this is for when a aggro enemy is far away from player and one enemy is closer to fight player
             }
         }  
-        else
+        else if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange && EnemyTurnController.Instance.IsEnemyInList(this.gameObject) == false)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange)
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemySwordsmanRef.EnemySpeed / 2 * Time.deltaTime);
+                //get away from player unless your right next to them or circumstances changes
             }
         }
-
+            
         DistanceFromPlayer = Vector2.Distance(transform.position, PlayerController.Instance.Player.position);
     }
 

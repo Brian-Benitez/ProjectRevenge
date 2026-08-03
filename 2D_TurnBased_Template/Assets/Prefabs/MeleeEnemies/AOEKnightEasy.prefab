@@ -713,7 +713,6 @@ MonoBehaviour:
   StandByRange: 5
   StoppingDistance: 2
   DistanceFromPlayer: 0
-  IsAThreat: 0
   EnemySwordsmanRef: {fileID: 296391119952591348}
   EnemyAggroDistanceRef: {fileID: 400065299320593312}
   StunStateRef: {fileID: 7356329978495689720}
@@ -857,6 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAggro: 0
+  IsFightingPlayer: 0
   AggroDistance: 10
 --- !u!58 &574310940277401272
 CircleCollider2D:
