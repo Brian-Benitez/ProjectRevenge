@@ -42,11 +42,8 @@ public class EnemyTurnController : MonoBehaviour
 
     public void RemoveEnemyFromList(GameObject enemy)
     {
-        if(EnemiesFightingPlayer.Count > 1)
-        {
-            EnemiesFightingPlayer.Remove(enemy);
-            enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer = false;
-        }
+        EnemiesFightingPlayer.Remove(enemy);
+        enemy.GetComponentInChildren<EnemyAggroDistance>().IsFightingPlayer = false;
     }
     /// <summary>
     /// Checks to see if there any slots left to fight the player.
@@ -61,7 +58,7 @@ public class EnemyTurnController : MonoBehaviour
 
     private void AddAsDirectThreat()
     {
-        if (AmountOfDirectEnemyThreat > MaxAmountOfDirectEnemyThreat)
+        if (AmountOfDirectEnemyThreat >= MaxAmountOfDirectEnemyThreat)
             AmountOfDirectEnemyThreat = MaxAmountOfDirectEnemyThreat;
         else
             AmountOfDirectEnemyThreat++;
