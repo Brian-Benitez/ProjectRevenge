@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAggro: 0
   IsFightingPlayer: 0
-  AggroDistance: 8
+  AggroDistance: 11
 --- !u!58 &6934774474806495444
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.020103455, y: 0}
-  m_Radius: 8
+  m_Radius: 11
 --- !u!1 &1672085041060637333
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,9 +542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b73f734f239ce4c9fb99bdc27d37fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FightingRange: 2
-  StandByRange: 6
-  StoppingDistance: 2
+  AttackRange: 2
+  AggroRange: 6
+  StandByRange: 10
   DistanceFromPlayer: 0
   EnemySwordsmanRef: {fileID: 8926540402292713874}
   EnemyAggroDistanceRef: {fileID: 9180083313519427589}

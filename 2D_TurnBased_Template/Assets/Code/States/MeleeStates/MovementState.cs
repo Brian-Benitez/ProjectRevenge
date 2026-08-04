@@ -6,9 +6,9 @@ public class MovementState : State
     AttackState AttackState;
 
     [Header("Floats")]
-    public float FightingRange;
+    public float AttackRange;
+    public float AggroRange;
     public float StandByRange;
-    public float StoppingDistance;
     public float DistanceFromPlayer;
 
     [Header("Scripts")]
@@ -30,49 +30,41 @@ public class MovementState : State
 
         if (EnemyAggroDistanceRef.IsAggro)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
-            {
-                EnemyAggroDistanceRef.IsFightingPlayer = true;
-            }
-            ChangeStoppingDistance();
             MoveBasedOnPriority();
         }
-        else if (!EnemyAggroDistanceRef.IsAggro)
+        else if (!EnemyAggroDistanceRef.IsAggro)//do something when out of aggro
             return;
        
     }
-    //changing distance code
-    void ChangeStoppingDistance()
-    {
-        if(EnemyAggroDistanceRef.IsAggro && EnemyAggroDistanceRef.IsFightingPlayer)
-        {
-            StoppingDistance = FightingRange;
-        }
-        else if(EnemyAggroDistanceRef.IsAggro && !EnemyAggroDistanceRef.IsFightingPlayer)
-        {
-            StoppingDistance = StandByRange;
-        }
-    }
+   
     /// <summary>
     /// movement code
     /// </summary>
     void MoveBasedOnPriority()
     {
-        if (EnemyAggroDistanceRef.IsFightingPlayer || Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
+        if (EnemyAggroDistanceRef.IsFightingPlayer)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AggroRange)
             {
                 AttackState.WithinRange = false;
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
             }
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= FightingRange)
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= AggroRange)
+            {
+                EnemyAggroDistanceRef.IsFightingPlayer = true;//this is for when a aggro enemy is far away from player and one enemy is closer to fight player
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemySwordsmanRef.EnemySpeed * Time.deltaTime);
+            }
+            if(Vector2.Distance(transform.position,PlayerController.Instance.Player.position) <= AttackRange)
             {
                 AttackState.WithinRange = true;
-                EnemyAggroDistanceRef.IsFightingPlayer = true;//this is for when a aggro enemy is far away from player and one enemy is closer to fight player
             }
         }  
-        else if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > FightingRange)
+        else if(EnemyAggroDistanceRef.IsFightingPlayer == false)
         {
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= AttackRange || Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= AggroRange)
+            {
+                EnemyTurnController.Instance.TryAddingEnemyToList(this.gameObject);
+            }
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange)
             {
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemySwordsmanRef.EnemySpeed / 2 * Time.deltaTime);
@@ -94,7 +86,8 @@ public class MovementState : State
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, FightingRange);
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
+        Gizmos.DrawWireSphere(transform.position, AggroRange);
         Gizmos.DrawWireSphere(transform.position, StandByRange);
     }
 
