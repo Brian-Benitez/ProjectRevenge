@@ -190,9 +190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedOfProjectile: 4
-  LifeTimeOfProjectile: 1
-  DistanceOfProjectile: 1
-  MaxDistance: 1
+  LifeTimeOfProjectile: 1.5
+  DistanceOfProjectile: 1.5
+  MaxDistance: 1.5
   EnemyArcherGO: {fileID: 8818265710935858715, guid: 2f0fa27f4742b3d40b712e4529c4450b, type: 3}
   CharacterTypes: 1
   TypeOfProjectiles: 0

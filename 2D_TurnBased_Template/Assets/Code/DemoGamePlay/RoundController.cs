@@ -12,13 +12,11 @@ public class RoundController : MonoBehaviour
 
     [Header("Starting round info")]
     public bool IsRoundStarted = false;
-    public KeyCode StartRoundKey;
 
     [Header("Upgrade GameObject")]
     public GameObject UpgradePrefab;
-
-    [Header("UI Start GameObject")]
-    public GameObject UIStartGameObject;
+    [Header("StartButton GameObject")]
+    public GameObject StartButtonPrefab;
 
     [Header("Round Start Events")]//put all this in separate class..
     public bool IsStartedEvent = false;
@@ -29,21 +27,13 @@ public class RoundController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(StartRoundKey) && !IsRoundStarted && XPController.Instance.IsUpgrading == false)
-        {
-            Debug.Log("start new round");
-            IsRoundStarted = true;
-            IsRoundEnd = false;
-            UIStartGameObject.SetActive(false);
-            IsStartedEvent = false;
-            EnemiesSpawner.Instance.IsAllEnemiesDead = false;
-        }
         if (IsRoundStarted)
         {
             if (!IsStartedEvent)
             {
                 EnemiesSpawner.Instance.IsAllEnemiesDead = false;
                 UpgradePrefab.SetActive(false);
+                StartButtonPrefab.SetActive(false);
                 IsStartedEvent = true;
                 StartRoundEvent.Invoke();
             }
@@ -54,7 +44,7 @@ public class RoundController : MonoBehaviour
             {
                 IsRoundStarted = false;
                 UpgradePrefab.SetActive(true);
-                UIStartGameObject.SetActive(true);
+                StartButtonPrefab.SetActive(true);
                 IsRoundEnd = true;
                 StartEndRoundEvent.Invoke();
 
