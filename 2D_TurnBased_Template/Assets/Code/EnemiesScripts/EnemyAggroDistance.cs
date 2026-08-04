@@ -21,6 +21,7 @@ public class EnemyAggroDistance : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
+            Debug.Log("remove from list");
         }
     }
     private void OnDrawGizmosSelected()

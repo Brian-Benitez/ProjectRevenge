@@ -1064,7 +1064,7 @@ MonoBehaviour:
   WithinRangeAttack: 0
   AttackRange: 10
   MeleeRange: 5
-  MinimunDistanceForRangeAttack: 10
+  StandByRange: 0
   EnemyAggroDistanceRef: {fileID: 165824201500558910}
   EnemyArcherRef: {fileID: 4039939391909849326}
   StunStateRef: {fileID: 6087625276246446974}

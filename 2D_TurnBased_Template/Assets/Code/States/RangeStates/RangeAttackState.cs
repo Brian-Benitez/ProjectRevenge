@@ -113,10 +113,6 @@ public class RangeAttackState : State
             GetWithinRangeAttackState.TurnOffWithinRangeBool();
             return GetWithinRangeAttackState;
         }
-        if (!IsAttacking)
-        {
-            GetWithinRangeAttackState.TurnOffWithinRangeBool();
-        }
         else
         {
             IsAttacking = true;

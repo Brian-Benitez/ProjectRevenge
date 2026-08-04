@@ -256,7 +256,7 @@ MonoBehaviour:
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 8604800931791002064}
-  RangeDistance: 10
+  RangeDistance: 5
   CanRangeAttackAgain: 0
   IsAttacking: 0
   IsStillWithinRange: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAggro: 0
   IsFightingPlayer: 0
-  AggroDistance: 10
+  AggroDistance: 11
 --- !u!58 &6363027080359075984
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 10
+  m_Radius: 11
 --- !u!1 &7046025295448669589
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
   EnemyHealth: 4
   MaxEnemyHealth: 4
   EnemySpeed: 1.5
-  EnemyDamage: 1
+  EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   BossSoulsObj: {fileID: 0}
@@ -929,9 +929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
-  AttackRange: 10
-  MeleeRange: 5
-  MinimunDistanceForRangeAttack: 10
+  AttackRange: 5
+  MeleeRange: 2
+  StandByRange: 7
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   EnemyArcherRef: {fileID: 3818436561324985095}
   StunStateRef: {fileID: 6606801238363406728}

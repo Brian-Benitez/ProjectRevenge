@@ -7,8 +7,7 @@ public class GetWithinRangeAttackState : State
     public bool WithinRangeAttack = false;
     public float AttackRange;
     public float MeleeRange;
-    [Header("Minimun distance to attack")]
-    public float MinimunDistanceForRangeAttack;
+    public float StandByRange;
  
     //States below
     RangeAttackState RangeAttackState;
@@ -25,37 +24,53 @@ public class GetWithinRangeAttackState : State
 
     private void Update()
     {
-        if (StunStateRef.IsStunned)
-            return;
         if(EnemyAggroDistanceRef.IsAggro)
         {
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MinimunDistanceForRangeAttack)
+            ArcherMovement();
+        }
+    }
+
+    void ArcherMovement()
+    {
+        if (StunStateRef.IsStunned)
+            return;
+
+        if (EnemyAggroDistanceRef.IsFightingPlayer)
+        {
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= AttackRange)
             {
-                if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) < AttackRange)
-                {
-                    TurnOnWithinRangeBool();
-                }
+                TurnOnWithinRangeBool();
+            }
+
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) >= AttackRange)//moving towards
+            {
+                TurnOffWithinRangeBool();
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemyArcherRef.EnemySpeed * Time.deltaTime);
             }
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MeleeRange)//moving back
             {
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
-            }
-
-            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) > AttackRange)//moving towards
-            {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemyArcherRef.EnemySpeed * Time.deltaTime);
+                Debug.Log("or  me");
             }
         }
-        else if(!EnemyAggroDistanceRef.IsAggro)
+        else if (EnemyAggroDistanceRef.IsFightingPlayer == false)
         {
-            return;
+            if(Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= AttackRange)
+            {
+                EnemyTurnController.Instance.TryAddingEnemyToList(this.gameObject);
+            }
+            if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange)//staying away but near because we arent fighting yet
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
+                Debug.Log("is it me");
+                EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
+            }
         }
-        
     }
     public override State RunCurrentState()
     {
-        if (WithinRangeAttack && EnemyAggroDistanceRef.IsAggro)
+        if (WithinRangeAttack)
         {
             return RangeAttackState;
         }
@@ -68,8 +83,9 @@ public class GetWithinRangeAttackState : State
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.gameObject.transform.position, AttackRange);
         Gizmos.DrawWireSphere(this.gameObject.transform.position, MeleeRange);
+        Gizmos.DrawWireSphere(this.gameObject.transform.position,StandByRange);
     }
 }
