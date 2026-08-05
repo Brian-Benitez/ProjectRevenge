@@ -93,7 +93,7 @@ public class TypesOfEnemiesPerRoundController : MonoBehaviour
 
     void ThirdWaveEnemies()
     {
-       //TypesOfInGameEnemies.Add(EyeMosnters[0]);
+       TypesOfInGameEnemies.Add(EyeMosnters[0]);
        TypesOfInGameEnemies.Add(ArchersGameObjects[0]);
     }
 

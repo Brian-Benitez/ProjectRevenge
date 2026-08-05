@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class StartingGameController : MonoBehaviour
 {
+    private bool CanInteract = false;
     public KeyCode StartRoundKey;
     [Header("UI Start GameObject")]
     public GameObject EKeyGameObject;
@@ -10,7 +11,7 @@ public class StartingGameController : MonoBehaviour
     public RoundController RoundControllerRef;
     void Update()
     {
-        if (Input.GetKeyDown(StartRoundKey) && !RoundControllerRef.IsRoundStarted && XPController.Instance.IsUpgrading == false)
+        if (Input.GetKeyDown(StartRoundKey) && !RoundControllerRef.IsRoundStarted && XPController.Instance.IsUpgrading == false && CanInteract)
         {
             Debug.Log("start new round");
             RoundControllerRef.IsRoundStarted = true;
@@ -25,6 +26,7 @@ public class StartingGameController : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            CanInteract = true;
             EKeyGameObject.SetActive(true);
             UIStartGameObject.SetActive(true);
         }
@@ -34,6 +36,7 @@ public class StartingGameController : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            CanInteract = false;
             EKeyGameObject.SetActive(false);
             UIStartGameObject.SetActive(false);
         }

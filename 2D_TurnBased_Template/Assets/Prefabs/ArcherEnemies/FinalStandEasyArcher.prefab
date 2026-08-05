@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 5
+  TimeBtwAttack: 3
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   ShotPoint: {fileID: 8604800931791002064}
@@ -931,7 +931,7 @@ MonoBehaviour:
   WithinRangeAttack: 0
   AttackRange: 6
   MeleeRange: 1.5
-  StandByRange: 7.5
+  StandByRange: 8
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   EnemyArcherRef: {fileID: 3818436561324985095}
   StunStateRef: {fileID: 6606801238363406728}

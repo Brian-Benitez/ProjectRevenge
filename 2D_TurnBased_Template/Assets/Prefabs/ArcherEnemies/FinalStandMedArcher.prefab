@@ -715,8 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb0df4d50b75ff4ba6918edd4e6fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 6
-  MaxEnemyHealth: 6
+  EnemyHealth: 5
+  MaxEnemyHealth: 5
   EnemySpeed: 2.5
   EnemyDamage: 0.5
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
@@ -742,9 +742,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WithinRangeAttack: 0
-  AttackRange: 15
+  AttackRange: 8
   MeleeRange: 3
-  StandByRange: 0
+  StandByRange: 10
   EnemyAggroDistanceRef: {fileID: 5211125791650558122}
   EnemyArcherRef: {fileID: 4523472527908755746}
   StunStateRef: {fileID: 5503685659640680627}
@@ -882,11 +882,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 6
+  TimeBtwAttack: 5
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 104d95bdc178d7d47810f0d7c6790d50, type: 3}
   ShotPoint: {fileID: 1914830513478111286}
-  RangeDistance: 10
+  RangeDistance: 8
   CanRangeAttackAgain: 0
   IsAttacking: 0
   IsStillWithinRange: 0

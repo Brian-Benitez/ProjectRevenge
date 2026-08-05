@@ -51,7 +51,6 @@ public class GetWithinRangeAttackState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MeleeRange)//moving back
             {
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
-                Debug.Log("or  me");
             }
         }
         else if (EnemyAggroDistanceRef.IsFightingPlayer == false)
@@ -63,7 +62,6 @@ public class GetWithinRangeAttackState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange)//staying away but near because we arent fighting yet
             {
                 transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
-                Debug.Log("is it me");
                 EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
             }
         }
