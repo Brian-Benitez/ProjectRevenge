@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ShieldController : MonoBehaviour
@@ -6,6 +7,10 @@ public class ShieldController : MonoBehaviour
 
     [Header("Shield Object")]
     public GameObject ShieldObject;
+    public GameObject ParryShieldObject;
+    public bool IsParrying = false;
+    public float ParryDuration;
+    public int InputAmountForParry;
 
     [Header("Shield Info")]
     public float ShieldHealth;
@@ -21,7 +26,6 @@ public class ShieldController : MonoBehaviour
     [Header("Shield key")]
     public KeyCode ShieldKey;
 
-    //public PlayerStunnedState PlayerStunnedStateRef;
     private PlayerMovement _playerMovement;
 
 
@@ -42,7 +46,18 @@ public class ShieldController : MonoBehaviour
         if(_playerMovement.IsDashing) //PlayerStunnedStateRef.IsPlayerStuuned)
             return;
 
-        if(Input.GetKey(ShieldKey) && !IsShieldBroken)
+        if (Input.GetKeyDown(ShieldKey))
+            InputAmountForParry++;
+
+        if (InputAmountForParry >= 2)
+        {
+            _playerMovement.SlowPlayer();
+            ShieldObject.SetActive(false);
+            StartCorutineActivateParry();
+            InputAmountForParry = 0;
+        }
+     
+        if (Input.GetKey(ShieldKey) && !IsShieldBroken && !IsParrying)
         {
             _playerMovement.SlowPlayer();
             ShieldObject.SetActive(true);
@@ -54,7 +69,7 @@ public class ShieldController : MonoBehaviour
             _playerMovement.UnSlowPlayer();
             ShieldObject.SetActive(false);
             TurnOffIsShieldActive();
-            ChangeBackPlayerLayerName();
+            //ChangeBackPlayerLayerName();
         }
 
         if(ShieldHealth <= 0)
@@ -77,6 +92,19 @@ public class ShieldController : MonoBehaviour
         MaxShieldHealth += increment;
         ShieldHealth = MaxShieldHealth;
     }
+
+    public void StartCorutineActivateParry() => StartCoroutine(ActivateParry());
+    IEnumerator ActivateParry()
+    {
+        IsParrying = true;
+        ParryShieldObject.SetActive(true);
+        ChangePlayerLayerToParry();
+        yield return new WaitForSecondsRealtime(ParryDuration);
+        ParryShieldObject.SetActive(false);
+        ChangeBackPlayerLayerName();
+        IsParrying = false;
+    }
+    void ChangePlayerLayerToParry() => PlayerController.Instance.Player.gameObject.tag = "Parry";
     void ChangePlayerLayerName() => PlayerController.Instance.Player.gameObject.tag = "Shield";
     void ChangeBackPlayerLayerName() => PlayerController.Instance.Player.gameObject.tag = "Player";
     void TurnOnShieldObject() => IsShieldActive = true;

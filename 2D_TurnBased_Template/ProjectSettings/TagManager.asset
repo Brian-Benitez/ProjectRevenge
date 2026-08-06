@@ -9,6 +9,7 @@ TagManager:
   - Shield
   - Enemy
   - EnemyShield
+  - Parry
   layers:
   - Default
   - TransparentFX
