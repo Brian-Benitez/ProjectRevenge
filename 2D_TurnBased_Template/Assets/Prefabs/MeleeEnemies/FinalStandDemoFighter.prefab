@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsStunned: 0
   InstanteStun: 1
-  StunDuration: 4
+  StunDuration: 2
   KnockBackFeedBackRef: {fileID: 8478864681154725586}
 --- !u!1 &2535473672352954059
 GameObject:
@@ -491,7 +491,7 @@ MonoBehaviour:
   AmountOfAttacks: 0
   MaxAmountOfAttacks: 2
   AttackCooldownTimer: 0
-  MaxTimerOfCooldown: 5
+  MaxTimerOfCooldown: 3.5
   IsWaiting: 0
   WithinRange: 0
   IsDoneCoolingDown: 1
@@ -865,14 +865,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a93dd8c5db448444806c88c17677e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 4
-  MaxEnemyHealth: 4
+  EnemyHealth: 5
+  MaxEnemyHealth: 5
   EnemySpeed: 2
-  EnemyDamage: 0.5
+  EnemyDamage: 1
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   BossSoulsObj: {fileID: 0}
-  ChanceToDropItem: 25
+  ChanceToDropItem: 5
   EnemySoulsValue: 25
   IsHit: 0
   IsDead: 0

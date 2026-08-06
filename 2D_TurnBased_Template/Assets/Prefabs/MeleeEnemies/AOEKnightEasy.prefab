@@ -690,7 +690,7 @@ MonoBehaviour:
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   BossSoulsObj: {fileID: 0}
-  ChanceToDropItem: 25
+  ChanceToDropItem: 5
   EnemySoulsValue: 35
   IsHit: 0
   IsDead: 0
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsStunned: 0
   InstanteStun: 1
-  StunDuration: 5
+  StunDuration: 1.5
   KnockBackFeedBackRef: {fileID: 7943089934288557852}
 --- !u!1 &8970239941531338032
 GameObject:
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   IsPlayingAttackAni: 0
   MeleePos: {fileID: 7344149554982938583}
   AttackRange: 3
-  WindUpTimeForMelee: 1
+  WindUpTimeForMelee: 1.5
   AmountOfAttacks: 0
   MaxAmountOfAttacks: 1
   AttackCooldownTimer: 0

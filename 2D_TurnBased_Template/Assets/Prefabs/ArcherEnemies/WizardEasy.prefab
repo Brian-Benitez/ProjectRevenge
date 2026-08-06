@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a99ee810baec41913d668d1d614fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBtwAttack: 6.5
+  TimeBtwAttack: 4.5
   WindUpTime: 0.5
   Projectile: {fileID: 6214239991093025471, guid: 23679f3630a3a544a86e94924e8aa37e, type: 3}
   ShotPoint: {fileID: 760799864920403555}
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsStunned: 0
   InstanteStun: 1
-  StunDuration: 2
+  StunDuration: 1.5
   KnockBackFeedBackRef: {fileID: 8742655966220693033}
 --- !u!1 &7932859832737337973
 GameObject:
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   HealthPotion: {fileID: 8241212872979105498, guid: 71ffacc5d176d324eac596cf228156cd, type: 3}
   RagePotion: {fileID: 600810356273653899, guid: ab5027affe3cbc84b97865519c0f8019, type: 3}
   BossSoulsObj: {fileID: 0}
-  ChanceToDropItem: 15
+  ChanceToDropItem: 5
   EnemySoulsValue: 15
   IsHit: 0
   IsDead: 0
