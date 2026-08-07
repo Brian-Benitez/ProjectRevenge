@@ -22,8 +22,6 @@ public class PlayerRangeWeapon : MonoBehaviour
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
         ProjectileRef = Projectile.GetComponent<Projectile>();
-        ProjectileRef.DistanceOfProjectile = ProjectileRef.MaxDistance;
-        ProjectileRef.LifeTimeOfProjectile = ProjectileRef.MaxDistance;
         PlayerMovementRef = GetComponentInParent<PlayerMovement>();
     }
 

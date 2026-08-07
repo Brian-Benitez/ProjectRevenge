@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Rigidbody2D Rb;
     [Header("Projectiles info")]
-    public Rigidbody2D RB;
-    public float SpeedOfProjectile;
+    public float SpeedOfMagicProjectile;
+    public float ReturnSpeed;
     public float LifeTimeOfProjectile;
     public float DistanceOfProjectile;
-    public float MaxDistance;
 
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
-    private Vector2 direction;
     
     public enum CharacterType
     {
@@ -37,7 +36,6 @@ public class Projectile : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-
         if (CharacterTypes == CharacterType.Player)
         {
             if (other.gameObject.CompareTag("Shield"))
@@ -73,12 +71,10 @@ public class Projectile : MonoBehaviour
                 DestroyProjectile();
             }
 
-            if (other.gameObject.CompareTag("Parry"))
+            if (other.gameObject.CompareTag("Parry"))//does not work
             {
                 Debug.Log("parry");
-                var firstContact = other.contacts[0];
-                Vector2 newVelocity = Vector2.Reflect(Vector2.up.normalized, firstContact.normal);
-                ShootReflectedArrow(newVelocity.normalized);
+                Deflect(transform.up);
             }
         }
     }
@@ -87,18 +83,22 @@ public class Projectile : MonoBehaviour
     {
         if(TypeOfProjectiles == TypeOfProjectile.MagicMissle)
         {
-            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, SpeedOfProjectile * Time.deltaTime);
-        }
-        else if(TypeOfProjectiles == TypeOfProjectile.Arrow)
-        {
-            transform.Translate(Vector2.up * SpeedOfProjectile * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, SpeedOfMagicProjectile * Time.deltaTime);
         }
     }
 
-    void ShootReflectedArrow(Vector2 direction)
+
+    public void Deflect(Vector2 direction)
     {
-        this.direction = direction;
-        RB.linearVelocity = this.direction * SpeedOfProjectile;
+        /*
+        if(direction.x > 0 && transform.right.x < 0 || direction.x <0 && transform.right.x > 0)
+        {
+            transform.right = -transform.right; 
+        }
+        */
+
+        transform.up = -transform.up;
+        Rb.linearVelocity = transform.up * ReturnSpeed;
     }
     void DestroyProjectile()
     {

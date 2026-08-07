@@ -6,7 +6,10 @@ public class RangeAttackState : State
     public float TimeBtwAttack;
     public float WindUpTime;
 
-    public GameObject Projectile;
+    public float ArrowSpeed;
+    public Projectile EnemyProjectile;
+    public GameObject EnemyCoreGO;
+    public Rigidbody2D BulletPrefab;
     public Transform ShotPoint;
     public float RangeDistance;
 
@@ -18,7 +21,7 @@ public class RangeAttackState : State
 
     public StunState StunStateRef;
     private IEnumerator _windUpArrowAttack;
-    
+    private Rigidbody2D _bulletRB;
 
     //Below is for enemies who are meduim level and up.
     [Header("Below is for enemies who are meduim level and up")]
@@ -81,16 +84,23 @@ public class RangeAttackState : State
     {
         if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelOne)
         {
-            Instantiate(Projectile, ShotPoint.position, transform.rotation);
+            Shoot();
             Debug.Log("shot");
         }
         if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo)
         {
-            Instantiate(Projectile, ShotPoint.position, transform.rotation);
-            Instantiate(Projectile, ShotPointTwo.position, transform.rotation);
-            Instantiate(Projectile, ShotPointThree.position, transform.rotation);
+            Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
+            Instantiate(BulletPrefab, ShotPointTwo.position, transform.rotation);
+            Instantiate(BulletPrefab, ShotPointThree.position, transform.rotation);
         }
     }
+
+    void Shoot()
+    {
+        _bulletRB = Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
+        _bulletRB.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+    }
+    
     IEnumerator WindUpArrowAttack()
     {
         IsPlayingAnimation = true;

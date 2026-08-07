@@ -254,7 +254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBtwAttack: 3
   WindUpTime: 0.5
-  Projectile: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
+  ArrowSpeed: 0
+  EnemyProjectile: {fileID: 0}
+  EnemyCoreGO: {fileID: 0}
+  BulletPrefab: {fileID: 0}
   ShotPoint: {fileID: 8604800931791002064}
   RangeDistance: 5
   CanRangeAttackAgain: 0

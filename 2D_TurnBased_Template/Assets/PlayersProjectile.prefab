@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3941256205598216741}
   - component: {fileID: 8799603286877831231}
   - component: {fileID: 693050170576122649}
+  - component: {fileID: -1991713980074028684}
   m_Layer: 0
   m_Name: PlayersProjectile
   m_TagString: Untagged
@@ -189,9 +190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc08db27b1029b94c8c85dd1d39677aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedOfProjectile: 10
-  LifeTimeOfProjectile: 0.3
-  DistanceOfProjectile: 0.3
+  Rb: {fileID: -1991713980074028684}
+  SpeedOfProjectile: 5
+  ReturnSpeed: 5
+  LifeTimeOfProjectile: 1
+  DistanceOfProjectile: 1
   MaxDistance: 1
   EnemyArcherGO: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   CharacterTypes: 0
@@ -242,3 +245,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.38101578, y: 0.51587725}
   m_EdgeRadius: 0
+--- !u!50 &-1991713980074028684
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751274533733551356}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
