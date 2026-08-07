@@ -98,11 +98,13 @@ public class ShieldController : MonoBehaviour
     {
         IsParrying = true;
         ParryShieldObject.SetActive(true);
+        ParryShieldObject.gameObject.tag = "Parry";
         ChangePlayerLayerToParry();
         yield return new WaitForSecondsRealtime(ParryDuration);
         ParryShieldObject.SetActive(false);
         ChangeBackPlayerLayerName();
         IsParrying = false;
+        ParryShieldObject.gameObject.tag = "Untagged";
     }
     void ChangePlayerLayerToParry() => PlayerController.Instance.Player.gameObject.tag = "Parry";
     void ChangePlayerLayerName() => PlayerController.Instance.Player.gameObject.tag = "Shield";

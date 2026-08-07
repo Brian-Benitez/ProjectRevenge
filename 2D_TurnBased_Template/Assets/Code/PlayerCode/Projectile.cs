@@ -4,6 +4,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [Header("Projectiles info")]
+    public Rigidbody2D RB;
     public float SpeedOfProjectile;
     public float LifeTimeOfProjectile;
     public float DistanceOfProjectile;
@@ -11,6 +12,7 @@ public class Projectile : MonoBehaviour
 
     [Header("Enemy Ref")]
     public GameObject EnemyArcherGO;
+    private Vector2 direction;
     
     public enum CharacterType
     {
@@ -33,45 +35,54 @@ public class Projectile : MonoBehaviour
         Invoke("DestroyProjectile", LifeTimeOfProjectile);
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D other)
     {
-        if(CharacterTypes == CharacterType.Player)
+
+        if (CharacterTypes == CharacterType.Player)
         {
-            if (collision.CompareTag("Shield"))
+            if (other.gameObject.CompareTag("Shield"))
             {
                 Debug.Log("shield is hit");
                 ShieldController.instance.ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
                 DestroyProjectile();
             }
-            else if (collision.CompareTag("EnemyShield"))
+            else if (other.gameObject.CompareTag("EnemyShield"))
             {
                 Debug.Log("hit enemy shield");
-                collision.gameObject.GetComponentInChildren<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                other.gameObject.GetComponentInChildren<EnemyShield>().ShieldTakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
                 DestroyProjectile();
             }
-            else if (collision.CompareTag("Enemy"))
+            else if (other.gameObject.CompareTag("Enemy"))
             {
                 Debug.Log("hit enemy");
-                collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                other.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
                 DestroyProjectile();
             }
         }
-        if(CharacterTypes == CharacterType.Enemy)
+        if (CharacterTypes == CharacterType.Enemy)
         {
-            if (collision.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player"))
             {
                 Debug.Log("hit player");
                 PlayerController.Instance.Player.GetComponent<BaseCharacter>().TakeDamage(EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage);
                 DestroyProjectile();
             }
-            if(collision.CompareTag("Shield"))
+            if (other.gameObject.CompareTag("Shield"))
             {
                 PlayerController.Instance.Player.GetComponent<ShieldController>().ShieldHealth -= EnemyArcherGO.GetComponent<EnemyArcher>().EnemyDamage;
                 DestroyProjectile();
             }
+
+            if (other.gameObject.CompareTag("Parry"))
+            {
+                Debug.Log("parry");
+                var firstContact = other.contacts[0];
+                Vector2 newVelocity = Vector2.Reflect(Vector2.up.normalized, firstContact.normal);
+                ShootReflectedArrow(newVelocity.normalized);
+            }
         }
     }
+
     private void Update()
     {
         if(TypeOfProjectiles == TypeOfProjectile.MagicMissle)
@@ -84,6 +95,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    void ShootReflectedArrow(Vector2 direction)
+    {
+        this.direction = direction;
+        RB.linearVelocity = this.direction * SpeedOfProjectile;
+    }
     void DestroyProjectile()
     {
         Destroy(gameObject);
