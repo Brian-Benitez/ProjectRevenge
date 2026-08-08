@@ -84,7 +84,7 @@ public class RangeAttackState : State
     {
         if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelOne)
         {
-            Shoot();
+            EnemyShootArrow();
             Debug.Log("shot");
         }
         if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo)
@@ -95,7 +95,7 @@ public class RangeAttackState : State
         }
     }
 
-    void Shoot()
+    void EnemyShootArrow()
     {
         _bulletRB = Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
         _bulletRB.linearVelocity = _bulletRB.transform.up * ArrowSpeed;

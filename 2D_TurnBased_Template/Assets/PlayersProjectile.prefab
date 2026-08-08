@@ -191,11 +191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: -1991713980074028684}
-  SpeedOfProjectile: 5
-  ReturnSpeed: 5
-  LifeTimeOfProjectile: 1
-  DistanceOfProjectile: 1
-  MaxDistance: 1
+  SpeedOfMagicProjectile: 0
+  ReturnSpeed: 10
+  LifeTimeOfProjectile: 0.5
+  DistanceOfProjectile: 0.5
   EnemyArcherGO: {fileID: 6214239991093025471, guid: 9066830de6b4f134ab83d8b927f0a184, type: 3}
   CharacterTypes: 0
   TypeOfProjectiles: 0
@@ -229,7 +228,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

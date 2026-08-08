@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class PlayerRangeWeapon : MonoBehaviour
 {
+    [Header("Players arrows info")]
+    public float SpeedOfArrow;
     public float TimeBtwAttack;
-
-    public GameObject Projectile;
+    public GameObject PlayersArrowGO;
+    public Rigidbody2D PlayerArrowPrefabsRB;
     public Transform ShotPoint;
     public bool CanRangeAttackAgain;
 
@@ -16,13 +18,16 @@ public class PlayerRangeWeapon : MonoBehaviour
 
     private float _maxTimeBtwAttacks;
     private PlayerMovement PlayerMovementRef;
-    private Projectile ProjectileRef;
+    private Rigidbody2D _arrowPrefabRB;
+    private Rigidbody2D _arrowPrefabRBTwo;
+    private Rigidbody2D _arrowPrefabRBThree;
 
     private void Start()
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
-        ProjectileRef = Projectile.GetComponent<Projectile>();
         PlayerMovementRef = GetComponentInParent<PlayerMovement>();
+        PlayersArrowGO.GetComponent<Projectile>().LifeTimeOfProjectile = 1.5f;
+        PlayersArrowGO.GetComponent<Projectile>().DistanceOfProjectile = 1.5f;
     }
 
 
@@ -33,15 +38,7 @@ public class PlayerRangeWeapon : MonoBehaviour
 
         if(Input.GetMouseButton(1) && Input.GetMouseButtonDown(0) && PlayerAmmoController.Instance.DoesPlayerHaveAmmo() && CanRangeAttackAgain)
         {
-            if(IsUsingShotgunPerk)
-            {
-                Instantiate(Projectile, ShotPoint.position, transform.rotation);
-                Instantiate(Projectile, ShotPointTwo.position, transform.rotation);
-                Instantiate(Projectile, ShotPointThree.position, transform.rotation);
-            }
-            else
-                Instantiate(Projectile, ShotPoint.position, transform.rotation);
-
+            PlayerShootsArrowAction();
             PlayerAmmoController.Instance.RemoveAmmo();
             RestartTimerForRangeAttacks();
         }
@@ -59,16 +56,36 @@ public class PlayerRangeWeapon : MonoBehaviour
 
     }
 
+    public void PlayerShootsArrowAction()
+    {
+        if(IsUsingShotgunPerk)
+        {
+            _arrowPrefabRB = Instantiate(PlayerArrowPrefabsRB, ShotPoint.position, transform.rotation);
+            _arrowPrefabRB.linearVelocity = _arrowPrefabRB.transform.up * SpeedOfArrow;
+            _arrowPrefabRBTwo = Instantiate(PlayerArrowPrefabsRB, ShotPointTwo.position, transform.rotation);
+            _arrowPrefabRBTwo.linearVelocity = _arrowPrefabRB.transform.up * SpeedOfArrow;
+            _arrowPrefabRBThree = Instantiate(PlayerArrowPrefabsRB, ShotPointThree.position, transform.rotation);
+            _arrowPrefabRBThree.linearVelocity = _arrowPrefabRB.transform.up * SpeedOfArrow;
+
+        }
+        else
+        {
+            _arrowPrefabRB = Instantiate(PlayerArrowPrefabsRB, ShotPoint.position, transform.rotation);
+            _arrowPrefabRB.linearVelocity = _arrowPrefabRB.transform.up * SpeedOfArrow;
+        }
+        
+    }
+
     public void ChangeArrowsDurations()
     {
-        Projectile.GetComponent<Projectile>().LifeTimeOfProjectile -= Mathf.Clamp(LoweredRangeDistance, 0, 9);
-        Projectile.GetComponent<Projectile>().DistanceOfProjectile -= Mathf.Clamp(LoweredRangeDistance, 0, 9);
+        PlayersArrowGO.GetComponent<Projectile>().LifeTimeOfProjectile -= Mathf.Clamp(LoweredRangeDistance, 0, 9);
+        PlayersArrowGO.GetComponent<Projectile>().DistanceOfProjectile -= Mathf.Clamp(LoweredRangeDistance, 0, 9);
     }
     public void NormalArrowDurations()
     {
         IsUsingShotgunPerk = false;
-        Projectile.GetComponent<Projectile>().LifeTimeOfProjectile += Mathf.Clamp(LoweredRangeDistance, 0, 9);
-        Projectile.GetComponent<Projectile>().DistanceOfProjectile += Mathf.Clamp(LoweredRangeDistance, 0, 9);
+        PlayersArrowGO.GetComponent<Projectile>().LifeTimeOfProjectile += Mathf.Clamp(LoweredRangeDistance, 0, 9);
+        PlayersArrowGO.GetComponent<Projectile>().DistanceOfProjectile += Mathf.Clamp(LoweredRangeDistance, 0, 9);
     }
     void RestartTimerForRangeAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
 

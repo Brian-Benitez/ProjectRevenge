@@ -76,6 +76,13 @@ public class Projectile : MonoBehaviour
                 Debug.Log("parry");
                 Deflect(transform.up);
             }
+
+            else if (other.gameObject.CompareTag("Enemy"))
+            {
+                Debug.Log("hit enemy");
+                other.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                DestroyProjectile();
+            }
         }
     }
 
@@ -90,13 +97,6 @@ public class Projectile : MonoBehaviour
 
     public void Deflect(Vector2 direction)
     {
-        /*
-        if(direction.x > 0 && transform.right.x < 0 || direction.x <0 && transform.right.x > 0)
-        {
-            transform.right = -transform.right; 
-        }
-        */
-
         transform.up = -transform.up;
         Rb.linearVelocity = transform.up * ReturnSpeed;
     }
