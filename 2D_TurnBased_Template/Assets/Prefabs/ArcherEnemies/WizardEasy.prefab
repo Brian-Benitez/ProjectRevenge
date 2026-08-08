@@ -528,7 +528,6 @@ MonoBehaviour:
   TimeBtwAttack: 4.5
   WindUpTime: 0.5
   ArrowSpeed: 0
-  EnemyProjectile: {fileID: 0}
   EnemyCoreGO: {fileID: 0}
   BulletPrefab: {fileID: 0}
   ShotPoint: {fileID: 760799864920403555}
@@ -1052,6 +1051,7 @@ MonoBehaviour:
   StunStateRef: {fileID: 6087625276246446974}
   EnemyType: 1
   EnemyDifficulty: 0
+  EnemiesArrowRB: {fileID: 0}
 --- !u!114 &54742961677973419
 MonoBehaviour:
   m_ObjectHideFlags: 0
