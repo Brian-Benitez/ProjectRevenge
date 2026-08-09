@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Data.Common;
 using UnityEngine;
-using UnityEngine.Windows;
 
 [System.Serializable]
 public class DialogueLine
@@ -52,7 +50,7 @@ public class DialogueTrigger : MonoBehaviour
         }
         if(_dialogueManagerRef.isDialogueActive && _dialogueManagerRef.IsDialogueInProgress && UnityEngine.Input.GetKeyUp(KeyCode.Space) || UnityEngine.Input.GetMouseButtonUp(0))
         {
-            _dialogueManagerRef.TypingSpeed = 0.01f;
+            //_dialogueManagerRef.TypingSpeed = 0.01f;
         }
         if(!_dialogueManagerRef.IsDialogueInProgress &&_dialogueManagerRef.isDialogueActive && UnityEngine.Input.GetKeyUp(KeyCode.Space) || UnityEngine.Input.GetMouseButtonUp(0))
         {
@@ -85,7 +83,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            RestartDialouge = true; 
             _dialogueManagerRef.isDialogueActive = false;
+            _dialogueManagerRef.TurnOffDialogueUI();
         }
     }
 }

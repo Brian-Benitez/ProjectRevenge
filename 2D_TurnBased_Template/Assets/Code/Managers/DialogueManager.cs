@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public GameObject UIDialogueCanvas;
     public TextMeshProUGUI dialogueArea;
 
     private Queue<DialogueLine> lines;
@@ -13,12 +13,10 @@ public class DialogueManager : MonoBehaviour
     public bool isDialogueActive = false;
     public bool IsDialogueInProgress = false;
 
-    public float TypingSpeed = 0.1f;
-    private float _normalTypingSpeed = 0.1f;
+    public float TypingSpeed;
+    private float _normalTypingSpeed = .5f;
 
     public int SentencesCount = 0;
-
-    //public Animator animator;
 
     private void Awake()
     {
@@ -28,9 +26,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
-
-        //animator.Play("show");
-
+        TurnOnDialogueUI();
         lines.Clear();
 
         foreach (DialogueLine dialogueLine in dialogue.DialogueLines)
@@ -68,12 +64,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         IsDialogueInProgress = false;
-        TypingSpeed = _normalTypingSpeed;//work in progress..
+        //TypingSpeed = _normalTypingSpeed;//work in progress..
     }
 
+    public void TurnOnDialogueUI() => UIDialogueCanvas.SetActive(true);
+    public void TurnOffDialogueUI()
+    {
+        UIDialogueCanvas.SetActive(false);
+    }
     void EndDialogue()
     {
         isDialogueActive = false;
+        UIDialogueCanvas.SetActive(false);
         //animator.Play("hide");
     }
 }
