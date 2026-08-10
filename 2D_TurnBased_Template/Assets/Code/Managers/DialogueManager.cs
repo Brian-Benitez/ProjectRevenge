@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     public bool IsDialogueInProgress = false;
 
     public float TypingSpeed;
-    private float _normalTypingSpeed = .5f;
+    //private float _normalTypingSpeed = .5f;
 
     public int SentencesCount = 0;
 
