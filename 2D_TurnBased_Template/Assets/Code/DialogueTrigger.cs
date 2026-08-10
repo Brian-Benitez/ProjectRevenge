@@ -19,6 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     [Header("NOTE: Make sure you add the Dialouge Manager to this object!")]
     [Header("Booleans")]
     public bool RestartDialouge = true;
+    public GameObject EKeyGameObject;
 
     [Header("Buttons")]
     public KeyCode InteractKeyCode = KeyCode.E;
@@ -76,6 +77,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             _dialogueManagerRef.isDialogueActive = true;
+            EKeyGameObject.SetActive(true);
         }
     }
 
@@ -83,7 +85,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            RestartDialouge = true; 
+            RestartDialouge = true;
+            EKeyGameObject.SetActive(false);
             _dialogueManagerRef.isDialogueActive = false;
             _dialogueManagerRef.TurnOffDialogueUI();
         }
