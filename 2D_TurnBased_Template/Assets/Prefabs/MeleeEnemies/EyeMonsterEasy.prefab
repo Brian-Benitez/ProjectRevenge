@@ -749,7 +749,7 @@ MonoBehaviour:
   Animator: {fileID: 558442313683858936}
   BaseEnemy: {fileID: 8926540402292713874}
   AttackStateRef: {fileID: 5867809754270599077}
-  RangeAttackState: {fileID: 0}
+  AttackState: {fileID: 0}
 --- !u!1 &5930449908487785986
 GameObject:
   m_ObjectHideFlags: 0

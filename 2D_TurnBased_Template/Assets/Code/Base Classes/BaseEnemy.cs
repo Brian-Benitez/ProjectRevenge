@@ -33,6 +33,7 @@ public class BaseEnemy : MonoBehaviour
     {
         Swordsman, 
         Archer,
+        Wizard,
         Boss,
         Object
     }

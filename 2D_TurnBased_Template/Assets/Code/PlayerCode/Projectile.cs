@@ -59,6 +59,7 @@ public class Projectile : MonoBehaviour
         }
         if (CharacterTypes == CharacterType.Enemy)
         {
+            IgnoreEnemiesTag(3, 11);
             if (other.gameObject.CompareTag("Player"))
             {
                 Debug.Log("hit player");
@@ -71,17 +72,17 @@ public class Projectile : MonoBehaviour
                 DestroyProjectile();
             }
 
-            if (other.gameObject.CompareTag("Parry"))//does not work
+            if (other.gameObject.CompareTag("Parry") && TypeOfProjectiles == TypeOfProjectile.Arrow)
             {
                 Debug.Log("parry");
                 Deflect(transform.up);
             }
 
-            else if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.layer == 3)//enemy layer
             {
                 Debug.Log("hit enemy");
-                other.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
-                DestroyProjectile();
+                //other.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                //DestroyProjectile();
             }
         }
     }
@@ -94,7 +95,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-
+    public void IgnoreEnemiesTag(int one, int two) => Physics2D.IgnoreLayerCollision(one, two);
     public void Deflect(Vector2 direction)
     {
         transform.up = -transform.up;

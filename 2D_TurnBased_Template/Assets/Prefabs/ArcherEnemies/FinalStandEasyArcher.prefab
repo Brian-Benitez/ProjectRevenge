@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7767789757035812841}
   - component: {fileID: 1654022396008853530}
-  - component: {fileID: 1889920391416521444}
+  - component: {fileID: 5592220182403413781}
   m_Layer: 3
   m_Name: ArcherGun
   m_TagString: Untagged
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1889920391416521444
+--- !u!114 &5592220182403413781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,19 +254,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBtwAttack: 3
   WindUpTime: 0.5
-  ArrowSpeed: 0
-  EnemyCoreGO: {fileID: 8818265710935858715}
-  BulletPrefab: {fileID: 0}
   ShotPoint: {fileID: 8604800931791002064}
   RangeDistance: 5
   CanRangeAttackAgain: 0
   IsAttacking: 0
   IsStillWithinRange: 0
-  LockedOnPlayer: 1
+  LockedOnPlayer: 0
   IsPlayingAnimation: 0
-  StunStateRef: {fileID: 6606801238363406728}
+  WizardBullet: {fileID: 0}
+  ArrowSpeed: 5
+  EnemyCoreGO: {fileID: 8818265710935858715}
   ShotPointTwo: {fileID: 4263232305946379098}
   ShotPointThree: {fileID: 8824331901901780249}
+  StunStateRef: {fileID: 6606801238363406728}
+  GetWithinRangeAttackState: {fileID: 3836935540627045171}
 --- !u!1 &3901058319354346962
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +456,7 @@ MonoBehaviour:
   Animator: {fileID: 2606571140067528217}
   BaseEnemy: {fileID: 3818436561324985095}
   AttackStateRef: {fileID: 0}
-  RangeAttackState: {fileID: 1889920391416521444}
+  AttackState: {fileID: 5592220182403413781}
 --- !u!1 &5874299026286413137
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,8 +936,9 @@ MonoBehaviour:
   AttackRange: 6
   MeleeRange: 1.5
   StandByRange: 8
+  ArcherAttackStateRef: {fileID: 0}
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
-  EnemyArcherRef: {fileID: 3818436561324985095}
+  EnemyStatsRef: {fileID: 3818436561324985095}
   StunStateRef: {fileID: 6606801238363406728}
 --- !u!114 &5727651949420622849
 MonoBehaviour:

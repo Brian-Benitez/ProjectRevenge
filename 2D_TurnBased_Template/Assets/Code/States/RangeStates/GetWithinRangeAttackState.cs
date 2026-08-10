@@ -10,17 +10,12 @@ public class GetWithinRangeAttackState : State
     public float StandByRange;
  
     //States below
-    RangeAttackState RangeAttackState;
+    public RangeAttackLogicState ArcherAttackStateRef;
 
     [Header("Scripts")]
     public EnemyAggroDistance EnemyAggroDistanceRef;
-    public EnemyArcher EnemyArcherRef;
+    public BaseEnemy EnemyStatsRef;
     public StunState StunStateRef;
-
-    private void Start()
-    {
-        RangeAttackState = GetComponentInChildren<RangeAttackState>();
-    }
 
     private void Update()
     {
@@ -45,12 +40,12 @@ public class GetWithinRangeAttackState : State
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) >= AttackRange)//moving towards
             {
                 TurnOffWithinRangeBool();
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemyArcherRef.EnemySpeed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, EnemyStatsRef.EnemySpeed * Time.deltaTime);
             }
 
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= MeleeRange)//moving back
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyStatsRef.EnemySpeed / 2 * Time.deltaTime);
             }
         }
         else if (EnemyAggroDistanceRef.IsFightingPlayer == false)
@@ -61,16 +56,20 @@ public class GetWithinRangeAttackState : State
             }
             if (Vector2.Distance(transform.position, PlayerController.Instance.Player.position) <= StandByRange)//staying away but near because we arent fighting yet
             {
-                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyArcherRef.EnemySpeed / 2 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, PlayerController.Instance.Player.position, -EnemyStatsRef.EnemySpeed / 2 * Time.deltaTime);
                 EnemyTurnController.Instance.RemoveEnemyFromList(this.gameObject);
             }
         }
     }
     public override State RunCurrentState()
     {
-        if (WithinRangeAttack)
+        if (WithinRangeAttack && EnemyStatsRef.EnemyType == BaseEnemy.TypeOfEnemy.Archer)
         {
-            return RangeAttackState;
+            return ArcherAttackStateRef;
+        }
+        if(WithinRangeAttack && EnemyStatsRef.EnemyType == BaseEnemy.TypeOfEnemy.Wizard)
+        {
+            //return RangeAttackState;//change to wizard attack
         }
         return this;
     }

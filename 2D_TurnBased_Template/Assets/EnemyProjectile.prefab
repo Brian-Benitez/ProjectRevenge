@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5604921742110541089}
   - component: {fileID: 8920032197644433998}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TempArrow-0001Re_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4291696693053214035}
   - component: {fileID: 3487480933892204580}
   - component: {fileID: 1156570284194022711}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,11 +191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 3487480933892204580}
-  SpeedOfProjectile: 5
+  SpeedOfMagicProjectile: 0
   ReturnSpeed: 10
   LifeTimeOfProjectile: 2
   DistanceOfProjectile: 3
-  MaxDistance: 3
   EnemyArcherGO: {fileID: 8818265710935858715, guid: 2f0fa27f4742b3d40b712e4529c4450b, type: 3}
   CharacterTypes: 1
   TypeOfProjectiles: 0

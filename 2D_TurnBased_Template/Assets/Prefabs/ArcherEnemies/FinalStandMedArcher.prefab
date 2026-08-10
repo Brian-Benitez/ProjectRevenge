@@ -746,8 +746,9 @@ MonoBehaviour:
   AttackRange: 8
   MeleeRange: 3
   StandByRange: 10
+  ArcherAttackStateRef: {fileID: 5314576183346446978}
   EnemyAggroDistanceRef: {fileID: 5211125791650558122}
-  EnemyArcherRef: {fileID: 4523472527908755746}
+  EnemyStatsRef: {fileID: 4523472527908755746}
   StunStateRef: {fileID: 5503685659640680627}
 --- !u!114 &830457186871266418
 MonoBehaviour:
@@ -885,9 +886,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBtwAttack: 3.5
   WindUpTime: 1
-  ArrowSpeed: 6
-  EnemyCoreGO: {fileID: 0}
-  BulletPrefab: {fileID: 0}
   ShotPoint: {fileID: 1914830513478111286}
   RangeDistance: 8
   CanRangeAttackAgain: 0
@@ -895,9 +893,13 @@ MonoBehaviour:
   IsStillWithinRange: 0
   LockedOnPlayer: 1
   IsPlayingAnimation: 1
-  StunStateRef: {fileID: 5503685659640680627}
+  WizardBullet: {fileID: 0}
+  ArrowSpeed: 6
+  EnemyCoreGO: {fileID: 6472043413705405316}
   ShotPointTwo: {fileID: 6948228698367970731}
   ShotPointThree: {fileID: 7662686658691191966}
+  StunStateRef: {fileID: 5503685659640680627}
+  GetWithinRangeAttackState: {fileID: 6627246155356475132}
 --- !u!1 &8298556570732031061
 GameObject:
   m_ObjectHideFlags: 0

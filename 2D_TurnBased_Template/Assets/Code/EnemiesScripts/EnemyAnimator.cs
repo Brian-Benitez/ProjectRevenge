@@ -5,13 +5,13 @@ public class EnemyAnimator : MonoBehaviour
     public Animator Animator;
     public BaseEnemy BaseEnemy;
     public AttackState AttackStateRef;
-    public RangeAttackState RangeAttackState;
+    public RangeAttackLogicState AttackState;
 
     private void Update()
     {
         if(BaseEnemy.EnemyType == BaseEnemy.TypeOfEnemy.Archer)
         {
-            if (RangeAttackState.IsPlayingAnimation == true)
+            if (AttackState.IsPlayingAnimation == true)
                 IsAttacking();
             else
                 IsNotAttacking();

@@ -337,7 +337,7 @@ MonoBehaviour:
   Animator: {fileID: 7285332750646591564}
   BaseEnemy: {fileID: 4039939391909849326}
   AttackStateRef: {fileID: 0}
-  RangeAttackState: {fileID: 1229841222759704543}
+  AttackState: {fileID: 0}
 --- !u!1 &3377318456814834350
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,9 +527,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBtwAttack: 4.5
   WindUpTime: 0.5
-  ArrowSpeed: 0
-  EnemyCoreGO: {fileID: 0}
-  BulletPrefab: {fileID: 0}
   ShotPoint: {fileID: 760799864920403555}
   RangeDistance: 10
   CanRangeAttackAgain: 0
@@ -537,9 +534,13 @@ MonoBehaviour:
   IsStillWithinRange: 0
   LockedOnPlayer: 1
   IsPlayingAnimation: 0
+  WizardBullet: {fileID: 6214239991093025471, guid: 23679f3630a3a544a86e94924e8aa37e, type: 3}
+  ArrowSpeed: 0
+  EnemyCoreGO: {fileID: 0}
+  ShotPointTwo: {fileID: 0}
+  ShotPointThree: {fileID: 0}
   StunStateRef: {fileID: 6087625276246446974}
-  ShotPointTwo: {fileID: 2454122704551933004}
-  ShotPointThree: {fileID: 331709219744405644}
+  GetWithinRangeAttackState: {fileID: 54742961677973419}
 --- !u!1 &4586454961669026887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,7 +1050,7 @@ MonoBehaviour:
   IsHit: 0
   IsDead: 0
   StunStateRef: {fileID: 6087625276246446974}
-  EnemyType: 1
+  EnemyType: 2
   EnemyDifficulty: 0
   EnemiesArrowRB: {fileID: 0}
 --- !u!114 &54742961677973419
@@ -1068,8 +1069,9 @@ MonoBehaviour:
   AttackRange: 10
   MeleeRange: 5
   StandByRange: 0
+  ArcherAttackStateRef: {fileID: 1229841222759704543}
   EnemyAggroDistanceRef: {fileID: 165824201500558910}
-  EnemyArcherRef: {fileID: 4039939391909849326}
+  EnemyStatsRef: {fileID: 4039939391909849326}
   StunStateRef: {fileID: 6087625276246446974}
 --- !u!114 &4436647840707907440
 MonoBehaviour:

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4870169836666215963}
   - component: {fileID: 2161406052972175904}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: TalkableBaseNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

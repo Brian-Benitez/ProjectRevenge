@@ -102,10 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc08db27b1029b94c8c85dd1d39677aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedOfProjectile: 4
+  Rb: {fileID: 0}
+  SpeedOfMagicProjectile: 6
+  ReturnSpeed: 0
   LifeTimeOfProjectile: 3
   DistanceOfProjectile: 3
-  MaxDistance: 3
   EnemyArcherGO: {fileID: 8818265710935858715, guid: 2f0fa27f4742b3d40b712e4529c4450b, type: 3}
   CharacterTypes: 1
   TypeOfProjectiles: 1
@@ -139,7 +140,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

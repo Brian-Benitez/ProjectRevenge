@@ -1,14 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class RangeAttackState : State
+public class RangeAttackLogicState : State
 {
     public float TimeBtwAttack;
     public float WindUpTime;
-
-    public float ArrowSpeed;
-    public GameObject EnemyCoreGO;
-    public Rigidbody2D BulletPrefab;
     public Transform ShotPoint;
     public float RangeDistance;
 
@@ -17,30 +13,36 @@ public class RangeAttackState : State
     public bool IsStillWithinRange = false;
     public bool LockedOnPlayer = true;
     public bool IsPlayingAnimation = true;
+    [Header("Wizard Info")]
+    public GameObject WizardBullet;
 
-    public StunState StunStateRef;
-    private IEnumerator _windUpArrowAttack;
-   
+    [Header("Archers Settings")]
+    public float ArrowSpeed;
+    public GameObject EnemyCoreGO;
+    private Rigidbody2D BulletPrefab;
 
     //Below is for enemies who are meduim level and up.
     [Header("Below is for enemies who are meduim level and up")]
     public Transform ShotPointTwo;
     public Transform ShotPointThree;
 
-    GetWithinRangeAttackState GetWithinRangeAttackState;
     EnemyArcher _enemyArcherRef;
     private Rigidbody2D _bulletRB;
     private Rigidbody2D _bulletRBTwo;
     private Rigidbody2D _bulletRBThree;
+
+
+    public StunState StunStateRef;
+    private IEnumerator _windUpArrowAttack;
+    public GetWithinRangeAttackState GetWithinRangeAttackState;
     private float _maxTimeBtwAttacks;
 
     private void Start()
     {
         _maxTimeBtwAttacks = TimeBtwAttack;
         TimeBtwAttack = 0;
-        GetWithinRangeAttackState = GetComponentInParent<GetWithinRangeAttackState>();
-        _enemyArcherRef = GetComponentInParent<EnemyArcher>();
         _windUpArrowAttack = WindUpArrowAttack();
+        _enemyArcherRef = GetComponentInParent<EnemyArcher>();
         BulletPrefab = _enemyArcherRef.EnemiesArrowRB;
     }
 
@@ -83,24 +85,32 @@ public class RangeAttackState : State
 
     }
 
-    void EnemyShootArrow()
+    public void EnemyRangeAttack()
     {
-        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelOne)
+        if(_enemyArcherRef.EnemyType == BaseEnemy.TypeOfEnemy.Archer)
         {
-            _bulletRB = Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
-            _bulletRB.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+            if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelOne)
+            {
+                _bulletRB = Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
+                _bulletRB.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+            }
+            if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo)
+            {
+                _bulletRB = Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
+                _bulletRB.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+
+                _bulletRBTwo = Instantiate(BulletPrefab, ShotPointTwo.position, transform.rotation);
+                _bulletRBTwo.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+
+                _bulletRBThree = Instantiate(BulletPrefab, ShotPointThree.position, transform.rotation);
+                _bulletRBThree.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+            }
         }
-        if (_enemyArcherRef.EnemyDifficulty == BaseEnemy.LevelOfEnemy.LevelTwo)
+        if(_enemyArcherRef.EnemyType == BaseEnemy.TypeOfEnemy.Wizard)
         {
-            _bulletRB = Instantiate(BulletPrefab, ShotPoint.position, transform.rotation);
-            _bulletRB.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
-
-            _bulletRBTwo = Instantiate(BulletPrefab, ShotPointTwo.position, transform.rotation);
-            _bulletRBTwo.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
-
-            _bulletRBThree = Instantiate(BulletPrefab, ShotPointThree.position, transform.rotation);
-            _bulletRBThree.linearVelocity = _bulletRB.transform.up * ArrowSpeed;
+            Instantiate(WizardBullet, ShotPoint.position, transform.rotation);
         }
+        
     }
 
     IEnumerator WindUpArrowAttack()
@@ -108,11 +118,15 @@ public class RangeAttackState : State
         IsPlayingAnimation = true;
         yield return new WaitForSecondsRealtime(WindUpTime);
         LockedOnPlayer = false;
-        EnemyShootArrow();
+        EnemyRangeAttack();
         IsPlayingAnimation = false;
     }
 
-    void RestartTimerForRangeAttacks() => TimeBtwAttack = _maxTimeBtwAttacks;
+    void RestartTimerForRangeAttacks()
+    {
+        Debug.Log("restart time");
+        TimeBtwAttack = _maxTimeBtwAttacks;
+    }
 
     public override State RunCurrentState()
     {
@@ -130,7 +144,7 @@ public class RangeAttackState : State
             IsAttacking = true;
         }
 
-            return this;
+      return this;
     }
 
     private void OnDrawGizmosSelected()
