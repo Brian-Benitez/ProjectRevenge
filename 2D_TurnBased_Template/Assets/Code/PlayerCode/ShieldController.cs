@@ -8,9 +8,11 @@ public class ShieldController : MonoBehaviour
     [Header("Shield Object")]
     public GameObject ShieldObject;
     public GameObject ParryShieldObject;
+    public KeyCode ParryKeyCode;
     public bool IsParrying = false;
     public float ParryDuration;
-    public int InputAmountForParry;
+    public float ParryCooldown;
+    private float _maxParryCooldown;
 
     [Header("Shield Info")]
     public float ShieldHealth;
@@ -38,7 +40,7 @@ public class ShieldController : MonoBehaviour
     private void Start()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
-        
+        _maxParryCooldown = ParryCooldown;
     }
 
     void Update()
@@ -46,15 +48,14 @@ public class ShieldController : MonoBehaviour
         if(_playerMovement.IsDashing) //PlayerStunnedStateRef.IsPlayerStuuned)
             return;
 
-        if (Input.GetKeyDown(ShieldKey))
-            InputAmountForParry++;
+        ParryCooldown -= Time.deltaTime;
 
-        if (InputAmountForParry >= 2)
+        if (ParryCooldown <= 0 && Input.GetKeyDown(ParryKeyCode))
         {
             _playerMovement.SlowPlayer();
             ShieldObject.SetActive(false);
             StartCorutineActivateParry();
-            InputAmountForParry = 0;
+            ParryCooldown = _maxParryCooldown;
         }
      
         if (Input.GetKey(ShieldKey) && !IsShieldBroken && !IsParrying)
@@ -69,7 +70,6 @@ public class ShieldController : MonoBehaviour
             _playerMovement.UnSlowPlayer();
             ShieldObject.SetActive(false);
             TurnOffIsShieldActive();
-            //ChangeBackPlayerLayerName();
         }
 
         if(ShieldHealth <= 0)

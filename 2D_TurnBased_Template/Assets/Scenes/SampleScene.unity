@@ -4856,9 +4856,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShieldObject: {fileID: 1478672680}
   ParryShieldObject: {fileID: 1868050812}
+  ParryKeyCode: 99
   IsParrying: 0
-  ParryDuration: 0.4
-  InputAmountForParry: 0
+  ParryDuration: 0.3
+  ParryCooldown: 3
   ShieldHealth: 3
   MaxShieldHealth: 3
   IsShieldActive: 0
