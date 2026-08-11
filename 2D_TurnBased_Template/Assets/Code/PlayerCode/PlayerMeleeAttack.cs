@@ -88,6 +88,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
             StartCoroutine(WindUpAttack(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies));
+            ActivateSlashRef.DeactivateSlashingArt();
             _playerMovement.UnSlowPlayer();
             AmountOfAttacks++;
         }
@@ -152,7 +153,6 @@ public class PlayerMeleeAttack : MonoBehaviour
         PlayerAnimationControllerRef.IsAttacking();
         yield return new WaitForSecondsRealtime(AttackSpeed);
         Hit(dam, pos, range, enemy);
-        ActivateSlashRef.DeactivateSlashingArt();
         PlayerAnimationControllerRef.IsNotAttacking();
     }
     void Hit(float dam, Transform pos, float range, LayerMask enemy)
