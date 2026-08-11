@@ -936,7 +936,7 @@ MonoBehaviour:
   AttackRange: 6
   MeleeRange: 1.5
   StandByRange: 8
-  ArcherAttackStateRef: {fileID: 0}
+  ArcherAttackStateRef: {fileID: 5592220182403413781}
   EnemyAggroDistanceRef: {fileID: 3572448280567692750}
   EnemyStatsRef: {fileID: 3818436561324985095}
   StunStateRef: {fileID: 6606801238363406728}

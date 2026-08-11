@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5604921742110541089}
   - component: {fileID: 8920032197644433998}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TempArrow-0001Re_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4291696693053214035}
   - component: {fileID: 1156570284194022711}
   - component: {fileID: 1475249149884113262}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MedEnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7562146412372655643}
   - component: {fileID: 4291696693053214035}
   - component: {fileID: 1156570284194022711}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WizardProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7205163670826396561}
   - component: {fileID: 5714763861994596848}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -32,6 +32,9 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Invoke("DestroyProjectile", LifeTimeOfProjectile);
+        IgnoreOrEnableEnemiesTag(11, 11, true);//player projectile to player projeclie
+        IgnoreOrEnableEnemiesTag(3, 12, true);//ignore enemies to enemiesprojectile
+        IgnoreOrEnableEnemiesTag(12, 12, true);//ignore enmey projkectile to enemy projectile
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -59,7 +62,6 @@ public class Projectile : MonoBehaviour
         }
         if (CharacterTypes == CharacterType.Enemy)
         {
-            IgnoreEnemiesTag(3, 11);
             if (other.gameObject.CompareTag("Player"))
             {
                 Debug.Log("hit player");
@@ -74,6 +76,7 @@ public class Projectile : MonoBehaviour
 
             if (other.gameObject.CompareTag("Parry") && TypeOfProjectiles == TypeOfProjectile.Arrow)
             {
+                IgnoreOrEnableEnemiesTag(3, 12, false);//do not ignore enmey projkectile to enemy projectile
                 Debug.Log("parry");
                 Deflect(transform.up);
             }
@@ -81,8 +84,9 @@ public class Projectile : MonoBehaviour
             if (other.gameObject.layer == 3)//enemy layer
             {
                 Debug.Log("hit enemy");
-                //other.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
-                //DestroyProjectile();
+                other.gameObject.GetComponent<BaseEnemy>().TakeDamage(PlayerController.Instance.Player.gameObject.GetComponent<PlayerInfo>().RangeDamg);
+                IgnoreOrEnableEnemiesTag(3, 12, true);//ignore enmey projkectile to enemy projectile
+                DestroyProjectile();
             }
         }
     }
@@ -95,7 +99,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void IgnoreEnemiesTag(int one, int two) => Physics2D.IgnoreLayerCollision(one, two);
+    public void IgnoreOrEnableEnemiesTag(int one, int two, bool isignored) => Physics2D.IgnoreLayerCollision(one, two, isignored);
     public void Deflect(Vector2 direction)
     {
         transform.up = -transform.up;
