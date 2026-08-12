@@ -23,11 +23,28 @@ public class PlayerAnimationController : MonoBehaviour
     //Attacking animations bools
     public void IsAttacking()
     {
-        PlayerAnimator.SetBool("IsAttacking", true);
+        if(PlayerMeleeAttackRef.AmountOfAttacks == 0)
+        {
+            PlayerAnimator.SetBool("IsAttacking", true);
+        }
+        else if(PlayerMeleeAttackRef.AmountOfAttacks == 1)
+        {
+            //PlayerAnimator.SetBool("IsAttacking", false);
+            PlayerAnimator.SetBool("IsAttackingTwo", true);
+        }
+        else if(PlayerMeleeAttackRef.AmountOfAttacks == 2)
+        {
+            //PlayerAnimator.SetBool("IsAttackingTwo", false);
+            PlayerAnimator.SetBool("IsAttackingThree", true);
+            Debug.Log("play me");
+        }
+       
     }
     public void IsNotAttacking()
     {
         PlayerAnimator.SetBool("IsAttacking", false);
+        PlayerAnimator.SetBool("IsAttackingTwo", false);
+        PlayerAnimator.SetBool("IsAttackingThree", false);
     }
 
     public void IsDashing() => PlayerAnimator.SetBool("IsDashing", true);

@@ -16,7 +16,7 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     [Header("Amount Of Attacks")]
     public int MaxAmountOfAttacks;
-    private int AmountOfAttacks;
+    public int AmountOfAttacks;
     private float TimerToRestartAttacks;
     public float MaxTimerToRestartAttack;
 

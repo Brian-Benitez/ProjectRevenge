@@ -19294,6 +19294,7 @@ MonoBehaviour:
   IsHeavyAttack: 0
   IsSpecialAttack: 0
   MaxAmountOfAttacks: 3
+  AmountOfAttacks: 0
   MaxTimerToRestartAttack: 0.65
   SpecialKey: 102
   SpeicalPos: {fileID: 758283178}
@@ -31899,7 +31900,7 @@ Transform:
   m_GameObject: {fileID: 6969460405803402197}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08000183, y: 0.02999878, z: 0}
+  m_LocalPosition: {x: -0.08000183, y: 0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
