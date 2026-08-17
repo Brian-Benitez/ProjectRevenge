@@ -88,7 +88,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && CanMeleeAttackAgain)
         {
             StartCoroutine(WindUpAttack(PlayerLightAttkDamg, AttackPos, AttackRange, WhatIsEnemies));
-            ActivateSlashRef.DeactivateSlashingArt();
+            //ActivateSlashRef.DeactivateSlashingArt();
             _playerMovement.UnSlowPlayer();
             AmountOfAttacks++;
         }

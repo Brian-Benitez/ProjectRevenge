@@ -6241,6 +6241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SlashEffect: {fileID: 495055289}
   PlayerMeleeAttackRef: {fileID: 1131129220}
+  SpriteRendererRef: {fileID: 495055287}
 --- !u!95 &495055289
 Animator:
   serializedVersion: 7
