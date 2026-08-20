@@ -43,7 +43,7 @@ public class GameOverController : MonoBehaviour
         SoulsBankController.Instance.SoulsBank = 0;
         PlayerSpawnerController.Instance.SpawnPlayerInArena();
         RestartAllPlayersPerks();
-        RestartAllPlayersStats();
+        //RestartAllPlayersStats();
         LevelUpPrefab.SetActive(true); 
     }
 
