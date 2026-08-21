@@ -30,6 +30,7 @@ public class PlayersUltController : MonoBehaviour
     public PlayerInfo PlayerInfoRef;
     public PureRagePerk PureRagePerkRef;
     public HealingRagePerk HealingRagePerkRef;
+    public UltBarUI UltBarUIRef;
 
     private void Awake()
     {
@@ -37,14 +38,20 @@ public class PlayersUltController : MonoBehaviour
             Instance = this;
     }
 
+    private void Start()
+    {
+        UltBarUIRef.SetUIMaxUlt(MaxUltPoints);
+    }
+
 
     private void Update()
     {
         if(Input.GetKeyDown(UltActivationKey))
         {
-            if(!IsUlted && UltPoints == MaxUltPoints)
+            if(!IsUlted && UltPoints >= MaxUltPoints || !IsUlted && UltPoints == MaxUltPoints / 2)
             {
                 IsUlted = true;
+                UltBarUI.Instance.DrainUltUI();
             }
         }
 
@@ -83,10 +90,11 @@ public class PlayersUltController : MonoBehaviour
             SetPlayerToNormalStats();
     }
 
-    public void AddUltPoint(int amount)
+    public void AddUltPoint(float amount)
     {
         UltPoints += amount;
         PlayerInfoRef.UpdatePlayersStats();
+        UltBarUIRef.SetUIUltAmount(amount);
     }
 
     public void RemoveAllUltPoints() => UltPoints = 0;
