@@ -51,7 +51,6 @@ public class BaseEnemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        UltBarUI.Instance.SetUIUltAmount(damage);
         PlayersUltController.Instance.AddUltPoint(damage);
         EnemyHealth -= damage;
         IsHit = true;   

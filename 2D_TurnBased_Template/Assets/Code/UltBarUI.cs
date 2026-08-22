@@ -4,7 +4,7 @@ using UnityEngine;
 public class UltBarUI : MonoBehaviour
 {
     public static UltBarUI Instance;
-    public float UltAmount, MaxUltAmount, Width, Height;
+    public float UltAmountUI, MaxUltAmountUI, Width, Height;
 
     public RectTransform UltBar;
 
@@ -16,23 +16,32 @@ public class UltBarUI : MonoBehaviour
 
     public void SetUIMaxUlt(float maxHealth)
     {
-        MaxUltAmount = maxHealth;
+        MaxUltAmountUI = maxHealth;
     }
 
-    public void SetUIUltAmount(float amount)
+    public void SetUIUltBar(float amount)
     {
-        UltAmount += amount;
-        if (UltAmount > MaxUltAmount)
-            UltAmount = MaxUltAmount;
+        UltAmountUI += amount;
+        if (UltAmountUI > MaxUltAmountUI)
+            UltAmountUI = MaxUltAmountUI;
             
 
-        float newWidth = (UltAmount / MaxUltAmount) * Width;
+        float newWidth = (UltAmountUI / MaxUltAmountUI) * Width;
         UltBar.sizeDelta = new Vector2(newWidth, Height);
     }
 
-    public void DrainUltUI()
+    public void StartDrianUltUICorutine() => StartCoroutine(DrainUltUI());
+    IEnumerator DrainUltUI()
     {
-        UltAmount = MaxUltAmount;
-        SetUIUltAmount(UltAmount);
+        while(PlayersUltController.Instance.UltPoints > 0)
+        {
+            PlayersUltController.Instance.UltPoints--;
+            yield return new WaitForSecondsRealtime(1f);
+            SetUIUltBar(-.75f);
+            UltAmountUI -= .75f;
+        }
+        if (UltAmountUI < 0)
+            UltAmountUI = 0;
+        
     }
 }

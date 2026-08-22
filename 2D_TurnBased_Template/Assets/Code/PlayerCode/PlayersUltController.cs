@@ -51,7 +51,7 @@ public class PlayersUltController : MonoBehaviour
             if(!IsUlted && UltPoints >= MaxUltPoints || !IsUlted && UltPoints == MaxUltPoints / 2)
             {
                 IsUlted = true;
-                UltBarUI.Instance.DrainUltUI();
+                UltBarUI.Instance.StartDrianUltUICorutine();
             }
         }
 
@@ -59,7 +59,7 @@ public class PlayersUltController : MonoBehaviour
         {
             UltDuration -= Time.deltaTime;
         }
-        else if(!IsUlted && UltDuration <= 0)
+        else if(UltDuration <= 0)
         {
             IsUlted = false;
             IsUpgradeOn = false;
@@ -92,9 +92,13 @@ public class PlayersUltController : MonoBehaviour
 
     public void AddUltPoint(float amount)
     {
-        UltPoints += amount;
+        if(UltPoints >= MaxUltPoints)
+            UltPoints = MaxUltPoints;
+        else
+            UltPoints += amount;
+
         PlayerInfoRef.UpdatePlayersStats();
-        UltBarUIRef.SetUIUltAmount(amount);
+        UltBarUIRef.SetUIUltBar(amount);
     }
 
     public void RemoveAllUltPoints() => UltPoints = 0;
